@@ -115,3 +115,12 @@ This is an independent project developed and maintained by **Alekcei-BAV**, base
 Thank you to the original author for his work and for granting [permission](https://github.com/arias007/obsidian-ntfy/issues/2) to create the modification.
 
 **License:** MIT, with the original developer's copyright notices preserved.
+
+## Support development
+
+Notifications for Tasks is free and open-source. If the plugin is useful to you, you can voluntarily support its independent development:
+
+**[Support Notifications for Tasks](https://lnk.bio/Alekcei-BAV)**
+
+The support page includes available donation methods and a QR code. Donations are optional and all plugin features remain free. Donations through this link support the independent Notifications for Tasks modification, not the original upstream project by Murat (@arias007).
+
