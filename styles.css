@@ -1272,16 +1272,15 @@
   user-select: text;
 }
 
-/* All plugin text must be selectable/copyable (overrides Obsidian mobile's
-   inherited user-select:none on custom views and modals). */
-.obsidian-ntfy-manager,
-.obsidian-ntfy-manager *,
-.obsidian-ntfy-reply-modal,
-.obsidian-ntfy-reply-modal *,
-.obsidian-ntfy-conversation-import-modal,
-.obsidian-ntfy-conversation-import-modal * {
-  -webkit-user-select: text !important;
-  user-select: text !important;
+/* Keep text selectable in plugin views and modals with scoped selectors. */
+body .obsidian-ntfy-manager,
+body .obsidian-ntfy-manager *,
+body .obsidian-ntfy-reply-modal,
+body .obsidian-ntfy-reply-modal *,
+body .obsidian-ntfy-conversation-import-modal,
+body .obsidian-ntfy-conversation-import-modal * {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .obsidian-ntfy-chat-message-meta {
@@ -1528,7 +1527,6 @@
     flex-wrap: nowrap;
     max-width: 48%;
     overflow-x: auto;
-    scrollbar-width: none;
   }
 
   .obsidian-ntfy-chat-header .obsidian-ntfy-chat-toolbar::-webkit-scrollbar {

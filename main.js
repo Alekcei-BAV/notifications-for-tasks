@@ -560,7 +560,7 @@ async function hashNtfyBytes(value) {
     const digest = await crypto.subtle.digest("SHA-256", bytes);
     return ntfyBytesToBase64Url(new Uint8Array(digest));
   }
-  if (typeof require === "function") return require("node:crypto").createHash("sha256").update(Buffer.from(bytes)).digest("base64url");
+  if (Platform.isDesktopApp && typeof require === "function") return require("node:crypto").createHash("sha256").update(Buffer.from(bytes)).digest("base64url");
   throw new Error("SHA-256 is unavailable");
 }
 
@@ -3717,12 +3717,13 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const threshold = 50 * 1024 * 1024;
     if (bytes <= threshold) return { mode: "ntfy", threshold, requiresConfirmation: false };
     const mode = ["disabled", "ask", "wormhole"].includes(this.settings.largeFileMode) ? this.settings.largeFileMode : "ask";
+    const desktopWormhole = mode === "wormhole" && Platform.isDesktopApp;
     return {
-      mode: mode === "wormhole" ? "wormhole" : "blocked",
+      mode: desktopWormhole ? "wormhole" : "blocked",
       threshold,
       requiresConfirmation: mode === "ask",
       command: String(this.settings.largeFileCommand || "").trim(),
-      reason: mode === "disabled" ? "large_file_transfer_disabled" : mode === "ask" ? "large_file_confirmation_required" : "wormhole_cli_required",
+      reason: mode === "disabled" ? "large_file_transfer_disabled" : mode === "ask" ? "large_file_confirmation_required" : desktopWormhole ? "wormhole_cli_required" : "wormhole_cli_desktop_only",
     };
   }
 
@@ -3740,6 +3741,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   }
 
   async runWormholeCli(mode, input) {
+    // Wormhole is an optional desktop-only feature. Never load Node.js modules
+    // on mobile, where neither Node.js nor the external CLI is available.
+    if (!Platform.isDesktopApp) throw new Error("wormhole_cli_desktop_only");
     const command = String(this.settings.largeFileCommand || "wormhole-cli").trim();
     let childProcess;
     let fs;
@@ -11047,7 +11051,7 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
     );
     new Setting(group)
       .setName(this.uiText("Large-file transfer"))
-      .setDesc(this.uiText("Files over 50 MB can use the optional Wormhole CLI; this is independent of Vault synchronization."))
+      .setDesc(this.uiText("Files over 50 MB can use the optional Wormhole CLI on desktop only; this is independent of Vault synchronization."))
       .addDropdown((dropdown) => dropdown
         .addOption("disabled", this.uiText("Disabled"))
         .addOption("ask", this.uiText("Ask when sending"))
@@ -12991,7 +12995,7 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
       const sources = about.createDiv({ cls: "obsidian-ntfy-support-sources" });
       sources.createEl("a", {
         text: this.uiText("Notifications for Tasks on GitHub"),
-        attr: { href: "https://github.com/Alekcei-BAV/obsidian-notifications-for-tasks", target: "_blank", rel: "noopener noreferrer" },
+        attr: { href: "https://github.com/Alekcei-BAV/notifications-for-tasks", target: "_blank", rel: "noopener noreferrer" },
       });
       sources.createEl("a", {
         text: this.uiText("Original Ntfy Notifications by Murat"),

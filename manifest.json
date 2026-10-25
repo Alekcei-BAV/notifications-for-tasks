@@ -3,7 +3,7 @@
   "name": "Notifications for Tasks",
   "version": "8.0.4",
   "minAppVersion": "1.5.0",
-  "description": "Send reminders for Obsidian Tasks and Markdown tasks through ntfy and other notification channels.",
+  "description": "Send task reminders through ntfy and other notification channels, with Tasks integration and automation.",
   "author": "Murat, Alekcei-BAV",
   "isDesktopOnly": false,
   "fundingUrl": "https://lnk.bio/Alekcei-BAV"
