@@ -1916,3 +1916,71 @@
 .obsidian-ntfy-locale-pack-warnings {
   margin-top: 6px;
 }
+
+
+/* Support & About: entirely local UI; donations open only on an explicit click. */
+.obsidian-ntfy-support {
+  max-width: 640px;
+}
+
+.obsidian-ntfy-support-actions,
+.obsidian-ntfy-support-sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px;
+}
+
+.obsidian-ntfy-support-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--background-modifier-border);
+  color: var(--text-normal);
+  background: var(--background-secondary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.obsidian-ntfy-support-primary,
+.obsidian-ntfy-support-primary:hover {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.obsidian-ntfy-support-address {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.obsidian-ntfy-support .obsidian-ntfy-qr-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.obsidian-ntfy-support .obsidian-ntfy-qr-card {
+  width: 180px;
+  max-width: 100%;
+}
+
+.obsidian-ntfy-support-about {
+  border-top: 1px solid var(--background-modifier-border);
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+.obsidian-ntfy-support-sources {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.obsidian-ntfy-support-sources a {
+  color: var(--text-accent);
+  overflow-wrap: anywhere;
+}
