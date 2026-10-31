@@ -47,10 +47,10 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 -16px;
   padding: 6px 12px;
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 1;
   background: var(--background-primary);
+  flex: 0 0 auto;
 }
 
 .obsidian-ntfy-nav-item {
@@ -136,7 +136,7 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
-  padding: 12px 0 128px;
+  padding: 0 0 128px;
   padding-bottom: calc(128px + env(safe-area-inset-bottom));
 }
 
@@ -1991,4 +1991,1415 @@ body .obsidian-ntfy-conversation-import-modal * {
 .obsidian-ntfy-support-sources a {
   color: var(--text-accent);
   overflow-wrap: anywhere;
+}
+
+/* 8.1.0 Planner: scoped to manager; relies on Obsidian theme variables. */
+.obsidian-ntfy-manager .obsidian-ntfy-nav {
+  display: flex;
+  grid-template-columns: none;
+}
+.obsidian-ntfy-manager .obsidian-ntfy-nav-item {
+  flex: 1 1 0;
+  padding-right: 18px;
+}
+.obsidian-ntfy-planner-heading,
+.obsidian-ntfy-planner-days,
+.obsidian-ntfy-planner-filters,
+.obsidian-ntfy-planner-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.obsidian-ntfy-planner-heading { justify-content: space-between; margin-bottom: 9px; }
+.obsidian-ntfy-planner-heading h2 { margin: 0; }
+.obsidian-ntfy-planner-days { margin-bottom: 10px; }
+.obsidian-ntfy-planner-days .obsidian-ntfy-icon-button { min-width: 30px; }
+.obsidian-ntfy-planner-date {
+  max-width: 170px;
+  min-height: 32px;
+  padding-inline: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-filters { margin-bottom: 7px; }
+.obsidian-ntfy-planner-days button.is-active,
+.obsidian-ntfy-planner-filters button.is-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+.obsidian-ntfy-planner-scope { margin: 4px 0 10px; }
+.obsidian-ntfy-planner-summary {
+  justify-content: space-between;
+  margin: 10px 0 14px;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+.obsidian-ntfy-planner-untimed {
+  padding: 12px;
+  margin: 8px 0 18px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+.obsidian-ntfy-planner-untimed .obsidian-ntfy-section-header { margin-bottom: 8px; }
+.obsidian-ntfy-planner-timeline { margin-top: 12px; }
+.obsidian-ntfy-planner-hour {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  min-height: 54px;
+  gap: 8px;
+}
+.obsidian-ntfy-planner-hour-label {
+  padding-top: 9px;
+  text-align: end;
+  font-size: var(--font-ui-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+.obsidian-ntfy-planner-hour-items {
+  min-width: 0;
+  padding: 8px 0 12px 10px;
+  border-top: 1px solid var(--background-modifier-border);
+  border-left: 1px solid var(--background-modifier-border);
+}
+.obsidian-ntfy-planner-hour.is-current-hour .obsidian-ntfy-planner-hour-label {
+  font-weight: var(--font-semibold);
+  color: var(--text-accent);
+}
+.obsidian-ntfy-planner-time-group {
+  display: flex;
+  gap: 4px;
+  font-size: var(--font-ui-smaller);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin: 4px 0;
+}
+.obsidian-ntfy-planner-task {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border-inline-start: 3px solid var(--interactive-accent);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  padding: 8px 10px;
+  margin: 5px 0;
+  min-width: 0;
+}
+.obsidian-ntfy-planner-task.is-done { opacity: 0.73; border-inline-start-color: var(--text-faint); }
+.obsidian-ntfy-planner-task-content { min-width: 0; flex: 1 1 auto; }
+.obsidian-ntfy-planner-task .obsidian-ntfy-task-actions { margin-top: 4px; }
+.obsidian-ntfy-planner-notify { flex: 0 0 16px; color: var(--text-accent); margin-top: 3px; }
+.obsidian-ntfy-planner-notify svg { width: 15px; height: 15px; }
+.obsidian-ntfy-planner-now {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--text-error);
+  font-weight: 700;
+  font-size: var(--font-ui-smaller);
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0;
+}
+.obsidian-ntfy-planner-now::before {
+  content: "";
+  flex: 1 1 auto;
+  border-top: 2px solid var(--text-error);
+}
+.obsidian-ntfy-date-edit-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0; }
+.obsidian-ntfy-date-edit-fields label { display: block; margin-bottom: 5px; font-size: var(--font-ui-small); }
+.obsidian-ntfy-date-edit-fields input { width: 100%; box-sizing: border-box; min-width: 0; min-height: 36px; }
+.obsidian-ntfy-date-edit-presets { display: flex; flex-wrap: wrap; gap: 6px; }
+.obsidian-ntfy-date-edit-modal .obsidian-ntfy-error { margin-top: 8px; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-manager .obsidian-ntfy-nav-item { padding: 5px 13px 5px 2px; }
+  .obsidian-ntfy-planner-hour { grid-template-columns: 43px minmax(0, 1fr); gap: 5px; }
+  .obsidian-ntfy-planner-task { padding: 7px 6px; }
+  .obsidian-ntfy-planner-date { max-width: 145px; }
+  .obsidian-ntfy-date-edit-fields { grid-template-columns: 1fr; }
+}
+
+
+/* 8.2.0: native-like task status markup and Planner editing controls. */
+.obsidian-ntfy-task-list.contains-task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.obsidian-ntfy-task-list > .obsidian-ntfy-task-line.task-list-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.obsidian-ntfy-task-list .task-list-item-checkbox {
+  flex: 0 0 auto;
+  margin: 3px 0 0;
+}
+.obsidian-ntfy-planner-hour-button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-s);
+  width: 100%;
+  min-height: 34px;
+  cursor: pointer;
+  text-align: end;
+  font: inherit;
+  color: var(--text-muted);
+}
+.obsidian-ntfy-planner-hour-button:hover,
+.obsidian-ntfy-planner-hour-button:focus-visible {
+  color: var(--text-accent);
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+}
+.obsidian-ntfy-planner-hour.is-drop-target .obsidian-ntfy-planner-hour-items {
+  background: var(--background-modifier-hover);
+  outline: 1px dashed var(--interactive-accent);
+}
+.obsidian-ntfy-planner-target-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+.obsidian-ntfy-planner-target-row span { overflow-wrap: anywhere; }
+.obsidian-ntfy-planner-create-field { margin: 10px 0; }
+.obsidian-ntfy-planner-create-field label { display: block; margin-bottom: 5px; }
+.obsidian-ntfy-planner-create-field input { box-sizing: border-box; width: 100%; min-height: 36px; }
+.obsidian-ntfy-planner-note-path { overflow-wrap: anywhere; }
+
+/* 8.2.1: move the Planner checkbox a few pixels left of the text, while
+   preserving its text alignment and avoiding clipping on narrow screens. */
+.obsidian-ntfy-planner-task .obsidian-ntfy-task-list .task-list-item-checkbox {
+  margin-inline-start: -4px;
+  margin-inline-end: 4px;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-task .obsidian-ntfy-task-list .task-list-item-checkbox {
+    margin-inline-start: -2px;
+    margin-inline-end: 2px;
+  }
+}
+
+/* 8.2.2: distinguish independent date/time removal from the quick presets. */
+.obsidian-ntfy-date-edit-fields > div > button {
+  margin-top: 6px;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 8px;
+  font-size: var(--font-ui-smaller);
+}
+.obsidian-ntfy-date-edit-modal .obsidian-ntfy-date-edit-presets button {
+  min-height: 32px;
+  flex: 1 1 95px;
+}
+.obsidian-ntfy-date-edit-modal .setting-item-control {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* 8.3.0: Planner week/month calendar and per-task ntfy toggle. */
+.obsidian-ntfy-planner-days { align-items: center; gap: 6px; }
+.obsidian-ntfy-planner-days > button { min-height: 32px; }
+.obsidian-ntfy-planner-notify {
+  flex: 0 0 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
+  margin: 0;
+  padding: 6px;
+}
+.obsidian-ntfy-planner-notify.is-enabled { color: var(--text-accent); }
+.obsidian-ntfy-planner-notify:hover:not(:disabled),
+.obsidian-ntfy-planner-notify:focus-visible { border-color: var(--interactive-accent); }
+.obsidian-ntfy-planner-notify:disabled { opacity: 0.4; cursor: not-allowed; }
+.obsidian-ntfy-planner-notify svg { width: 17px; height: 17px; }
+.obsidian-ntfy-planner-calendar { min-width: 0; margin: 12px 0; }
+.obsidian-ntfy-planner-weekdays,
+.obsidian-ntfy-planner-month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.obsidian-ntfy-planner-weekdays { text-align: center; font-size: var(--font-ui-smaller); font-weight: var(--font-semibold); color: var(--text-muted); margin: 0 0 6px; gap: 4px; }
+.obsidian-ntfy-planner-weekdays > span { padding: 5px 0; }
+.obsidian-ntfy-planner-month-grid { gap: 5px; }
+.obsidian-ntfy-planner-calendar-day,
+.obsidian-ntfy-planner-calendar-pad {
+  box-sizing: border-box;
+  min-height: 100px;
+  min-width: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-primary);
+  padding: 7px;
+}
+.obsidian-ntfy-planner-calendar-day {
+  color: var(--text-normal);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  text-align: start;
+  cursor: pointer;
+}
+.obsidian-ntfy-planner-calendar-pad { background: var(--background-secondary); opacity: 0.4; }
+.obsidian-ntfy-planner-calendar-day.is-today { border-color: var(--interactive-accent); }
+.obsidian-ntfy-planner-calendar-day.is-selected { background: var(--background-modifier-hover); box-shadow: inset 0 0 0 1px var(--interactive-accent); }
+.obsidian-ntfy-planner-calendar-day:hover { background: var(--background-modifier-hover); }
+.obsidian-ntfy-planner-calendar-day-number { font-variant-numeric: tabular-nums; font-weight: var(--font-semibold); }
+.obsidian-ntfy-planner-calendar-day-count { font-size: var(--font-ui-smaller); color: var(--text-muted); }
+.obsidian-ntfy-planner-calendar-dots { display: flex; gap: 3px; }
+.obsidian-ntfy-planner-calendar-dots > span { height: 6px; width: 6px; border-radius: 100%; }
+.obsidian-ntfy-planner-calendar-dots .is-done { background: var(--text-success); }
+.obsidian-ntfy-planner-calendar-dots .is-open { background: var(--interactive-accent); }
+.obsidian-ntfy-planner-calendar-preview { font-size: var(--font-ui-smaller); color: var(--text-normal); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%; }
+.obsidian-ntfy-planner-calendar-preview.is-done { text-decoration: line-through; color: var(--text-muted); }
+.obsidian-ntfy-planner-week-list { display: flex; flex-direction: column; gap: 10px; }
+.obsidian-ntfy-planner-week-day { border: 1px solid var(--background-modifier-border); padding: 10px; border-radius: var(--radius-m); min-width: 0; }
+.obsidian-ntfy-planner-week-day.is-today { border-color: var(--interactive-accent); }
+.obsidian-ntfy-planner-week-day-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 5px 6px; width: 100%; text-align: start; font-weight: var(--font-semibold); margin-bottom: 4px; }
+.obsidian-ntfy-planner-week-empty { padding: 5px; font-size: var(--font-ui-smaller); }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-days { gap: 4px; }
+  .obsidian-ntfy-planner-days > button { font-size: var(--font-ui-smaller); min-height: 34px; }
+  .obsidian-ntfy-planner-month-grid { gap: 2px; }
+  .obsidian-ntfy-planner-calendar-day,
+  .obsidian-ntfy-planner-calendar-pad { min-height: 58px; padding: 4px 2px; }
+  .obsidian-ntfy-planner-calendar-day-number { font-size: var(--font-ui-small); }
+  .obsidian-ntfy-planner-calendar-day-count { font-size: 10px; }
+  .obsidian-ntfy-planner-calendar-preview { display: none; }
+  .obsidian-ntfy-planner-week-day { padding: 7px; }
+}
+.obsidian-ntfy-planner-period { color: var(--text-muted); font-size: var(--font-ui-small); font-weight: var(--font-normal); }
+
+
+/* 8.4.0: compact week overview avoids 24 x 7 empty timeline cells. */
+.obsidian-ntfy-planner-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  align-items: start;
+}
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day {
+  padding: 6px 4px;
+  overflow: hidden;
+  min-height: 104px;
+}
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding: 5px 3px;
+}
+.obsidian-ntfy-planner-week-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 5px 3px;
+  margin: 3px 0;
+  border-inline-start: 2px solid var(--interactive-accent);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  cursor: grab;
+}
+.obsidian-ntfy-planner-week-entry.is-done { opacity: 0.65; border-inline-start-color: var(--text-faint); }
+.obsidian-ntfy-planner-week-entry-time { font-size: var(--font-ui-smaller); font-variant-numeric: tabular-nums; color: var(--text-muted); }
+.obsidian-ntfy-planner-week-entry-title { font-size: var(--font-ui-smaller); overflow-wrap: anywhere; }
+.obsidian-ntfy-planner-week-more { width: 100%; font-size: var(--font-ui-smaller); }
+.obsidian-ntfy-planner-calendar-day.is-drop-target,
+.obsidian-ntfy-planner-week-day.is-drop-target { outline: 2px dashed var(--interactive-accent); outline-offset: -3px; background: var(--background-modifier-hover); }
+.obsidian-ntfy-planner-calendar-preview[draggable="true"] { cursor: grab; }
+.obsidian-ntfy-planner-rename { flex: 0 0 auto; padding: 4px; min-width: 28px; height: 30px; display: inline-flex; align-items: center; justify-content: center; color: var(--text-muted); }
+.obsidian-ntfy-planner-rename svg { width: 15px; height: 15px; }
+@media (max-width: 900px) {
+  .obsidian-ntfy-planner-week-grid { grid-template-columns: 1fr; gap: 8px; }
+  .obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading { flex-direction: row; justify-content: space-between; align-items: center; }
+  .obsidian-ntfy-planner-week-entry { flex-direction: row; align-items: baseline; gap: 8px; }
+  .obsidian-ntfy-planner-week-entry-time { flex: 0 0 40px; }
+}
+/* Obsidian panes may be narrower than the app viewport. */
+.obsidian-ntfy-planner-calendar.is-week { container-type: inline-size; }
+@container (max-width: 850px) {
+  .obsidian-ntfy-planner-week-grid { grid-template-columns: 1fr; gap: 8px; }
+  .obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading { flex-direction: row; align-items: center; justify-content: space-between; }
+  .obsidian-ntfy-planner-week-entry { flex-direction: row; align-items: baseline; gap: 8px; }
+  .obsidian-ntfy-planner-week-entry-time { flex: 0 0 40px; }
+}
+
+/* 8.5: collapsed by default; only the visible overdue batch is mounted. */
+.obsidian-ntfy-planner-overdue {
+  margin: 10px 0 14px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  padding: 6px 10px;
+}
+.obsidian-ntfy-planner-overdue > summary {
+  cursor: pointer;
+  font-weight: var(--font-semibold);
+  padding: 6px 3px;
+}
+.obsidian-ntfy-planner-overdue-items { display: flex; flex-direction: column; gap: 7px; padding: 8px 2px; }
+.obsidian-ntfy-planner-overdue-entry { min-width: 0; border-bottom: 1px solid var(--background-modifier-border); padding-bottom: 7px; }
+.obsidian-ntfy-planner-overdue-entry .obsidian-ntfy-planner-task { margin-bottom: 3px; }
+.obsidian-ntfy-planner-overdue-actions { display: flex; justify-content: flex-end; gap: 6px; flex-wrap: wrap; }
+.obsidian-ntfy-planner-overdue-more { align-self: flex-start; }
+
+/* 8.6.0 — scoped duration controls; no global Obsidian or Tasks CSS overrides. */
+.obsidian-ntfy-planner-duration { margin: 12px 0; padding: 10px; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-s); display:flex; flex-direction:column; gap:8px; }
+.obsidian-ntfy-planner-duration > label { font-weight: var(--font-semibold); }
+.obsidian-ntfy-planner-duration-modes { display:flex; flex-wrap:wrap; gap:6px; }
+.obsidian-ntfy-planner-duration-modes button.is-active { background:var(--interactive-accent); color:var(--text-on-accent); }
+.obsidian-ntfy-planner-duration > div:nth-last-child(2) { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.obsidian-ntfy-planner-duration input, .obsidian-ntfy-planner-duration select { min-height:34px; max-width:100%; }
+.obsidian-ntfy-planner-duration-preview { font-variant-numeric:tabular-nums; }
+.obsidian-ntfy-planner-week-entry-time { overflow-wrap:anywhere; }
+
+/* 8.6.1: the native date control remains the click/focus target while its
+   visible text follows the user's chosen EU / Asian display convention. */
+.obsidian-ntfy-planner-date-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  max-width: 165px;
+  padding: 0 9px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--input-radius, var(--radius-s));
+  background: var(--background-modifier-form-field);
+  color: var(--text-normal);
+  font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-date-label { pointer-events: none; white-space: nowrap; }
+.obsidian-ntfy-planner-date-wrap > .obsidian-ntfy-planner-date {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-width: 0;
+  pointer-events: none;
+}
+.obsidian-ntfy-planner-date-wrap { cursor: pointer; }
+.obsidian-ntfy-planner-date-wrap:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 1px; }
+.obsidian-ntfy-planner-date-wrap:focus-within { outline: 2px solid var(--interactive-accent); outline-offset: 1px; }
+
+.obsidian-ntfy-planner-auto-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.obsidian-ntfy-planner-auto-done > input { margin: 0; cursor: pointer; }
+.obsidian-ntfy-planner-duration-edit {
+  min-height: 28px;
+  padding: 3px 6px;
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+.obsidian-ntfy-planner-week-entry[role="button"],
+.obsidian-ntfy-planner-calendar-preview[role="button"] { cursor: pointer; }
+.obsidian-ntfy-planner-week-entry[role="button"]:focus-visible,
+.obsidian-ntfy-planner-calendar-preview[role="button"]:focus-visible { outline: 2px solid var(--interactive-accent); outline-offset: 1px; }
+.obsidian-ntfy-planner-week-entry .obsidian-ntfy-task-md,
+.obsidian-ntfy-planner-calendar-preview .obsidian-ntfy-task-md { display: inline; }
+
+/* 8.7.0: light-weight calendar workload indicators; only CSS, no new chart library. */
+.obsidian-ntfy-planner-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  align-items: center;
+  font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-metrics .is-overlap {
+  color: var(--text-warning);
+  font-weight: var(--font-semibold);
+}
+.obsidian-ntfy-planner-metrics .is-muted { color: var(--text-muted); }
+.obsidian-ntfy-planner-calendar-day.is-load-low { box-shadow: inset 3px 0 0 var(--text-faint); }
+.obsidian-ntfy-planner-calendar-day.is-load-medium { box-shadow: inset 3px 0 0 var(--interactive-accent); }
+.obsidian-ntfy-planner-calendar-day.is-load-high { box-shadow: inset 5px 0 0 var(--interactive-accent); }
+.obsidian-ntfy-planner-day-load {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.obsidian-ntfy-planner-day-warning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: var(--text-on-accent);
+  background: var(--text-warning);
+  font-size: 11px;
+  font-weight: bold;
+}
+.obsidian-ntfy-planner-task.has-time-conflict,
+.obsidian-ntfy-planner-week-entry.has-time-conflict,
+.obsidian-ntfy-planner-calendar-preview.has-time-conflict {
+  border-inline-start: 3px solid var(--text-warning);
+}
+.obsidian-ntfy-planner-week-day.has-time-conflict { border-color: var(--text-warning); }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-metrics { gap: 4px 9px; }
+  .obsidian-ntfy-planner-metrics > span { font-size: var(--font-ui-smaller); }
+  .obsidian-ntfy-planner-day-load { font-size: 9px; }
+}
+.obsidian-ntfy-planner-week-day.is-load-low { box-shadow: inset 3px 0 0 var(--text-faint); }
+.obsidian-ntfy-planner-week-day.is-load-medium { box-shadow: inset 3px 0 0 var(--interactive-accent); }
+.obsidian-ntfy-planner-week-day.is-load-high { box-shadow: inset 5px 0 0 var(--interactive-accent); }
+
+/* 8.8.0: mobile-first actions and Tasks recurrence indicators. */
+.obsidian-ntfy-planner-recurrence {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  min-width: 0;
+  max-width: 210px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.obsidian-ntfy-planner-repeat-indicator { color: var(--text-muted); font-size: 0.9em; }
+.obsidian-ntfy-planner-mobile-more { display: none; }
+.obsidian-ntfy-planner-mobile-actions { display: flex; flex-direction: column; gap: 7px; }
+.obsidian-ntfy-planner-mobile-title { overflow-wrap: anywhere; font-weight: var(--font-semibold); }
+.obsidian-ntfy-planner-mobile-action {
+  width: 100%; min-height: 46px; text-align: start; display: flex; align-items: center;
+  justify-content: flex-start; gap: 12px; padding: 10px 14px;
+  border: 1px solid var(--background-modifier-border); border-radius: var(--radius-m);
+}
+.obsidian-ntfy-planner-mobile-action svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.is-mobile .obsidian-ntfy-planner-days { display: flex; flex-wrap: wrap; gap: 6px; }
+.is-mobile .obsidian-ntfy-planner-days > button { min-height: 42px; }
+.is-mobile .obsidian-ntfy-planner-days .obsidian-ntfy-planner-date-wrap { min-height: 42px; }
+.is-mobile .obsidian-ntfy-planner-task { gap: 6px; }
+.is-mobile .obsidian-ntfy-planner-task .obsidian-ntfy-planner-mobile-more {
+  display: inline-flex; min-width: 44px; min-height: 44px; align-items: center;
+  justify-content: center; flex: 0 0 auto; color: var(--text-normal);
+}
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-rename,
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-duration-edit,
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-notify,
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-auto-done,
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-recurrence { display: none; }
+.is-mobile .obsidian-ntfy-planner-week-entry { min-height: 44px; padding-block: 9px; }
+.is-mobile .obsidian-ntfy-planner-hour-button { min-height: 44px; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-mobile-actions .obsidian-ntfy-planner-mobile-action { min-height: 48px; }
+}
+
+/* 8.8.1 — one compact task editor for desktop and mobile. */
+.obsidian-ntfy-unified-title, .obsidian-ntfy-unified-rule { margin: 12px 0; }
+.obsidian-ntfy-unified-title label, .obsidian-ntfy-unified-rule label { display: block; margin-bottom: 6px; font-size: var(--font-ui-small); }
+.obsidian-ntfy-unified-title input, .obsidian-ntfy-unified-rule input { width: 100%; min-width: 0; box-sizing: border-box; min-height: 40px; }
+.obsidian-ntfy-unified-advanced { margin: 12px 0; border: 1px solid var(--background-modifier-border); border-radius: var(--radius-s); padding: 8px 12px; }
+.obsidian-ntfy-unified-advanced summary { cursor: pointer; font-weight: var(--font-medium); }
+.obsidian-ntfy-unified-delete { margin-top: 10px; border-top: 1px solid var(--background-modifier-border); padding-top: 10px; }
+.obsidian-ntfy-unified-delete .setting-item-control { width: 100%; justify-content: flex-start; }
+.obsidian-ntfy-planner-repeat-indicator { flex: 0 1 auto; min-width: 0; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.is-mobile .obsidian-ntfy-planner-task > .obsidian-ntfy-planner-notify { display: inline-flex; flex: 0 0 32px; min-width: 32px; min-height: 40px; align-items: center; justify-content: center; }
+.is-mobile .obsidian-ntfy-planner-task .obsidian-ntfy-task-actions button { min-height: 40px; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-unified-title input, .obsidian-ntfy-unified-rule input, .obsidian-ntfy-date-edit-fields input { min-height: 44px; }
+  .obsidian-ntfy-date-edit-modal .modal-content { max-height: 80vh; overflow-y: auto; }
+}
+
+
+/* 8.8.2 — accessible editor controls and mobile viewport clearance. */
+/* Modal.contentEl IS the .modal-content element in Obsidian; a descendant
+   selector would miss it and leave the delete controls below the viewport. */
+.modal-content.obsidian-ntfy-date-edit-modal {
+  max-height: min(82vh, calc(100vh - 64px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+}
+.obsidian-ntfy-unified-rule { margin: 12px 0; }
+.obsidian-ntfy-unified-rule-fields { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.obsidian-ntfy-unified-rule-fields input { flex: 1 1 190px; width: auto; }
+.obsidian-ntfy-unified-rule-fields button { flex: 0 0 auto; min-height: 40px; }
+.modal-content.obsidian-ntfy-date-edit-modal .obsidian-ntfy-unified-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: var(--background-primary);
+  border-top: 1px solid var(--background-modifier-border);
+  box-shadow: 0 -8px 16px -12px var(--background-modifier-cover, rgba(0,0,0,.24));
+  margin-top: 12px;
+  padding: 10px 0 calc(8px + env(safe-area-inset-bottom, 0px));
+}
+.obsidian-ntfy-unified-actions .setting-item-control {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.obsidian-ntfy-unified-actions.has-delete .setting-item-control > button:first-child {
+  margin-inline-end: auto;
+}
+/* Two separate cues: today is a reference, selected is the current focus. */
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day.is-selected {
+  border: 2px solid var(--interactive-accent);
+  background: var(--background-modifier-hover);
+  box-shadow: inset 4px 0 0 var(--interactive-accent);
+}
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day.is-selected .obsidian-ntfy-planner-week-day-heading {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-radius: var(--radius-s);
+}
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day.is-selected .obsidian-ntfy-planner-week-day-heading .obsidian-ntfy-muted {
+  color: var(--text-on-accent);
+}
+@media (max-width: 900px) {
+  .obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day.is-selected {
+    box-shadow: inset 6px 0 0 var(--interactive-accent), 0 0 0 1px var(--interactive-accent);
+  }
+}
+@media (max-width: 600px) {
+  /* Previous small-screen rule removed the desktop scroll clearance. On mobile
+     Obsidian's bottom app bar overlaps the viewport; allow 23:00 above it. */
+  .obsidian-ntfy-manager:not(.obsidian-ntfy-inbox-active) .obsidian-ntfy-window-body {
+    padding-bottom: calc(192px + env(safe-area-inset-bottom, 0px));
+    scroll-padding-bottom: calc(192px + env(safe-area-inset-bottom, 0px));
+  }
+  .modal-content.obsidian-ntfy-date-edit-modal {
+    max-height: min(78vh, calc(100vh - 90px));
+  }
+  .obsidian-ntfy-unified-actions .setting-item-control > button {
+    min-height: 44px;
+  }
+}
+/* Obsidian can use .is-mobile at tablet widths larger than 600px. */
+.is-mobile .obsidian-ntfy-manager:not(.obsidian-ntfy-inbox-active) .obsidian-ntfy-window-body {
+  padding-bottom: calc(192px + env(safe-area-inset-bottom, 0px));
+  scroll-padding-bottom: calc(192px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 8.8.2: destructive control is immediately visible beside the modal heading. */
+.obsidian-ntfy-unified-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.obsidian-ntfy-unified-header h2 { margin: 0; }
+.obsidian-ntfy-unified-delete-top {
+  color: var(--text-error);
+  border: 1px solid var(--text-error);
+  background: var(--background-primary);
+  min-height: 40px;
+  flex: 0 0 auto;
+}
+.obsidian-ntfy-unified-delete-top:hover { background: var(--background-modifier-error-hover, var(--background-modifier-hover)); }
+.is-mobile .obsidian-ntfy-unified-delete-top { min-height: 44px; }
+
+/* 8.8.3 — compact, touch-accessible unified Planner editor. Scoped to the task
+   editor only: older reminder and task-creation dialogs keep their layout. */
+.modal-content.obsidian-ntfy-unified-compact {
+  width: min(100%, 630px);
+  padding-inline: 18px;
+}
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-header { margin-bottom: 8px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-title { margin: 4px 0 9px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-title input { min-height: 36px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-fields {
+  display: flex; flex-wrap: wrap; justify-content: flex-start;
+  align-items: end; column-gap: 15px; row-gap: 8px; margin: 6px 0 7px;
+}
+.obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-fields > div { flex: 0 0 auto; min-width: 0; }
+.obsidian-ntfy-unified-inline-field { display: flex; flex-wrap: nowrap; align-items: center; gap: 5px; min-width: 0; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-date-field input[type="date"] { width: 151px; max-width: 100%; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-time-field input[type="time"] { width: 107px; max-width: 100%; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-fields input { box-sizing: border-box; min-height: 36px; }
+.obsidian-ntfy-unified-icon-button {
+  flex: 0 0 auto; display: inline-flex; justify-content: center; align-items: center;
+  min-width: 34px; width: 34px; min-height: 36px; padding: 6px;
+  color: var(--text-muted); background: transparent;
+  border: 1px solid var(--background-modifier-border);
+}
+.obsidian-ntfy-unified-icon-button:hover { color: var(--text-normal); }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-presets { margin: 4px 0 9px; gap: 5px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-presets button {
+  flex: 0 0 auto; min-height: 30px; padding: 3px 9px;
+}
+.obsidian-ntfy-unified-secondary-row {
+  display: flex; align-items: start; flex-wrap: wrap; gap: 12px;
+  margin: 3px 0 8px;
+}
+.obsidian-ntfy-unified-secondary-row > * { min-width: 0; }
+.obsidian-ntfy-planner-duration.is-unified-compact,
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule {
+  flex: 0 1 auto; margin: 0; padding: 0; border: none; gap: 5px;
+}
+.obsidian-ntfy-planner-duration.is-unified-compact > label,
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule > label {
+  display: block; margin: 0 0 5px; font-size: var(--font-ui-small); font-weight: var(--font-normal);
+}
+.obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-duration-trigger {
+  width: 118px; max-width: 100%; min-height: 36px; padding: 5px 8px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: start;
+}
+.obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-expand,
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-repeat-panel { display: none; }
+.obsidian-ntfy-planner-duration.is-unified-compact.is-open .obsidian-ntfy-unified-expand,
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule.is-open .obsidian-ntfy-unified-repeat-panel { display: block; }
+.obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-expand {
+  margin-top: 7px; padding: 9px; border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary); border-radius: var(--radius-s);
+  max-width: min(100%, 290px);
+}
+.obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-expand > div:nth-child(2) { display:flex; flex-wrap:wrap; gap:6px; }
+.obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-expand input[type="number"] { width: 80px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields { display: flex; flex-wrap: nowrap; gap: 5px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields input {
+  width: 165px; flex: 0 1 165px; min-height: 36px; padding: 5px 8px; font-size: var(--font-ui-small);
+  text-overflow: ellipsis;
+}
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields input[readonly] { cursor: pointer; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields button { min-height: 36px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-repeat-panel {
+  padding: 10px 0 0; max-width: 310px;
+}
+.obsidian-ntfy-unified-repeat-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+.obsidian-ntfy-unified-repeat-quick button { font-size: var(--font-ui-smaller); padding: 4px 6px; }
+.obsidian-ntfy-unified-custom-recur, .obsidian-ntfy-unified-recur-advanced {
+  display: block; margin-top: 6px; font-size: var(--font-ui-smaller);
+}
+.obsidian-ntfy-unified-custom-controls { display: none; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 6px; }
+.obsidian-ntfy-unified-custom-controls.is-open { display: flex; }
+.obsidian-ntfy-unified-custom-controls > input[type="number"] { width: 60px; }
+.obsidian-ntfy-unified-custom-controls > select { width: 110px; }
+.obsidian-ntfy-unified-when-done { display: flex; align-items: center; gap: 5px; font-size: var(--font-ui-small); }
+.obsidian-ntfy-unified-compact .setting-item { padding-block: 7px; }
+.obsidian-ntfy-unified-compact .setting-item-description { display: none; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-actions { margin-top: 7px; }
+.obsidian-ntfy-unified-compact .obsidian-ntfy-unified-delete-top {
+  margin-right: auto; color: var(--text-error); border-color: var(--text-error);
+  min-width: 36px; width: 36px; padding: 6px;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-fields { flex-direction: row; }
+  .obsidian-ntfy-unified-secondary-row { gap: 10px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-date-field input[type="date"] { width: 147px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-time-field input[type="time"] { width: 100px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-icon-button { min-width: 42px; width: 42px; min-height: 44px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-date-edit-fields input,
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-title input { min-height: 44px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields input { flex-basis: 145px; width: 145px; }
+  .obsidian-ntfy-unified-compact .obsidian-ntfy-unified-rule-fields button { min-height: 44px; }
+}
+/* A presence dot is unrelated to the optional progress/loading statistics. */
+.obsidian-ntfy-planner-calendar-day .obsidian-ntfy-planner-presence-dot {
+  display: none; flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--interactive-accent); align-self: center;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-calendar.is-month .obsidian-ntfy-planner-calendar-day .obsidian-ntfy-planner-presence-dot { display: block; }
+}
+.is-mobile .obsidian-ntfy-planner-calendar.is-month .obsidian-ntfy-planner-calendar-day .obsidian-ntfy-planner-presence-dot { display: block; }
+
+/* 8.8.5 — same narrow Planner task form for create and edit. Inputs keep their
+   intrinsic compact widths; labels around checkboxes are full click targets. */
+.modal.obsidian-ntfy-planner-dialog {
+  width: min(378px, calc(100vw - 20px));
+  max-width: calc(100vw - 20px);
+}
+.modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  width: 100%; max-width: 100%; padding: 12px 14px 16px;
+  box-sizing: border-box; overflow-x: hidden;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title { margin: 4px 0 8px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title input { width: 100%; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+  display: flex; flex-direction: row; flex-wrap: wrap; align-items: end;
+  justify-content: flex-start; gap: 7px 10px; margin: 5px 0 8px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"] { width: 147px; max-width: 100%; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] { width: 104px; max-width: 100%; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: start;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields input {
+  width: 117px; flex: 1 1 105px; min-width: 0;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields { max-width: 100%; }
+.obsidian-ntfy-planner-flags {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px;
+  margin: 7px 0; padding: 0;
+}
+.obsidian-ntfy-planner-flag {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  min-height: 36px; font-size: var(--font-ui-small); user-select: none;
+}
+.obsidian-ntfy-planner-flag input[type="checkbox"] { flex: 0 0 auto; margin: 0; cursor: pointer; }
+.obsidian-ntfy-planner-flag:has(input:disabled) { opacity: 0.6; cursor: default; }
+.obsidian-ntfy-planner-completion-inline {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 4px 0 8px;
+  font-size: var(--font-ui-small);
+}
+.obsidian-ntfy-planner-completion-inline select {
+  width: 145px; max-width: 100%; min-width: 0; min-height: 34px;
+}
+.obsidian-ntfy-planner-compact-destination {
+  display: flex; gap: 8px; align-items: center; justify-content: space-between;
+  font-size: var(--font-ui-smaller); min-width: 0;
+}
+.obsidian-ntfy-planner-compact-destination span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.obsidian-ntfy-planner-compact-destination button {
+  flex: 0 0 auto; min-height: 30px; font-size: var(--font-ui-smaller);
+}
+.obsidian-ntfy-planner-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions { margin-top: 7px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-repeat-panel { max-width: 100%; }
+@media (max-width: 600px) {
+  .modal.obsidian-ntfy-planner-dialog { width: calc(100vw - 16px); max-width: 378px; }
+  .obsidian-ntfy-planner-flag { min-height: 44px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] { width: 98px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"] { width: 140px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions button { min-height: 44px; }
+}
+
+/* Keep the action row reachable when the phone keyboard reduces viewport height. */
+.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  max-height: calc(100dvh - 56px); overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions {
+  position: sticky; bottom: 0; z-index: 2;
+  background: var(--modal-background, var(--background-primary));
+  padding: 7px 0 2px; border-top: 1px solid var(--background-modifier-border);
+}
+
+/* 8.9.0 — duration occupancy is a visual calendar hint, not an extra task. */
+.obsidian-ntfy-planner-hour.is-duration-occupied > .obsidian-ntfy-planner-hour-items {
+  border-left: 3px solid var(--interactive-accent);
+  background: color-mix(in srgb, var(--interactive-accent) 7%, transparent);
+}
+.obsidian-ntfy-planner-hour.is-duration-occupied > .obsidian-ntfy-planner-hour-label {
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+/* Keep 09:00 fully visible inside a real button, including mobile WebView. */
+.obsidian-ntfy-planner-hour-button {
+  box-sizing: border-box; min-width: 0; white-space: nowrap;
+  padding: 6px 3px; font-variant-numeric: tabular-nums;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-hour { grid-template-columns: 49px minmax(0, 1fr); gap: 5px; }
+  .obsidian-ntfy-planner-hour-button { font-size: 12px; padding-inline: 2px; }
+}
+.is-mobile .obsidian-ntfy-planner-hour { grid-template-columns: 49px minmax(0, 1fr); gap: 5px; }
+.is-mobile .obsidian-ntfy-planner-hour-button { font-size: 12px; padding-inline: 2px; }
+/* A slightly wider shared create/edit form makes compact fields fit. */
+.modal.obsidian-ntfy-planner-dialog { width: min(440px, calc(100vw - 16px)); max-width: calc(100vw - 16px); }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields { gap: 7px 8px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"] { width: 153px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] { width: 103px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row { gap: 9px; }
+/* Hide only the visual native calendar icon, not date input/focus/picker. */
+.obsidian-ntfy-planner-dialog input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0; width: 0; min-width: 0; margin: 0; padding: 0;
+}
+@media (max-width: 600px) {
+  .modal.obsidian-ntfy-planner-dialog { width: calc(100vw - 16px); max-width: 440px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"] { width: 142px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] { width: 98px; }
+}
+.obsidian-ntfy-ntfy-quota {
+  margin: 4px 8px; padding: 6px 8px;
+  border-radius: var(--radius-s); background: var(--background-secondary);
+  color: var(--text-muted); font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+/* 8.10.0: opt-in Planner search, display-only recurrence hints, low-cost mobile actions. */
+.obsidian-ntfy-planner-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+.obsidian-ntfy-planner-search input[type="search"] {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  min-height: 40px;
+}
+.obsidian-ntfy-planner-search button {
+  flex: 0 0 auto;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 3px 10px;
+  font-size: 18px;
+}
+.obsidian-ntfy-planner-day-more {
+  display: block;
+  min-height: 44px;
+  margin: 12px 0;
+}
+.is-mobile .obsidian-ntfy-planner-search input[type="search"] { min-height: 44px; }
+
+/* 8.10.1 — mobile two-column task editor. The four fields stay aligned and
+   their clear actions sit underneath the inputs instead of stealing width. */
+@media (max-width: 600px) {
+  .modal.obsidian-ntfy-planner-dialog {
+    width: min(440px, calc(100vw - 12px));
+    max-width: calc(100vw - 12px);
+  }
+  .obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+    padding-inline: 11px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div {
+    width: 100%;
+    min-width: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"],
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+    align-self: flex-end;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > * {
+    min-width: 0;
+    width: 100%;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-inline-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-duration-trigger {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-unified-compact .obsidian-ntfy-unified-icon-button {
+    align-self: flex-end;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 3px;
+    align-items: start;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields input {
+    box-sizing: border-box;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    flex: none;
+    min-height: 44px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields button:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields button:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-rule-fields button { min-width: 44px; min-height: 44px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-open {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Copy lives next to the delete control in the editor footer, never in cards. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-copy {
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  min-width: 40px;
+  min-height: 40px;
+}
+.obsidian-ntfy-unified-actions.has-delete.has-copy .setting-item-control > button:first-child {
+  margin-inline-end: 0;
+}
+.obsidian-ntfy-unified-actions.has-delete.has-copy .setting-item-control > button:nth-child(2) {
+  margin-inline-end: auto;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-copy { min-width: 44px; min-height: 44px; }
+}
+
+/* Phantom Tasks are fully opaque. The black-white dashed stripe marks
+   a visual prediction and is never used for an actionable Markdown task. */
+.obsidian-ntfy-planner-ghost {
+  position: relative;
+  opacity: 1;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding-inline-start: 13px;
+  min-width: 0;
+  cursor: default;
+}
+.obsidian-ntfy-planner-ghost::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  background: repeating-linear-gradient(to bottom, #000 0 8px, #fff 8px 16px);
+  border-inline-end: 1px solid var(--background-modifier-border);
+  pointer-events: none;
+}
+.obsidian-ntfy-planner-ghost-body { min-width: 0; overflow-wrap: anywhere; }
+.obsidian-ntfy-planner-ghost-label { font-size: var(--font-ui-smaller); font-weight: var(--font-medium); }
+.obsidian-ntfy-planner-ghost-title { color: var(--text-normal); opacity: 1; }
+.obsidian-ntfy-planner-ghost-time { display: block; font-size: var(--font-ui-smaller); color: var(--text-muted); }
+
+
+/* v8.10.2: keep the composer above Android's Obsidian bottom controls.
+   Only the inbox chat is inset; Planner and other tabs retain their space. */
+@media (max-width: 600px) {
+  .is-mobile .obsidian-ntfy-manager.obsidian-ntfy-inbox-active {
+    --obsidian-ntfy-chat-bottom-clearance: 64px;
+  }
+  .is-mobile .obsidian-ntfy-manager.obsidian-ntfy-inbox-active .obsidian-ntfy-chat {
+    height: calc(100% - var(--obsidian-ntfy-chat-bottom-clearance));
+    max-height: calc(100% - var(--obsidian-ntfy-chat-bottom-clearance));
+  }
+}
+/* Two native dropdowns replace nested popup panels in the common editor.
+   Advanced input stays below its dropdown and never vanishes from the form. */
+.obsidian-ntfy-planner-dialog .is-simple-picker select,
+.obsidian-ntfy-planner-dialog .is-simple-picker input[type="text"],
+.obsidian-ntfy-planner-dialog .is-simple-picker input[type="number"],
+.obsidian-ntfy-planner-dialog .is-simple-picker input[type="time"] {
+  display: block; box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%; min-height: 36px;
+}
+.obsidian-ntfy-planner-dialog .is-simple-picker .is-hidden { display: none !important; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-advanced { margin-top: 6px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-advanced label {
+  display: block; font-size: var(--font-ui-smaller); color: var(--text-muted); margin-bottom: 4px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 6px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval.is-hidden { display: none; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval > input { flex: 0 1 55px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval > select { flex: 1 1 82px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval > label { flex: 1 1 100%; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration-custom,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration-end { margin-top: 6px; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker {
+  flex: 1 1 0; min-width: 0;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .is-simple-picker select,
+  .obsidian-ntfy-planner-dialog .is-simple-picker input { min-height: 44px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker { width: 100%; }
+}
+
+/* 8.11.0 — minute-accurate interval rail, computed only for a visible day.
+   Does not render extra task cards or affect schedule/notification times. */
+.obsidian-ntfy-planner-hour-items { position: relative; }
+.obsidian-ntfy-planner-hour.is-duration-occupied > .obsidian-ntfy-planner-hour-items {
+  border-left: 1px solid var(--background-modifier-border);
+  background: transparent;
+}
+.obsidian-ntfy-planner-minute-rail {
+  position: absolute; inset-block: 0; inset-inline-start: -1px;
+  width: 5px; overflow: hidden; pointer-events: none;
+}
+.obsidian-ntfy-planner-minute-segment {
+  position: absolute; inset-inline: 0;
+  background: var(--interactive-accent);
+}
+.obsidian-ntfy-planner-minute-segment.is-overlap {
+  background: repeating-linear-gradient(135deg, var(--text-warning) 0 4px, var(--interactive-accent) 4px 8px);
+}
+.obsidian-ntfy-planner-hour.has-duration-overlap > .obsidian-ntfy-planner-hour-label {
+  color: var(--text-warning);
+}
+.obsidian-ntfy-cleanup-preview { margin: 10px 0; }
+.obsidian-ntfy-cleanup-preview > summary { cursor: pointer; font-weight: 600; }
+.obsidian-ntfy-cleanup-list { max-height: min(38dvh, 300px); overflow-y: auto; overflow-x: hidden; }
+.obsidian-ntfy-cleanup-row {
+  display: flex; gap: 9px; padding: 5px 2px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  overflow-wrap: anywhere;
+}
+.obsidian-ntfy-cleanup-line { flex: 0 0 3rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.obsidian-ntfy-cleanup-more { margin: 8px 0; }
+.obsidian-ntfy-performance-output { font-size: var(--font-ui-small); color: var(--text-muted); overflow-wrap: anywhere; }
+.obsidian-ntfy-performance-output > div { padding: 3px 0; }
+
+/* 8.12.0: clear overlap indication with no additional task cards or scans. */
+.obsidian-ntfy-planner-overlap-legend {
+  color: var(--text-muted); font-size: var(--font-ui-smaller);
+  padding: 4px 8px; margin: 4px 0 6px;
+  border-inline-start: 3px solid var(--text-warning);
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-overlap-legend { font-size: 11px; overflow-wrap: anywhere; }
+  .obsidian-ntfy-planner-minute-rail { width: 7px; }
+  .obsidian-ntfy-planner-hour-items { min-width: 0; }
+}
+
+/* v8.13.0: ntfy conversation history controls are local-only and compact. */
+.obsidian-ntfy-chat-filterbar {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  align-items: center;
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: 8px 10px;
+  min-width: 0;
+}
+.obsidian-ntfy-chat-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  font-size: 13px;
+  min-height: 36px;
+  box-sizing: border-box;
+}
+.obsidian-ntfy-chat-filter {
+  flex: 0 0 auto;
+  max-width: 47%;
+  min-width: 0;
+  font-size: 12px;
+  min-height: 36px;
+  text-overflow: ellipsis;
+}
+@media (max-width: 420px) {
+  .obsidian-ntfy-chat-filterbar { padding: 6px; gap: 4px; }
+  .obsidian-ntfy-chat-search { font-size: 12px; }
+  .obsidian-ntfy-chat-filter { max-width: 45%; }
+}
+
+/* 8.15.1: one compact Planner toolbar on wide desktop panes; wrap inside
+   narrow Obsidian splits and on mobile without horizontal clipping. */
+.obsidian-ntfy-planner-days {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px;
+  min-width: 0;
+  margin: 0 0 9px;
+}
+.obsidian-ntfy-planner-days > button { flex: 0 0 auto; white-space: nowrap; }
+.obsidian-ntfy-planner-days .obsidian-ntfy-planner-date-wrap {
+  flex: 0 1 auto; min-width: 100px; max-width: 170px;
+}
+/* container queries respond to the manager pane, not only viewport width. */
+.obsidian-ntfy-tab-panel.is-active:has(.obsidian-ntfy-planner-days) { container-type: inline-size; }
+@container (max-width: 790px) {
+  .obsidian-ntfy-planner-days { flex-wrap: wrap; }
+}
+.is-mobile .obsidian-ntfy-planner-days { flex-wrap: wrap; }
+/* A week heading must own its statistic line, so the first task cannot
+   paint over the load value at any column width. */
+.obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading {
+  display: flex; flex-direction: column; align-items: stretch;
+  justify-content: flex-start; gap: 3px;
+  box-sizing: border-box; height: auto; min-height: 0;
+  margin: 0 0 7px; padding: 5px 4px;
+  overflow: visible; white-space: normal;
+}
+.obsidian-ntfy-planner-week-heading-date,
+.obsidian-ntfy-planner-week-heading-stats {
+  display: block; min-width: 0; width: 100%;
+  font-size: var(--font-ui-smaller); line-height: 1.35;
+  overflow-wrap: anywhere; white-space: normal;
+}
+.obsidian-ntfy-planner-week-heading-stats { font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) {
+  .obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading {
+    flex-direction: column; align-items: stretch;
+  }
+}
+@container (max-width: 850px) {
+  .obsidian-ntfy-planner-week-grid .obsidian-ntfy-planner-week-day-heading {
+    flex-direction: column; align-items: stretch;
+  }
+}
+/* Keep duration and recurrence aligned on both desktop and Android.
+   The same two-column grid owns labels, selects, and advanced fields. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start; gap: 8px; margin-block: 5px 10px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker {
+  display: flex; flex-direction: column;
+  min-width: 0; width: 100%; margin: 0; padding: 0;
+  gap: 0; box-sizing: border-box;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > label:first-child {
+  display: flex; align-items: end; box-sizing: border-box;
+  min-height: 25px; margin: 0 0 5px;
+  font-size: var(--font-ui-small); line-height: 1.25;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > select {
+  box-sizing: border-box; width: 100%; min-height: 40px; height: 40px; margin: 0;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-duration-custom-label,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-recurrence-advanced > label {
+  box-sizing: border-box; min-height: 24px; margin: 7px 0 4px;
+  display: flex; align-items: end; font-size: var(--font-ui-smaller);
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-advanced { margin: 0; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-planner-duration-custom,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-recurrence-advanced-input {
+  box-sizing: border-box; min-height: 40px; height: 40px; margin: 0;
+}
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > select,
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-planner-duration-custom,
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-recurrence-advanced-input {
+    min-height: 44px; height: 44px;
+  }
+}
+/* Ghosts have the existing black/white dashed stripe; no visible banner. */
+.obsidian-ntfy-planner-ghost-label { display: none; }
+
+
+/* 8.15.2 — mobile Planner task editor alignment. Previous mobile rules
+   competed (flex, grid, 44px action buttons); this final, scoped layout
+   gives Date/Time and Duration/Recurrence predictable matching tracks.
+   No new listeners, DOM nodes or asynchronous work. */
+@media (max-width: 650px) {
+  .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+    box-sizing: border-box;
+    padding-inline: 12px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: start;
+    column-gap: 8px;
+    row-gap: 0;
+    width: 100%;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div {
+    box-sizing: border-box; min-width: 0; width: 100%;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div > label {
+    display: flex; align-items: end; min-height: 23px;
+    margin: 0 0 5px; line-height: 1.25;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field {
+    display: grid; grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 44px 34px; gap: 4px; align-items: start;
+    min-width: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields input[type="date"],
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields input[type="time"] {
+    box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0;
+    height: 44px; min-height: 44px; margin: 0; padding-inline: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+    box-sizing: border-box; grid-row: 2; justify-self: end; align-self: start;
+    width: 34px; min-width: 34px; height: 34px; min-height: 34px;
+    margin: 0; padding: 5px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch; gap: 5px; min-width: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+    box-sizing: border-box; width: 100%; min-width: 0; min-height: 32px;
+    padding: 3px 3px; font-size: 11px; white-space: nowrap;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start; column-gap: 8px; row-gap: 6px;
+    width: 100%; min-width: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker {
+    display: flex; flex-direction: column; box-sizing: border-box;
+    width: 100%; min-width: 0; margin: 0; padding: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > label:first-child {
+    display: flex; align-items: end; min-height: 34px;
+    margin: 0 0 5px; line-height: 1.2;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > select {
+    box-sizing: border-box; width: 100%; min-width: 0;
+    height: 44px; min-height: 44px; margin: 0;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-duration-custom-label,
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-recurrence-advanced > label {
+    display: flex; align-items: end; box-sizing: border-box;
+    min-height: 30px; margin: 6px 0 4px; line-height: 1.2;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-planner-duration-custom,
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-recurrence-advanced-input {
+    box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0;
+    height: 42px; min-height: 42px; margin: 0;
+  }
+  /* Keep the desktop footer ordering and its compact physical button sizes. */
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions.setting-item {
+    display: block; padding-inline: 0;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-info {
+    display: none;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control {
+    box-sizing: border-box; display: flex; flex-wrap: nowrap;
+    justify-content: flex-end; align-items: center;
+    width: 100%; min-width: 0; gap: 6px; margin: 0; padding: 0;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control > button {
+    box-sizing: border-box; flex: 0 0 auto;
+    width: auto; min-width: 0; height: 36px; min-height: 36px;
+    padding: 5px 9px; font-size: var(--font-ui-small);
+    white-space: nowrap;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control > .obsidian-ntfy-unified-icon-button {
+    width: 36px; min-width: 36px; height: 36px; min-height: 36px;
+    padding: 6px;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions.has-delete.has-copy .setting-item-control > button:first-child {
+    margin-inline-end: 0;
+  }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions.has-delete.has-copy .setting-item-control > button:nth-child(2) {
+    margin-inline-end: auto;
+  }
+}
+/* Obsidian's .is-mobile class also occurs on tablet-size layouts. */
+.is-mobile .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control {
+  flex-wrap: nowrap; width: 100%; gap: 6px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control > button {
+  box-sizing: border-box; flex: 0 0 auto; width: auto; min-width: 0;
+  height: 36px; min-height: 36px; padding: 5px 9px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control > .obsidian-ntfy-unified-icon-button {
+  width: 36px; min-width: 36px; height: 36px; min-height: 36px; padding: 6px;
+}
+@media (max-width: 340px) {
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control { gap: 4px; }
+  .modal.obsidian-ntfy-planner-task-edit-dialog .obsidian-ntfy-unified-actions .setting-item-control > button { padding-inline: 6px; font-size: 12px; }
+}
+
+/* 8.16.0: lightweight messenger appearance; existing batched DOM and
+   channel transports unchanged. Respect theme colors and small screens. */
+.obsidian-ntfy-chat-messages {
+  gap: 9px;
+  padding: 12px 12px 18px;
+}
+.obsidian-ntfy-chat-date {
+  border-radius: 999px;
+  background: var(--background-secondary);
+  padding: 4px 11px;
+  margin: 5px auto;
+  font-size: 11px;
+}
+.obsidian-ntfy-chat-message {
+  max-width: min(87%, 560px);
+  min-width: 0;
+}
+.obsidian-ntfy-chat-message.is-followup { margin-top: -6px; }
+.obsidian-ntfy-chat-message .obsidian-ntfy-chat-bubble {
+  border-radius: 15px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 8px 11px 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+.obsidian-ntfy-chat-message.is-incoming .obsidian-ntfy-chat-bubble {
+  border-bottom-left-radius: 5px;
+}
+.obsidian-ntfy-chat-message.is-outgoing .obsidian-ntfy-chat-bubble {
+  background: var(--background-secondary);
+  background: color-mix(in srgb, var(--interactive-accent) 13%, var(--background-primary));
+  border-color: var(--background-modifier-border);
+  color: var(--text-normal);
+  border-bottom-right-radius: 5px;
+}
+.obsidian-ntfy-chat-message-meta {
+  opacity: 1;
+  color: var(--text-muted);
+  font-size: 10px;
+  flex-wrap: wrap;
+  row-gap: 1px;
+}
+.obsidian-ntfy-chat-message.is-outgoing .obsidian-ntfy-chat-message-meta {
+  color: var(--text-muted);
+}
+.obsidian-ntfy-chat-status-label {
+  overflow-wrap: anywhere;
+  font-size: 10px;
+}
+.obsidian-ntfy-chat-message.is-outgoing .obsidian-ntfy-chat-delivery.is-failed,
+.obsidian-ntfy-chat-message.is-outgoing .obsidian-ntfy-chat-delivery.is-failed + .obsidian-ntfy-chat-status-label {
+  color: var(--text-error);
+}
+@media (max-width: 440px) {
+  .obsidian-ntfy-chat-messages { padding-inline: 8px; }
+  .obsidian-ntfy-chat-message { max-width: 92%; }
+  .obsidian-ntfy-chat-message .obsidian-ntfy-chat-bubble { padding: 7px 9px 5px; }
+}
+
+/* 8.17.0: the manager's tab strip scrolls away with page content.
+   Inbox keeps its own independent chat scroll and fixed composer. */
+.obsidian-ntfy-manager:not(.obsidian-ntfy-inbox-active) .obsidian-ntfy-window-body > .obsidian-ntfy-tab-panel {
+  padding-top: 12px;
+}
+.obsidian-ntfy-manager .obsidian-ntfy-window-body > .obsidian-ntfy-nav {
+  position: relative;
+  top: auto;
 }

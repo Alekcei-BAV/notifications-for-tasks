@@ -70,6 +70,336 @@ const UI_LOCALE_PACKS = Object.create(null);
 const UI_EXAMPLE_FALLBACKS = Object.freeze({
   ru: Object.freeze({
     "Call client No. 7": "Позвонить клиенту №7",
+    "Planner": "Планер",
+    "Enable Planner": "Включить Планер",
+    "Enable Planner description": "Показывать вкладку Планера и загружать его календарные данные. При отключении Reminders, Tasks и доставка уведомлений продолжают работать.",
+    "Planner is disabled": "Планер выключен. Остальные разделы менеджера и уведомления продолжают работать.",
+    "On completion": "При выполнении",
+    "On completion default": "По умолчанию (без 🏁)",
+    "On completion keep": "Оставить выполненную задачу",
+    "On completion delete": "Удалить выполненную задачу",
+    "On completion description": "Поведение Tasks при отметке задачи выполненной. Для повторяющейся задачи может остаться следующий экземпляр.",
+    "Task actions": "Действия с задачей",
+    "Edit recurrence": "Изменить повторение",
+    "Recurrence rule": "Правило повторения",
+    "Recurrence": "Повторение",
+    "Repeat templates": "Шаблоны повторения",
+    "Every day": "Каждый день",
+    "Every week": "Каждую неделю",
+    "Every month": "Каждый месяц",
+    "Every year": "Каждый год",
+    "Custom interval": "Свой интервал",
+    "Every": "Каждые",
+    "Days": "дней",
+    "Weeks": "недель",
+    "Months": "месяцев",
+    "Years": "лет",
+    "When done": "После выполнения",
+    "Apply recurrence": "Применить",
+    "Advanced recurrence": "Сложное правило Tasks",
+    "Select repeat": "Выбрать повторение",
+    "Edit duration": "Изменить длительность",
+    "Clear duration": "Удалить длительность",
+    "Remove task": "Удалить задачу",
+
+    "Remove recurrence": "Удалить повторение",
+    "Invalid recurrence rule": "Некорректное правило повторения",
+    "Tasks recurrence rule, for example: every day or every week. Leave empty to remove.": "Правило Tasks, например every day или every week. Оставьте поле пустым для удаления.",
+    "Enable task auto-completion": "Включить автовыполнение",
+    "Disable task auto-completion": "Отключить автовыполнение",
+    "Planner date display": "Формат даты в Планере",
+    "Changes displayed dates only; Markdown dates stay YYYY-MM-DD.": "Меняет только отображение дат; в Markdown остаётся YYYY-MM-DD.",
+    "Delete tasks without confirmation": "Удалять задачи без подтверждения",
+    "When enabled, Delete task immediately removes the Markdown task line. Off by default.": "При включении кнопка удаления сразу удаляет строку Markdown-задачи. По умолчанию выключено.",
+    "Auto-complete at task time": "Автовыполнение по времени",
+    "Global auto-completion is disabled": "Общая настройка автовыполнения выключена",
+    "Adds the configured auto-complete tag. The global automation setting must also be enabled.": "Добавляет настроенный тег автовыполнения. Для срабатывания необходимо включить и общую настройку автоматизации.",
+    "Auto-complete": "Автовыполнение",
+    "Auto": "Авто",
+    "Edit task duration": "Изменить продолжительность",
+    "Edit task": "Редактировать задачу",
+    "Recurrence and notifications": "Повторение и уведомления",
+    "Ntfy notification": "Уведомление ntfy",
+    "Planner notification": "Уведомление",
+    "New task notifications by default": "Уведомление для новых задач",
+    "New task notifications by default desc": "Начальное состояние галочки «Уведомление» при создании задачи. Существующие задачи не изменяются.",
+    "Ntfy requires a task date": "Для ntfy требуется дата задачи",
+    "Invalid task title": "Некорректное название задачи",
+    "Planner task creation": "Создание задач в Планере",
+    "Planner destination note": "Заметка для новых задач",
+    "Choose planner note": "Выбрать заметку",
+    "No planner note selected": "Заметка пока не выбрана",
+    "Planner insertion": "Место вставки новых задач",
+    "Beginning of note": "В начало заметки",
+    "End of note": "В конец заметки",
+    "Separate task block": "Одна пустая строка между задачами и текстом",
+    "Planner leading blank line": "Пустая строка в начале заметки",
+    "Planner leading blank line desc": "Всегда оставлять хотя бы одну пустую строку перед задачами вверху файла. Если есть YAML Properties, пустая строка будет после блока YAML.",
+    "Click a time to create a task": "Нажмите на час слева, чтобы создать задачу",
+    "Create task": "Создать задачу",
+    "Copy task": "Создать копию",
+    "Task copy": "Копия задачи",
+    "Source task changed": "Исходная задача изменилась. Откройте копирование снова.",
+    "Planner search": "Поиск в Планере",
+    "Planner search desc": "Искать только среди уже загруженных задач, без повторного сканирования заметок. По умолчанию выключено.",
+    "Search tasks": "Поиск по названию и тегам",
+    "Clear search": "Очистить поиск",
+    "Planner preview": "Предпросмотр повторений",
+    "Planner preview desc": "Показывать фантомные повторения только в «Сегодня» и «Завтра». Они не создают задачи или уведомления. По умолчанию выключено.",
+    "Planner preview excluded tags": "Не показывать фантомы с тегами",
+    "Planner preview excluded tags desc": "Список тегов через запятую или пробел: #work, #personal. Не влияет на настоящие задачи и уведомления.",
+    "Planner hide tagged tasks": "Скрывать задачи Планера по тегам",
+    "Planner hide tagged tasks desc": "Полностью скрывать отмеченные тегами задачи в Планере, включая поиск, неделю, месяц, статистику, просроченные и фантомные прогнозы. Не влияет на Markdown, Tasks и отправку уведомлений.",
+    "Planner hidden task tags": "Теги скрываемых задач",
+    "Planner hidden task tags desc": "Например: #личное, #архив. Точное совпадение тега, без учёта регистра. При выключенном переключателе поле не действует.",
+    "Planner show tagged tasks today": "Показывать скрытые задачи в «Сегодня»",
+    "Planner show tagged tasks today desc": "Только в разделе «Сегодня» отображать обычные задачи со скрываемыми тегами. В других режимах они останутся скрытыми. Не отменяет независимые исключения фантомных прогнозов и не меняет уведомления.",
+    "Planner filtering": "Фильтрация Планера",
+    "Accepted by ntfy server (not push delivered)": "Принято сервером ntfy (не доставка push)",
+    "Queued by ntfy server (not push delivered)": "В очереди ntfy (не доставка push)",
+    "Chat sending": "Отправка",
+    "Chat failed": "Ошибка отправки",
+    "Complex Tasks rule": "Сложное правило Tasks",
+    "No recurrence": "Не повторять",
+    "Every N recurrence": "Каждые N…",
+    "Complex recurrence option": "Сложное правило",
+    "Custom duration option": "Свои минуты",
+    "Delete completed tasks in note": "Удалить выполненные задачи из файла",
+    "Delete completed tasks desc": "Удаляет только строки Markdown Tasks со статусом [x] из одного выбранного файла. Другие статусы и вложенные строки сохраняются.",
+    "Delete completed confirm": "Подтвердить удаление выполненных задач",
+    "Delete completed count": "Найдено выполненных задач",
+    "Delete completed none": "В файле нет задач со статусом [x].",
+    "Delete completed changed": "Файл изменился после предварительной проверки. Повторите операцию.",
+    "Delete completed success": "Удалено выполненных задач",
+    "Delete completed irreversible": "Перед удалением сохраните резервную копию файла. Изменение не откатывается самим плагином.",
+    "Select deletion note": "Выбрать файл для очистки",
+    "Delete completed action": "Удалить только [x]",
+    "Delete completed preview": "Просмотр задач перед удалением",
+    "Delete completed preview more": "Показать ещё строки",
+    "Planner performance diagnostics": "Диагностика производительности",
+    "Planner performance diagnostics desc": "Показывает измерения без нового сканирования. Замеры DOM нужно включать вручную на время проверки.",
+    "Enable Planner UI profiling": "Включить замеры интерфейса",
+    "Disable Planner UI profiling": "Выключить замеры интерфейса",
+    "Planner UI profiling is temporary": "Сеансовый режим: замеры действуют до перезапуска Obsidian, без сохранения настроек и дополнительных сканирований.",
+    "Planner UI render": "Последняя отрисовка Планера",
+    "Planner UI history": "Недавние замеры интерфейса",
+    "Planner UI not captured": "Замеров интерфейса нет. Включите замеры, затем откройте Планер и вернитесь к этому отчёту.",
+    "Show performance diagnostics": "Показать диагностику",
+    "Copy performance report": "Копировать отчёт производительности",
+    "Search messages": "Поиск сообщений",
+    "Filter messages": "Фильтр сообщений",
+    "Sent messages": "Отправленные",
+    "Received messages": "Полученные",
+    "Failed messages": "Ошибки",
+    "No matching messages": "Сообщения не найдены",
+    "No messages": "Нет сообщений",
+    "Show performance diagnostics first": "Сначала покажите диагностику производительности",
+    "Performance report copied": "Отчёт производительности скопирован",
+    "Clipboard unavailable": "Буфер обмена недоступен",
+    "Performance platform": "Платформа",
+    "Planner parsed-file cache": "Кэш прочитанных задач",
+    "hours with overlaps": "часов с пересечениями",
+    "Striped segments": "Штриховка показывает наложение",
+    "ntfy history retention": "Сколько хранить сообщений ntfy",
+    "Optional local ntfy history limit. The existing history is preserved until new messages arrive; other channels are unaffected.": "Необязательное ограничение локальной истории ntfy. Прежняя история не удаляется сразу; сообщения других каналов сохраняются.",
+    "Existing retention (up to 10000)": "Прежний предел (до 10 000)",
+    "250 messages": "250 сообщений",
+    "500 messages": "500 сообщений",
+    "1000 messages": "1000 сообщений",
+    "3000 messages": "3000 сообщений",
+    "Accepted by ntfy server; push receipt not confirmed": "Принято сервером ntfy; получение push не подтверждено",
+    "Scheduled on ntfy server; push receipt not confirmed": "Запланировано сервером ntfy; получение push не подтверждено",
+    "Send failed": "Ошибка отправки",
+    "Sending": "Отправляется",
+    "Delivery unknown": "Получение не подтверждено",
+    "Performance not measured": "Не измерено",
+    "Performance scan": "Последнее полное/частичное сканирование",
+    "Scan stages": "Этапы сканирования",
+    "Scan file work": "Чтение и разбор файлов при сканировании",
+    "Scan mark": "Старт/восстановление",
+    "Scan collect": "Сбор",
+    "Scan prepare": "Подготовка",
+    "Scan queue reconcile": "Сверка очереди",
+    "Scan sent reconcile": "Сверка отправленных",
+    "Scan remote verification": "Проверка сервера",
+    "Scan queue flush": "Обработка очереди",
+    "Scan scheduling": "Планирование/отправка",
+    "Scan save": "Сохранение",
+    "Scan HTTP operations": "HTTP-запросы в ходе сканирования",
+    "Scan HTTP observed": "Запросов",
+    "Scan HTTP successful": "Успешных HTTP",
+    "Scan HTTP failed": "Ошибок HTTP",
+    "Scan HTTP elapsed": "Суммарное ожидание HTTP",
+    "Scan HTTP breakdown": "HTTP по категориям",
+    "Scan slow HTTP": "Медленные HTTP-операции",
+    "Slow HTTP operations": "Запросов от 1 с",
+    "Longest HTTP operation": "Самый долгий запрос",
+    "Longest ntfy check": "Самая долгая проверка ntfy",
+    "Scan checkpoint breakdown": "Контрольные записи по этапам",
+    "Checkpoint start": "Начало",
+    "Checkpoint state": "Состояние",
+    "Checkpoint finish": "Завершение",
+    "Scan HTTP checks": "Проверки ntfy",
+    "Scan HTTP publishes": "Публикации ntfy",
+    "Scan HTTP cancels": "Отмены ntfy",
+    "Scan HTTP other": "Другие запросы",
+    "Scan publication operations": "Попытки отправки через каналы",
+    "Scan remote snapshot": "Снимок расписания ntfy внутри сканирования",
+    "Scan snapshot reads": "Получений с сервера",
+    "Scan snapshot reuses": "Повторных использований",
+    "Scan snapshot invalidations": "Сбросов после ошибок",
+    "Scan uncertain verifications": "Неоднозначных проверок ntfy",
+    "Scan other HTTP methods": "Методы других HTTP-запросов",
+    "Scan other methods": "Прочие методы",
+    "Scan publish calls": "Вызовов",
+    "Scan publish accepted": "Успешных результатов каналов",
+    "Scan publish failures": "Ошибок каналов",
+    "Scan persistence operations": "Записи и восстановление сканирования",
+    "Settings persistence queue": "Очередь сохранений настроек",
+    "Persistence largest JSON": "Максимальная длина JSON",
+    "Persistence longest write": "Самая долгая запись",
+    "Persistence queue wait": "Ожидание очереди",
+    "Persistence large writes": "Крупных записей",
+    "Persistence handoff": "Передача очереди",
+    "Persistence outside scan": "Вне сканирования",
+    "Persistence during scan": "Во время сканирования",
+    "Persistence ordinary": "Обычных записей",
+    "Persistence joined": "Объединено ожидающих",
+    "Settings persistence latency": "Очередь сохранений: задержки",
+    "Settings persistence detail": "Очередь сохранений: подробности",
+    "Persistence JSON": "Сериализаций JSON",
+    "Persistence disk": "Записей на диск",
+    "Persistence skipped": "Пропущено одинаковых",
+    "Persistence checkpoints": "Обязательных контрольных",
+    "Persistence failures": "Ошибок",
+    "Scan writes": "Контрольных записей сканирования",
+    "Scan write failures": "Ошибок записи",
+    "Scan recovery requested": "Запрошено восстановление",
+    "Scan operations caveat": "Ограничения подсчёта",
+    "Scan operations caveat text": "HTTP учитывает запросы, совпавшие по времени со сканированием, в том числе возможные параллельные действия. Время запросов и вызовов может перекрываться: не суммировать с этапами. Записи учитывают только три контрольные точки сканирования, а не все параллельные сохранения. Успешный HTTP не подтверждает доставку push.",
+    "Scan read": "Чтение/ожидание",
+    "Scan parse": "Разбор строк",
+    "Scan file count": "Файлов прочитано",
+    "Scan line count": "Строк",
+    "Scan included collect": "входит в сбор",
+    "Scan interrupted": "прервано",
+    "Manager opening": "От открытия",
+    "Manager loading": "загрузка данных",
+    "Manager tasks": "задач",
+    "Manager DOM": "узлов DOM",
+    "Manager first data-ready render": "Первое открытие Планера с загруженными данными",
+    "Enable Planner UI profiling for breakdown": "Включите сеансовые замеры для разбивки сканирования",
+    "Close and reopen manager with profiling enabled": "Включите замеры, закройте вкладку менеджера и откройте её снова",
+    "Performance vault": "Обновление данных менеджера",
+    "Performance metrics": "Расчёт Планера",
+    "Performance minute bands": "Минутная шкала",
+    "Overlap time": "Пересечение задач",
+    "Performance view": "Текущее представление",
+    "Performance tasks": "Задач загружено",
+    "Performance cache": "Кэш расчётов Планера",
+    "Performance shown": "Отрисовано карточек",
+    "Performance ghost": "Фантомных карточек",
+    "Performance no manager": "Менеджер не открыт; данные Планера недоступны.",
+    "Predicted recurrence": "Возможное повторение",
+    "Predicted only": "Прогноз, не задача Tasks",
+    "Preview limited": "Предпросмотр ограничен для быстродействия",
+    "Show more day tasks": "Показать ещё задачи",
+
+    "Task title": "Название задачи",
+    "Task saved": "Задача добавлена",
+    "Cannot save planner task": "Не удалось добавить задачу",
+    "Choose a note in Planner settings": "Выберите заметку в настройках Планера",
+    "Planner note must be in scan scope": "Заметка должна входить в область сканирования",
+    "Planner note is missing": "Выбранная заметка отсутствует",
+    "Move to hour": "Перенести на этот час",
+    "Task move failed": "Не удалось перенести задачу",
+    "Planner note": "Заметка Планера",
+    "Open planner settings": "Открыть настройки Планера",
+    "Tasks status": "Статус задачи",
+    "New task title required": "Введите название задачи",
+
+    "Today": "Сегодня",
+    "Tomorrow": "Завтра",
+    "Week": "Неделя",
+    "Month": "Месяц",
+    "Tasks this week": "Задачи за неделю",
+    "Tasks this month": "Задачи за месяц",
+    "Previous period": "Предыдущий период",
+    "Next period": "Следующий период",
+    "Open day": "Открыть день",
+    "Ntfy on": "Уведомление через ntfy включено",
+    "Ntfy off": "Уведомление через ntfy выключено",
+    "Cannot enable ntfy": "Не удалось включить ntfy для этой задачи",
+    "All tasks": "Все задачи",
+    "With notifications": "С уведомлениями",
+    "Without exact time": "Без точного времени",
+    "Hourly schedule": "Расписание по часам",
+    "Tasks for the day": "Задачи на день",
+    "Nothing planned": "Нет запланированных задач",
+    "Go to current time": "К текущему времени",
+    "Previous day": "Предыдущий день",
+    "Next day": "Следующий день",
+    "Choose day": "Выбрать дату",
+    "Planner read failed": "Не удалось загрузить планер",
+    "Planner filter hint": "Задачи только из разрешённых мест сканирования",
+    "Change task date and time": "Изменить дату и время задачи",
+    "Date": "Дата",
+    "Time": "Время",
+    "Save": "Сохранить",
+    "Cancel": "Отмена",
+    "Remove date": "Удалить дату",
+    "Remove time": "Удалить время",
+    "+1 hour": "+1 час",
+    "-1 hour": "−1 час",
+    "Delete task": "Удалить задачу",
+    "Confirm task deletion": "Подтвердите удаление задачи",
+    "Delete selected task from source note?": "Удалить выбранную задачу из исходной заметки?",
+    "This action cannot be undone by the plugin": "Это действие нельзя отменить через плагин",
+    "Only the task line is removed; nested items remain": "Удаляется только строка задачи; вложенные пункты остаются",
+    "Task deleted": "Задача удалена",
+    "Task delete failed": "Не удалось удалить задачу",
+    "Date comes from daily note": "Дата определяется именем дневной заметки и не может быть удалена здесь",
+    "Only Markdown tasks can be deleted": "Удалять можно только Markdown-задачи",
+    "Invalid date/time": "Некорректная дата или время",
+    "Task was changed; reopen and try again": "Задача изменилась; откройте редактор заново",
+    "Overdue tasks": "Просроченные задачи",
+    "Move to today": "Перенести на сегодня",
+    "Move to tomorrow": "Перенести на завтра",
+    "More overdue tasks": "Показать ещё просроченные задачи",
+    "Overdue task move failed": "Не удалось перенести просроченную задачу",
+    "This day": "Этот день",
+    "Completed": "Выполнено",
+    "Incomplete": "Не выполнено",
+    "Planned time": "Сумма длительностей",
+    "Occupied time": "Занято без наложений",
+    "Overlapping time": "Наложения по времени",
+    "Tasks without duration": "Задач без длительности",
+    "Planner display metrics": "Показатели Планера",
+    "Planner metrics disabled by default": "Все группы показателей по умолчанию отключены. Отмечайте только нужные данные; отключённые расчёты по возможности пропускаются.",
+    "Show completion statistics": "Статистика выполнения",
+    "Show completion statistics desc": "Показывать выбранные показатели выполнения за день, неделю и месяц.",
+    "Show task total": "Количество задач",
+    "Show completed count": "Выполненные и процент выполнения",
+    "Show incomplete count": "Невыполненные задачи",
+    "Show time statistics": "Учёт запланированного времени",
+    "Show time statistics desc": "Показывать только выбранные показатели длительности. Не влияет на время уведомлений.",
+    "Show planned duration sum": "Сумма длительностей",
+    "Show occupied union": "Занято без наложений",
+    "Show overlap minutes": "Время наложений",
+    "Show tasks without duration": "Задачи без длительности",
+    "Planner calendar indicators": "Индикаторы календаря",
+    "Show calendar load": "Индикатор загруженности",
+    "Show calendar load desc": "Показывать занятое время и уровни загруженности в неделе и месяце.",
+    "Show calendar conflicts": "Предупреждения о пересечениях",
+    "Show calendar conflicts desc": "Отмечать пересекающиеся задачи и дни значком ! независимо от индикатора загруженности.",
+    "Show calendar progress": "Точки выполненных и невыполненных задач",
+    "Show calendar progress desc": "Показывать прогресс точками в календаре месяца независимо от общей статистики.",
+    "Time conflict": "Пересечение по времени",
+    "Time load": "Занятое время",
+    "No duration": "Без длительности",
+    "h": "ч",
+    "min": "мин",
+
     "For example: “Notifications for Tasks: Call client No. 7”. If disabled, the title contains only the task text.": "Например: «Notifications for Tasks: Позвонить клиенту №7». Если опция выключена, заголовок содержит только текст задачи.",
   }),
 });
@@ -305,6 +635,7 @@ const DEFAULT_SETTINGS = {
   quietHoursEnd: "07:00",
   incomingMessages: [],
   conversationMessages: [],
+  ntfyHistoryLimit: 0,
   conversationPreferences: {},
   incomingSeenKeys: [],
   outboundQueue: [],
@@ -316,6 +647,37 @@ const DEFAULT_SETTINGS = {
   autoScanEnabled: true,
   scanIntervalMinutes: 15,
   scanPaths: "",
+  plannerEnabled: true,
+  plannerSearchEnabled: false,
+  plannerRecurrencePreviewEnabled: false,
+  plannerPreviewExcludedTags: "",
+  plannerHideTaggedTasksEnabled: false,
+  plannerHiddenTaskTags: "",
+  plannerShowHiddenTasksToday: false,
+  plannerTargetFile: "",
+  plannerInsertPosition: "top",
+  plannerBlankLine: true,
+  plannerLeadingBlankLine: true,
+  plannerDurationPresetsEnabled: true,
+  plannerDurationEndEnabled: false,
+  plannerDurationPresets: [15, 30, 45, 60, 90, 120],
+  plannerDateDisplayFormat: "eu",
+  plannerDeleteWithoutConfirm: false,
+  plannerNewTaskNtfyEnabled: true,
+  plannerShowCompletionStats: false,
+  plannerMetricShowTotal: true,
+  plannerMetricShowCompleted: true,
+  plannerMetricShowIncomplete: true,
+  plannerShowTimeStats: false,
+  plannerMetricShowPlanned: true,
+  plannerMetricShowOccupied: true,
+  plannerMetricShowOverlap: true,
+  plannerMetricShowNoDuration: true,
+  plannerShowCalendarLoad: false,
+  plannerShowCalendarConflicts: false,
+  plannerShowCalendarProgress: false,
+  plannerNtfyPreferences: {},
+  plannerNtfyAnchors: {},
   performanceProfile: "auto",
   pluginNoticesEnabled: true,
   pluginNoticeCategories: {
@@ -606,6 +968,20 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   async onload() {
     const storedSettings = await this.loadData();
     this.settings = this.normalizeSettings(storedSettings);
+    this.plannerAnchorByRow = new Map();
+    this.plannerAnchorsByFile = new Map();
+    for (const [key, anchor] of Object.entries(this.settings.plannerNtfyAnchors || {})) {
+      if (!this.plannerAnchorsByFile.has(anchor.file)) this.plannerAnchorsByFile.set(anchor.file, new Set());
+      this.plannerAnchorsByFile.get(anchor.file).add(key);
+    }
+    this.plannerLegacyByFile = new Map();
+    // Index older per-line preferences once; never iterate them for every scanned file.
+    for (const key of Object.keys(this.settings.plannerNtfyPreferences || {})) {
+      const match = key.match(/^(.*):derived:[^:]+:line:(\d+)$/u);
+      if (!match) continue;
+      if (!this.plannerLegacyByFile.has(match[1])) this.plannerLegacyByFile.set(match[1], []);
+      this.plannerLegacyByFile.get(match[1]).push({ key, line: Number(match[2]) });
+    }
     await this.loadExternalUiTranslations();
     this.localReminderTimer = null;
     this.taskFileWriteQueues = new Map();
@@ -632,6 +1008,11 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     this.doneDateTimers = new Map();
     this.reminderScanTimer = null;
     this.pendingReminderScanFiles = new Map();
+    // Volatile generation counters: edits during an awaited scan must not be
+    // published from a stale Markdown snapshot. Never persisted in data.json.
+    this.reminderFileChangeRevisions = new Map();
+    this.activeScanFileRevisions = null;
+    this.deferredFullScanRequest = null;
     this.statusCountTimer = null;
     this.dailyBatchTimer = null;
     this.startupWorkTimer = null;
@@ -641,6 +1022,8 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     this.autoDoneInFlight = new Set();
     this.remoteScheduleSnapshot = { at: 0, ids: new Set() };
     this.remoteScheduleSnapshotPromise = null;
+    // Only a successful current-scan server read may be reused across newly created occurrences.
+    this.scanRemoteScheduleCache = null;
     this.deviceId = this.localDeviceId();
     // The manager preview cache is never used to schedule or deliver messages.
     // Namespace it per vault; do not change the device identity used by delivery.
@@ -754,19 +1137,24 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       this.clearMobileFullVerification();
     });
     this.registerEvent(this.app.vault.on("create", (file) => {
+      this.invalidatePlannerTaskFileCache(file);
       this.queueReminderScan(file);
       this.queueStatusCountRefresh(file);
     }));
     this.registerEvent(this.app.vault.on("modify", (file) => {
+      this.invalidatePlannerTaskFileCache(file);
       this.queueEnsureDoneDates(file);
       this.queueReminderScan(file);
       this.queueStatusCountRefresh(file);
     }));
     this.registerEvent(this.app.vault.on("delete", (file) => {
+      this.invalidatePlannerTaskFileCache(file);
       this.queueReminderScan(file);
       this.queueStatusCountRefresh(file);
     }));
     this.registerEvent(this.app.vault.on("rename", (file, oldPath) => {
+      this.invalidatePlannerTaskFileCache(oldPath);
+      this.invalidatePlannerTaskFileCache(file);
       this.queueReminderScan(oldPath);
       this.queueReminderScan(file);
       this.queueStatusCountRefresh(file);
@@ -834,6 +1222,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     this.statusBar?.remove?.();
     this.statusBar = null;
     this.restoreNoticeCapture();
+    this.plannerTaskFileCache?.clear();
+    this.plannerTaskCollectionCache = null;
+    this.managerPlannerViewState = null;
   }
 
   runAutoScan() {
@@ -917,6 +1308,10 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const extension = typeof fileOrPath === "string" ? path.split(".").pop() : fileOrPath.extension;
     if (!path || String(extension || "").toLowerCase() !== "md") return;
     this.pendingReminderScanFiles.set(path, fileOrPath);
+    // Count even repeated modify events for the same path while a network
+    // operation is pending. Generation integers avoid retaining file content.
+    if (!this.reminderFileChangeRevisions) this.reminderFileChangeRevisions = new Map();
+    this.reminderFileChangeRevisions.set(path, (this.reminderFileChangeRevisions.get(path) || 0) + 1);
     this.clearQueuedReminderScan();
     this.reminderScanTimer = window.setTimeout(() => {
       this.reminderScanTimer = null;
@@ -937,10 +1332,30 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     }
     const files = [...this.pendingReminderScanFiles.values()];
     this.pendingReminderScanFiles.clear();
+    let succeeded = false;
     try {
       await this.scanAndSchedule({ showNotice: false, files });
+      succeeded = this.lastScanRunSucceeded === true;
     } catch (error) {
       console.warn(`${PLUGIN_NAME}: incremental reminder scan failed`, error);
+    }
+    if (!succeeded && !this.isUnloading && this.settings.autoScanEnabled) {
+      // scanAndSchedule logs internal failures instead of throwing. Restore
+      // consumed event paths; the durable pending marker forces a full scan
+      // at the next run. A bounded delay avoids an immediate offline spin.
+      for (const item of files) {
+        const path = typeof item === "string" ? item : String(item?.path || "");
+        if (path && !this.pendingReminderScanFiles.has(path)) this.pendingReminderScanFiles.set(path, item);
+      }
+      // No configured destination: keep the changed paths, but do not poll
+      // every 30 seconds until the user configures a channel.
+      if (this.hasDestination()) {
+        this.clearQueuedReminderScan();
+        this.reminderScanTimer = window.setTimeout(() => {
+          this.reminderScanTimer = null;
+          void this.flushQueuedReminderScan();
+        }, 30000);
+      }
     }
   }
 
@@ -1007,17 +1422,99 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     return changed;
   }
 
-  enqueueSettingsPersist() {
+  // Capture at the request boundary. Three scan checkpoints are independently
+  // durable and never share a write; ordinary byte-identical requests may
+  // share only the still-pending *last* ordinary promise. This also works for
+  // oversized data.json without retaining an extra long-lived JSON copy.
+  enqueueSettingsPersist({ checkpoint = false, reason = "ordinary" } = {}) {
+    const trace = this.runtimePlannerUiProfiling === true
+      ? (this.runtimeSettingsPersistStats ||= {
+        serialized: 0, serializedMs: 0, writes: 0, skipped: 0,
+        writeMs: 0, failed: 0, checkpointWrites: 0,
+        joinedPending: 0, waitMs: 0, maxWaitMs: 0, maxWriteMs: 0,
+        ordinaryWrites: 0, scanOrdinaryWrites: 0, outsideScanWrites: 0,
+        largestJsonBytes: 0, largeWrites: 0, handoffWrites: 0,
+      }) : null;
+    const started = trace ? plannerPerfClock() : 0;
+    let serialized;
+    try {
+      serialized = JSON.stringify(this.settings);
+      if (typeof serialized !== "string") throw new Error("Settings serialization returned no data");
+    } catch (error) {
+      if (trace) trace.failed++;
+      return Promise.reject(error);
+    }
+    if (trace) {
+      trace.serialized++;
+      trace.serializedMs += plannerPerfClock() - started;
+      trace.largestJsonBytes = Math.max(trace.largestJsonBytes, serialized.length);
+    }
     if (!this.settingsSaveChain) this.settingsSaveChain = Promise.resolve();
-    const next = this.settingsSaveChain
-      .catch(() => undefined)
-      .then(() => this.saveData(this.settings));
+    const pending = this.settingsSavePendingTail;
+    // A checkpoint (or any intervening distinct request) is a hard ordering
+    // barrier. Never resolve a later checkpoint or changed state early.
+    if (!checkpoint && pending && !pending.checkpoint && pending.serialized === serialized) {
+      if (trace) trace.joinedPending++;
+      return pending.promise;
+    }
+    const queuedAt = trace ? plannerPerfClock() : 0;
+    const requestedDuringScan = this.isScanning === true;
+    const next = this.settingsSaveChain.catch(() => undefined).then(async () => {
+      if (trace) {
+        const wait = Math.max(0, plannerPerfClock() - queuedAt);
+        trace.waitMs += wait;
+        trace.maxWaitMs = Math.max(trace.maxWaitMs, wait);
+      }
+      // Bounded cross-request comparison; unlike the pending-tail comparison,
+      // this is retained between writes and must stay small on Android.
+      const comparable = serialized.length <= 262144;
+      if (!checkpoint && comparable && serialized === this.lastPersistedSettingsJson) {
+        if (trace) trace.skipped++;
+        return;
+      }
+      const writeStarted = trace ? plannerPerfClock() : 0;
+      try {
+        // A detached snapshot avoids a later async mutation leaking into an
+        // earlier durable journal record.
+        await this.saveData(JSON.parse(serialized));
+        this.lastPersistedSettingsJson = comparable ? serialized : null;
+        if (trace) {
+          trace.writes++;
+          if (checkpoint) trace.checkpointWrites++;
+          else {
+            trace.ordinaryWrites++;
+            if (requestedDuringScan) trace.scanOrdinaryWrites++;
+            else trace.outsideScanWrites++;
+            if (reason === "handoff") trace.handoffWrites++;
+          }
+          if (!comparable) trace.largeWrites++;
+        }
+      } catch (error) {
+        // A failed or ambiguous disk write must never authorize deduplication.
+        this.lastPersistedSettingsJson = null;
+        if (trace) trace.failed++;
+        throw error;
+      } finally {
+        if (trace) {
+          const duration = Math.max(0, plannerPerfClock() - writeStarted);
+          trace.writeMs += duration;
+          trace.maxWriteMs = Math.max(trace.maxWriteMs, duration);
+        }
+      }
+    });
     this.settingsSaveChain = next;
+    this.settingsSavePendingTail = { serialized, checkpoint, promise: next };
+    // Release large snapshots when the request settles. No floating rejected
+    // finally-promise: both callbacks handle completion without leaking errors.
+    const clear = () => {
+      if (this.settingsSavePendingTail?.promise === next) this.settingsSavePendingTail = null;
+    };
+    next.then(clear, clear);
     return next;
   }
 
-  async saveSettings() {
-    await this.enqueueSettingsPersist();
+  async saveSettings({ checkpoint = false, reason = "ordinary" } = {}) {
+    await this.enqueueSettingsPersist({ checkpoint, reason });
     this.scheduleNextObsidianReminderNotice();
   }
 
@@ -1193,6 +1690,8 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const path = String(filePath || "").replace(/\\/g, "/");
     if (!path || typeof operation !== "function") return Promise.resolve(undefined);
     if (!(this.taskFileWriteQueues instanceof Map)) this.taskFileWriteQueues = new Map();
+    // Invalidate immediately, before Vault.process emits its modify event.
+    this.invalidatePlannerTaskFileCache(path);
     const previous = this.taskFileWriteQueues.get(path) || Promise.resolve();
     const next = previous.catch(() => undefined).then(operation);
     this.taskFileWriteQueues.set(path, next);
@@ -1240,7 +1739,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   uiLocalePackSummary() {
     const packs = this.uiLocalePackInfo();
     if (!packs.length) {
-      const exampleVersion = String(this.manifest && this.manifest.version || "8.0.6");
+      const exampleVersion = String(this.manifest && this.manifest.version || "8.1.0");
       return `${this.uiText("No external language packs loaded.")} ${this.uiText("Supported names include")} ru.json, ru_${exampleVersion}.json.`;
     }
     return packs.map((pack) => {
@@ -1418,13 +1917,23 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       startedAt: new Date().toISOString(),
       mode: Array.isArray(files) ? "partial" : "full",
     };
-    await this.enqueueSettingsPersist();
+    await this.enqueueSettingsPersist({ checkpoint: true });
   }
 
   async markScanFinished({ full = false } = {}) {
+    const priorRecovery = this.settings.scanRecovery;
+    const priorFullAt = this.settings.mobileLastFullVerificationAt;
     this.settings.scanRecovery = { pending: false };
     if (full) this.settings.mobileLastFullVerificationAt = new Date().toISOString();
-    await this.enqueueSettingsPersist();
+    try { await this.enqueueSettingsPersist({ checkpoint: true }); }
+    catch (error) {
+      // The disk write may be incomplete. Retry with full reconciliation while
+      // preserving the already-committed per-reminder state when available.
+      this.settings.scanRecovery = priorRecovery && priorRecovery.pending
+        ? priorRecovery : { pending: true, mode: full ? "full" : "partial" };
+      this.settings.mobileLastFullVerificationAt = priorFullAt;
+      throw error;
+    }
   }
 
   // A low-frequency check for Mobile: scheduled only when due, visible and idle.
@@ -1530,10 +2039,32 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     return (raw.startsWith("#") ? raw : `#${raw}`).toLocaleLowerCase().slice(0, 80);
   }
 
-  taskHasAutoDoneTag(taskBody) {
-    if (!this.settings.autoDoneEnabled) return false;
+  taskContainsAutoDoneTag(taskBody) {
     const tag = this.normalizeAutoDoneTag(this.settings.autoDoneTag);
     return this.extractTaskTags(taskBody).includes(tag);
+  }
+
+  taskHasAutoDoneTag(taskBody) {
+    return this.settings.autoDoneEnabled === true && this.taskContainsAutoDoneTag(taskBody);
+  }
+
+  rewriteSourceTaskAutoDoneLine(sourceLine, enabled) {
+    const match = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!match) throw new Error("Only Markdown tasks can be edited");
+    const tag = this.normalizeAutoDoneTag(this.settings.autoDoneTag);
+    const escaped = tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const token = new RegExp(`(^|\\s)${escaped}(?=\\s|$)`, "giu");
+    let body = match[2];
+    if (enabled) {
+      if (this.extractTaskTags(body).includes(tag)) return sourceLine;
+      // Keep official Tasks date, recurrence, ID and duration tokens intact.
+      const boundary = /\s+(?=(?:⏱\uFE0F?\s+\d+m|\d{1,2}:\d{2}|📅|⏳|🛫|➕|✅|✓|❌|🔁|🆔|🏁|⛔|⏫|🔼|🔽|⏬|🔺))/u.exec(body);
+      const at = boundary ? boundary.index : body.length;
+      body = `${body.slice(0, at).trimEnd()} ${tag}${body.slice(at)}`;
+    } else {
+      body = body.replace(token, "$1").replace(/[ \t]{2,}/gu, " ").trim();
+    }
+    return `${match[1]}${body}`;
   }
 
   tasksStableIdFromBody(taskBody, filePath) {
@@ -1542,7 +2073,13 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     if (tasksId && tasksId[1]) return `tasks-id:${String(tasksId[1]).trim()}`;
     const blockId = body.match(/(?:^|\s)\^([A-Za-z0-9_-]+)\s*$/u);
     if (blockId && blockId[1]) return `block-id:${String(filePath || "")}:${blockId[1]}`;
+    // The control tag is a Planner setting, not a semantic task identity:
+    // toggling it must not change a derived taskId or detach the ntfy bell.
+    const controlTag = this.normalizeAutoDoneTag(this.settings.autoDoneTag).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const controlToken = new RegExp(`(^|\\s)${controlTag}(?=\\s|$)`, "giu");
     let stableBody = body
+      .replace(controlToken, "$1")
+      .replace(/(?:^|\s)⏱\uFE0F?\s+\d{1,5}m(?=\s|$)/gu, " ")
       .replace(TIME_BEFORE_TAGS_AND_TASKS_METADATA_RE, " ")
       .replace(TIME_BEFORE_TASKS_METADATA_RE, " ")
       .replace(TIME_BEFORE_TASKS_DATE_RE, " ")
@@ -1751,10 +2288,11 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   }
 
   taskOutputCompleted(value) {
-    for (const line of String(value || "").split(/\r?\n/)) {
+    // With Tasks recurrence, a newly generated TODO may precede the completed
+    // original. Completion is true when the API output contains a done line.
+    for (const line of String(value || "").split(/\r\n|\n|\r/)) {
       const match = line.match(/^\s*[-*+]\s+\[([^\]])\]\s+/u);
-      if (!match) continue;
-      return match[1] === "x" || match[1] === "X";
+      if (match && (match[1] === "x" || match[1] === "X")) return true;
     }
     return false;
   }
@@ -1771,6 +2309,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       transformed = next;
       toggles += 1;
       completed = this.taskOutputCompleted(transformed);
+      const deleteAction = this.plannerOnCompletion(sourceLine) === "delete";
+      if (deleteAction && !completed && (transformed === "" ||
+          (!!this.plannerRecurrenceRule(sourceLine) && /^\s*[-*+]\s+\[ \]\s+/u.test(transformed)))) completed = true;
       if (!completed && /\r?\n/.test(transformed)) break;
     }
     return { ok: true, status: completed ? "completed" : "status-advanced", transformed, toggles, completed };
@@ -1867,6 +2408,42 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     settings.autoDoneTag = this.normalizeAutoDoneTag(settings.autoDoneTag || DEFAULT_SETTINGS.autoDoneTag);
     settings.autoDoneGraceSeconds = Math.max(0, Math.min(300, Number(settings.autoDoneGraceSeconds ?? DEFAULT_SETTINGS.autoDoneGraceSeconds) || 0));
     settings.autoDoneMaxStatusToggles = Math.max(1, Math.min(10, Math.floor(Number(settings.autoDoneMaxStatusToggles ?? DEFAULT_SETTINGS.autoDoneMaxStatusToggles) || 1)));
+    settings.plannerEnabled = settings.plannerEnabled !== false;
+    settings.plannerSearchEnabled = settings.plannerSearchEnabled === true;
+    settings.plannerRecurrencePreviewEnabled = settings.plannerRecurrencePreviewEnabled === true;
+    settings.plannerPreviewExcludedTags = normalizePlannerExcludedTags(settings.plannerPreviewExcludedTags);
+    settings.plannerHideTaggedTasksEnabled = settings.plannerHideTaggedTasksEnabled === true;
+    settings.plannerHiddenTaskTags = normalizePlannerExcludedTags(settings.plannerHiddenTaskTags);
+    settings.plannerShowHiddenTasksToday = settings.plannerShowHiddenTasksToday === true;
+    settings.plannerTargetFile = String(settings.plannerTargetFile || "").replace(/\\/g, "/").trim().slice(0, 1024);
+    settings.plannerInsertPosition = settings.plannerInsertPosition === "bottom" ? "bottom" : "top";
+    settings.plannerBlankLine = settings.plannerBlankLine !== false;
+    settings.plannerLeadingBlankLine = settings.plannerLeadingBlankLine !== false;
+    settings.plannerDurationPresetsEnabled = settings.plannerDurationPresetsEnabled !== false;
+    settings.plannerDurationEndEnabled = settings.plannerDurationEndEnabled === true;
+    settings.plannerDurationPresets = this.normalizePlannerDurationPresets(settings.plannerDurationPresets);
+    settings.plannerDateDisplayFormat = settings.plannerDateDisplayFormat === "asia" ? "asia" : "eu";
+    settings.plannerDeleteWithoutConfirm = settings.plannerDeleteWithoutConfirm === true;
+    settings.plannerNewTaskNtfyEnabled = settings.plannerNewTaskNtfyEnabled !== false;
+    for (const key of ["plannerShowCompletionStats", "plannerShowTimeStats", "plannerShowCalendarLoad", "plannerShowCalendarConflicts", "plannerShowCalendarProgress"]) settings[key] = settings[key] === true;
+    for (const key of ["plannerMetricShowTotal", "plannerMetricShowCompleted", "plannerMetricShowIncomplete", "plannerMetricShowPlanned", "plannerMetricShowOccupied", "plannerMetricShowOverlap", "plannerMetricShowNoDuration"]) settings[key] = settings[key] !== false;
+    const plannerNtfyRaw = settings.plannerNtfyPreferences;
+    settings.plannerNtfyPreferences = plannerNtfyRaw && typeof plannerNtfyRaw === "object" && !Array.isArray(plannerNtfyRaw)
+      ? Object.fromEntries(Object.entries(plannerNtfyRaw).filter(([key, value]) => typeof key === "string" && key.length <= 512 && (value === "on" || value === "off")).slice(0, 20000))
+      : {};
+    // 8.5: only user-toggled derived tasks have persisted lightweight anchors.
+    const anchorSource = settings.plannerNtfyAnchors;
+    settings.plannerNtfyAnchors = anchorSource && typeof anchorSource === "object" && !Array.isArray(anchorSource)
+      ? Object.fromEntries(Object.entries(anchorSource).filter(([key, value]) => key.startsWith("planner-anchor:")
+          && key.length <= 80 && value && typeof value === "object" && !Array.isArray(value)
+          && typeof value.file === "string" && value.file.length <= 1024
+          && Number.isInteger(Number(value.line)) && Number(value.line) > 0
+          && typeof value.title === "string" && value.title.length <= 500)
+          .slice(0, 20000).map(([key, value]) => [key, {
+            file: value.file, line: Number(value.line), title: value.title,
+            before: String(value.before || "").slice(0, 128), after: String(value.after || "").slice(0, 128),
+            digest: String(value.digest || "").slice(0, 128),
+          }])) : {};
     settings.showManagerVaultTasks = settings.showManagerVaultTasks !== false;
     settings.showManagerCompleted = settings.showManagerCompleted !== false;
     settings.managerRibbonButton = settings.managerRibbonButton !== false;
@@ -1915,6 +2492,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       .map((message) => this.normalizeConversationMessage(message))
       .filter(Boolean)
       .slice(-CONVERSATION_MESSAGE_LIMIT);
+    // Opt-in cap for ntfy history only. Zero preserves historical retention.
+    settings.ntfyHistoryLimit = [0, 250, 500, 1000, 3000].includes(Number(settings.ntfyHistoryLimit))
+      ? Number(settings.ntfyHistoryLimit) : 0;
     settings.conversationPreferences = this.normalizeConversationPreferences(settings.conversationPreferences);
     settings.incomingSeenKeys = data && Array.isArray(data.incomingSeenKeys)
       ? data.incomingSeenKeys.map(String).filter(Boolean).slice(-1000)
@@ -2868,6 +3448,90 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     };
   }
 
+  ntfyConversationDisplayText(message) {
+    if (!message) return "";
+    const text = String(message.text || "").replace(/[\u200B-\u200D\uFEFF]/gu, "").trim();
+    if (text) return text;
+    // Older ntfy sends may have an intentionally invisible body. Only fall
+    // back to a real human-readable title; do not show a fictitious delivery.
+    const channel = this.getChannelAccount(message.channelId);
+    if (channel?.type === "ntfy" || message.channelId === "ntfy") {
+      const title = String(message.title || "").trim();
+      if (title && title !== String(message.conversationId || "") && title !== "ntfy") return title;
+    }
+    return "";
+  }
+
+  async fetchNtfyAccountLimits(channelId = "ntfy") {
+    const account = this.getChannelAccount(channelId);
+    if (!account || account.type !== "ntfy") throw new Error("ntfy account is not configured.");
+    const config = account.config || {};
+    const base = this.requireHttpUrl(config.serverUrl || "https://ntfy.sh", "ntfy server").replace(/\/+$/, "");
+    // User-initiated, read-only GET. No polling, no secret logging, no caching.
+    const headers = {};
+    if (config.authToken) headers.Authorization = `Bearer ${String(config.authToken).trim()}`;
+    const response = await this.httpRequest({ url: `${base}/v1/account`, method: "GET", headers, throw: true });
+    const data = await this.responseJson(response);
+    if (!data || typeof data !== "object" || !data.limits || !data.stats) return null;
+    const limits = data.limits;
+    const stats = data.stats;
+    const value = (object, key) => {
+      const raw = object && object[key];
+      if (raw === null || raw === undefined || raw === "") return null;
+      const number = Number(raw);
+      return Number.isFinite(number) && number >= 0 ? Math.trunc(number) : null;
+    };
+    return {
+      messageLimit: value(limits, "messages"),
+      messagesUsed: value(stats, "messages"),
+      messagesRemaining: value(stats, "messages_remaining"),
+      attachmentLimit: value(limits, "attachment_file_size"),
+    };
+  }
+
+  recordNtfyOutboundHistory(descriptor, notification, result) {
+    if (!descriptor || descriptor.type !== "ntfy" || !result || result.ok !== true || notification.source === "conversation") return;
+    try {
+      const topic = String(descriptor.config?.topic || "").trim();
+      if (!topic) return;
+      const status = result.status === "scheduled" ? "queued" : "sent";
+      this.recordConversationMessage({
+        id: String(result.messageId || notification.id || this.hash(`${topic}:${notification.title}:${notification.message}`)),
+        channelId: descriptor.id, conversationId: topic, direction: "outgoing", sender: "me",
+        title: String(notification.title || ""), text: String(notification.message || notification.title || ""),
+        timestamp: new Date().toISOString(), status,
+        metadata: { channelType: "ntfy", source: notification.source || "", remoteStatus: result.status || "" },
+      });
+      this.persistSettingsSoon();
+      this.app?.workspace?.trigger?.("notifications-for-tasks:conversations-changed");
+    } catch (error) {
+      console.warn(`${PLUGIN_NAME}: local ntfy history could not be recorded`, error);
+    }
+  }
+
+  // Explicit failure path: keep the old success-only recorder contract while
+  // exposing a redacted failure in history. A later successful retry with the
+  // same local ID replaces this entry instead of duplicating the message.
+  recordNtfyFailedHistory(descriptor, notification, error) {
+    if (!descriptor || descriptor.type !== "ntfy" || !notification || notification.source === "conversation") return;
+    try {
+      const topic = String(descriptor.config?.topic || "").trim();
+      if (!topic) return;
+      const id = String(notification.id || this.hash(`${topic}:${notification.title}:${notification.message}`));
+      this.recordConversationMessage({
+        id, channelId: descriptor.id, conversationId: topic, direction: "outgoing", sender: "me",
+        title: String(notification.title || ""), text: String(notification.message || notification.title || ""),
+        timestamp: new Date().toISOString(), status: "failed",
+        error: this.redactSensitiveText(String(error || "Request failed"), true),
+        metadata: { channelType: "ntfy", source: notification.source || "", remoteStatus: "failed" },
+      });
+      this.persistSettingsSoon();
+      this.app?.workspace?.trigger?.("notifications-for-tasks:conversations-changed");
+    } catch (historyError) {
+      console.warn(`${PLUGIN_NAME}: local ntfy failure could not be recorded`, historyError);
+    }
+  }
+
   conversationMessageIdentity(message) {
     return [
       String(message && message.channelId || "unknown"),
@@ -2943,6 +3607,16 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
 
   normalizeConversationImportPayload(payload) {
     let value = payload;
+    // Bound structured API payloads before flattening conversation collections:
+    // otherwise a large nested import could allocate an even larger copy.
+    if (value && typeof value === "object") {
+      let serialized;
+      try { serialized = JSON.stringify(value); }
+      catch (_) { throw new Error("Chat import messages must be JSON-serializable."); }
+      if (serialized === undefined || serialized.length > CONVERSATION_IMPORT_MAX_BYTES) {
+        throw new Error("Chat import is too large; split it into smaller batches.");
+      }
+    }
     if (typeof value === "string") {
       if (value.length > CONVERSATION_IMPORT_MAX_BYTES) throw new Error("Chat import is too large; split it into smaller batches.");
       try {
@@ -3188,7 +3862,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         downloadError: String(attachment && attachment.downloadError || "").slice(0, 512),
       })) : [],
       timestamp: Number.isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString(),
-      status: ["sending", "sent", "failed", "received"].includes(input.status) ? input.status : direction === "outgoing" ? "sent" : "received",
+      status: ["sending", "queued", "sent", "failed", "received"].includes(input.status) ? input.status : direction === "outgoing" ? "sent" : "received",
       error: String(input.error || "").slice(0, 512),
       metadata,
     };
@@ -3199,7 +3873,21 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     if (!message) return null;
     const key = this.conversationMessageIdentity(message);
     const messages = (this.settings.conversationMessages || []).filter((item) => this.conversationMessageIdentity(item) !== key);
-    this.settings.conversationMessages = [...messages, message].slice(-CONVERSATION_MESSAGE_LIMIT);
+    let updated = [...messages, message].slice(-CONVERSATION_MESSAGE_LIMIT);
+    const ntfyLimit = Number(this.settings.ntfyHistoryLimit || 0);
+    if (ntfyLimit > 0) {
+      // Retain all non-ntfy messages. Only explicit opt-in prunes ntfy entries.
+      let kept = 0;
+      const survivors = [];
+      for (let i = updated.length - 1; i >= 0; i--) {
+        const entry = updated[i];
+        const channel = this.getChannelAccount?.(entry.channelId);
+        const ntfy = entry.metadata?.channelType === "ntfy" || channel?.type === "ntfy" || entry.channelId === "ntfy";
+        if (!ntfy || kept++ < ntfyLimit) survivors.push(entry);
+      }
+      updated = survivors.reverse();
+    }
+    this.settings.conversationMessages = updated;
     this.emitApiEvent("conversations-changed", this.cloneApiValue(message));
     return message;
   }
@@ -5475,7 +6163,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           if (options.simulate) {
             results.push({ channelId, ok: true, status: "simulated", request: this.redactChannelRequest(request) });
           } else {
-            results.push(await this.executeBuiltinChannelRequest(descriptor, request));
+            const sent = await this.executeBuiltinChannelRequest(descriptor, request);
+            results.push(sent);
+            this.recordNtfyOutboundHistory(descriptor, deliveryNotification, sent);
           }
           continue;
         }
@@ -5492,7 +6182,10 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           results.push({ channelId, ok: true, status: "sent", result: result === undefined ? null : result });
         }
       } catch (error) {
-        results.push({ channelId, ok: false, status: "failed", error: this.redactSensitiveText(error.message || String(error), true) });
+        const failure = { channelId, ok: false, status: "failed", error: this.redactSensitiveText(error.message || String(error), true) };
+        results.push(failure);
+        if (!options.simulate && descriptor?.type === "ntfy")
+          this.recordNtfyFailedHistory(descriptor, deliveryNotification, failure.error);
       }
     }
 
@@ -5568,7 +6261,19 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       throw new Error("Custom headers must be a JSON object.");
     }
     if (!parsed || Array.isArray(parsed) || typeof parsed !== "object") throw new Error("Custom headers must be a JSON object.");
-    return Object.fromEntries(Object.entries(parsed).map(([key, item]) => [String(key), String(item)]));
+    // Custom headers may arrive from imported settings. Reject non-HTTP
+    // field names and line breaks before passing them to native transports.
+    // The null-prototype result prevents special keys from affecting merges.
+    const headers = Object.create(null);
+    for (const [key, item] of Object.entries(parsed)) {
+      if (!/^[!#$%&'*+.^_`|~0-9A-Za-z-]+$/.test(key) || ["__proto__", "constructor", "prototype"].includes(key)) {
+        throw new Error("Custom headers contain an invalid field name.");
+      }
+      const value = String(item);
+      if (/[\r\n\u0000]/.test(value)) throw new Error("Custom headers contain an invalid field value.");
+      headers[key] = value;
+    }
+    return headers;
   }
 
   buildBuiltinChannelRequest(descriptor, notification, options = {}) {
@@ -5618,8 +6323,10 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         url: this.requireHttpUrl(url, "ntfy topic"),
         method: "POST",
         headers,
+        // Hide *duplicate* body text, never the whole notification. Some ntfy
+        // clients ignore Title; a zero-width-only body looked like an empty push.
         body: notification.event === "reminder" && this.settings.ntfyHideDuplicateReminderBody
-          ? "\u200B"
+          ? (notification.title || notification.message)
           : notification.message,
         throw: true,
         channelMeta: { messageId: sequenceId, sequenceId },
@@ -5900,7 +6607,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           Message: this.safeHeader(
             index === 0
               ? (request.notification.event === "reminder" && this.settings.ntfyHideDuplicateReminderBody
-                  ? "\u200B"
+                  ? (request.notification.title || request.notification.message)
                   : request.notification.message)
               : ""
           ),
@@ -6283,7 +6990,11 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const current = now instanceof Date ? now : new Date(now);
     let next = this.dailyBatchAt(current);
     if (next.getTime() <= current.getTime() + 1000) {
-      next = new Date(next.getFullYear(), next.getMonth(), next.getDate() + 1, next.getHours(), next.getMinutes(), 0, 0);
+      // A missing local clock time is normalized by Date on the DST spring
+      // transition. Reuse the configured wall-clock, not that normalized hour,
+      // when constructing tomorrow's batch (02:30 -> 03:30 must not stick).
+      const { hour, minute } = this.batchTimeParts();
+      next = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 1, hour, minute, 0, 0);
     }
     return Math.max(1000, next.getTime() - current.getTime());
   }
@@ -6331,18 +7042,32 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     if (start === end) return due;
 
     const current = due.getHours() * 60 + due.getMinutes();
-    const target = new Date(due.getTime());
     const endHour = Math.floor(end / 60);
     const endMinute = end % 60;
-
-    if (start < end) {
-      target.setHours(endHour, endMinute, 0, 0);
-    } else if (current >= start) {
-      target.setDate(target.getDate() + 1);
-      target.setHours(endHour, endMinute, 0, 0);
-    } else {
-      target.setHours(endHour, endMinute, 0, 0);
+    // On a DST fall-back day HH:mm can occur twice. setHours() chooses the
+    // earlier occurrence, even when the reminder is in the later one. Never
+    // move a quiet-hours reminder backwards in absolute time.
+    const targetDayOffset = start > end && current >= start ? 1 : 0;
+    const y = due.getFullYear(), m = due.getMonth(), d = due.getDate();
+    const localTarget = (offset) => new Date(y, m, d + offset, endHour, endMinute, 0, 0);
+    let target = localTarget(targetDayOffset);
+    if (target.getTime() <= due.getTime()) {
+      const offsetBefore = target.getTimezoneOffset();
+      const offsetAfter = new Date(target.getTime() + 4 * 60 * 60 * 1000).getTimezoneOffset();
+      const deltaMinutes = offsetAfter - offsetBefore;
+      if (deltaMinutes > 0 && deltaMinutes <= 180) {
+        const later = new Date(target.getTime() + deltaMinutes * 60000);
+        // Only the second occurrence of exactly the same local clock counts;
+        // otherwise a gap or a timezone change is not a repeated clock time.
+        if (later.getFullYear() === target.getFullYear()
+            && later.getMonth() === target.getMonth()
+            && later.getDate() === target.getDate()
+            && later.getHours() === endHour && later.getMinutes() === endMinute
+            && later.getTime() > due.getTime()) target = later;
+      }
     }
+    // If both occurrences have elapsed, choose the next local calendar day.
+    if (target.getTime() <= due.getTime()) target = localTarget(targetDayOffset + 1);
     return target;
   }
 
@@ -6381,7 +7106,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     if (batch.getTime() < current.getTime()) {
       batch = this.dailyBatchAt(current);
       if (batch.getTime() < current.getTime() && !this.shouldFlushDailyBatch(current)) {
-        batch = new Date(batch.getFullYear(), batch.getMonth(), batch.getDate() + 1, batch.getHours(), batch.getMinutes(), 0, 0);
+        // Preserve the configured local time across a DST gap.
+        const { hour, minute } = this.batchTimeParts();
+        batch = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 1, hour, minute, 0, 0);
       }
     }
     return batch;
@@ -6726,45 +7453,131 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     return ids;
   }
 
+  // The scan-scoped cache is deliberately short-lived. It never survives a scan,
+  // never substitutes for an old failed read, and is namespaced by ntfy topic.
+  // A force request still checks the server if no fresh verified scan snapshot exists.
+  scanRemoteSnapshotFresh() {
+    const snapshot = this.isScanning ? this.scanRemoteScheduleCache : null;
+    return Boolean(snapshot && snapshot.ids instanceof Set && snapshot.topic === this.topicUrl()
+      && Date.now() - snapshot.at >= 0 && Date.now() - snapshot.at < 1500);
+  }
+
+  rememberScanRemoteSnapshot(ids) {
+    if (!this.isScanning) return;
+    this.scanRemoteScheduleCache = { topic: this.topicUrl(), at: Date.now(), ids: new Set(ids) };
+  }
+
+  invalidateRemoteScheduleSnapshot() {
+    this.remoteScheduleSnapshot = { at: 0, ids: new Set(), topic: this.topicUrl() };
+    this.scanRemoteScheduleCache = null;
+    // Invalidate any GET still in flight; it must not overwrite a newer snapshot.
+    this.remoteScheduleSnapshotEpoch = (Number(this.remoteScheduleSnapshotEpoch) || 0) + 1;
+    this.remoteScheduleSnapshotPromise = null;
+    this.remoteScheduleSnapshotPromiseTopic = null;
+    if (this.runtimePlannerUiProfiling === true && this.runtimeActiveScanOperations) {
+      this.runtimeActiveScanOperations.remoteSnapshotInvalidated++;
+    }
+  }
+
   async remoteScheduledIdSnapshot(force = false) {
+    const topic = this.topicUrl();
     const now = Date.now();
-    if (!force && this.remoteScheduleSnapshot && now - Number(this.remoteScheduleSnapshot.at || 0) < 1500) return this.remoteScheduleSnapshot.ids || new Set();
-    if (this.remoteScheduleSnapshotPromise) return this.remoteScheduleSnapshotPromise;
-    this.remoteScheduleSnapshotPromise = (async () => {
+    if (this.scanRemoteSnapshotFresh()) {
+      const ops = this.runtimePlannerUiProfiling === true ? this.runtimeActiveScanOperations : null;
+      if (ops) ops.remoteSnapshotReused++;
+      return this.scanRemoteScheduleCache.ids;
+    }
+    // A snapshot from another topic must never authorize a deduplication.
+    if (!force && this.remoteScheduleSnapshot && this.remoteScheduleSnapshot.topic === topic
+        && now - Number(this.remoteScheduleSnapshot.at || 0) >= 0
+        && now - Number(this.remoteScheduleSnapshot.at || 0) < 1500) {
+      return this.remoteScheduleSnapshot.ids || new Set();
+    }
+    const epoch = Number(this.remoteScheduleSnapshotEpoch) || 0;
+    if (this.remoteScheduleSnapshotPromise && this.remoteScheduleSnapshotPromiseTopic === topic
+        && this.remoteScheduleSnapshotPromiseEpoch === epoch) return this.remoteScheduleSnapshotPromise;
+    // Do not join a previous topic's pending promise. Never log the topic or credentials.
+    const request = (async () => {
       try {
         const items = await this.fetchRemoteScheduled();
+        if (this.topicUrl() !== topic || (Number(this.remoteScheduleSnapshotEpoch) || 0) !== epoch) {
+          throw new Error("remote schedule context changed during verification");
+        }
         const ids = this.remoteScheduledIds(items);
-        this.remoteScheduleSnapshot = { at: Date.now(), ids };
+        this.remoteScheduleSnapshot = { at: Date.now(), ids, topic };
+        this.rememberScanRemoteSnapshot(ids);
+        const ops = this.runtimePlannerUiProfiling === true ? this.runtimeActiveScanOperations : null;
+        if (ops) ops.remoteSnapshotFetched++;
         return ids;
-      } finally {
-        this.remoteScheduleSnapshotPromise = null;
+      } catch (error) {
+        // A late failed request must not erase a newer successful verification.
+        if (this.topicUrl() === topic && (Number(this.remoteScheduleSnapshotEpoch) || 0) === epoch) {
+          this.invalidateRemoteScheduleSnapshot();
+        }
+        throw error;
       }
     })();
-    return this.remoteScheduleSnapshotPromise;
+    this.remoteScheduleSnapshotPromise = request;
+    this.remoteScheduleSnapshotPromiseTopic = topic;
+    this.remoteScheduleSnapshotPromiseEpoch = epoch;
+    try { return await request; }
+    finally {
+      if (this.remoteScheduleSnapshotPromise === request) {
+        this.remoteScheduleSnapshotPromise = null;
+        this.remoteScheduleSnapshotPromiseTopic = null;
+      }
+    }
   }
 
   noteRemoteOccurrenceScheduled(reminder) {
     if (!reminder) return;
-    const ids = this.remoteScheduleSnapshot && this.remoteScheduleSnapshot.ids instanceof Set ? this.remoteScheduleSnapshot.ids : new Set();
+    const topic = this.topicUrl();
+    const ids = this.remoteScheduleSnapshot && this.remoteScheduleSnapshot.topic === topic
+      && this.remoteScheduleSnapshot.ids instanceof Set ? this.remoteScheduleSnapshot.ids : new Set();
     ids.add(this.ntfyMessageId(reminder.occurrenceId || reminder.key));
-    this.remoteScheduleSnapshot = { at: Date.now(), ids };
+    this.remoteScheduleSnapshot = { at: Date.now(), ids, topic };
+    if (this.scanRemoteSnapshotFresh()) {
+      this.scanRemoteScheduleCache.ids.add(this.ntfyMessageId(reminder.occurrenceId || reminder.key));
+    }
   }
 
-  async remoteOccurrenceAlreadyScheduled(reminder, force = false) {
-    if (!reminder || !this.topicUrl()) return false;
+  // Verification is tri-state: a failed GET is NOT proof that a remote
+  // schedule is absent. Never turn an uncertain result into a duplicate POST.
+  async remoteOccurrenceScheduleState(reminder, force = false) {
+    if (!reminder || !this.topicUrl()) return "unknown";
     try {
       const ids = await this.remoteScheduledIdSnapshot(force);
-      return ids.has(this.ntfyMessageId(reminder.occurrenceId || reminder.key));
-    } catch (error) {
-      console.warn(`${PLUGIN_NAME}: remote idempotency check failed`, error);
-      return false;
+      return ids.has(this.ntfyMessageId(reminder.occurrenceId || reminder.key)) ? "present" : "absent";
+    } catch (_) {
+      const ops = this.runtimePlannerUiProfiling === true && this.isScanning ? this.runtimeActiveScanOperations : null;
+      if (ops) ops.remoteVerificationUnknown = (ops.remoteVerificationUnknown || 0) + 1;
+      // Keep network errors, URLs and credentials out of ordinary notices.
+      if (!this.isScanning || !this.scanUnverifiedNoticed) {
+        console.warn(`${PLUGIN_NAME}: remote schedule verification unavailable; scheduling deferred`);
+        if (this.isScanning) this.scanUnverifiedNoticed = true;
+      }
+      return "unknown";
     }
+  }
+
+  // Compatibility wrapper for internal callers which only need a boolean.
+  async remoteOccurrenceAlreadyScheduled(reminder, force = false) {
+    return await this.remoteOccurrenceScheduleState(reminder, force) === "present";
+  }
+
+  remoteScheduleVerificationError() {
+    const error = new Error("ntfy schedule verification unavailable; retry on next scan");
+    error.code = "NTFY_REMOTE_UNVERIFIED";
+    return error;
   }
 
   remoteAlreadyGoneError(error) {
     const status = Number(error && (error.status || error.statusCode || error.response && error.response.status) || 0);
     const text = String(error && (error.message || error) || "").toLowerCase();
-    return status === 404 || status === 410 || /(?:404|410|not found|already deleted|does not exist)/i.test(text);
+    // Generic "not found" can describe DNS/connection failures; those are
+    // ambiguous DELETE outcomes and must not mark the remote item deleted.
+    return status === 404 || status === 410
+      || (status === 0 && /(?:\bHTTP\s+(?:404|410)\b|\balready deleted\b|\bdoes not exist\b)/i.test(text));
   }
 
   async fetchRemoteScheduled() {
@@ -6774,16 +7587,22 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       method: "GET",
       headers: this.ntfyRequestHeaders(),
       throw: true,
-    });
+    }, "check");
     const text = await this.responseText(response);
-    return text
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .map((line) => {
-        try { return JSON.parse(line); } catch (_) { return null; }
-      })
-      .filter((item) => item && item.event === "message")
+    const messages = [];
+    for (const rawLine of text.split(/\r?\n/)) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      let item;
+      try { item = JSON.parse(line); }
+      catch (_) { throw new Error("Invalid ntfy schedule response"); }
+      if (!item || typeof item !== "object" || Array.isArray(item)) {
+        throw new Error("Invalid ntfy schedule response");
+      }
+      messages.push(item);
+    }
+    return messages
+      .filter((item) => item.event === "message")
       .filter((item) => {
         const raw = Number(item.time || 0);
         const timeMs = raw > 1e12 ? raw : raw * 1000;
@@ -6801,7 +7620,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       method: "DELETE",
       headers: this.ntfyRequestHeaders(),
       throw: true,
-    });
+    }, "cancel");
   }
 
   async cancelSentEntry(id) {
@@ -6815,6 +7634,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       if (this.remoteScheduleSnapshot && this.remoteScheduleSnapshot.ids instanceof Set) {
         for (const value of [cancelEntry.ntfySequenceId, entry.ntfyId, this.ntfyMessageId(id)]) this.remoteScheduleSnapshot.ids.delete(String(value || "").trim());
         this.remoteScheduleSnapshot.at = Date.now();
+      }
+      if (this.scanRemoteScheduleCache) {
+        for (const value of [cancelEntry.ntfySequenceId, entry.ntfyId, this.ntfyMessageId(id)]) this.scanRemoteScheduleCache.ids.delete(String(value || "").trim());
       }
       this.settings.sent[id] = Object.assign({}, entry, {
         ntfySequenceId: cancelEntry.ntfySequenceId,
@@ -6833,6 +7655,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           for (const value of [entry.ntfySequenceId, entry.ntfyId, this.ntfyMessageId(id)]) this.remoteScheduleSnapshot.ids.delete(String(value || "").trim());
           this.remoteScheduleSnapshot.at = Date.now();
         }
+        if (this.scanRemoteScheduleCache) {
+          for (const value of [entry.ntfySequenceId, entry.ntfyId, this.ntfyMessageId(id)]) this.scanRemoteScheduleCache.ids.delete(String(value || "").trim());
+        }
         this.settings.sent[id] = Object.assign({}, entry, {
           ntfyDeleted: true,
           ntfyDeletedAt: new Date().toISOString(),
@@ -6844,6 +7669,8 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         }
         return true;
       }
+      // Network failure may mean the server processed the DELETE despite an error.
+      this.invalidateRemoteScheduleSnapshot();
       this.settings.sent[id] = Object.assign({}, entry, {
         ntfyCancelFailedAt: new Date().toISOString(),
         ntfyCancelError: this.redactSensitiveText(error.message || String(error), true),
@@ -6897,17 +7724,20 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   async reconcileMissingRemoteScheduled(reminders, nowMs = Date.now()) {
     if (!this.topicUrl()) return 0;
 
-    let remote = [];
+    // Full reconciliation must always ask the remote server at least once,
+    // even if a scan-local snapshot was seeded by another operation.
+    this.scanRemoteScheduleCache = null;
+    let remoteIds;
     try {
-      remote = await this.fetchRemoteScheduled();
+      // Verify against the current topic and discard late responses from a
+      // different topic or a cache invalidated while the request was in flight.
+      remoteIds = await this.remoteScheduledIdSnapshot(true);
     } catch (error) {
-      // If ntfy cannot be queried, do not touch the local cache.
+      // An uncertain verification cannot authorize deletion of sent records.
+      this.invalidateRemoteScheduleSnapshot();
       console.warn(`${PLUGIN_NAME}: could not verify remote scheduled queue`, error);
       return 0;
     }
-
-    const remoteIds = this.remoteScheduledIds(remote);
-    this.remoteScheduleSnapshot = { at: Date.now(), ids: new Set(remoteIds) };
 
     const activeKeys = new Set((reminders || []).map((reminder) => reminder.key));
     const activeLocations = new Set(
@@ -7188,16 +8018,20 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   }
 
   async openNtfyManager() {
+    const openStarted = this.runtimePlannerUiProfiling === true ? plannerPerfClock() : null;
     const preload = this.managerViewCache || { notificationTasks: [], vaultTasks: [], diagnostics: [], scanError: "" };
     const leaves = this.app.workspace.getLeavesOfType(VIEW_TYPE_NTFY_MANAGER);
     let leaf = leaves[0];
     if (leaf && leaf.view && typeof leaf.view.setPreloadedData === "function") {
+      if (openStarted !== null && typeof leaf.view.beginManagerOpenTrace === "function")
+        leaf.view.beginManagerOpenTrace(openStarted, "reopen");
       leaf.view.setPreloadedData(preload);
       await leaf.view.render();
       this.app.workspace.revealLeaf(leaf);
       return;
     }
     this.managerViewPreload = preload;
+    if (openStarted !== null) this.runtimeManagerOpenStartedAt = openStarted;
     if (!leaf) {
       leaf = this.app.workspace.getLeaf("tab");
       await leaf.setViewState({ type: VIEW_TYPE_NTFY_MANAGER, active: true });
@@ -7249,7 +8083,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       const maxFutureMs = Math.max(1, Number(this.settings.maxFutureDays || 3)) * 24 * 60 * 60 * 1000;
       const result = await this.flushDueQueue(now, maxFutureMs, this.shouldFlushDailyBatch(new Date(now)));
       this.settings.sent = this.pruneSentCache(this.settings.sent || {});
-      await this.saveSettings();
+      await this.saveSettings({ reason: "handoff" });
       this.updateStatusCount(result.failed ? `(${result.failed} fail)` : "");
       this.scheduleNextAutoDone();
       return result;
@@ -7279,7 +8113,16 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   }
 
   async scanAndSchedule({ showNotice, forceDailyBatch = false, files = null } = {}) {
+    if (this.isUnloading) return;
+    this.lastScanRunSucceeded = false;
     if (this.isScanning) {
+      // A startup/full/daily request must not disappear while a partial scan
+      // is awaiting storage or network. Coalesce requests, retaining the
+      // stronger daily-batch requirement. Partial edits use the existing map.
+      if (!Array.isArray(files) || forceDailyBatch) {
+        const prior = this.deferredFullScanRequest;
+        this.deferredFullScanRequest = { forceDailyBatch: Boolean(forceDailyBatch || prior?.forceDailyBatch) };
+      }
       if (showNotice) this.pluginNotice("actions", `${PLUGIN_NAME}: ${this.uiText("Scan already running")}`);
       return;
     }
@@ -7292,22 +8135,82 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
 
     // A prior interrupted operation is always recovered by a full scope scan;
     // a newer partial scan must not erase its unfinished reconciliation.
-    if (this.settings.scanRecovery?.pending) files = null;
+    const recoveringInterruptedScan = this.settings.scanRecovery?.pending === true;
+    if (recoveringInterruptedScan) files = null;
     this.isScanning = true;
+    this.scanUnverifiedNoticed = false;
+    this.scanRemoteScheduleCache = null; // one scan is the maximum lifetime
+    // Only paths successfully read in this pass have an authoritative source
+    // generation. Edits after reading invalidate that snapshot before sending.
+    this.activeScanFileRevisions = new Map();
+    const perfStarted = plannerPerfClock();
+    // Stage metrics are opt-in and ephemeral; avoid per-stage clock reads on
+    // the ordinary scheduler path. Durations may include awaited IO/network.
+    const scanTrace = this.runtimePlannerUiProfiling === true
+      ? { stages: {}, checkpoint: perfStarted, readMs: 0, parseMs: 0, readFiles: 0, parsedLines: 0,
+        operations: {
+          recoveryRequested: recoveringInterruptedScan ? 1 : 0,
+          httpRequests: 0, httpOk: 0, httpFailed: 0, httpMs: 0,
+          httpChecks: 0, httpCheckMs: 0, httpPublishes: 0, httpPublishMs: 0,
+          httpCancels: 0, httpCancelMs: 0, httpOther: 0, httpOtherMs: 0,
+          publishCalls: 0, publishResultsOk: 0, publishResultsFailed: 0, publishCallMs: 0,
+          writes: 0, writeFailed: 0, writeMs: 0,
+          writeStartMs: 0, writeStateMs: 0, writeFinishMs: 0,
+          httpSlowCount: 0, httpSlowestMs: 0, httpCheckSlowestMs: 0,
+          remoteSnapshotFetched: 0, remoteSnapshotReused: 0, remoteSnapshotInvalidated: 0, remoteVerificationUnknown: 0,
+          httpOtherGet: 0, httpOtherPost: 0, httpOtherDelete: 0, httpOtherMisc: 0,
+        },
+      } : null;
+    // Diagnostic HTTP counts describe requests observed while a scan is active.
+    // They may include concurrent requests from other UI actions; no URLs, bodies
+    // or headers enter the trace. No tracing is installed when disabled.
+    if (scanTrace) this.runtimeActiveScanOperations = scanTrace.operations;
+    const measureScanWrite = async (work, phase) => {
+      if (!scanTrace) return await work();
+      const start = plannerPerfClock();
+      scanTrace.operations.writes++;
+      try { return await work(); }
+      catch (error) { scanTrace.operations.writeFailed++; throw error; }
+      finally {
+        const duration = plannerPerfClock() - start;
+        scanTrace.operations.writeMs += duration;
+        if (phase === "start") scanTrace.operations.writeStartMs += duration;
+        else if (phase === "state") scanTrace.operations.writeStateMs += duration;
+        else if (phase === "finish") scanTrace.operations.writeFinishMs += duration;
+      }
+    };
+    const markScanStage = (name) => {
+      if (!scanTrace) return;
+      const end = plannerPerfClock();
+      scanTrace.stages[name] = Math.round((end - scanTrace.checkpoint) * 10) / 10;
+      scanTrace.checkpoint = end;
+    };
+    let perfSucceeded = false;
+    let scanCollected = false;
+    let scannedReminderCount = null;
     try {
-      await this.markScanStarted(files);
-      let reminders = await this.collectReminders(files, true);
+      await measureScanWrite(() => this.markScanStarted(files), "start");
+      markScanStage("recoveryMark");
+      let reminders = await this.collectReminders(files, true, scanTrace);
+      scanCollected = true;
+      scannedReminderCount = reminders.length;
+      markScanStage("collect");
 
+    if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
     reminders = reminders.filter((reminder) => !this.isStaleTaskSnapshot(reminder));
     for (const reminder of reminders) this.recordTaskState(reminder, "active");
     this.syncAutoDonePlans(reminders, this.lastReminderScanFiles, !Array.isArray(files));
+    markScanStage("prepare");
     const nowDate = new Date();
     const now = nowDate.getTime();
     await this.reconcileInactiveQueueEntries(reminders);
+    markScanStage("reconcileQueue");
     await this.reconcileInactiveSentEntries(reminders, now);
+    markScanStage("reconcileSent");
     // Remote queue verification is intentionally reserved for full scans.
     // Incremental edits should schedule/cancel quickly without an extra poll.
     if (!Array.isArray(files)) await this.reconcileMissingRemoteScheduled(reminders, now);
+    markScanStage("remoteVerify");
     const sent = this.settings.sent || {};
     const maxFutureMs = Math.max(1, Number(this.settings.maxFutureDays || 3)) * 24 * 60 * 60 * 1000;
     const queueLookaheadMs = Math.max(1, Number(this.settings.queueLookaheadDays || 30)) * 24 * 60 * 60 * 1000;
@@ -7317,12 +8220,24 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     let skipped = 0;
     let failed = 0;
 
+    if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
     const queueResult = await this.flushDueQueue(now, maxFutureMs, flushDailyBatch);
+    markScanStage("queueFlush");
     scheduled += queueResult.sent;
     failed += queueResult.failed;
 
     for (const reminder of reminders) {
-      if (this.settings.ignoredReminders[reminder.key]) {
+      if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
+      if (this.reminderSourceChangedDuringScan(reminder)) {
+        skipped++;
+        continue; // the queued file event will schedule its fresh snapshot
+      }
+      if (reminder.isTask && this.plannerNtfyPreference(reminder) === "off"
+          && String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy") {
+        skipped++;
+        continue;
+      }
+      if (this.settings.ignoredReminders[reminder.key] && this.plannerNtfyPreference(reminder) !== "on") {
         skipped++;
         continue;
       }
@@ -7422,14 +8337,39 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           return !(sameKey || sameLocation);
         });
         const replacedCount = await this.cancelMatchingSentEntries(scheduledReminder);
+        if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
+        if (this.reminderSourceChangedDuringScan(scheduledReminder)) {
+          skipped++;
+          continue;
+        }
         const scheduleFuture = scheduleMs > now + 1000;
         let results;
-        if (scheduleFuture && await this.remoteOccurrenceAlreadyScheduled(scheduledReminder, !previousEntry && Array.isArray(files))) {
+        let remoteState = "absent";
+        if (scheduleFuture && this.plannerNtfyPreference(scheduledReminder) !== "off"
+            && String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy") {
+          remoteState = await this.remoteOccurrenceScheduleState(scheduledReminder, !previousEntry && Array.isArray(files));
+          if (remoteState === "unknown") throw this.remoteScheduleVerificationError();
+        }
+        if (remoteState === "present") {
           const sequenceId = this.ntfyMessageId(scheduledReminder.occurrenceId || scheduledReminder.key);
           results = [{ channelId: "ntfy", ok: true, status: "scheduled", messageId: sequenceId, sequenceId, due: scheduleDue.toISOString(), deduplicated: true }];
         } else {
+          if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
+          if (this.reminderSourceChangedDuringScan(scheduledReminder)) {
+            skipped++;
+            continue;
+          }
           results = await this.publishReminder(scheduledReminder, scheduleFuture, previousEntry);
           if (scheduleFuture && results.some((result) => result && result.channelId === "ntfy" && result.ok)) this.noteRemoteOccurrenceScheduled(scheduledReminder);
+        }
+        if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
+        if (this.reminderSourceChangedDuringScan(scheduledReminder)) {
+          // The asynchronous remote check may have finished after a vault edit.
+          // Do not mark the stale snapshot as scheduled; a later scan will use
+          // the new Markdown source. A remote publication already in flight
+          // remains subject to normal reconciliation, not a blind retry.
+          skipped++;
+          continue;
         }
         sent[reminder.key] = this.sentEntry(scheduledReminder, results, scheduleFuture, previousEntry);
         this.markAutoDoneDelivery(scheduledReminder, results);
@@ -7450,19 +8390,32 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         }
         scheduled++;
       } catch (error) {
-        console.error(`${PLUGIN_NAME} publish failed`, error);
+        if (this.isUnloading) throw error;
+        if (error?.code !== "NTFY_REMOTE_UNVERIFIED") console.error(`${PLUGIN_NAME} publish failed`, error);
         const failureResults = Array.isArray(error.results) && error.results.length
           ? error.results
           : [{ channelId: String(this.settings.defaultChannelId || "ntfy"), ok: false, status: "failed", error: this.redactSensitiveText(error.message || String(error), true) }];
         sent[reminder.key] = this.sentEntry(scheduledReminder, failureResults, scheduleMs > now + 1000, previousEntry);
+        if (error && error.code === "NTFY_REMOTE_UNVERIFIED" && scheduleMs > now + 1000) {
+          // On Android, unchanged files may not trigger another source scan.
+          // Keep this future occurrence in the existing local queue so the
+          // periodic handoff can verify again after connectivity returns.
+          // No POST or success marker is committed while the GET is unknown.
+          this.upsertQueueReminder(scheduledReminder, { due: scheduleDue, batchOnly: false });
+          queued++;
+        }
         failed++;
       }
     }
 
+    if (this.isUnloading) throw new Error("Scan stopped during plugin unload");
+    markScanStage("scheduleAndPublish");
     this.settings.sent = this.pruneSentCache(sent);
     this.pruneTaskState();
-    await this.saveSettings();
-    await this.markScanFinished({ full: !Array.isArray(files) });
+    await measureScanWrite(() => this.saveSettings({ checkpoint: true }), "state");
+    await measureScanWrite(() => this.markScanFinished({ full: !Array.isArray(files) }), "finish");
+    markScanStage("saveAndFinish");
+    perfSucceeded = true;
     this.scheduleNextAutoDone();
 
     const cacheCount = Object.keys(this.settings.sent || {}).length;
@@ -7483,9 +8436,44 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         this.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Scan incomplete; will retry next time Obsidian opens")}`);
       }
     } finally {
+      // Disarm on all paths, including failed or interrupted scans.
+      this.scanRemoteScheduleCache = null;
+      this.activeScanFileRevisions = null;
+      // No in-flight scan needs old generations. Keep memory bounded even
+      // after thousands of edits or vault renames on Android.
+      this.reminderFileChangeRevisions?.clear();
+      if (scanTrace && this.runtimeActiveScanOperations === scanTrace.operations) this.runtimeActiveScanOperations = null;
+      const scanElapsedMs = Math.round((plannerPerfClock() - perfStarted) * 10) / 10;
+      const actualFiles = scanCollected && this.lastReminderScanFiles instanceof Set
+        ? this.lastReminderScanFiles.size : null;
+      const stageBreakdown = scanTrace && this.runtimePlannerUiProfiling === true ? {
+        ...scanTrace.stages,
+        readMs: Math.round(scanTrace.readMs * 10) / 10,
+        parseMs: Math.round(scanTrace.parseMs * 10) / 10,
+        readFiles: scanTrace.readFiles, parsedLines: scanTrace.parsedLines,
+        operations: Object.fromEntries(Object.entries(scanTrace.operations).map(([key, value]) => [key,
+          key.endsWith("Ms") ? Math.round(value * 10) / 10 : value])),
+        incomplete: !perfSucceeded,
+      } : null;
+      this.lastScanRunSucceeded = perfSucceeded;
+      this.runtimePlannerPerf = {
+        ...(this.runtimePlannerPerf || {}),
+        scan: { at: Date.now(), milliseconds: scanElapsedMs,
+          scope: Array.isArray(files) ? "partial" : "full", success: perfSucceeded,
+          fileCount: actualFiles, requestedFiles: Array.isArray(files) ? files.length : null,
+          reminderCount: scannedReminderCount, breakdown: stageBreakdown }
+      };
       this.isScanning = false;
       if (!this.settings.scanRecovery?.pending) this.scheduleMobileFullVerification();
-      if (this.pendingReminderScanFiles.size && this.settings.autoScanEnabled && !this.isUnloading) {
+      const deferredFull = this.deferredFullScanRequest;
+      this.deferredFullScanRequest = null;
+      if (!this.isUnloading && deferredFull && this.settings.autoScanEnabled) {
+        this.clearQueuedReminderScan();
+        this.reminderScanTimer = window.setTimeout(() => {
+          this.reminderScanTimer = null;
+          void this.scanAndSchedule({ showNotice: false, forceDailyBatch: deferredFull.forceDailyBatch });
+        }, 150);
+      } else if (this.pendingReminderScanFiles.size && this.settings.autoScanEnabled && !this.isUnloading) {
         this.clearQueuedReminderScan();
         this.reminderScanTimer = window.setTimeout(() => {
           this.reminderScanTimer = null;
@@ -7493,6 +8481,12 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         }, 150);
       }
     }
+  }
+
+  reminderSourceChangedDuringScan(reminder) {
+    const path = String(reminder?.filePath || "");
+    if (!path || !this.activeScanFileRevisions?.has(path)) return false;
+    return (this.reminderFileChangeRevisions?.get(path) || 0) !== this.activeScanFileRevisions.get(path);
   }
 
   async collectUnqueuedReminders() {
@@ -7555,20 +8549,33 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     return [...new Set(tags)];
   }
 
-  taskTagDecision(value) {
-    const taskTags = new Set(this.extractTaskTags(value));
-    const ignored = this.normalizeTaskTagList(this.settings.ignoredTaskTags);
-    const required = this.normalizeTaskTagList(this.settings.requiredTaskTags);
+  // One settings-derived filter per instance, not per Markdown task line.
+  // Any settings edit invalidates the key immediately; nothing is persisted.
+  taskTagFilterRules() {
+    const ignoredSource = String(this.settings.ignoredTaskTags || "");
+    const requiredSource = String(this.settings.requiredTaskTags || "");
+    const previous = this.taskTagRulesCache;
+    if (previous && previous.ignoredSource === ignoredSource && previous.requiredSource === requiredSource) return previous;
+    const rules = {
+      ignoredSource, requiredSource,
+      ignored: this.normalizeTaskTagList(ignoredSource),
+      required: this.normalizeTaskTagList(requiredSource),
+    };
+    this.taskTagRulesCache = rules; // at most one bounded, ephemeral entry
+    return rules;
+  }
 
+  taskTagDecision(value) {
+    const { ignored, required } = this.taskTagFilterRules();
+    if (!ignored.length && !required.length) return { allowed: true, reason: "" };
+    const taskTags = new Set(this.extractTaskTags(value));
     const ignoredMatch = ignored.find((tag) => taskTags.has(tag));
     if (ignoredMatch) {
       return { allowed: false, reason: `${this.uiText("Ignored tag")}: ${ignoredMatch}` };
     }
-
     if (required.length && !required.some((tag) => taskTags.has(tag))) {
       return { allowed: false, reason: `${this.uiText("No allowed tag")}: ${required.join(", ")}` };
     }
-
     return { allowed: true, reason: "" };
   }
 
@@ -7579,44 +8586,118 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       .filter(Boolean);
   }
 
-  reminderPathInScanScope(filePath) {
-    const path = String(filePath || "").replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
-    if (!path) return false;
+  // Compile each scope exactly once per scan/collection. No cross-scan cache:
+  // a previously missing path can become a file/folder after Syncthing changes.
+  compileReminderScanScope() {
     const rules = this.normalizedReminderScanPaths();
-    if (!rules.length) return true;
-    const lowerPath = path.toLocaleLowerCase();
-    return rules.some((rule) => {
+    const exact = new Set();
+    const folders = [];
+    for (const rule of rules) {
       const normalizedRule = String(rule).replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
-      if (!normalizedRule) return false;
+      if (!normalizedRule) continue;
       const lowerRule = normalizedRule.toLocaleLowerCase();
-      if (/\.md$/i.test(normalizedRule)) return lowerPath === lowerRule;
-      const abstract = this.app.vault.getAbstractFileByPath(normalizedRule);
-      if (abstract && !Array.isArray(abstract.children)) return lowerPath === lowerRule;
-      return lowerPath === lowerRule || lowerPath.startsWith(`${lowerRule}/`);
-    });
+      const abstract = /\.md$/i.test(normalizedRule) ? null : this.app.vault.getAbstractFileByPath(normalizedRule);
+      if (/\.md$/i.test(normalizedRule) || (abstract && !Array.isArray(abstract.children))) exact.add(lowerRule);
+      else folders.push(`${lowerRule}/`);
+      // A folder rule also matches the folder path itself, as before.
+      if (!/\.md$/i.test(normalizedRule) && (!abstract || Array.isArray(abstract.children))) exact.add(lowerRule);
+    }
+    return { all: rules.length === 0, exact, folders };
   }
 
-  reminderFileInScanScope(file) {
-    return Boolean(file && file.path && this.reminderPathInScanScope(file.path));
+  reminderPathInScanScope(filePath, scope = null) {
+    const path = String(filePath || "").replace(/\\/g, "/").replace(/^\/+|\/+$/g, "");
+    if (!path) return false;
+    const compiled = scope || this.compileReminderScanScope();
+    if (compiled.all) return true;
+    const lowerPath = path.toLocaleLowerCase();
+    if (compiled.exact.has(lowerPath)) return true;
+    return compiled.folders.some((prefix) => lowerPath.startsWith(prefix));
+  }
+
+  reminderFileInScanScope(file, scope = null) {
+    return Boolean(file && file.path && this.reminderPathInScanScope(file.path, scope));
   }
 
   getReminderScanFiles() {
-    return this.app.vault.getMarkdownFiles().filter((file) => this.reminderFileInScanScope(file));
+    const scope = this.compileReminderScanScope();
+    return this.app.vault.getMarkdownFiles().filter((file) => this.reminderFileInScanScope(file, scope));
+  }
+
+  // This cache is exclusively for read-only Planner/Tasks UI parsing.
+  // The scheduler still follows its original scanning and delivery path.
+  invalidatePlannerTaskFileCache(file) {
+    const path = typeof file === "string" ? file : file?.path;
+    if (!path) return;
+    this.plannerTaskFileCache?.delete(path);
+    this.plannerTaskCollectionCache = null;
+    this.plannerTaskSourceRevision = (this.plannerTaskSourceRevision || 0) + 1;
   }
 
   async collectVaultTasks() {
+    const started = plannerPerfClock();
     const files = this.getReminderScanFiles();
+    const taskSettings = JSON.stringify([
+      this.settings.includeTasksPluginDates, this.settings.defaultTime,
+      this.settings.autoDoneTag, this.settings.diaryDateFormat,
+      this.settings.taskDateFormat, this.settings.tasksDatePreference,
+    ]);
+    if (!this.plannerTaskFileCache || this.plannerTaskFileCacheSettings !== taskSettings) {
+      this.plannerTaskFileCache = new Map();
+      this.plannerTaskFileCacheSettings = taskSettings;
+      this.plannerTaskCollectionCache = null;
+    }
+    const cache = this.plannerTaskFileCache;
+    // The fingerprint is metadata-only and never contains note text or secrets.
+    // A vault event always invalidates its file even if mtime/size did not change.
+    const safeMetadata = files.every((file) => Number.isFinite(file.stat?.mtime) && Number.isFinite(file.stat?.size));
+    const key = `${this.plannerTaskSourceRevision || 0}:` + files.map((file) => `${file.path}\u0000${file.stat?.mtime ?? "?"}:${file.stat?.size ?? "?"}`).join("\u0001");
+    if (safeMetadata && !this.taskFileWriteQueues?.size && !this.plannerPendingCreates?.size
+      && this.plannerTaskCollectionCache?.key === key && this.plannerTaskCollectionCache.settings === taskSettings) {
+      this.runtimePlannerPerf = { ...(this.runtimePlannerPerf || {}), taskCache: {
+        at: Date.now(), milliseconds: Math.round((plannerPerfClock() - started) * 10) / 10,
+        files: files.length, hits: files.length, misses: 0, reusedCollection: true, cachedFiles: cache.size } };
+      return this.plannerTaskCollectionCache.tasks;
+    }
     const tasks = [];
-
+    let hits = 0, misses = 0;
     for (const file of files) {
       try {
+        // Never return cached data while this plugin still has a pending write.
+        await this.plannerAwaitPendingCreate(file.path);
+        if (this.taskFileWriteQueues?.has(file.path)) {
+          try { await this.taskFileWriteQueues.get(file.path); }
+          catch (_error) { /* Read the current file even after a failed write. */ }
+          cache.delete(file.path);
+        }
+        const stamp = Number.isFinite(file.stat?.mtime) && Number.isFinite(file.stat?.size)
+          ? `${file.stat.mtime}:${file.stat.size}` : null;
+        const existing = stamp ? cache.get(file.path) : null;
+        if (existing && existing.stamp === stamp) {
+          hits++;
+          cache.delete(file.path);
+          cache.set(file.path, existing);
+          for (const task of existing.tasks) tasks.push(task);
+          continue;
+        }
+        misses++;
         const content = await this.app.vault.cachedRead(file);
         const lines = content.split(/\r?\n/);
+        this.plannerRefreshAnchorsForFile(file.path, lines);
+        const parsedTasks = [];
         for (let i = 0; i < lines.length; i++) {
           const parsed = this.parseTaskLine(lines[i], file.path, i + 1);
-          if (parsed) tasks.push(parsed);
+          if (parsed) parsedTasks.push(parsed);
+        }
+        for (const task of parsedTasks) tasks.push(task);
+        // Bound memory on Android; large files and unstable stats bypass cache.
+        cache.delete(file.path);
+        if (stamp && parsedTasks.length <= 300 && content.length <= 512 * 1024) {
+          cache.set(file.path, { stamp, tasks: parsedTasks });
+          while (cache.size > 96) cache.delete(cache.keys().next().value);
         }
       } catch (error) {
+        cache.delete(file.path);
         console.warn(`${PLUGIN_NAME}: skipped unreadable file ${file.path}`, error);
       }
     }
@@ -7633,6 +8714,13 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       if (!a.due && b.due) return 1;
       return a.filePath.localeCompare(b.filePath) || a.lineNumber - b.lineNumber;
     });
+    // Keep aggregate reuse for ordinary views; very large collections should
+    // not pin an extra long-lived index alongside thousands of parsed tasks.
+    this.plannerTaskCollectionCache = safeMetadata && tasks.length <= 10000
+      ? { key, settings: taskSettings, tasks } : null;
+    this.runtimePlannerPerf = { ...(this.runtimePlannerPerf || {}), taskCache: {
+      at: Date.now(), milliseconds: Math.round((plannerPerfClock() - started) * 10) / 10,
+      files: files.length, hits, misses, reusedCollection: false, cachedFiles: cache.size } };
     return tasks;
   }
 
@@ -7749,7 +8837,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     await this.saveSettings();
   }
 
-  async toggleTaskCompletion(filePath, lineNumber) {
+  async toggleTaskCompletion(filePath, lineNumber, expectedRevision = "") {
     const path = String(filePath || "").replace(/\\/g, "/");
     if (!path) throw new Error("source not found");
     return this.enqueueTaskFileWrite(path, async () => {
@@ -7760,6 +8848,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const lines = content.split(/\r?\n/);
     const sourceLine = lines[lineIndex];
     if (sourceLine === undefined) throw new Error("line not found");
+    if (expectedRevision && this.taskSourceRevision(sourceLine) !== expectedRevision) {
+      throw new Error("task changed while updating");
+    }
     const match = sourceLine.match(/^(\s*[-*+]\s+\[)([^\]])(\]\s+.*)$/u);
     if (!match) throw new Error("line is not a task");
     const completing = match[2] !== "x" && match[2] !== "X";
@@ -7767,6 +8858,24 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     if (api && typeof api.executeToggleTaskDoneCommand === "function") {
       const transformed = await Promise.resolve(api.executeToggleTaskDoneCommand(sourceLine, path));
       if (typeof transformed !== "string") throw new Error("Tasks API returned an invalid result");
+      // Tasks API may produce TWO Markdown lines for recurrence (in either
+      // user-configured order). Validate both instead of rejecting the result.
+      const deletesOnCompletion = completing && this.plannerOnCompletion(sourceLine) === "delete";
+      const transformedLines = transformed === "" && deletesOnCompletion ? [] : transformed.split(/\r\n|\n|\r/);
+      if (transformedLines.length > 4 || transformedLines.some((value) =>
+        !/^\s*[-*+]\s+\[[^\]]\]\s+.+$/u.test(value)) ||
+        (!transformedLines.length && !deletesOnCompletion)) {
+        throw new Error("Tasks API returned an invalid task line");
+      }
+      const completedLines = transformedLines.filter((value) => /^\s*[-*+]\s+\[[xX]\]\s+/u.test(value));
+      const resultLine = transformedLines.length > 1 && completedLines.length === 1
+        ? completedLines[0] : transformedLines[0] || "";
+      const nextMatch = resultLine.match(/^(\s*[-*+]\s+\[)([^\]])(\]\s+.*)$/u);
+      const onlyNewRecurrence = deletesOnCompletion && transformedLines.length === 1
+        && !!this.plannerRecurrenceRule(sourceLine) && nextMatch && nextMatch[2] === " "
+        && transformed !== sourceLine;
+      const nextStatus = !resultLine || onlyNewRecurrence ? "x" : nextMatch[2];
+      const completed = nextStatus === "x" || nextStatus === "X";
       this.doneDateWriteGuards.add(path);
       try {
         await this.replaceTaskLineIfUnchanged(file, lineIndex, sourceLine, transformed);
@@ -7774,7 +8883,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         window.setTimeout(() => this.doneDateWriteGuards.delete(path), 1000);
       }
       this.queueReminderScan(file);
-      return { completed: completing, doneAt: completing ? new Date() : null };
+      const parsed = resultLine ? this.parseTaskLine(resultLine, path, lineIndex + 1) : null;
+      return { status: nextStatus, completed, doneAt: completed ? (parsed && parsed.doneAt || new Date()) : null,
+        sourceRevision: resultLine ? this.taskSourceRevision(resultLine) : "" };
     }
 
     // Fallback for users without Tasks: preserve the plugin's basic checkbox behavior.
@@ -7783,7 +8894,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const body = completing ? this.addTasksDoneDate(match[3], doneAt) : this.removeTasksDoneDate(match[3]);
     await this.replaceTaskLineIfUnchanged(file, lineIndex, sourceLine, `${match[1]}${nextMark}${body}`);
     this.queueReminderScan(file);
-    return { completed: completing, doneAt };
+    return { status: nextMark, completed: completing, doneAt, sourceRevision: this.taskSourceRevision(`${match[1]}${nextMark}${body}`) };
       });
   }
 
@@ -7895,6 +9006,399 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     this.updateStatusCount();
   }
 
+  plannerDisplayDay(dateKey) {
+    const matched = String(dateKey || "").match(/^(\d{4})-(\d{2})-(\d{2})$/u);
+    if (!matched) return String(dateKey || "");
+    return this.settings.plannerDateDisplayFormat === "asia"
+      ? `${matched[1]}.${matched[2]}.${matched[3]}`
+      : `${matched[3]}.${matched[2]}.${matched[1]}`;
+  }
+
+  // 8.6.0: the single, optional duration field is ⏱️ 90m, expressed in
+  // minutes. It is not a notification time and never changes reminder delivery.
+  normalizePlannerDurationPresets(value) {
+    const raw = Array.isArray(value) ? value : String(value ?? "").split(/[,;\s]+/);
+    const valid = [...new Set(raw.map((x) => Number(x)).filter((x) => Number.isInteger(x) && x >= 1 && x <= 1440))];
+    return valid.length ? valid.slice(0, 24).sort((a, b) => a - b) : [15, 30, 45, 60, 90, 120];
+  }
+
+  plannerDurationMinutes(taskBody) {
+    const match = String(taskBody || "").match(/(?:^|\s)⏱\uFE0F?\s+(\d{1,5})m(?=\s|$)/u);
+    if (!match) return null;
+    const minutes = Number(match[1]);
+    return Number.isInteger(minutes) && minutes >= 1 && minutes <= 1440 ? minutes : null;
+  }
+
+  plannerDurationClock(task) {
+    if (!task?.hasExplicitTime || !(task.due instanceof Date) || !Number.isInteger(task.durationMinutes)) return "";
+    const end = new Date(task.due.getTime() + task.durationMinutes * 60000);
+    if (Number.isNaN(end.getTime())) return "";
+    const clock = `${this.pad2(end.getHours())}:${this.pad2(end.getMinutes())}`;
+    const nextDay = end.getFullYear() !== task.due.getFullYear() || end.getMonth() !== task.due.getMonth() || end.getDate() !== task.due.getDate();
+    return `${clock}${nextDay ? " (+1 day)" : ""}`;
+  }
+
+  // Mark the clock hours touched by actual unfinished duration tasks.
+  // Reuses already-scanned Planner tasks and does not affect notification times.
+  plannerOccupiedHoursForDay(tasks, dayStart, dayEnd) {
+    const from = dayStart instanceof Date ? dayStart.getTime() : NaN;
+    const to = dayEnd instanceof Date ? dayEnd.getTime() : NaN;
+    const hours = new Set();
+    if (!Number.isFinite(from) || !Number.isFinite(to) || to <= from) return hours;
+    for (const task of tasks || []) {
+      if (!task || task.completed || !task.hasExplicitTime || !(task.due instanceof Date)) continue;
+      const minutes = Number(task.durationMinutes || 0);
+      if (!Number.isInteger(minutes) || minutes <= 0 || minutes > 1440) continue;
+      const start = task.due.getTime();
+      const end = start + minutes * 60000;
+      if (!Number.isFinite(start) || end <= from || start >= to) continue;
+      const first = new Date(Math.max(start, from));
+      first.setMinutes(0, 0, 0);
+      for (let tick = first.getTime(); tick < end && tick < to; tick += 3600000) {
+        hours.add(new Date(tick).getHours());
+      }
+    }
+    return hours;
+  }
+
+  rewriteSourceTaskDurationLine(sourceLine, minutes) {
+    const taskMatch = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!taskMatch) throw new Error("Only Markdown tasks can be edited");
+    if (minutes !== null && (!Number.isInteger(minutes) || minutes < 1 || minutes > 1440)) throw new Error("invalid duration");
+    const existing = /(?:^|\s)⏱\uFE0F?\s+\d{1,5}m(?=\s|$)/gu;
+    let body = taskMatch[2].replace(existing, " ").replace(/[ \t]{2,}/gu, " ").trim();
+    if (minutes !== null) {
+      // Put the marker before the standard Tasks metadata cluster so Tasks
+      // recurrence, date markers, IDs and status remain intact.
+      const boundary = /\s+(?=(?:\d{1,2}:\d{2}(?=\s|$)|📅|⏳|🛫|➕|✅|✓|❌|🔁|🆔|🏁|⛔|⏫|🔼|🔽|⏬|🔺))/u.exec(body);
+      const at = boundary ? boundary.index : body.length;
+      body = `${body.slice(0, at).trimEnd()} ⏱️ ${minutes}m${body.slice(at)}`;
+    }
+    return `${taskMatch[1]}${body}`;
+  }
+
+  // Planner editor 8.2.2: independently edit the selected date and time.
+  // Empty values remove the corresponding field, without touching other Tasks metadata.
+  rewriteSourceTaskScheduleLine(sourceLine, dateValue, timeValue, filePath = "") {
+    const match = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!match) throw new Error("Only Markdown tasks can be edited");
+    const date = String(dateValue || "").trim();
+    const time = String(timeValue || "").trim();
+    if (date) {
+      const parts = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (!parts || !this.parseLocalDateTime(parts[1], parts[2], parts[3], "12:00") ||
+          this.formatDateTimeLocal(this.parseLocalDateTime(parts[1], parts[2], parts[3], "12:00")).slice(0, 10) !== date) {
+        throw new Error("invalid date/time");
+      }
+    }
+    if (time && (!/^\d{2}:\d{2}$/.test(time) || Number(time.slice(0, 2)) > 23 || Number(time.slice(3)) > 59)) {
+      throw new Error("invalid date/time");
+    }
+    let body = match[2];
+    const taskDate = this.extractTasksDate(body);
+    // Dates attached to completion/creation metadata are not editable due dates.
+    const rawPlainDate = taskDate ? null : body.match(DATE_TIME_RE);
+    const beforePlain = rawPlainDate ? body.slice(0, rawPlainDate.index).trimEnd() : "";
+    const plainDate = rawPlainDate && !/[➕✅✓❌]$/u.test(beforePlain) ? rawPlainDate : null;
+    const existingDate = taskDate?.dateText || (plainDate
+      ? `${plainDate[1]}-${this.pad2(plainDate[2])}-${this.pad2(plainDate[3])}` : "");
+    // The editor can change only the time while keeping an existing Tasks
+    // date. Validate the combined local instant, not just HH:mm syntax.
+    if (time && (date || existingDate) && !this.parseDateTimeLocal(`${date || existingDate}T${time}`)) {
+      throw new Error("invalid date/time");
+    }
+    if (!date && !taskDate && !plainDate && this.extractDiaryDate(filePath)) {
+      throw new Error("Date comes from daily note");
+    }
+    // Remove an explicit HH:mm which was in the standard Tasks position. Any
+    // date-suffix time is removed with the selected date token below.
+    const explicitTime = this.extractTasksReminderTime(body);
+    if (explicitTime) body = body.slice(0, explicitTime.start) + body.slice(explicitTime.end);
+    if (taskDate) {
+      const pattern = new RegExp(`(${taskDate.signifier}\\s*)\\d{4}-\\d{2}-\\d{2}(?:[\\sT　]\\d{1,2}:\\d{2})?`, "u");
+      if (!pattern.test(body)) throw new Error("task changed while updating");
+      body = body.replace(pattern, date ? `$1${date}` : "");
+    } else if (plainDate) {
+      // Do not silently rewrite a creation/completion timestamp as a due date.
+      const dateMatch = body.match(DATE_TIME_RE);
+      if (dateMatch) body = body.slice(0, dateMatch.index) + (date || "") + body.slice(dateMatch.index + dateMatch[0].length);
+    } else if (date) {
+      body = `${body.trimEnd()} 📅 ${date}`;
+    }
+    body = body.replace(/[ \t]{2,}/g, " ").trim();
+    if (time) body = this.setTasksReminderTime(body, time);
+    return `${match[1]}${body}`;
+  }
+
+  async editSourceTaskSchedule(task, date, time, durationMinutes = undefined, autoDoneEnabled = undefined) {
+    const path = String(task && (task.filePath || task.file) || "").replace(/\\/g, "/");
+    if (!path) throw new Error("source not found");
+    return this.enqueueTaskFileWrite(path, async () => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile) || file.extension !== "md") throw new Error("source not found");
+      const index = Math.max(0, Number(task.lineNumber || task.line || 1) - 1);
+      const lines = (await this.app.vault.read(file)).split(/\r\n|\n|\r/);
+      const original = lines[index];
+      if (!original || !/^\s*[-*+]\s+\[[^\]]\]\s+/.test(original)) throw new Error("line is not a task");
+      if (task.sourceRevision && this.taskSourceRevision(original) !== task.sourceRevision) throw new Error("task changed while updating");
+      let changed = this.rewriteSourceTaskScheduleLine(original, date, time, path);
+      if (durationMinutes !== undefined) changed = this.rewriteSourceTaskDurationLine(changed, time ? durationMinutes : null);
+      if (autoDoneEnabled !== undefined) changed = this.rewriteSourceTaskAutoDoneLine(changed, autoDoneEnabled);
+      if (changed === original) return this.parseTaskLine(original, path, index + 1);
+      // Commit first, guarded by Vault.process, then reconcile local and remote queues.
+      await this.replaceTaskLineIfUnchanged(file, index, original, changed);
+      this.queueReminderScan(file);
+      const oldReminder = this.parseReminderLine(original, path, index + 1);
+      const newReminder = this.parseReminderLine(changed, path, index + 1);
+      // Editing duration alone must not cancel an existing remote notification.
+      // The notification identity and its due moment are unchanged.
+      if (oldReminder && (!newReminder || newReminder.key !== oldReminder.key || newReminder.due.getTime() !== oldReminder.due.getTime())) {
+        await this.cancelMatchingSentEntries(oldReminder);
+        this.settings.queue = (this.settings.queue || []).filter((item) => item.id !== oldReminder.key);
+        const ignored = this.settings.ignoredReminders || {};
+        if (ignored[oldReminder.key]) {
+          delete ignored[oldReminder.key];
+          if (newReminder) ignored[newReminder.key] = {
+            at: new Date().toISOString(), text: newReminder.text, due: newReminder.due.toISOString(), file: path, line: index + 1,
+          };
+        }
+        await this.saveSettings();
+      }
+      return this.parseTaskLine(changed, path, index + 1);
+    });
+  }
+
+  // 8.8.1: one guarded Markdown write for all fields in the unified Planner editor.
+  // Existing individual editors and calls retain their public behavior.
+  async editSourceTaskDetails(task, fields) {
+    const title = String(fields?.title ?? "").trim();
+    if (!title || title.length > 500 || /[\r\n]/u.test(title)) throw new Error("Invalid task title");
+    return this.editSourceTaskAttribute(task, (sourceLine) => {
+      const parts = this.plannerTaskTitleParts(sourceLine);
+      let line = `${parts.prefix}${title}${parts.suffix}`;
+      // Strip the duration marker before extracting a legacy HH:mm: older
+      // lines can put ⏱️ directly between the time and Tasks metadata.
+      line = this.rewriteSourceTaskDurationLine(line, null);
+      line = this.rewriteSourceTaskScheduleLine(line, fields.date, fields.time, task.filePath);
+      line = this.rewriteSourceTaskDurationLine(line, fields.time ? fields.durationMinutes ?? null : null);
+      line = this.rewriteSourceTaskAutoDoneLine(line, Boolean(fields.autoDone));
+      line = this.rewriteSourceTaskRecurrenceLine(line, fields.recurrence ?? "");
+      if (fields.onCompletion !== undefined) line = this.rewriteSourceTaskOnCompletionLine(line, fields.onCompletion);
+      return line;
+    }, true);
+  }
+
+  async editSourceTaskAttribute(task, transform, preservePlannerIdentity = false) {
+    const path = String(task && (task.filePath || task.file) || "").replace(/\\/g, "/");
+    if (!path) throw new Error("source not found");
+    return this.enqueueTaskFileWrite(path, async () => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile) || file.extension !== "md") throw new Error("source not found");
+      const index = Math.max(0, Number(task.lineNumber || task.line || 1) - 1);
+      const original = (await this.app.vault.read(file)).split(/\r\n|\n|\r/)[index];
+      if (!original || !/^\s*[-*+]\s+\[[^\]]\]\s+/.test(original)) throw new Error("line is not a task");
+      if (task.sourceRevision && this.taskSourceRevision(original) !== task.sourceRevision) throw new Error("task changed while updating");
+      const changed = transform(original);
+      if (changed === original) return this.parseTaskLine(original, path, index + 1);
+      const formerBellKey = preservePlannerIdentity ? this.plannerNtfyTaskKey(task) : "";
+      const formerBellMode = preservePlannerIdentity ? this.plannerNtfyPreference(task) : "";
+      await this.replaceTaskLineIfUnchanged(file, index, original, changed);
+      let plannerIdentityUpdated = false;
+      if (preservePlannerIdentity) {
+        const nextTask = this.parseTaskLine(changed, path, index + 1);
+        const nextBellKey = nextTask && this.plannerNtfyTaskKey(nextTask);
+        if (formerBellKey && nextBellKey && formerBellKey !== nextBellKey && (formerBellMode === "on" || formerBellMode === "off")) {
+          const prefs = this.settings.plannerNtfyPreferences || (this.settings.plannerNtfyPreferences = {});
+          prefs[nextBellKey] = formerBellMode;
+          delete prefs[formerBellKey];
+          plannerIdentityUpdated = true;
+        }
+        const anchored = this.plannerAnchorByRow?.get(this.plannerAnchorRowKey(path, index + 1));
+        if (anchored && this.settings.plannerNtfyAnchors?.[anchored]) {
+          this.settings.plannerNtfyAnchors[anchored].title = this.plannerAnchorTitle(changed);
+          plannerIdentityUpdated = true;
+        }
+      }
+      this.queueReminderScan(file);
+      const oldReminder = this.parseReminderLine(original, path, index + 1);
+      const nextReminder = this.parseReminderLine(changed, path, index + 1);
+      if (oldReminder && (!nextReminder || oldReminder.key !== nextReminder.key || oldReminder.due.getTime() !== nextReminder.due.getTime())) {
+        await this.cancelMatchingSentEntries(oldReminder);
+        this.settings.queue = (this.settings.queue || []).filter((item) => item.id !== oldReminder.key);
+        const ignored = this.settings.ignoredReminders || {};
+        if (ignored[oldReminder.key]) {
+          delete ignored[oldReminder.key];
+          if (nextReminder) ignored[nextReminder.key] = {
+            at: new Date().toISOString(), text: nextReminder.text, due: nextReminder.due.toISOString(), file: path, line: index + 1,
+          };
+        }
+        await this.saveSettings();
+      }
+      if (plannerIdentityUpdated) await this.saveSettings();
+      return this.parseTaskLine(changed, path, index + 1);
+    });
+  }
+
+  async setSourceTaskAutoDone(task, enabled) {
+    return this.editSourceTaskAttribute(task, (sourceLine) => this.rewriteSourceTaskAutoDoneLine(sourceLine, enabled));
+  }
+
+  async setSourceTaskDuration(task, minutes) {
+    return this.editSourceTaskAttribute(task, (sourceLine) => this.rewriteSourceTaskDurationLine(sourceLine, minutes));
+  }
+
+  // One-file, explicit and CAS-protected cleanup. Only the exact [x]
+  // Tasks status is eligible; sibling lines, custom statuses, YAML and EOL
+  // are copied byte-for-byte. The operation is never automatic.
+  plannerRebaseAnchorsAfterBulkDelete(path, beforeText, afterText) {
+    const tokens = this.plannerAnchorsByFile?.get(path);
+    if (!tokens?.size) return;
+    const before = String(beforeText).split(/\r\n|\n|\r/u);
+    const after = String(afterText).split(/\r\n|\n|\r/u);
+    const rowMap = new Map();
+    const removedLines = plannerCompletedTaskLineIndices(beforeText);
+    let next = 0;
+    for (let i = 0; i < before.length; i++) {
+      if (removedLines.has(i)) continue;
+      if (after[next] !== before[i]) throw new Error("Task cleanup row mapping changed");
+      rowMap.set(i + 1, next + 1);
+      next++;
+    }
+    if (next !== after.length) throw new Error("Task cleanup row mapping changed");
+    const anchors = this.settings.plannerNtfyAnchors || {};
+    const prefs = this.settings.plannerNtfyPreferences || {};
+    const digest = this.hash(after.join("\n"));
+    for (const key of tokens) {
+      const old = anchors[key];
+      if (old && this.plannerAnchorByRow?.get(this.plannerAnchorRowKey(path, old.line)) === key)
+        this.plannerAnchorByRow.delete(this.plannerAnchorRowKey(path, old.line));
+    }
+    for (const key of [...tokens]) {
+      const old = anchors[key];
+      if (!old) continue;
+      const at = rowMap.get(Number(old.line));
+      if (!at) {
+        // Removed source task: clear its explicit bell preference as well.
+        delete prefs[key]; delete anchors[key]; tokens.delete(key);
+        continue;
+      }
+      if (this.plannerAnchorTitle(after[at - 1]) !== old.title) continue;
+      anchors[key] = { ...old, line: at,
+        ...this.plannerAnchorContext(after, at - 1), digest };
+      this.plannerAnchorByRow?.set(this.plannerAnchorRowKey(path, at), key);
+    }
+  }
+
+  async plannerDeleteCompletedTasksInFile(filePath, expectedContent) {
+    const path = String(filePath || "").replace(/\\/g, "/");
+    if (!path || !this.reminderPathInScanScope(path)) throw new Error("source not found");
+    return this.enqueueTaskFileWrite(path, async () => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile) || file.extension !== "md") throw new Error("source not found");
+      let result = null;
+      await this.app.vault.process(file, (current) => {
+        if (current !== expectedContent) throw new Error("task changed while updating");
+        result = plannerRemoveCompletedTaskLines(current);
+        if (!result.removed) throw new Error("No completed tasks to remove");
+        return result.content;
+      });
+      // Rebase surviving anchors by the exact old-to-new row mapping. Never
+      // guess identities from matching titles after removing multiple lines.
+      this.plannerRebaseAnchorsAfterBulkDelete(path, expectedContent, result.content);
+      this.queueReminderScan(file);
+      await this.saveSettings();
+      return result.removed;
+    });
+  }
+
+  async deleteSourceTask(task) {
+    const path = String(task && (task.filePath || task.file) || "").replace(/\\/g, "/");
+    if (!path) throw new Error("source not found");
+    return this.enqueueTaskFileWrite(path, async () => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile) || file.extension !== "md") throw new Error("source not found");
+      const index = Math.max(0, Number(task.lineNumber || task.line || 1) - 1);
+      const original = (await this.app.vault.read(file)).split(/\r\n|\n|\r/)[index];
+      if (!original || !/^\s*[-*+]\s+\[[^\]]\]\s+/.test(original)) throw new Error("line is not a task");
+      if (task.sourceRevision && this.taskSourceRevision(original) !== task.sourceRevision) throw new Error("task changed while updating");
+      await this.replaceTaskLineIfUnchanged(file, index, original, "");
+      const anchoredKey = this.plannerAnchorByRow?.get(this.plannerAnchorRowKey(path, index + 1));
+      if (anchoredKey?.startsWith("planner-anchor:")) {
+        delete this.settings.plannerNtfyAnchors?.[anchoredKey];
+        this.plannerAnchorsByFile?.get(path)?.delete(anchoredKey);
+        if (this.settings.plannerNtfyPreferences) delete this.settings.plannerNtfyPreferences[anchoredKey];
+        this.plannerAnchorByRow.delete(this.plannerAnchorRowKey(path, index + 1));
+      }
+      this.queueReminderScan(file);
+      const oldReminder = this.parseReminderLine(original, path, index + 1);
+      if (oldReminder) {
+        await this.cancelMatchingSentEntries(oldReminder);
+        this.settings.queue = (this.settings.queue || []).filter((item) => item.id !== oldReminder.key);
+        if (this.settings.ignoredReminders) delete this.settings.ignoredReminders[oldReminder.key];
+        await this.saveSettings();
+      }
+      return true;
+    });
+  }
+
+  // Rename only the human-readable prefix; keep timing, Tasks metadata,
+  // tags, recurrence and checkbox syntax byte-for-byte in the suffix.
+  plannerTaskTitleParts(sourceLine) {
+    const match = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!match) throw new Error("line is not a task");
+    const body = match[2];
+    const boundary = /\s+(?:⏱\uFE0F?\s+\d{1,5}m(?=\s|$)|\d{1,2}:\d{2}(?=\s|$)|(?:📅|⏳|🛫|➕|✅|✓|❌|🔁|🆔|🏁|⛔|⏫|🔼|🔽|⏬|🔺)(?=\s|$)|#[\p{L}\p{N}_/-]+)/u.exec(body);
+    const at = boundary ? boundary.index : body.length;
+    return { prefix: match[1], title: body.slice(0, at).trim(), suffix: body.slice(at) };
+  }
+
+  async updateSourceTaskTitle(task, title) {
+    const nextTitle = String(title || "").trim();
+    if (!nextTitle || nextTitle.length > 500 || /[\r\n]/u.test(nextTitle)) throw new Error("Invalid task title");
+    const path = String(task?.filePath || "").replace(/\\/g, "/");
+    if (!path || !this.reminderPathInScanScope(path)) throw new Error("Task is outside scan paths");
+    return this.enqueueTaskFileWrite(path, async () => {
+      const file = this.app.vault.getAbstractFileByPath(path);
+      if (!(file instanceof TFile) || file.extension !== "md") throw new Error("source not found");
+      const index = Number(task.lineNumber || 0) - 1;
+      const original = (await this.app.vault.read(file)).split(/\r\n|\n|\r/)[index];
+      if (!original) throw new Error("line not found");
+      if (task.sourceRevision && this.taskSourceRevision(original) !== task.sourceRevision) throw new Error("task changed while updating");
+      const parts = this.plannerTaskTitleParts(original);
+      const updated = `${parts.prefix}${nextTitle}${parts.suffix}`;
+      if (updated === original) return this.parseTaskLine(original, path, index + 1);
+      const previousReminder = this.parseReminderLine(original, path, index + 1);
+      const oldTask = this.parseTaskLine(original, path, index + 1);
+      await this.replaceTaskLineIfUnchanged(file, index, original, updated);
+      const nextTask = this.parseTaskLine(updated, path, index + 1);
+      const originalAnchorKey = this.plannerAnchorByRow?.get(this.plannerAnchorRowKey(path, index + 1));
+      if (originalAnchorKey && this.settings.plannerNtfyAnchors?.[originalAnchorKey]) {
+        this.settings.plannerNtfyAnchors[originalAnchorKey].title = this.plannerAnchorTitle(updated);
+      }
+      // Keep the bell mode across a derived-ID change following a rename.
+      const previousBellKey = oldTask && this.plannerNtfyTaskKey(oldTask);
+      const nextBellKey = nextTask && this.plannerNtfyTaskKey(nextTask);
+      const oldMode = oldTask && this.plannerNtfyPreference(oldTask);
+      if (previousBellKey && nextBellKey && previousBellKey !== nextBellKey && (oldMode === "on" || oldMode === "off")) {
+        this.settings.plannerNtfyPreferences[nextBellKey] = oldMode;
+        delete this.settings.plannerNtfyPreferences[previousBellKey];
+      }
+      this.queueReminderScan(file);
+      if (previousReminder) {
+        await this.cancelMatchingSentEntries(previousReminder);
+        this.settings.queue = (this.settings.queue || []).filter((item) => item && item.id !== previousReminder.key);
+        const previousIgnored = this.settings.ignoredReminders?.[previousReminder.key];
+        if (previousIgnored) {
+          delete this.settings.ignoredReminders[previousReminder.key];
+          const fresh = this.parseReminderLine(updated, path, index + 1);
+          if (fresh) this.settings.ignoredReminders[fresh.key] = { ...previousIgnored, text: fresh.text, due: fresh.due.toISOString(), file: path, line: index + 1 };
+        }
+      }
+      await this.saveSettings();
+      return nextTask;
+    });
+  }
+
   async updateSourceReminderDue(reminder, nextDue) {
     const due = nextDue instanceof Date ? nextDue : new Date(nextDue);
     if (Number.isNaN(due.getTime())) throw new Error("invalid date/time");
@@ -7908,6 +9412,9 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       const lines = content.split(/\r?\n/);
       const currentLine = lines[lineIndex];
       if (currentLine === undefined) throw new Error("line not found");
+      if (reminder.sourceRevision && this.taskSourceRevision(currentLine) !== reminder.sourceRevision) {
+        throw new Error("task changed while updating");
+      }
 
     const dateTimeText = this.formatLocalDateTime(due);
     const dateOnlyText = `${due.getFullYear()}-${this.pad2(due.getMonth() + 1)}-${this.pad2(due.getDate())}`;
@@ -7970,6 +9477,486 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       });
   }
 
+  // 8.5: durable, optional bindings for explicitly toggled derived tasks.
+  // No Markdown IDs are inserted automatically. A binding is applied only when
+  // its source title and surrounding lines still identify a safe candidate.
+  plannerAnchorRowKey(path, line) { return `${path}:${Number(line)}`; }
+
+  plannerAnchorTitle(line) {
+    if (!/^\s*[-*+]\s+\[[^\]]\]\s+/u.test(String(line || ""))) return "";
+    try { return this.plannerTaskTitleParts(line).title.trim().toLocaleLowerCase(); }
+    catch (_) { return ""; }
+  }
+
+  plannerAnchorContext(lines, index) {
+    // Only immediate neighbors; no full-vault, extra-file, or network work.
+    const previous = index > 0 ? String(lines[index - 1] || "").trim() : "";
+    const following = index + 1 < lines.length ? String(lines[index + 1] || "").trim() : "";
+    return { before: this.hash(`before:${previous}`), after: this.hash(`after:${following}`) };
+  }
+
+  plannerCreateAnchor(task, lines) {
+    if (!task || !String(task.taskId || "").startsWith("derived:")) return this.plannerNtfyTaskKey(task);
+    const file = String(task.filePath || "");
+    const index = Number(task.lineNumber) - 1;
+    if (!file || !Array.isArray(lines) || index < 0 || index >= lines.length) return "";
+    const title = this.plannerAnchorTitle(lines[index]);
+    if (!title) return "";
+    const rowKey = this.plannerAnchorRowKey(file, task.lineNumber);
+    if (!this.plannerAnchorByRow) this.plannerAnchorByRow = new Map();
+    if (!this.settings.plannerNtfyAnchors) this.settings.plannerNtfyAnchors = {};
+    const existing = this.plannerAnchorByRow.get(rowKey);
+    if (existing) return existing;
+    const token = `planner-anchor:${this.hash(`${file}:${task.lineNumber}:${title}:${Date.now()}:${Math.random()}`)}`;
+    this.settings.plannerNtfyAnchors[token] = { file, line: Number(task.lineNumber), title,
+      ...this.plannerAnchorContext(lines, index), digest: this.hash(lines.join("\n")) };
+    if (!this.plannerAnchorsByFile) this.plannerAnchorsByFile = new Map();
+    if (!this.plannerAnchorsByFile.has(file)) this.plannerAnchorsByFile.set(file, new Set());
+    this.plannerAnchorsByFile.get(file).add(token);
+    this.plannerAnchorByRow.set(rowKey, token);
+    return token;
+  }
+
+  plannerRefreshAnchorsForFile(filePath, lines) {
+    const anchors = this.settings.plannerNtfyAnchors || {};
+    const prefs = this.settings.plannerNtfyPreferences || {};
+    // No overhead for files without planner bell preferences.
+    const legacy = this.plannerLegacyByFile?.get(filePath) || [];
+    const anchorKeys = this.plannerAnchorsByFile?.get(filePath);
+    if (!legacy.length && !anchorKeys?.size) return;
+    let changed = false;
+    // Migrate intact legacy per-line overrides without modifying the note.
+    if (legacy.length) {
+      for (const item of legacy) {
+        const index = item.line - 1;
+        if (index < 0 || index >= lines.length || !(item.key in prefs)) continue;
+        const parsed = this.parseTaskLine(lines[index], filePath, item.line);
+        if (!parsed || this.plannerNtfyTaskKey(parsed) !== item.key) continue;
+        const nextKey = this.plannerCreateAnchor(parsed, lines);
+        if (nextKey && nextKey !== item.key) {
+          prefs[nextKey] = prefs[item.key]; delete prefs[item.key]; changed = true;
+        }
+      }
+      this.plannerLegacyByFile.delete(filePath);
+    }
+    // Clear only the rows belonging to this file's anchors; never scan all
+    // cached rows from unrelated files during incremental vault updates.
+    for (const token of this.plannerAnchorsByFile?.get(filePath) || []) {
+      const old = anchors[token];
+      if (!old) continue;
+      const rowKey = this.plannerAnchorRowKey(filePath, old.line);
+      if (this.plannerAnchorByRow.get(rowKey) === token) this.plannerAnchorByRow.delete(rowKey);
+    }
+    const pending = [...(this.plannerAnchorsByFile?.get(filePath) || [])]
+      .filter((key) => anchors[key] && (prefs[key] === "on" || prefs[key] === "off"))
+      .map((key) => [key, anchors[key]]);
+    if (!pending.length) {
+      if (changed) void this.enqueueSettingsPersist().catch((error) => console.warn(`${PLUGIN_NAME}: anchor save failed`, error));
+      return;
+    }
+    const byTitle = new Map();
+    for (let i = 0; i < lines.length; i++) {
+      const title = this.plannerAnchorTitle(lines[i]);
+      if (!title) continue;
+      if (!byTitle.has(title)) byTitle.set(title, []);
+      const context = this.plannerAnchorContext(lines, i);
+      byTitle.get(title).push({ line: i + 1, ...context });
+    }
+    const used = new Set();
+    const fileDigest = this.hash(lines.join("\n"));
+    for (const [key, anchor] of pending) {
+      const candidates = (byTitle.get(anchor.title) || []).filter((candidate) => !used.has(candidate.line));
+      if (!candidates.length) continue;
+      const scored = candidates.map((candidate) => ({ ...candidate,
+        score: (candidate.before === anchor.before ? 4 : 0) + (candidate.after === anchor.after ? 4 : 0),
+        distance: Math.abs(candidate.line - anchor.line) }));
+      scored.sort((a, b) => b.score - a.score || a.distance - b.distance);
+      const winner = scored[0];
+      // A matching title alone is insufficient after an edit: it might be a
+      // deleted task replaced by an unrelated task with the same title.
+      if (winner.score === 0 && anchor.digest !== fileDigest) continue;
+      // With duplicates, require a unique context match to avoid inheriting the
+      // bell mode from the wrong task after inserted/deleted lines.
+      if (scored.length > 1 && (!winner.score || scored[1].score === winner.score)) {
+        // Exact unchanged file: the persisted row remains reliable. After any
+        // edit an indistinguishable duplicate must never inherit that state.
+        if (!(anchor.digest && anchor.digest === fileDigest && winner.line === anchor.line)) continue;
+      }
+      used.add(winner.line);
+      this.plannerAnchorByRow.set(this.plannerAnchorRowKey(filePath, winner.line), key);
+      if (anchor.line !== winner.line || anchor.before !== winner.before || anchor.after !== winner.after || anchor.digest !== fileDigest) {
+        anchors[key] = { file: filePath, line: winner.line, title: anchor.title,
+          before: winner.before, after: winner.after, digest: fileDigest };
+        changed = true;
+      }
+    }
+    if (changed) void this.enqueueSettingsPersist().catch((error) => console.warn(`${PLUGIN_NAME}: anchor save failed`, error));
+  }
+
+  // 8.8.6: Rebase explicitly chosen bell modes against the *actual* insertion.
+  // Comparing ordered full task lines distinguishes identical task titles and
+  // avoids transferring a previous row's preference to the inserted task.
+  // The newly created row is excluded from the mapping, so even an identical
+  // new task cannot inherit an existing anchor.
+  plannerInsertionMapping(beforeText, afterText, newTaskLine, position) {
+    const oldLines = String(beforeText).split(/\r\n|\n|\r/u);
+    const newLines = String(afterText).split(/\r\n|\n|\r/u);
+    const taskRow = (line) => /^\s*[-*+]\s+\[[^\]]\]\s+/u.test(line);
+    const previous = oldLines.map((text, index) => ({ text, index })).filter((row) => taskRow(row.text));
+    const following = newLines.map((text, index) => ({ text, index })).filter((row) => taskRow(row.text));
+    if (following.length !== previous.length + 1) throw new Error("Task insertion changed unrelated task rows");
+    const insertAt = position === "bottom" ? following.length - 1 : 0;
+    const inserted = following[insertAt];
+    if (!inserted || inserted.text !== newTaskLine) throw new Error("Inserted task could not be identified safely");
+    const survivors = following.filter((_, index) => index !== insertAt);
+    const oldToNew = new Map();
+    for (let i = 0; i < previous.length; i++) {
+      if (previous[i].text !== survivors[i].text) throw new Error("Existing task order changed during insertion");
+      oldToNew.set(previous[i].index + 1, survivors[i].index + 1);
+    }
+    return { oldLines, newLines, oldToNew, insertedLine: inserted.index + 1 };
+  }
+
+  plannerRebaseAnchorsAfterInsertion(path, insertion) {
+    const tokens = this.plannerAnchorsByFile?.get(path);
+    if (!tokens?.size) return;
+    const anchors = this.settings.plannerNtfyAnchors || {};
+    const digest = this.hash(insertion.newLines.join("\n"));
+    for (const token of tokens) {
+      const old = anchors[token];
+      if (!old) continue;
+      const oldKey = this.plannerAnchorRowKey(path, old.line);
+      if (this.plannerAnchorByRow?.get(oldKey) === token) this.plannerAnchorByRow.delete(oldKey);
+    }
+    for (const token of tokens) {
+      const old = anchors[token];
+      if (!old) continue;
+      const nextLine = insertion.oldToNew.get(Number(old.line));
+      if (!nextLine || this.plannerAnchorTitle(insertion.newLines[nextLine - 1]) !== old.title) continue;
+      const rowKey = this.plannerAnchorRowKey(path, nextLine);
+      if (this.plannerAnchorByRow.has(rowKey)) continue;
+      anchors[token] = { ...old, line: nextLine,
+        ...this.plannerAnchorContext(insertion.newLines, nextLine - 1), digest };
+      this.plannerAnchorByRow.set(rowKey, token);
+    }
+  }
+
+  async plannerAwaitPendingCreate(path) {
+    const pending = this.plannerPendingCreates?.get(path);
+    if (pending) await pending;
+  }
+
+  plannerNtfyTaskKey(task) {
+    if (!task || !task.filePath || !task.taskId) return "";
+    const base = `${String(task.filePath).replace(/\\/g, "/")}:${String(task.taskId)}`;
+    if (String(task.taskId).startsWith("derived:")) {
+      return this.plannerAnchorByRow?.get(this.plannerAnchorRowKey(task.filePath, task.lineNumber))
+        || `${base}:line:${Math.max(1, Number(task.lineNumber || task.line || 1))}`;
+    }
+    return base;
+  }
+
+  plannerNtfyPreference(task) {
+    const key = this.plannerNtfyTaskKey(task);
+    if (!key) return "";
+    const preferences = this.settings.plannerNtfyPreferences || {};
+    if (Object.prototype.hasOwnProperty.call(preferences, key)) return String(preferences[key]);
+    // Read 8.3.0 preferences for backwards compatibility until this row is
+    // explicitly toggled. Ambiguous legacy keys are not silently deleted.
+    if (key.startsWith("planner-anchor:")) return "";
+    const legacy = `${String(task.filePath).replace(/\\/g, "/")}:${String(task.taskId)}`;
+    return String(preferences[legacy] || "");
+  }
+
+  plannerNtfySameInstance(entry, task) {
+    if (!entry || !task) return false;
+    const sameLocation = String(entry.file || entry.filePath || "") === String(task.filePath || "")
+      && Number(entry.line || entry.lineNumber || 0) === Number(task.lineNumber || 0);
+    if (String(task.taskId || "").startsWith("derived:")) return sameLocation;
+    return sameLocation || Boolean(entry.taskId && entry.taskId === task.taskId);
+  }
+
+  plannerNtfyIsOn(task, reminder = null) {
+    if (!task || !task.due || task.completed) return false;
+    const mode = this.plannerNtfyPreference(task);
+    if (mode === "off") return false;
+    if (mode === "on") return true;
+    if (reminder && this.settings.ignoredReminders?.[reminder.key]) return false;
+    return Boolean(reminder && String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy");
+  }
+
+  // Explicit opt-in can create an ntfy-only reminder for a dated task excluded from
+  // automatic reminder detection (e.g. because no explicit time was supplied).
+  plannerOptInReminder(task) {
+    if (!task || !task.due || task.completed || this.plannerNtfyPreference(task) !== "on") return null;
+    return {
+      key: task.key, taskId: task.taskId, occurrenceId: task.occurrenceId,
+      sourceRevision: task.sourceRevision, sourceUpdatedAt: 0,
+      due: task.due, text: task.text, filePath: task.filePath, lineNumber: task.lineNumber,
+      source: "planner-ntfy", isTask: true, hasExplicitTime: Boolean(task.hasExplicitTime),
+      repeatSeconds: 0, autoDone: false,
+    };
+  }
+
+  async setPlannerNtfyEnabled(task, enabled) {
+    if (!task || !task.due || task.completed || !this.reminderPathInScanScope(task.filePath)) {
+      throw new Error("Task is not eligible for planner ntfy notifications");
+    }
+    const file = this.app.vault.getAbstractFileByPath(task.filePath);
+    if (!(file instanceof TFile)) throw new Error("source not found");
+    const lines = (await this.app.vault.read(file)).split(/\r?\n/);
+    const current = lines[Number(task.lineNumber) - 1];
+    if (!current || this.taskSourceRevision(current) !== task.sourceRevision || this.tasksStableIdFromBody((current.match(/^\s*[-*+]\s+\[[^\]]\]\s+(.*)$/u) || [])[1] || "", task.filePath) !== task.taskId) {
+      throw new Error("task changed while updating");
+    }
+    const currentTask = this.parseTaskLine(current, task.filePath, task.lineNumber);
+    if (!currentTask || currentTask.completed) throw new Error("Task is completed");
+    this.plannerRefreshAnchorsForFile(file.path, lines);
+    const key = this.plannerNtfyTaskKey(currentTask);
+    if (!key) throw new Error("Task has no stable identity");
+    if (enabled && !this.topicUrl()) throw new Error("ntfy topic is not configured");
+    const oldMode = this.plannerNtfyPreference(task);
+    const prefs = this.settings.plannerNtfyPreferences || (this.settings.plannerNtfyPreferences = {});
+    // Cancel an existing ntfy remote schedule before committing the disabled state.
+    if (!enabled) {
+      const actual = this.parseReminderLine(current, task.filePath, task.lineNumber) || this.plannerOptInReminder(currentTask);
+      if (actual) await this.cancelMatchingSentEntries(actual);
+      // Queue entries are channel-agnostic: remove them only if ntfy is the default.
+      if (String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy") {
+        this.settings.queue = (this.settings.queue || []).filter((item) => !this.plannerNtfySameInstance(item, task));
+      }
+    }
+    const anchoredKey = String(task.taskId || "").startsWith("derived:")
+      ? this.plannerCreateAnchor(currentTask, lines) : key;
+    if (!anchoredKey) throw new Error("Task identity is ambiguous");
+    prefs[anchoredKey] = enabled ? "on" : "off";
+    if (anchoredKey !== key) delete prefs[key];
+    if (enabled && oldMode !== "on") {
+      // This task must be reconsidered by the next scan, without resending
+      // already completed deliveries on unrelated channels.
+      const actual = this.parseReminderLine(current, task.filePath, task.lineNumber);
+      for (const [id, entry] of Object.entries(this.settings.sent || {})) {
+        if (!this.plannerNtfySameInstance(entry, task)) continue;
+        if (actual && id === actual.key && entry.channels) {
+          // Mark ntfy pending while retaining statuses of all other providers.
+          entry.channels.ntfy = { status: "failed", at: new Date().toISOString(), error: "planner opt-in" };
+          entry.ntfyDeleted = true;
+        } else if (!actual || id === currentTask.key) delete this.settings.sent[id];
+      }
+    }
+    await this.saveSettings();
+    // Do not dispatch from this setter. Normal scoped scan handles scheduling,
+    // with errors visible in the existing diagnostic and connection log flows.
+    this.queueReminderScan(file);
+    this.queueStatusCountRefresh(file);
+    return true;
+  }
+
+  plannerTargetNote() {
+    const path = String(this.settings.plannerTargetFile || "").replace(/\\/g, "/").trim();
+    if (!path) throw new Error("Choose a note in Planner settings");
+    const file = this.app.vault.getAbstractFileByPath(path);
+    if (!(file instanceof TFile) || file.extension !== "md") throw new Error("Planner note is missing");
+    if (!this.reminderPathInScanScope(file.path)) throw new Error("Planner note must be in scan scope");
+    return file;
+  }
+
+  // A leading blank line is a user's note-formatting preference, not a separator
+  // between the inserted task block and the existing text. Keep YAML at byte 0:
+  // adding a newline before frontmatter would make Properties unrecognisable.
+  ensurePlannerLeadingBlankLine(content) {
+    const original = String(content || "");
+    if (!original) return original;
+    const eol = original.includes("\r\n") ? "\r\n" : "\n";
+    const yaml = original.match(/^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/u);
+    if (yaml) {
+      const prefix = yaml[0];
+      const body = original.slice(prefix.length);
+      if (!prefix.endsWith(eol)) return prefix + eol + eol + body;
+      return body.startsWith(eol) ? original : prefix + eol + body;
+    }
+    return original.startsWith("\n") || original.startsWith("\r\n") ? original : eol + original;
+  }
+
+  insertPlannerTaskContent(content, newLine, position = "top", blankLine = true, leadingBlankLine = true) {
+    const original = String(content || "");
+    const eol = original.includes("\r\n") ? "\r\n" : "\n";
+    const task = String(newLine).replace(/\r?\n/g, " ");
+    const withTopGap = (text) => leadingBlankLine ? this.ensurePlannerLeadingBlankLine(text) : text;
+    if (!original) return withTopGap(task + eol);
+    if (position === "bottom") {
+      const boundary = original.endsWith(eol) ? "" : eol;
+      // Preserve old content. Add exactly one blank separator at the boundary.
+      return withTopGap(original + boundary + (blankLine && !original.endsWith(eol + eol) ? eol : "") + task + eol);
+    }
+    // YAML properties must stay at byte 0. Handle '---' only if closed by another ---.
+    const frontmatter = original.match(/^---[ \t]*\r?\n[\s\S]*?\r?\n---[ \t]*(?:\r?\n|$)/u);
+    const header = frontmatter ? frontmatter[0] : "";
+    const rest = original.slice(header.length);
+    // Multiple additions to the beginning remain consecutive (newest first).
+    const lines = rest.split(/\r?\n/u);
+    let first = 0;
+    while (first < lines.length && !lines[first].trim()) first++;
+    let lastTask = first;
+    while (lastTask < lines.length && /^\s*[-*+]\s+\[[^\]]\]\s+/u.test(lines[lastTask])) lastTask++;
+    const existingBlock = lastTask > first ? lines.slice(first, lastTask).join(eol) : "";
+    const remaining = lastTask > first ? lines.slice(lastTask).join(eol).replace(/^(?:\r?\n)*/u, "") : rest.replace(/^(?:\r?\n)*/u, "");
+    const group = task + (existingBlock ? eol + existingBlock : "");
+    const delimiter = remaining.length ? (blankLine ? eol + eol : eol) : eol;
+    return withTopGap(header + (header && !header.endsWith(eol + eol) ? eol : "") + group + delimiter + remaining);
+  }
+
+  // Read-only CAS preflight for a Planner copy. The actual insertion still
+  // goes through createPlannerTask and its serialized Vault.process path.
+  async plannerVerifyCopySource(task) {
+    const path = String(task?.filePath || "");
+    if (!path || !this.reminderPathInScanScope(path)) throw new Error("Source task changed");
+    const file = this.app.vault.getAbstractFileByPath(path);
+    if (!(file instanceof TFile) || file.extension !== "md") throw new Error("Source task changed");
+    await this.plannerAwaitPendingCreate(path);
+    const lines = (await this.app.vault.read(file)).split(/\r?\n/u);
+    const current = lines[Number(task.lineNumber) - 1];
+    if (!current || this.taskSourceRevision(current) !== task.sourceRevision) throw new Error("Source task changed");
+    const fresh = this.parseTaskLine(current, path, task.lineNumber);
+    if (!fresh || fresh.taskId !== task.taskId) throw new Error("Source task changed");
+    return fresh;
+  }
+
+  async createPlannerTask(title, due, durationMinutes = null, autoDoneEnabled = false, onCompletion = "", recurrence = "", ntfyEnabled = undefined, hasExplicitTime = true) {
+    if (this.settings.plannerEnabled === false) throw new Error("Planner is disabled");
+    const completion = this.normalizePlannerOnCompletion(onCompletion);
+    const name = String(title || "").replace(/[\r\n\u0000-\u001f]/g, " ").trim();
+    if (!name) throw new Error("New task title required");
+    if (name.length > 500) throw new Error("Task title too long");
+    const date = due instanceof Date ? due : new Date(due);
+    if (Number.isNaN(date.getTime())) throw new Error("invalid date/time");
+    const file = this.plannerTargetNote();
+    const d = `${date.getFullYear()}-${this.pad2(date.getMonth() + 1)}-${this.pad2(date.getDate())}`;
+    const time = hasExplicitTime ? `${this.pad2(date.getHours())}:${this.pad2(date.getMinutes())}` : "";
+    if (durationMinutes !== null && (!Number.isInteger(durationMinutes) || durationMinutes < 1 || durationMinutes > 1440)) throw new Error("invalid duration");
+    const tag = autoDoneEnabled ? ` ${this.normalizeAutoDoneTag(this.settings.autoDoneTag)}` : "";
+    // The Tasks due date is deliberately the final metadata token, including
+    // when both auto-done and on-completion options were selected.
+    const baseLine = `- [ ] ${name}${tag}${durationMinutes === null ? "" : ` ⏱️ ${durationMinutes}m`}${time ? ` ${time}` : ""}${completion ? ` 🏁 ${completion}` : ""} 📅 ${d}`;
+    // Reuse the same validated Tasks recurrence rewrite as the edit form.
+    // The due-date marker remains the final token after adding recurrence.
+    const line = this.rewriteSourceTaskRecurrenceLine(baseLine, recurrence);
+    // Commit time is also the only safe point to identify which identical
+    // Markdown row was added. A per-file scan waits until the bell preference
+    // has been saved; this avoids a scan observing half a task transaction.
+    return this.enqueueTaskFileWrite(file.path, async () => {
+      if (!(this.plannerPendingCreates instanceof Map)) this.plannerPendingCreates = new Map();
+      let release;
+      const pending = new Promise((resolve) => { release = resolve; });
+      this.plannerPendingCreates.set(file.path, pending);
+      let committed = null;
+      let didCommit = false;
+      let insertion = null;
+      let createdKey = "";
+      let anchorBackup = null;
+      try {
+        await this.app.vault.process(file, (current) => {
+          if (!this.reminderPathInScanScope(file.path) || this.app.vault.getAbstractFileByPath(file.path) !== file) {
+            throw new Error("Planner note must be in scan scope");
+          }
+          const next = this.insertPlannerTaskContent(current, line, this.settings.plannerInsertPosition,
+            this.settings.plannerBlankLine, this.settings.plannerLeadingBlankLine !== false);
+          insertion = this.plannerInsertionMapping(current, next, line, this.settings.plannerInsertPosition);
+          committed = { before: current, after: next };
+          return next;
+        });
+        didCommit = true;
+        // Migrate any old per-line preferences against the OLD note, not a row
+        // that has just been occupied by the newly created task.
+        this.plannerRefreshAnchorsForFile(file.path, insertion.oldLines);
+        const priorTokens = [...(this.plannerAnchorsByFile?.get(file.path) || [])];
+        anchorBackup = {
+          tokens: priorTokens,
+          values: new Map(priorTokens.map((token) => [token, { ...this.settings.plannerNtfyAnchors[token] }])),
+          rows: new Map(priorTokens.map((token) => {
+            const value = this.settings.plannerNtfyAnchors[token];
+            const row = this.plannerAnchorRowKey(file.path, value.line);
+            return [row, this.plannerAnchorByRow?.get(row) || ""];
+          })),
+        };
+        this.plannerRebaseAnchorsAfterInsertion(file.path, insertion);
+        if (typeof ntfyEnabled === "boolean") {
+          const created = this.parseTaskLine(line, file.path, insertion.insertedLine);
+          if (!created) throw new Error("New task was not recognized as a Tasks row");
+          const rowKey = this.plannerAnchorRowKey(file.path, insertion.insertedLine);
+          // A stale cache must never grant a new task somebody else's mode.
+          if (this.plannerAnchorByRow?.has(rowKey)) throw new Error("New task identity conflicts with an existing bell preference");
+          const key = String(created.taskId || "").startsWith("derived:")
+            ? this.plannerCreateAnchor(created, insertion.newLines) : this.plannerNtfyTaskKey(created);
+          if (!key) throw new Error("New task identity is ambiguous");
+          const preferences = this.settings.plannerNtfyPreferences || (this.settings.plannerNtfyPreferences = {});
+          preferences[key] = ntfyEnabled ? "on" : "off";
+          createdKey = key;
+        }
+        // Persist rebased old anchors too, even for legacy callers that don't
+        // specify a new bell preference. Saves are serialized with prior writes.
+        if (typeof ntfyEnabled === "boolean" || this.plannerAnchorsByFile?.get(file.path)?.size) {
+          await this.saveSettings();
+        }
+        this.queueReminderScan(file);
+        return { path: file.path, task: line };
+      } catch (error) {
+        // If settings storage fails after Markdown was written, attempt an
+        // exact-content rollback. NEVER overwrite a concurrent user edit.
+        if (didCommit && committed) {
+          let rolledBack = false;
+          try {
+            await this.app.vault.process(file, (current) => {
+              if (current !== committed.after) throw new Error("note changed after task creation");
+              return committed.before;
+            });
+            rolledBack = true;
+          } catch (rollbackError) {
+            // The task is now user data. Leave it untouched and report the
+            // partial commit explicitly rather than silently losing edits.
+            console.warn(`${PLUGIN_NAME}: planner task rollback skipped`, rollbackError);
+          }
+          if (rolledBack) {
+            if (createdKey) {
+              delete this.settings.plannerNtfyPreferences?.[createdKey];
+              delete this.settings.plannerNtfyAnchors?.[createdKey];
+              this.plannerAnchorsByFile?.get(file.path)?.delete(createdKey);
+            }
+            if (anchorBackup) {
+              const tokens = this.plannerAnchorsByFile?.get(file.path);
+              for (const token of [...(tokens || [])]) {
+                if (!anchorBackup.values.has(token)) {
+                  tokens.delete(token);
+                  delete this.settings.plannerNtfyAnchors[token];
+                }
+              }
+              for (const [token, value] of anchorBackup.values) {
+                this.settings.plannerNtfyAnchors[token] = value;
+                tokens?.add(token);
+              }
+              for (const [row, token] of [...(this.plannerAnchorByRow || [])]) {
+                if (row.startsWith(`${file.path}:`) && tokens?.has(token)) this.plannerAnchorByRow.delete(row);
+              }
+              for (const [row, token] of anchorBackup.rows) {
+                if (token) this.plannerAnchorByRow.set(row, token);
+              }
+            }
+            try { await this.saveSettings(); }
+            catch (restoreError) { console.warn(`${PLUGIN_NAME}: failed to persist planner rollback`, restoreError); }
+          }
+          this.queueReminderScan(file);
+          throw new Error(rolledBack
+            ? `Task creation was rolled back: ${error?.message || error}`
+            : `Task was written, but notification settings could not be confirmed. Check the note and ntfy preference: ${error?.message || error}`);
+        }
+        throw error;
+      } finally {
+        if (this.plannerPendingCreates.get(file.path) === pending) this.plannerPendingCreates.delete(file.path);
+        release();
+      }
+    });
+  }
+
   async sendReminderNow(reminder) {
     if (!this.hasDestination()) {
       this.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Configure the default channel first")}`);
@@ -7993,6 +9980,11 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     this.settings.sent = this.settings.sent && typeof this.settings.sent === "object" ? this.settings.sent : {};
 
     for (const item of queue) {
+      if (this.isUnloading) {
+        // The old queue remains in settings until reconciliation completes.
+        // Abort instead of publishing after plugin shutdown.
+        throw new Error("Queued reminder flush stopped during plugin unload");
+      }
       const due = new Date(item.due);
       if (Number.isNaN(due.getTime())) continue;
       const repeatSeconds = Math.max(0, Number(item.repeatSeconds || 0));
@@ -8038,9 +10030,19 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
           repeatSeconds,
         };
         const scheduleFuture = dueMs > now + 1000;
+        if (reminder.isTask && this.plannerNtfyPreference(reminder) === "off"
+            && String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy") {
+          continue;
+        }
         if (!item.taskRepeat) await this.cancelMatchingSentEntries(reminder);
         let results;
-        if (scheduleFuture && await this.remoteOccurrenceAlreadyScheduled(reminder, !previousEntry)) {
+        let remoteState = "absent";
+        if (scheduleFuture && this.plannerNtfyPreference(reminder) !== "off"
+          && String(this.settings.defaultChannelId || "ntfy").toLowerCase() === "ntfy") {
+          remoteState = await this.remoteOccurrenceScheduleState(reminder, !previousEntry);
+          if (remoteState === "unknown") throw this.remoteScheduleVerificationError();
+        }
+        if (remoteState === "present") {
           const sequenceId = this.ntfyMessageId(reminder.occurrenceId || reminder.key);
           results = [{ channelId: "ntfy", ok: true, status: "scheduled", messageId: sequenceId, sequenceId, due: due.toISOString(), deduplicated: true }];
         } else {
@@ -8247,20 +10249,25 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
   }
 
   nextRepeatDue(previousDue, repeatSeconds, nowMs) {
-    let nextMs = previousDue.getTime() + repeatSeconds * 1000;
-    let guard = 0;
-    while (nextMs <= nowMs && guard < 10000) {
-      nextMs += repeatSeconds * 1000;
-      guard++;
-    }
-    if (nextMs <= nowMs) nextMs = nowMs + repeatSeconds * 1000;
-    return new Date(nextMs);
+    // Custom repeatSeconds is an absolute elapsed-time interval, not a Tasks
+    // calendar recurrence. Jump directly over missed intervals: a one-second
+    // repeat after weeks offline must not perform 10,000 iterations or change
+    // its phase relative to the original occurrence.
+    const intervalMs = Number(repeatSeconds) * 1000;
+    const baseMs = previousDue instanceof Date ? previousDue.getTime() : NaN;
+    const currentMs = Number(nowMs);
+    if (!Number.isFinite(intervalMs) || intervalMs <= 0
+        || !Number.isFinite(baseMs) || !Number.isFinite(currentMs)) return new Date(NaN);
+    const steps = Math.max(1, Math.floor((currentMs - baseMs) / intervalMs) + 1);
+    const nextMs = baseMs + steps * intervalMs;
+    return new Date(nextMs > currentMs ? nextMs : currentMs + intervalMs);
   }
 
-  async collectReminders(filesOverride = null, strict = false) {
+  async collectReminders(filesOverride = null, strict = false, scanTrace = null) {
     const requested = Array.isArray(filesOverride) ? filesOverride : this.getReminderScanFiles();
     const reminders = [];
     const scannedFiles = new Set();
+    const scope = this.compileReminderScanScope();
     this.settings.reminderFileState = this.settings.reminderFileState && typeof this.settings.reminderFileState === "object" ? this.settings.reminderFileState : {};
 
     for (const item of requested) {
@@ -8272,17 +10279,47 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         delete this.settings.reminderFileState[requestedPath];
         continue;
       }
-      if (!this.reminderFileInScanScope(file)) continue;
+      if (!this.reminderFileInScanScope(file, scope)) continue;
       try {
+        const revisionAtRead = this.reminderFileChangeRevisions?.get(file.path) || 0;
+        const signatureAtRead = this.reminderFileSignature(file);
+        const readStart = scanTrace ? plannerPerfClock() : 0;
+        await this.plannerAwaitPendingCreate(file.path);
         const content = await this.app.vault.cachedRead(file);
+        const signatureAfterRead = this.reminderFileSignature(file);
+        if (strict && ((this.reminderFileChangeRevisions?.get(file.path) || 0) !== revisionAtRead
+            || signatureAtRead?.size !== signatureAfterRead?.size
+            || signatureAtRead?.mtime !== signatureAfterRead?.mtime)) {
+          // Never reconcile a file whose source changed during an awaited read.
+          // Its modify event is queued; pending recovery forces a full scan.
+          throw new Error("Reminder Markdown changed during scan read");
+        }
+        if (strict && this.activeScanFileRevisions) this.activeScanFileRevisions.set(file.path, revisionAtRead);
+        if (scanTrace) {
+          scanTrace.readMs += plannerPerfClock() - readStart;
+          scanTrace.readFiles++;
+        }
+        const parseStart = scanTrace ? plannerPerfClock() : 0;
         this.settings.reminderFileState[file.path] = this.reminderFileSignature(file);
         const lines = content.split(/\r?\n/);
+        this.plannerRefreshAnchorsForFile(file.path, lines);
         for (let i = 0; i < lines.length; i++) {
           const parsed = this.parseReminderLine(lines[i], file.path, i + 1);
           if (parsed) {
             parsed.sourceUpdatedAt = Number(file.stat && file.stat.mtime || 0);
             reminders.push(parsed);
+          } else {
+            const task = this.parseTaskLine(lines[i], file.path, i + 1);
+            const optedIn = this.plannerOptInReminder(task);
+            if (optedIn) {
+              optedIn.sourceUpdatedAt = Number(file.stat && file.stat.mtime || 0);
+              reminders.push(optedIn);
+            }
           }
+        }
+        if (scanTrace) {
+          scanTrace.parseMs += plannerPerfClock() - parseStart;
+          scanTrace.parsedLines += lines.length;
         }
       } catch (error) {
         console.warn(`${PLUGIN_NAME}: skipped unreadable file ${requestedPath}`, error);
@@ -8466,13 +10503,14 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const due = delay
       ? new Date(Date.now() + delay.seconds * 1000)
       : tasksDate
-      ? this.parseLocalDateTime(tasksDate.year, tasksDate.month, tasksDate.day, timeText)
+      ? this.parseLocalDateTime(tasksDate.year, tasksDate.month, tasksDate.day, timeText, true)
       : diaryDate
-      ? this.parseLocalDateTime(diaryDate.year, diaryDate.month, diaryDate.day, timeText)
-      : this.parseLocalDateTime(match[1], match[2], match[3], timeText);
+      ? this.parseLocalDateTime(diaryDate.year, diaryDate.month, diaryDate.day, timeText, true)
+      : this.parseLocalDateTime(match[1], match[2], match[3], timeText, true);
     if (!due) return null;
 
     let cleanedText = raw
+      .replace(/(?:^|\s)⏱\uFE0F?\s+\d{1,5}m(?=\s|$)/gu, " ")
       .replace(/^\s*[-*+]\s+\[[^\]]\]\s+/, "")
       .replace(/⏰\s*/g, "")
       .replace(/🔔\s*/g, "")
@@ -8527,12 +10565,88 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       isDelay: Boolean(delay),
       isTask: Boolean(isTaskLine),
       taskStatus,
+      durationMinutes: isTaskLine ? this.plannerDurationMinutes(taskBody) : null,
+      recurrenceRule: isTaskLine ? this.plannerRecurrenceRule(taskBody) : "",
+      onCompletion: isTaskLine ? this.plannerOnCompletion(taskBody) : "",
       hasExplicitTime,
       tasksTimePlacement: taskReminderTime ? taskReminderTime.placement : "",
       repeatSeconds: isTaskLine && taskStatus === " "
         ? Math.max(0, Number(this.settings.taskRepeatMinutes || 0) || 0) * 60
         : 0,
     };
+  }
+
+  // Read the real Tasks recurrence token from Markdown. This is NOT a forecast
+  // of future occurrences: only actual vault task rows are displayed.
+  plannerRecurrenceRule(sourceLine) {
+    const body = String(sourceLine || "").replace(/^\s*[-*+]\s+\[[^\]]\]\s+/, "");
+    const found = /🔁[ \t]+(.+?)(?=[ \t]+(?:🛫|⏳|📅|➕|✅|✓|❌|🔼|🔽|⏫|⏬|🔺|⛔|🆔|🏁|⏱️?|🔁)(?:[ \t]|$)|$)/u.exec(body);
+    return found ? found[1].trim() : "";
+  }
+
+  // Tasks On Completion: blank = default, keep = keep the completed row,
+  // delete = remove the completed row (while Tasks may create the next recurrence).
+  normalizePlannerOnCompletion(value) {
+    const mode = String(value ?? "").trim().toLowerCase();
+    if (!["", "keep", "delete"].includes(mode)) throw new Error("Invalid On completion action");
+    return mode;
+  }
+
+  plannerOnCompletion(sourceLine) {
+    const match = /(?:^|[ \t])🏁[ \t]+(keep|delete)(?=[ \t]|$)/iu.exec(String(sourceLine || ""));
+    return match ? match[1].toLowerCase() : "";
+  }
+
+  rewriteSourceTaskOnCompletionLine(sourceLine, action) {
+    const mode = this.normalizePlannerOnCompletion(action);
+    const match = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!match) throw new Error("line is not a task");
+    let body = match[2];
+    const token = /(?:^|[ \t]+)🏁[ \t]+(keep|delete)(?=[ \t]|$)/iu;
+    if (token.test(body)) body = body.replace(token, "");
+    // Do not silently destroy unsupported 🏁 values defined in future versions.
+    if (/(?:^|[ \t])🏁(?=[ \t]|$)/u.test(body)) throw new Error("Unsupported On completion action");
+    if (mode) {
+      const dueDate = /[ \t]+📅[ \t]+\d{4}-\d{2}-\d{2}(?=[ \t]|$)/u.exec(body);
+      const at = dueDate ? dueDate.index : body.length;
+      body = `${body.slice(0, at).trimEnd()} 🏁 ${mode}${body.slice(at)}`;
+    }
+    return match[1] + body.replace(/[ \t]{2,}/g, " ").trim();
+  }
+
+  // Editing a recurrence modifies only its Tasks token. Tasks' own API still
+  // handles completion and generation of the next real task instance.
+  rewriteSourceTaskRecurrenceLine(sourceLine, input) {
+    const match = String(sourceLine || "").match(/^(\s*[-*+]\s+\[[^\]]\]\s+)(.*)$/u);
+    if (!match) throw new Error("line is not a task");
+    const rawRule = String(input || "");
+    if (/[\r\n]/.test(rawRule)) throw new Error("Invalid recurrence rule");
+    const rule = rawRule.trim().replace(/[ \t]+/g, " ");
+    if (rule && (rule.length > 120 || !/^every\s+\S/i.test(rule) || /[<>\[\]🔁🛫⏳📅➕✅❌⛔🔺🔼🔽⏫⏬🆔🏁⏱]/u.test(rule))) {
+      throw new Error("Invalid recurrence rule");
+    }
+    // Explicit simple numeric intervals must be positive integers. Keep
+    // advanced Tasks rules untouched (e.g. every weekday); Tasks remains
+    // responsible for validating their richer language.
+    const numeric = /^every\s+(-?\d+(?:\.\d+)?)\s+(?:days?|weeks?|months?|years?)(?:\s|$)/i.exec(rule);
+    if (numeric && (!Number.isInteger(Number(numeric[1])) || Number(numeric[1]) < 1 || Number(numeric[1]) > 999)) {
+      throw new Error("Invalid recurrence interval");
+    }
+    const original = match[2];
+    const token = /(?:^|[ \t]+)🔁[ \t]+.+?(?=[ \t]+(?:🛫|⏳|📅|➕|✅|✓|❌|🔼|🔽|⏫|⏬|🔺|⛔|🆔|🏁|⏱️?|🔁)(?:[ \t]|$)|$)/u;
+    let body;
+    if (token.test(original)) {
+      body = original.replace(token, rule ? ` 🔁 ${rule}` : "");
+    } else if (rule) {
+      const boundary = /[ \t]+(?:🛫|⏳|📅|➕|✅|✓|❌|🔼|🔽|⏫|⏬|🔺|⛔|🆔|🏁|⏱️?)(?=[ \t]|$)/u.exec(original);
+      const at = boundary ? boundary.index : original.length;
+      body = `${original.slice(0, at).trimEnd()} 🔁 ${rule}${original.slice(at)}`;
+    } else body = original;
+    return match[1] + body.replace(/[ \t]{2,}/g, " ").trim();
+  }
+
+  async setSourceTaskRecurrence(task, rule) {
+    return this.editSourceTaskAttribute(task, (sourceLine) => this.rewriteSourceTaskRecurrenceLine(sourceLine, rule));
   }
 
   parseTaskLine(line, filePath, lineNumber) {
@@ -8542,6 +10656,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const status = taskMatch[1];
     const completed = status === "x" || status === "X";
     const body = String(taskMatch[2] || "").trim();
+    const durationMinutes = this.plannerDurationMinutes(body);
     const tasksDate = this.settings.includeTasksPluginDates ? this.extractTasksDate(body) : null;
     const doneDate = this.extractTasksDateByLabel(body, "done");
     const explicitDateMatch = body.match(DATE_TIME_RE);
@@ -8557,14 +10672,18 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       : diaryDate
       ? timePrefix ? `${this.pad2(timePrefix[1])}:${timePrefix[2]}` : this.settings.defaultTime || "08:00"
       : "";
+    // Imported Markdown keeps the previous forward-normalization on missing
+    // DST clock times, avoiding silent loss of existing reminders. Manual
+    // date/time entry remains strict through parseDateTimeLocal().
     const due = tasksDate
-      ? this.parseLocalDateTime(tasksDate.year, tasksDate.month, tasksDate.day, timeText)
+      ? this.parseLocalDateTime(tasksDate.year, tasksDate.month, tasksDate.day, timeText, true)
       : explicitDateMatch
-      ? this.parseLocalDateTime(explicitDateMatch[1], explicitDateMatch[2], explicitDateMatch[3], timeText)
+      ? this.parseLocalDateTime(explicitDateMatch[1], explicitDateMatch[2], explicitDateMatch[3], timeText, true)
       : diaryDate
-      ? this.parseLocalDateTime(diaryDate.year, diaryDate.month, diaryDate.day, timeText)
+      ? this.parseLocalDateTime(diaryDate.year, diaryDate.month, diaryDate.day, timeText, true)
       : null;
     const cleanedText = this.cleanTaskDisplayText(body
+      .replace(/(?:^|\s)⏱\uFE0F?\s+\d{1,5}m(?=\s|$)/gu, " ")
       .replace(TIME_BEFORE_TAGS_AND_TASKS_METADATA_RE, " ")
       .replace(TIME_BEFORE_TASKS_METADATA_RE, " ")
       .replace(TIME_BEFORE_TASKS_DATE_RE, " ")
@@ -8583,11 +10702,17 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
       occurrenceId,
       sourceRevision: this.taskSourceRevision(line),
       autoDone: Boolean(!completed && status === " " && this.taskHasAutoDoneTag(body)),
+      autoDoneTagPresent: this.taskContainsAutoDoneTag(body),
       completed,
+      status,
       doneAt: doneDate ? this.parseLocalDateTime(doneDate.year, doneDate.month, doneDate.day, doneDate.timeText || "00:00") : null,
       due,
       hasTime: Boolean(due),
       text: cleanedText || body || "Task",
+      editableTitle: this.plannerTaskTitleParts(raw).title,
+      durationMinutes,
+      recurrenceRule: this.plannerRecurrenceRule(body),
+      onCompletion: this.plannerOnCompletion(body),
       filePath,
       lineNumber,
       source: tasksDate ? `tasks:${tasksDate.label}` : diaryDate ? "diary-task" : explicitDateMatch ? "task-date" : "task",
@@ -8725,7 +10850,7 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     };
   }
 
-  parseLocalDateTime(yearText, monthText, dayText, timeText) {
+  parseLocalDateTime(yearText, monthText, dayText, timeText, allowDstGap = false) {
     const timeParts = String(timeText || "").match(/^(\d{1,2}):(\d{2})$/);
     if (!timeParts) return null;
     const year = Number(yearText);
@@ -8737,6 +10862,10 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     const due = new Date(year, month, day, hour, minute, 0, 0);
     if (Number.isNaN(due.getTime())) return null;
     if (due.getFullYear() !== year || due.getMonth() !== month || due.getDate() !== day) return null;
+    // Manual input rejects local HH:mm values absent during the spring DST
+    // jump. Existing Markdown reminders opt into Date's forward normalization
+    // to avoid silently losing a reminder that was valid before a TZ change.
+    if (!allowDstGap && (due.getHours() !== hour || due.getMinutes() !== minute)) return null;
     return due;
   }
 
@@ -8751,7 +10880,13 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
 
   async publishReminder(reminder, scheduleFuture, previousEntry = null) {
     const pendingChannelIds = previousEntry ? this.pendingDeliveryChannelIds(previousEntry) : [];
-    const channelIds = pendingChannelIds.length ? pendingChannelIds : this.resolveChannelIds({});
+    const baseChannels = pendingChannelIds.length ? pendingChannelIds : this.resolveChannelIds({});
+    const preference = reminder.isTask ? this.plannerNtfyPreference(reminder) : "";
+    const channelIds = preference === "on" && this.settings.ignoredReminders?.[reminder.key]
+      ? ["ntfy"]
+      : baseChannels.filter((id) => preference !== "off" || id !== "ntfy");
+    if (preference === "on" && !channelIds.includes("ntfy")) channelIds.push("ntfy");
+    if (!channelIds.length) return [];
     const notification = this.normalizeHubNotification({
       id: reminder.key,
       source: reminder.source || "obsidian-ntfy",
@@ -8770,8 +10905,21 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
         },
       },
     });
-    const result = await this.dispatchNotification(notification, { channelIds, simulate: false, allowRecentTarget: true });
-    return result.results;
+    const ops = this.runtimePlannerUiProfiling === true && this.isScanning ? this.runtimeActiveScanOperations : null;
+    const started = ops ? plannerPerfClock() : 0;
+    if (ops) ops.publishCalls++;
+    try {
+      const result = await this.dispatchNotification(notification, { channelIds, simulate: false, allowRecentTarget: true });
+      if (ops) for (const item of result.results || []) {
+        if (item && item.ok) ops.publishResultsOk++; else ops.publishResultsFailed++;
+      }
+      return result.results;
+    } catch (error) {
+      if (ops) ops.publishResultsFailed++;
+      throw error;
+    } finally {
+      if (ops) ops.publishCallMs += plannerPerfClock() - started;
+    }
   }
 
   async publishNtfy(reminder, scheduleFuture) {
@@ -8801,15 +10949,29 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     }
 
     const body = this.settings.ntfyHideDuplicateReminderBody
-      ? "\u200B"
+      ? this.formatReminderNotificationTitle(reminder.text)
       : this.buildNotificationBody(reminder);
-    const response = await this.httpRequest({
-      url: this.topicUrl(),
-      method: "POST",
-      headers,
-      body,
-      throw: true,
-    });
+    let response;
+    try {
+      response = await this.httpRequest({
+        url: this.topicUrl(), method: "POST", headers, body, throw: true,
+      }, "publish");
+    } catch (error) {
+      // POST might have been accepted remotely even if the client lost the reply.
+      // Recheck rather than reuse an old negative snapshot for later occurrences.
+      this.invalidateRemoteScheduleSnapshot();
+      const account = this.getChannelAccount("ntfy");
+      if (account) this.recordNtfyFailedHistory({ id: account.id, type: "ntfy", config: account.config }, {
+        id: messageId, title: this.formatReminderNotificationTitle(reminder.text),
+        message: this.buildNotificationBody(reminder), source: "reminder",
+      }, error.message || String(error));
+      throw error; // Existing retry and error handling remain responsible for recovery.
+    }
+    const account = this.getChannelAccount("ntfy");
+    if (account) this.recordNtfyOutboundHistory({ id: account.id, type: "ntfy", config: account.config }, {
+      id: messageId, title: this.formatReminderNotificationTitle(reminder.text),
+      message: this.buildNotificationBody(reminder), source: "reminder",
+    }, { ok: true, messageId, status: scheduleFuture && this.settings.scheduleFutureWithNtfy ? "scheduled" : "sent" });
     return { ntfy: true, messageId, response };
   }
 
@@ -8843,24 +11005,76 @@ module.exports = class AndroidNtfyNotifierPlugin extends Plugin {
     });
   }
 
-  async httpRequest(options) {
-    if (typeof requestUrl === "function") {
-      return await requestUrl(options);
+  async httpRequest(options, diagnosticKind = "other") {
+    const ops = this.runtimePlannerUiProfiling === true ? this.runtimeActiveScanOperations : null;
+    const started = ops ? plannerPerfClock() : 0;
+    // Count actual HTTP transport attempts, not notifications delivered to a device.
+    if (ops) {
+      ops.httpRequests++;
+      if (diagnosticKind === "check") ops.httpChecks++;
+      else if (diagnosticKind === "publish") ops.httpPublishes++;
+      else if (diagnosticKind === "cancel") ops.httpCancels++;
+      else {
+        ops.httpOther++;
+        const method = String(options.method || "GET").toUpperCase();
+        if (method === "GET") ops.httpOtherGet++;
+        else if (method === "POST") ops.httpOtherPost++;
+        else if (method === "DELETE") ops.httpOtherDelete++;
+        else ops.httpOtherMisc++;
+      }
     }
-
-    if (typeof fetch !== "function") {
-      throw new Error("No HTTP request API is available in this Obsidian environment.");
+    try {
+      if (typeof requestUrl === "function") {
+        const response = await requestUrl(options);
+        const status = Number(response?.status || 0);
+        if (options.throw && status >= 400) {
+          const error = new Error(`HTTP ${status}`);
+          error.status = status;
+          throw error;
+        }
+        if (ops) {
+          if (status >= 400) ops.httpFailed++;
+          else ops.httpOk++;
+        }
+        return response;
+      }
+      if (typeof fetch !== "function") {
+        throw new Error("No HTTP request API is available in this Obsidian environment.");
+      }
+      const response = await fetch(options.url, {
+        method: options.method || "GET",
+        headers: options.headers || {},
+        body: options.body,
+      });
+      if (options.throw && !response.ok) {
+        // Match Obsidian requestUrl: callers must be able to distinguish an
+        // explicit 404/410 from a DNS failure or an ambiguous DELETE result.
+        const status = Number(response.status || 0);
+        const error = new Error(`HTTP ${status}`);
+        error.status = status;
+        throw error;
+      }
+      if (ops) {
+        if (Number(response?.status) >= 400) ops.httpFailed++;
+        else ops.httpOk++;
+      }
+      return response;
+    } catch (error) {
+      if (ops) ops.httpFailed++;
+      throw error;
+    } finally {
+      if (ops) {
+        const elapsed = plannerPerfClock() - started;
+        ops.httpMs += elapsed;
+        if (elapsed >= 1000) ops.httpSlowCount++;
+        ops.httpSlowestMs = Math.max(ops.httpSlowestMs, elapsed);
+        if (diagnosticKind === "check") ops.httpCheckSlowestMs = Math.max(ops.httpCheckSlowestMs, elapsed);
+        if (diagnosticKind === "check") ops.httpCheckMs += elapsed;
+        else if (diagnosticKind === "publish") ops.httpPublishMs += elapsed;
+        else if (diagnosticKind === "cancel") ops.httpCancelMs += elapsed;
+        else ops.httpOtherMs += elapsed;
+      }
     }
-
-    const response = await fetch(options.url, {
-      method: options.method || "GET",
-      headers: options.headers || {},
-      body: options.body,
-    });
-    if (options.throw && !response.ok) {
-      throw new Error(`HTTP ${response.status} ${response.statusText}`);
-    }
-    return response;
   }
 
   async responseText(response) {
@@ -9148,11 +11362,23 @@ class NtfyConversationImportModal extends Modal {
     const run = async (dryRun) => {
       const raw = textarea.value.trim();
       if (!raw) return;
+      // The file picker already enforces 8 MiB. Apply the same cap to pasted
+      // text *before* JSON.parse, especially important for Android memory.
+      if (raw.length > CONVERSATION_IMPORT_MAX_BYTES) {
+        status.setText(this.plugin.uiText("Import failed: Chat import is too large; split it into smaller batches."));
+        return;
+      }
       try {
         const parsed = JSON.parse(raw);
+        // JSON can contain __proto__/constructor keys. Do not copy those into
+        // a live object through Object.assign (which can change its prototype).
         const payload = Array.isArray(parsed)
           ? { messages: parsed, source: "ui", dryRun }
-          : Object.assign({}, parsed, { source: parsed && parsed.source || "ui", dryRun });
+          : Object.fromEntries([
+              ...Object.entries(parsed).filter(([key]) => !["__proto__", "prototype", "constructor"].includes(key)),
+              ["source", parsed && parsed.source || "ui"],
+              ["dryRun", dryRun],
+            ]);
         const result = await this.plugin.importConversationMessages(payload);
         status.setText(this.plugin.uiText(`${dryRun ? "Preview" : "Import"}: ${result.inserted} inserted, ${result.duplicates} duplicates, ${result.conflicts} conflicts, ${result.rejected} rejected`));
         if (!dryRun && result.status !== "rejected") {
@@ -9208,13 +11434,1125 @@ class NtfyVaultFileSuggestModal extends SuggestModal {
   }
 }
 
+class NtfyPlannerFileSuggestModal extends SuggestModal {
+  constructor(app, plugin, onChoose) {
+    super(app);
+    this.plugin = plugin;
+    this.onChoose = onChoose;
+    this.setPlaceholder(plugin.uiText("Choose planner note"));
+  }
+  getSuggestions(query) {
+    const q = String(query || "").toLocaleLowerCase();
+    return this.plugin.getReminderScanFiles().filter((file) =>
+      file.extension === "md" && (!q || file.path.toLocaleLowerCase().includes(q))).slice(0, 200);
+  }
+  renderSuggestion(file, el) {
+    el.createDiv({ cls: "obsidian-ntfy-suggest-title", text: file.basename });
+    el.createDiv({ cls: "obsidian-ntfy-suggest-note", text: file.path });
+  }
+  onChooseSuggestion(file) { this.onChoose(file); }
+}
+
+// Duration UI shared by task creation and the date/time editor. It never
+// schedules a reminder itself. Only the chosen minute count is persisted.
+function renderPlannerDurationControls(parent, plugin, startTimeInput, initialMinutes, compact = false) {
+  if (compact) {
+    if (plugin.settings.plannerDurationPresetsEnabled === false && plugin.settings.plannerDurationEndEnabled !== true)
+      return { getMinutes: () => initialMinutes };
+    const section = parent.createDiv({ cls: "obsidian-ntfy-planner-duration is-unified-compact is-simple-picker" });
+    section.createEl("label", { text: plugin.uiText("Task duration") });
+    const select = section.createEl("select", { cls: "obsidian-ntfy-planner-duration-select", attr: { "aria-label": plugin.uiText("Task duration") } });
+    const presets = plugin.settings.plannerDurationPresetsEnabled === false ? [] : plugin.normalizePlannerDurationPresets(plugin.settings.plannerDurationPresets);
+    select.createEl("option", { text: plugin.uiText("No duration"), attr: { value: "none" } });
+    for (const amount of presets) select.createEl("option", { text: `${amount} min`, attr: { value: String(amount) } });
+    if (plugin.settings.plannerDurationPresetsEnabled !== false)
+      select.createEl("option", { text: plugin.uiText("Custom duration option"), attr: { value: "custom" } });
+    if (plugin.settings.plannerDurationEndEnabled === true) select.createEl("option", { text: plugin.uiText("End time"), attr: { value: "end" } });
+    if (plugin.settings.plannerDurationPresetsEnabled !== false)
+      section.createEl("label", { cls: "obsidian-ntfy-duration-custom-label", text: plugin.uiText("Custom minutes") });
+    const custom = section.createEl("input", { cls: "obsidian-ntfy-planner-duration-custom", attr: {
+      type: "number", min: "1", max: "1440", step: "1", placeholder: plugin.uiText("Custom minutes"), "aria-label": plugin.uiText("Custom minutes") } });
+    const end = section.createEl("input", { cls: "obsidian-ntfy-planner-duration-end", attr: { type: "time", step: "60", "aria-label": plugin.uiText("End time") } });
+    let minutes = Number.isInteger(initialMinutes) && initialMinutes >= 1 && initialMinutes <= 1440 ? initialMinutes : null;
+    select.value = minutes === null ? "none" : presets.includes(minutes) ? String(minutes)
+      : plugin.settings.plannerDurationPresetsEnabled !== false ? "custom" : "end";
+    custom.value = select.value === "custom" ? String(minutes) : "";
+    const show = () => {
+      custom.toggleClass("is-hidden", plugin.settings.plannerDurationPresetsEnabled === false);
+      end.toggleClass("is-hidden", select.value !== "end");
+    };
+    const setFromEnd = () => {
+      const a = /^(\d{2}):(\d{2})$/.exec(startTimeInput.value || "");
+      const b = /^(\d{2}):(\d{2})$/.exec(end.value || "");
+      if (!a || !b) return;
+      const from = Number(a[1]) * 60 + Number(a[2]);
+      const to = Number(b[1]) * 60 + Number(b[2]);
+      minutes = ((to - from + 1440 - 1) % 1440) + 1;
+    };
+    const refreshEnd = () => {
+      const match = /^(\d{2}):(\d{2})$/.exec(startTimeInput.value || "");
+      if (match && minutes !== null) {
+        const total = Number(match[1]) * 60 + Number(match[2]) + minutes;
+        end.value = `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
+      }
+    };
+    select.addEventListener("change", () => {
+      if (select.value === "none") minutes = null;
+      else if (/^\d+$/.test(select.value)) minutes = Number(select.value);
+      else if (select.value === "custom") minutes = custom.value.trim() ? Number(custom.value) : null;
+      if (select.value !== "custom") custom.value = "";
+      if (select.value === "end") refreshEnd();
+      show();
+    });
+    custom.addEventListener("input", () => {
+      select.value = "custom";
+      minutes = custom.value.trim() ? Number(custom.value) : null;
+      show();
+    });
+    end.addEventListener("change", setFromEnd);
+    startTimeInput.addEventListener("change", refreshEnd);
+    refreshEnd(); show();
+    return { getMinutes: () => {
+      if (!startTimeInput.value || select.value === "none") return null;
+      if (select.value === "end") setFromEnd();
+      if (select.value === "custom" && !custom.value.trim()) return null;
+      if (!Number.isInteger(minutes) || minutes < 1 || minutes > 1440) throw new Error("invalid duration");
+      return minutes;
+    } };
+  }
+  const modes = [];
+  if (plugin.settings.plannerDurationPresetsEnabled !== false) modes.push("presets");
+  if (plugin.settings.plannerDurationEndEnabled === true) modes.push("end");
+  if (!modes.length) return { getMinutes: () => initialMinutes };
+  const section = parent.createDiv({ cls: `obsidian-ntfy-planner-duration${compact ? " is-unified-compact" : ""}` });
+  section.createEl("label", { text: plugin.uiText("Task duration") });
+  let summaryButton = null;
+  let detailPanel = section;
+  if (compact) {
+    const inline = section.createDiv({ cls: "obsidian-ntfy-unified-inline-field" });
+    summaryButton = inline.createEl("button", { cls: "obsidian-ntfy-unified-duration-trigger", attr: {
+      type: "button", "aria-expanded": "false", title: plugin.uiText("Edit duration") } });
+    plannerIconButton(inline, plugin, "Clear duration", "trash-2", () => { minutes = null; render(); });
+    detailPanel = section.createDiv({ cls: "obsidian-ntfy-unified-expand" });
+    summaryButton.addEventListener("click", () => {
+      const expanded = !section.hasClass("is-open");
+      section.toggleClass("is-open", expanded);
+      summaryButton.setAttr("aria-expanded", String(expanded));
+    });
+  }
+  const modeRow = detailPanel.createDiv({ cls: "obsidian-ntfy-planner-duration-modes" });
+  let mode = modes[0];
+  const controls = detailPanel.createDiv();
+  const help = detailPanel.createDiv({ cls: "obsidian-ntfy-muted obsidian-ntfy-planner-duration-preview" });
+  let minutes = initialMinutes;
+  const durationValid = (v) => v === null || (Number.isInteger(v) && v >= 1 && v <= 1440);
+  const formattedEnd = () => {
+    if (minutes === null) return plugin.uiText("No duration");
+    const match = /^(\d{2}):(\d{2})$/.exec(startTimeInput.value || "");
+    if (!match || Number(match[1]) > 23 || Number(match[2]) > 59) return plugin.uiText("Choose start time");
+    const total = Number(match[1]) * 60 + Number(match[2]) + minutes;
+    return `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}${total >= 1440 ? " (+1 day)" : ""}`;
+  };
+  const refreshSummary = () => {
+    help.setText(minutes === null ? plugin.uiText("No duration") : `${minutes} min · ${plugin.uiText("Ends at")} ${formattedEnd()}`);
+    if (summaryButton) summaryButton.setText(minutes === null ? plugin.uiText("No duration") : `${minutes} min`);
+  };
+  const render = () => {
+    controls.empty(); modeRow.empty();
+    if (modes.length > 1) for (const item of modes) {
+      const button = modeRow.createEl("button", { text: plugin.uiText(item === "presets" ? "Duration presets" : "End time"), attr: { type: "button", "aria-pressed": String(mode === item) } });
+      button.toggleClass("is-active", mode === item);
+      button.addEventListener("click", () => { mode = item; render(); });
+    }
+    if (!compact) {
+      const clear = controls.createEl("button", { text: plugin.uiText("No duration"), attr: { type: "button" } });
+      clear.addEventListener("click", () => { minutes = null; render(); });
+    }
+    if (mode === "presets") {
+      const select = controls.createEl("select", { attr: { "aria-label": plugin.uiText("Duration presets") } });
+      const presets = plugin.normalizePlannerDurationPresets(plugin.settings.plannerDurationPresets);
+      select.createEl("option", { text: plugin.uiText("Choose duration"), attr: { value: "" } });
+      for (const amount of presets) select.createEl("option", { text: `${amount} min`, attr: { value: String(amount) } });
+      select.value = presets.includes(minutes) ? String(minutes) : "";
+      select.addEventListener("change", () => { if (select.value) { minutes = Number(select.value); custom.value = select.value; refreshSummary(); } });
+      const custom = controls.createEl("input", { attr: { type: "number", min: "1", max: "1440", step: "1", placeholder: plugin.uiText("Custom minutes"), "aria-label": plugin.uiText("Custom minutes") } });
+      custom.value = minutes === null ? "" : String(minutes);
+      custom.addEventListener("input", () => { const v = Number(custom.value); if (custom.value && durationValid(v) && v !== 0) { minutes = v; refreshSummary(); } });
+    } else {
+      const end = controls.createEl("input", { attr: { type: "time", step: "60", "aria-label": plugin.uiText("End time") } });
+      const match = /^(\d{2}):(\d{2})$/.exec(startTimeInput.value || "");
+      if (match && minutes !== null) {
+        const total = Number(match[1]) * 60 + Number(match[2]) + minutes;
+        end.value = `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
+      }
+      end.setAttr("title", plugin.uiText("Earlier or equal end time means the next day."));
+      end.addEventListener("change", () => {
+        const a = /^(\d{2}):(\d{2})$/.exec(startTimeInput.value || "");
+        const b = /^(\d{2}):(\d{2})$/.exec(end.value || "");
+        if (!a || !b) return;
+        const from = Number(a[1]) * 60 + Number(a[2]);
+        const to = Number(b[1]) * 60 + Number(b[2]);
+        minutes = ((to - from + 1440 - 1) % 1440) + 1;
+        refreshSummary();
+      });
+    }
+    refreshSummary();
+  };
+  startTimeInput.addEventListener("change", refreshSummary);
+  render();
+  return { getMinutes: () => {
+    if (!startTimeInput.value) return null;
+    if (!durationValid(minutes)) throw new Error("invalid duration");
+    return minutes;
+  }};
+}
+
+// 8.8.5: the create and edit forms use the same controls and ordering.
+// Native labels make the whole caption clickable (including on mobile).
+function renderPlannerTaskFlags(parent, plugin, autoValue, ntfyValue, ntfyDisabled = false) {
+  const flags = parent.createDiv({ cls: "obsidian-ntfy-planner-flags" });
+  const makeFlag = (title, checked, disabled = false) => {
+    const label = flags.createEl("label", { cls: "obsidian-ntfy-planner-flag" });
+    const checkbox = label.createEl("input", { attr: { type: "checkbox" } });
+    checkbox.checked = !!checked;
+    checkbox.disabled = !!disabled;
+    label.createSpan({ text: plugin.uiText(title) });
+    return checkbox;
+  };
+  const auto = makeFlag("Auto-complete", autoValue);
+  const ntfy = makeFlag("Planner notification", ntfyValue, ntfyDisabled);
+  return { auto, ntfy, getAutoDone: () => auto.checked, getNtfy: () => ntfy.checked };
+}
+function renderPlannerOnCompletion(parent, plugin, initial = "") {
+  const row = parent.createDiv({ cls: "obsidian-ntfy-planner-completion-inline" });
+  // Compact visual label; retain the full meaning for accessibility.
+  const label = row.createEl("label", { text: "🏁", attr: { title: plugin.uiText("On completion"), "aria-label": plugin.uiText("On completion") } });
+  const select = row.createEl("select", { attr: { "aria-label": plugin.uiText("On completion") } });
+  for (const [value, key] of [["", "On completion default"], ["keep", "On completion keep"], ["delete", "On completion delete"]]) {
+    select.createEl("option", { text: plugin.uiText(key), attr: { value } });
+  }
+  select.value = initial || "";
+  label.addEventListener("click", () => select.focus());
+  return { getValue: () => select.value, select };
+}
+function renderPlannerQuickScheduleActions(parent, plugin, dateInput, timeInput) {
+  const presets = parent.createDiv({ cls: "obsidian-ntfy-date-edit-presets" });
+  const add = (text, handler) => {
+    const button = presets.createEl("button", { text: plugin.uiText(text), attr: { type: "button" } });
+    button.addEventListener("click", handler);
+  };
+  for (const [text, offset] of [["Today", 0], ["Tomorrow", 1]]) add(text, () => {
+    const now = new Date();
+    dateInput.value = plugin.formatDateTimeLocal(new Date(now.getFullYear(), now.getMonth(), now.getDate() + offset, 12)).slice(0, 10);
+  });
+  for (const [text, hours] of [["-1 hour", -1], ["+1 hour", 1]]) add(text, () => {
+    if (!/^\d{2}:\d{2}$/.test(timeInput.value)) return;
+    const baseDate = dateInput.value || plugin.formatDateTimeLocal(new Date()).slice(0, 10);
+    const selected = plugin.parseDateTimeLocal(`${baseDate}T${timeInput.value}`);
+    if (!selected) return;
+    selected.setHours(selected.getHours() + hours);
+    const shifted = plugin.formatDateTimeLocal(selected);
+    if (dateInput.value) dateInput.value = shifted.slice(0, 10);
+    timeInput.value = shifted.slice(11, 16);
+    if (typeof Event !== "undefined") timeInput.dispatchEvent?.(new Event("change"));
+  });
+  return presets;
+}
+// Shared Tasks recurrence picker for creation and editing. Complex rules are
+// preserved in advanced text input, never simplified implicitly.
+function renderPlannerTaskRecurrence(parent, plugin, initial = "") {
+  const section = parent.createDiv({ cls: "obsidian-ntfy-unified-rule is-simple-picker" });
+  const id = `ntfy-recur-${plugin.hash(String(Date.now()) + Math.random())}`;
+  section.createEl("label", { text: `${plugin.uiText("Recurrence")} 🔁`, attr: { for: id } });
+  const select = section.createEl("select", { cls: "obsidian-ntfy-recurrence-select", attr: { id, "aria-label": plugin.uiText("Recurrence") } });
+  for (const [value, key] of [["none", "No recurrence"], ["day", "Every day"],
+    ["week", "Every week"], ["month", "Every month"], ["year", "Every year"],
+    ["interval", "Every N recurrence"], ["complex", "Complex recurrence option"]]) {
+    select.createEl("option", { text: plugin.uiText(key), attr: { value } });
+  }
+  const advanced = section.createDiv({ cls: "obsidian-ntfy-recurrence-advanced" });
+  advanced.createEl("label", { text: plugin.uiText("Complex Tasks rule") });
+  const text = advanced.createEl("input", { cls: "obsidian-ntfy-recurrence-advanced-input", attr: {
+    type: "text", maxlength: "120", placeholder: "every weekday", "aria-label": plugin.uiText("Complex Tasks rule") } });
+  text.value = String(initial || "");
+  const interval = section.createDiv({ cls: "obsidian-ntfy-recurrence-interval" });
+  const count = interval.createEl("input", { attr: { type: "number", min: "1", max: "999", step: "1", "aria-label": plugin.uiText("Every") } });
+  const unit = interval.createEl("select", { attr: { "aria-label": plugin.uiText("Custom interval") } });
+  for (const [v, key] of [["day", "Days"], ["week", "Weeks"], ["month", "Months"], ["year", "Years"]])
+    unit.createEl("option", { text: plugin.uiText(key), attr: { value: v } });
+  const doneLabel = interval.createEl("label", { cls: "obsidian-ntfy-unified-when-done" });
+  const whenDone = doneLabel.createEl("input", { attr: { type: "checkbox" } });
+  doneLabel.createSpan({ text: plugin.uiText("When done") });
+  const parts = plannerSimpleRecurrenceParts(initial);
+  count.value = String(parts?.count || 2); unit.value = parts?.unit || "week"; whenDone.checked = parts?.whenDone || false;
+  const show = () => interval.toggleClass("is-hidden", select.value !== "interval");
+  select.value = !initial ? "none" : !parts ? "complex" : parts.count === 1 && !parts.whenDone ? parts.unit : "interval";
+  select.addEventListener("change", show);
+  text.addEventListener("input", () => { select.value = "complex"; show(); });
+  show();
+  return { select, input: text, getRule: () => {
+    if (select.value === "none") return "";
+    if (select.value === "complex") return text.value;
+    if (select.value === "interval") return plannerBuildRecurrenceRule(count.value, unit.value, whenDone.checked);
+    return plannerBuildRecurrenceRule(1, select.value);
+  } };
+}
+
+// Copy only display text and regular tags. Never reuse an Obsidian block ID
+// or emit the configured #autodone twice; other Tasks metadata is rebuilt by
+// the same create path rather than copying internal source identifiers.
+function plannerCopyTitleForForm(task, autoTag) {
+  let text = String(task?.text || task?.editableTitle || "");
+  if (task?.autoDoneTagPresent) text = text.split(/\s+/u).filter((part) => part !== autoTag).join(" ");
+  return text.replace(/(?:^|[ \t])\^[A-Za-z0-9-]+(?=[ \t]|$)/gu, " ").trim().slice(0, 500);
+}
+
+// Optional filter for visual-only recurrence predictions. Exact case-insensitive
+// tag matching; no Markdown writes, network requests or persistent index.
+function normalizePlannerExcludedTags(value) {
+  const tags = String(value || "").slice(0, 2048).split(/[\s,;]+/u)
+    .map((part) => part.trim().replace(/^#/u, "").toLocaleLowerCase())
+    .filter((part) => /^[\p{L}\p{N}_/-]{1,80}$/u.test(part));
+  return [...new Set(tags)].slice(0, 64).map((tag) => `#${tag}`).join(", ");
+}
+function plannerExcludedTagSet(value) {
+  const normalized = normalizePlannerExcludedTags(value);
+  return new Set(normalized.split(/[\s,]+/u).filter(Boolean).map((tag) => tag.slice(1)));
+}
+
+function plannerTaskHasExcludedTag(task, excludedTags) {
+  if (!excludedTags || excludedTags.size === 0) return false;
+  const text = `${String(task?.editableTitle || "")} ${String(task?.text || "")}`;
+  for (const match of text.matchAll(/(?:^|[^\p{L}\p{N}_/-])#([\p{L}\p{N}_/-]+)/gu)) {
+    if (excludedTags.has(match[1].toLocaleLowerCase())) return true;
+  }
+  return false;
+}
+
+// Conservative, display-only preview for simple Tasks intervals. Neither
+// this helper nor its results are used by the notification scheduler.
+// The upper bound protects Android from an unbounded recurrence expansion.
+function plannerForecastOccurrences(tasks, start, end, limit = 240, excludedTags = null) {
+  const byDay = new Map();
+  if (!(start instanceof Date) || !(end instanceof Date) || start >= end) return { byDay, limited: false };
+  let generated = 0;
+  let limited = false;
+  const max = Math.max(1, Math.min(500, Math.floor(Number(limit) || 240)));
+  // Suppress a visual guess when the matching real Markdown instance already
+  // exists. This index contains only already loaded tasks; no vault access.
+  const real = new Set();
+  const predictedKeys = new Set();
+  // Normalize only the identity used to suppress duplicate visual forecasts.
+  const displayIdentity = (task) => String(task.editableTitle || task.text || "")
+    .normalize("NFC").replace(/\s+/gu, " ").trim().toLocaleLowerCase();
+  const taskClock = (task) => task.hasExplicitTime && task.due instanceof Date
+    ? `${String(task.due.getHours()).padStart(2, "0")}:${String(task.due.getMinutes()).padStart(2, "0")}` : "untimed";
+  for (const task of tasks || []) {
+    if (!(task?.due instanceof Date) || !Number.isFinite(task.due.getTime())) continue;
+    const date = task.due;
+    const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+    real.add(`${task.filePath || ""}\u0000${displayIdentity(task)}\u0000${key}\u0000${taskClock(task)}`);
+  }
+  for (const task of tasks || []) {
+    if (task?.completed || !(task.due instanceof Date) || !Number.isFinite(task.due.getTime()) || plannerTaskHasExcludedTag(task, excludedTags)) continue;
+    const rule = String(task.recurrenceRule || "").trim();
+    // Exclude "when done", weekdays, named months, after completion and all
+    // rich Tasks semantics that cannot be predicted safely from a due date.
+    const match = /^every (?:([1-9]\d{0,2}) )?(day|week|month|year)s?$/i.exec(rule);
+    if (!match) continue;
+    const count = Number(match[1] || 1);
+    const unit = match[2].toLowerCase();
+    const stepDays = unit === "week" ? 7 * count : unit === "day" ? count : 0;
+    // Month/year day 29–31 may roll under the Tasks calendar semantics.
+    if (!stepDays && task.due.getDate() > 28) continue;
+    const source = new Date(task.due.getFullYear(), task.due.getMonth(), task.due.getDate(), 12);
+    const candidate = new Date(source);
+    if (stepDays) {
+      // Jump close to the display window before looping.
+      const days = Math.max(0, Math.floor((start.getTime() - source.getTime()) / 86400000) - 2);
+      const jumps = Math.floor(days / stepDays);
+      candidate.setDate(source.getDate() + jumps * stepDays);
+    } else if (unit === "month") {
+      const months = Math.max(0, (start.getFullYear() - source.getFullYear()) * 12 + start.getMonth() - source.getMonth() - 1);
+      candidate.setMonth(source.getMonth() + Math.floor(months / count) * count);
+    } else {
+      const years = Math.max(0, start.getFullYear() - source.getFullYear() - 1);
+      candidate.setFullYear(source.getFullYear() + Math.floor(years / count) * count);
+    }
+    let turns = 0;
+    // A forecast window can be far in the future; jump above lands near its
+    // beginning. The explicit cap prevents unexpected Tasks rules or DST
+    // differences from expanding forever on mobile.
+    while (candidate < end && turns++ < 64) {
+      // Exclude the source (real) occurrence and any earlier dates.
+      if (candidate >= start && candidate > source) {
+        if (generated >= max) { limited = true; break; }
+        const key = `${candidate.getFullYear()}-${String(candidate.getMonth() + 1).padStart(2, "0")}-${String(candidate.getDate()).padStart(2, "0")}`;
+        const identity = `${task.filePath || ""}\u0000${displayIdentity(task)}\u0000${key}\u0000${taskClock(task)}`;
+        if (!real.has(identity) && !predictedKeys.has(identity)) {
+          predictedKeys.add(identity);
+          if (!byDay.has(key)) byDay.set(key, []);
+          byDay.get(key).push(task);
+          generated++;
+        }
+      }
+      if (stepDays) candidate.setDate(candidate.getDate() + stepDays);
+      else if (unit === "month") candidate.setMonth(candidate.getMonth() + count);
+      else candidate.setFullYear(candidate.getFullYear() + count);
+    }
+    if (limited) break;
+  }
+  return { byDay, limited };
+}
+
+// Pure local filtering of an already loaded conversation. No network, storage
+// updates, or fresh scan. The last 240 matches are rendered by the caller.
+function plannerIndexTasksByDay(tasks) {
+  const byDay = new Map();
+  for (const task of tasks || []) {
+    const due = task?.due;
+    if (!(due instanceof Date) || !Number.isFinite(due.getTime())) continue;
+    const key = `${due.getFullYear()}-${String(due.getMonth() + 1).padStart(2, "0")}-${String(due.getDate()).padStart(2, "0")}`;
+    if (!byDay.has(key)) byDay.set(key, []);
+    byDay.get(key).push(task);
+  }
+  return byDay;
+}
+
+// Planner has already indexed the loaded Tasks by *local* date. For rendering
+// a window we only need its date buckets, plus the preceding two local days:
+// duration is <= 1440 minutes, and a 23-hour DST day could otherwise hide a
+// carry-over interval. This is view-only: no vault reads, hidden card creation,
+// or change to the Tasks and notification collections.
+function plannerTasksForDateWindow(byDay, windowStart, windowEnd) {
+  if (!(byDay instanceof Map) || !(windowStart instanceof Date) || !(windowEnd instanceof Date)
+      || !Number.isFinite(windowStart.getTime()) || !Number.isFinite(windowEnd.getTime())
+      || windowEnd <= windowStart) return [];
+  const start = new Date(windowStart.getFullYear(), windowStart.getMonth(), windowStart.getDate() - 2, 12);
+  const end = new Date(windowEnd.getFullYear(), windowEnd.getMonth(), windowEnd.getDate(), 12);
+  const result = [];
+  // Bound iteration in case callers mistakenly provide an enormous range.
+  for (let cursor = new Date(start), steps = 0; cursor <= end && steps < 400; steps++, cursor.setDate(cursor.getDate() + 1)) {
+    const key = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`;
+    const bucket = byDay.get(key);
+    if (bucket?.length) result.push(...bucket);
+  }
+  return result;
+}
+
+// Keep the absolute scroll offset while reading older messages; only follow
+// incoming messages when already near the bottom. No persistent settings.
+function plannerChatScrollSnapshot(node) {
+  if (!node) return null;
+  const max = Math.max(0, Number(node.scrollHeight || 0) - Number(node.clientHeight || 0));
+  const top = Math.max(0, Math.min(max, Number(node.scrollTop || 0)));
+  const remaining = Math.max(0, max - top);
+  return { top, distance: remaining, atBottom: remaining <= 48 };
+}
+
+// Presentation-only grouping for adjacent bubbles; not a message dedup rule.
+function plannerChatIsFollowup(message, previous, date, previousDate) {
+  if (!message || !previous || message.direction !== previous.direction) return false;
+  const currentMs = date instanceof Date ? date.getTime() : NaN;
+  const priorMs = previousDate instanceof Date ? previousDate.getTime() : NaN;
+  return Number.isFinite(currentMs) && Number.isFinite(priorMs)
+    && currentMs >= priorMs && currentMs - priorMs <= 5 * 60000
+    && date.toLocaleDateString() === previousDate.toLocaleDateString();
+}
+
+function plannerFilterNtfyChatMessages(messages, mode = "all", query = "", displayText = null) {
+  const term = String(query || "").trim().toLocaleLowerCase().slice(0, 120);
+  const filter = ["all", "outgoing", "incoming", "failed"].includes(mode) ? mode : "all";
+  return (Array.isArray(messages) ? messages : []).filter((message) => {
+    if (!message || typeof message !== "object") return false;
+    if (filter === "failed" && message.status !== "failed") return false;
+    if (filter === "outgoing" && message.direction !== "outgoing") return false;
+    if (filter === "incoming" && message.direction !== "incoming") return false;
+    if (!term) return true;
+    const text = typeof displayText === "function" ? displayText(message) : message.text;
+    return `${text || ""} ${message.title || ""} ${message.status || ""}`.toLocaleLowerCase().includes(term);
+  });
+}
+
+class NtfyPlannerCreateModal extends Modal {
+  constructor(app, plugin, due, onSave, copySource = null) {
+    super(app);
+    this.plugin = plugin;
+    this.due = due;
+    this.onSave = onSave;
+    this.copySource = copySource;
+    this.saving = false;
+  }
+  onOpen() {
+    this.modalEl?.addClass("obsidian-ntfy-planner-dialog");
+    const content = this.contentEl;
+    content.addClass("obsidian-ntfy-planner-create-modal");
+    content.addClass("obsidian-ntfy-unified-compact");
+    content.createEl("h2", { text: this.plugin.uiText(this.copySource ? "Task copy" : "Create task") });
+    const title = content.createDiv({ cls: "obsidian-ntfy-unified-title" });
+    title.createEl("label", { text: this.plugin.uiText("Task title") });
+    const name = title.createEl("input", { attr: { type: "text", maxlength: "500", "aria-label": this.plugin.uiText("Task title") } });
+    if (this.copySource) name.value = plannerCopyTitleForForm(this.copySource,
+      this.plugin.normalizeAutoDoneTag(this.plugin.settings.autoDoneTag));
+    const fields = content.createDiv({ cls: "obsidian-ntfy-date-edit-fields" });
+    const dateField = fields.createDiv({ cls: "obsidian-ntfy-unified-date-field" });
+    const timeField = fields.createDiv({ cls: "obsidian-ntfy-unified-time-field" });
+    dateField.createEl("label", { text: this.plugin.uiText("Date") });
+    timeField.createEl("label", { text: this.plugin.uiText("Time") });
+    const date = dateField.createEl("input", { attr: { type: "date", "aria-label": this.plugin.uiText("Date") } });
+    const time = timeField.createEl("input", { attr: { type: "time", step: "60", "aria-label": this.plugin.uiText("Time") } });
+    const stamp = this.plugin.formatDateTimeLocal(this.due);
+    date.value = stamp.slice(0, 10);
+    time.value = this.copySource?.hasExplicitTime === false ? "" : stamp.slice(11, 16);
+    renderPlannerQuickScheduleActions(content, this.plugin, date, time);
+    const secondary = content.createDiv({ cls: "obsidian-ntfy-unified-secondary-row" });
+    const durationControls = renderPlannerDurationControls(secondary, this.plugin, time, this.copySource?.durationMinutes ?? null, true);
+    const recurrenceControls = renderPlannerTaskRecurrence(secondary, this.plugin, this.copySource?.recurrenceRule || "");
+    // Copying never inherits a notification queue entry or an implicit opt-in.
+    // A source with an explicit off always starts off; user can opt in manually.
+    const flags = renderPlannerTaskFlags(content, this.plugin,
+      this.copySource ? Boolean(this.copySource.autoDoneTagPresent) : false,
+      this.copySource ? false : this.plugin.settings.plannerNewTaskNtfyEnabled !== false);
+    const completion = renderPlannerOnCompletion(content, this.plugin, this.copySource?.onCompletion || "");
+    // Destination selection stays available but does not take the width of a full setting row.
+    const destination = content.createDiv({ cls: "obsidian-ntfy-planner-compact-destination" });
+    const target = destination.createSpan({ cls: "obsidian-ntfy-muted" });
+    const displayTarget = () => target.setText(this.plugin.settings.plannerTargetFile || this.plugin.uiText("No planner note selected"));
+    displayTarget();
+    const noteButton = destination.createEl("button", { text: this.plugin.uiText("Choose planner note"), attr: { type: "button" } });
+    noteButton.addEventListener("click", () => new NtfyPlannerFileSuggestModal(this.app, this.plugin, async (file) => {
+      this.plugin.settings.plannerTargetFile = file.path;
+      await this.plugin.saveSettings();
+      displayTarget();
+    }).open());
+    const errorEl = content.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    const actions = content.createDiv({ cls: "obsidian-ntfy-planner-actions" });
+    actions.createEl("button", { text: this.plugin.uiText("Cancel"), attr: { type: "button" } }).addEventListener("click", () => this.close());
+    const createButton = actions.createEl("button", { text: this.plugin.uiText(this.copySource ? "Copy task" : "Create task"), cls: "mod-cta", attr: { type: "button" } });
+    const submit = async () => {
+      if (this.saving) return;
+      const dueStamp = `${date.value}T${time.value || "00:00"}`;
+      const due = this.plugin.parseDateTimeLocal(dueStamp);
+      if (!due || this.plugin.formatDateTimeLocal(due) !== dueStamp) {
+        errorEl.setText(this.plugin.uiText("Invalid date/time")); return;
+      }
+      this.saving = true; createButton.disabled = true; errorEl.setText("");
+      try {
+        if (this.copySource) await this.plugin.plannerVerifyCopySource(this.copySource);
+        await this.plugin.createPlannerTask(name.value, due, durationControls.getMinutes(), flags.getAutoDone(),
+          completion.getValue(), recurrenceControls.getRule(), flags.getNtfy(), Boolean(time.value));
+        await this.onSave?.();
+        this.close();
+      } catch (e) {
+        console.error(`${PLUGIN_NAME}: planner task creation failed`, e);
+        errorEl.setText(this.plugin.uiText(e?.message || "Cannot save planner task"));
+      } finally { this.saving = false; createButton.disabled = false; }
+    };
+    createButton.addEventListener("click", submit);
+    name.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") { event.preventDefault(); void submit(); }
+    });
+    window.setTimeout(() => name.focus(), 0);
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+class NtfyPlannerDurationEditModal extends Modal {
+  constructor(app, plugin, task, onSave) {
+    super(app);
+    this.plugin = plugin;
+    this.task = task;
+    this.onSave = onSave;
+    this.saving = false;
+  }
+  onOpen() {
+    const content = this.contentEl;
+    content.addClass("obsidian-ntfy-date-edit-modal");
+    content.createEl("h2", { text: this.plugin.uiText("Edit task duration") });
+    const start = this.task?.due instanceof Date ? this.task.due : new Date(this.task?.due);
+    const time = content.createEl("input", { attr: { type: "time", "aria-label": this.plugin.uiText("Time"), disabled: "" } });
+    time.value = Number.isNaN(start.getTime()) ? "" : `${this.plugin.pad2(start.getHours())}:${this.plugin.pad2(start.getMinutes())}`;
+    const control = renderPlannerDurationControls(content, this.plugin, time, this.task.durationMinutes ?? null);
+    if (!this.task.hasExplicitTime) control.getMinutes = () => null;
+    const error = content.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    new Setting(content).addButton((b) => b.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()))
+      .addButton((b) => b.setCta().setButtonText(this.plugin.uiText("Save")).onClick(async () => {
+        if (this.saving) return;
+        this.saving = true; b.setDisabled(true);
+        try { await this.plugin.setSourceTaskDuration(this.task, control.getMinutes()); await this.onSave?.(); this.close(); }
+        catch (e) { error.setText(`${this.plugin.uiText("Task update failed")}: ${e?.message || e}`); }
+        finally { this.saving = false; b.setDisabled(false); }
+      }));
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+// 8.1.0: visible, keyboard-accessible editor; unlike the hidden native picker,
+// it also works on mobile WebViews that do not implement showPicker().
+class NtfyPlannerRecurrenceModal extends Modal {
+  constructor(app, plugin, task, onSave) {
+    super(app);
+    this.plugin = plugin;
+    this.task = task;
+    this.onSave = onSave;
+    this.busy = false;
+  }
+  onOpen() {
+    const el = this.contentEl;
+    el.addClass("obsidian-ntfy-date-edit-modal");
+    el.createEl("h2", { text: this.plugin.uiText("Edit recurrence") });
+    el.createEl("p", { cls: "obsidian-ntfy-muted", text: this.plugin.uiText("Tasks recurrence rule, for example: every day or every week. Leave empty to remove.") });
+    const field = el.createEl("input", { attr: { type: "text", maxlength: "120", "aria-label": this.plugin.uiText("Recurrence rule") } });
+    field.style.width = "100%";
+    field.value = this.task.recurrenceRule || "";
+    const feedback = el.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    new Setting(el)
+      .addButton((button) => button.setButtonText(this.plugin.uiText("Remove recurrence")).onClick(() => { field.value = ""; }))
+      .addButton((button) => button.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()))
+      .addButton((button) => button.setCta().setButtonText(this.plugin.uiText("Save")).onClick(async () => {
+        if (this.busy) return;
+        this.busy = true; button.setDisabled(true);
+        try {
+          await this.plugin.setSourceTaskRecurrence(this.task, field.value);
+          await this.onSave?.();
+          this.close();
+        } catch (e) { feedback.setText(`${this.plugin.uiText("Task update failed")}: ${e?.message || e}`); }
+        finally { this.busy = false; button.setDisabled(false); }
+      }));
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+class NtfyPlannerTitleModal extends Modal {
+  constructor(app, plugin, task, onSave) {
+    super(app);
+    this.plugin = plugin;
+    this.task = task;
+    this.onSave = onSave;
+    this.saving = false;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.addClass("obsidian-ntfy-date-edit-modal");
+    contentEl.createEl("h2", { text: this.plugin.uiText("Edit task title") });
+    const field = contentEl.createEl("input", { attr: { type: "text", maxlength: "500", "aria-label": this.plugin.uiText("Task title") } });
+    field.style.width = "100%";
+    field.value = this.task.editableTitle || this.task.text || "";
+    const error = contentEl.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    new Setting(contentEl)
+      .addButton((b) => b.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()))
+      .addButton((b) => b.setCta().setButtonText(this.plugin.uiText("Save")).onClick(async () => {
+        if (this.saving) return;
+        this.saving = true; b.setDisabled(true);
+        try {
+          await this.plugin.updateSourceTaskTitle(this.task, field.value);
+          if (this.onSave) await this.onSave();
+          this.close();
+        } catch (e) {
+          error.setText(`${this.plugin.uiText("Task update failed")}: ${e?.message || e}`);
+        } finally { b.setDisabled(false); this.saving = false; }
+      }));
+    window.setTimeout(() => field.focus(), 0);
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+function plannerCompletedTaskLineIndices(content) {
+  const lines = String(content).split(/\r\n|\n|\r/u);
+  const indices = new Set();
+  let frontmatter = lines[0] === "---";
+  let fenceChar = ""; let fenceLength = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (frontmatter) {
+      if (i > 0 && (/^---\s*$/u.test(line) || /^\.\.\.\s*$/u.test(line))) frontmatter = false;
+      continue;
+    }
+    // Fenced Markdown code samples are text, never task checkboxes.
+    const marker = /^ {0,3}(`{3,}|~{3,})(.*)$/u.exec(line);
+    if (marker) {
+      if (!fenceChar) { fenceChar = marker[1][0]; fenceLength = marker[1].length; }
+      else if (marker[1][0] === fenceChar && marker[1].length >= fenceLength && !marker[2].trim()) { fenceChar = ""; fenceLength = 0; }
+      continue;
+    }
+    if (fenceChar) continue;
+    // Only literal lowercase [x]. Keep custom, in-progress and uppercase marks.
+    if (/^\s*[-*+]\s+\[x\](?:\s|$)/u.test(line)) indices.add(i);
+  }
+  return indices;
+}
+function plannerRemoveCompletedTaskLines(content) {
+  const pieces = String(content).split(/(\r\n|\n|\r)/u);
+  const targets = plannerCompletedTaskLineIndices(content);
+  if (!targets.size) return { content: String(content), removed: 0 };
+  // Single streaming pass, O(file size) rather than repeated splice/copy.
+  // Preserve every surviving line and its EOL bytes, including CRLF.
+  const kept = [];
+  for (let i = 0; i < pieces.length; i += 2) {
+    const separator = pieces[i + 1] || "";
+    if (targets.has(i / 2)) {
+      // Match replaceTaskLineIfUnchanged: a final unterminated task also
+      // removes the preceding separator, not the previous content line.
+      if (!separator && i > 0 && kept.length && /^(?:\r\n|\n|\r)$/u.test(kept[kept.length - 1])) kept.pop();
+      continue;
+    }
+    kept.push(pieces[i]);
+    if (separator) kept.push(separator);
+  }
+  return { content: kept.join(""), removed: targets.size };
+}
+
+class NtfyPlannerCompletedCleanupModal extends Modal {
+  constructor(app, plugin, file) { super(app); this.plugin = plugin; this.file = file; this.busy = false; }
+  async onOpen() {
+    const el = this.contentEl;
+    el.createEl("h2", { text: this.plugin.uiText("Delete completed confirm") });
+    el.createEl("p", { text: this.file.path });
+    const status = el.createEl("p", { cls: "obsidian-ntfy-muted" });
+    const preview = el.createEl("details", { cls: "obsidian-ntfy-cleanup-preview" });
+    preview.open = true;
+    preview.createEl("summary", { text: this.plugin.uiText("Delete completed preview") });
+    const list = preview.createDiv({ cls: "obsidian-ntfy-cleanup-list" });
+    el.createEl("p", { cls: "obsidian-ntfy-muted", text: this.plugin.uiText("Delete completed irreversible") });
+    const errorEl = el.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    const controls = new Setting(el);
+    let snapshot = ""; let count = 0;
+    const cancel = controls.addButton((button) => button.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()));
+    controls.addButton((button) => {
+      button.setWarning().setButtonText(this.plugin.uiText("Delete completed action")).setDisabled(true);
+      button.onClick(async () => {
+        if (this.busy || !count) return;
+        this.busy = true; button.setDisabled(true);
+        try {
+          const removed = await this.plugin.plannerDeleteCompletedTasksInFile(this.file.path, snapshot);
+          new Notice(`${this.plugin.uiText("Delete completed success")}: ${removed}`);
+          this.close();
+        } catch (error) {
+          errorEl.setText(error.message === "task changed while updating" ? this.plugin.uiText("Delete completed changed") : String(error.message || error));
+        } finally { this.busy = false; button.setDisabled(!count); }
+      });
+      this.confirmButton = button;
+    });
+    try {
+      if (!this.plugin.reminderFileInScanScope(this.file)) throw new Error("source not found");
+      snapshot = await this.plugin.app.vault.read(this.file);
+      const indices = [...plannerCompletedTaskLineIndices(snapshot)];
+      count = indices.length;
+      if (count) {
+        const lines = snapshot.split(/\r\n|\n|\r/u);
+        let shown = 0;
+        const batch = () => {
+          const next = Math.min(shown + 40, indices.length);
+          for (let j = shown; j < next; j++) {
+            const i = indices[j];
+            const row = list.createDiv({ cls: "obsidian-ntfy-cleanup-row" });
+            row.createSpan({ cls: "obsidian-ntfy-cleanup-line", text: `#${i + 1}` });
+            row.createSpan({ text: lines[i].trim().slice(0, 240) });
+          }
+          shown = next;
+          const old = preview.querySelector(".obsidian-ntfy-cleanup-more");
+          if (old) old.remove();
+          if (shown < indices.length) {
+            const more = preview.createEl("button", { cls: "mod-small obsidian-ntfy-cleanup-more",
+              text: `${this.plugin.uiText("Delete completed preview more")} (${indices.length - shown})`,
+              attr: { type: "button" } });
+            more.addEventListener("click", batch);
+          }
+        };
+        batch();
+      }
+      status.setText(count ? `${this.plugin.uiText("Delete completed count")}: ${count}` : this.plugin.uiText("Delete completed none"));
+      this.confirmButton.setDisabled(!count);
+    } catch (e) { errorEl.setText(String(e.message || e)); }
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+class NtfyTaskDeleteConfirmModal extends Modal {
+  constructor(app, plugin, task, onConfirm) {
+    super(app);
+    this.plugin = plugin;
+    this.task = task;
+    this.onConfirm = onConfirm;
+    this.busy = false;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.addClass("obsidian-ntfy-date-edit-modal");
+    contentEl.createEl("h2", { text: this.plugin.uiText("Confirm task deletion") });
+    contentEl.createEl("p", { text: this.plugin.uiText("Delete selected task from source note?") });
+    contentEl.createEl("p", { cls: "obsidian-ntfy-muted", text: `${this.task.text || "Task"} — ${this.task.filePath || ""}:${this.task.lineNumber || 1}` });
+    contentEl.createEl("p", { cls: "obsidian-ntfy-muted", text: this.plugin.uiText("This action cannot be undone by the plugin") });
+    contentEl.createEl("p", { cls: "obsidian-ntfy-muted", text: this.plugin.uiText("Only the task line is removed; nested items remain") });
+    const feedback = contentEl.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    new Setting(contentEl)
+      .addButton((button) => button.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()))
+      .addButton((button) => button.setWarning().setButtonText(this.plugin.uiText("Delete task")).onClick(async () => {
+        if (this.busy) return;
+        this.busy = true;
+        button.setDisabled(true);
+        try {
+          await this.onConfirm();
+          this.close();
+        } catch (error) {
+          console.error(`${PLUGIN_NAME}: task deletion failed`, error);
+          feedback.setText(error && error.message === "task changed while updating"
+            ? this.plugin.uiText("Task was changed; reopen and try again")
+            : `${this.plugin.uiText("Task delete failed")}: ${error && error.message || error}`);
+        } finally { this.busy = false; button.setDisabled(false); }
+      }));
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+// The small repeat builder never guesses the meaning of complex Tasks rules.
+// Complex existing rules are round-trip-preserved unless deliberately edited.
+function plannerSimpleRecurrenceParts(rule) {
+  const match = /^every (?:(\d{1,3}) )?(day|week|month|year)s?( when done)?$/i.exec(String(rule || "").trim());
+  if (!match) return null;
+  const count = match[1] ? Number(match[1]) : 1;
+  if (count < 1 || count > 999) return null;
+  return { count, unit: match[2].toLowerCase(), whenDone: !!match[3] };
+}
+function plannerBuildRecurrenceRule(count, unit, whenDone = false) {
+  const n = Number(count);
+  if (!Number.isInteger(n) || n < 1 || n > 999 || !["day", "week", "month", "year"].includes(unit)) {
+    throw new Error("Invalid recurrence rule");
+  }
+  return `every ${n === 1 ? unit : `${n} ${unit}s`}${whenDone ? " when done" : ""}`;
+}
+function plannerIconButton(parent, plugin, label, icon, onClick, cls = "") {
+  const button = parent.createEl("button", { cls: `obsidian-ntfy-unified-icon-button ${cls}`.trim(),
+    attr: { type: "button", title: plugin.uiText(label), "aria-label": plugin.uiText(label) } });
+  setIcon(button, icon);
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+class NtfyDateTimeEditModal extends Modal {
+  constructor(app, plugin, task, onSave, onDelete, onRenamed = null, initialNtfy = false, onCopy = null) {
+    super(app);
+    this.plugin = plugin;
+    this.task = task;
+    this.onSave = onSave;
+    this.onDelete = onDelete;
+    this.onRenamed = onRenamed;
+    this.initialNtfy = Boolean(initialNtfy);
+    this.onCopy = onCopy;
+    this.isMarkdownTask = Boolean(onDelete);
+    this.saving = false;
+  }
+  onOpen() {
+    const due = this.task && this.task.due instanceof Date ? this.task.due : new Date(this.task && this.task.due);
+    const current = Number.isNaN(due.getTime()) ? new Date() : due;
+    const { contentEl } = this;
+    contentEl.addClass("obsidian-ntfy-date-edit-modal");
+    contentEl.addClass("obsidian-ntfy-unified-compact");
+    this.modalEl?.addClass("obsidian-ntfy-planner-dialog");
+    // Scope small-screen action sizing to the Markdown task editor only.
+    // Creation and generic reminder modals must keep their existing actions.
+    if (this.isMarkdownTask) this.modalEl?.addClass("obsidian-ntfy-planner-task-edit-dialog");
+    const header = contentEl.createDiv({ cls: "obsidian-ntfy-unified-header" });
+    header.createEl("h2", { text: this.plugin.uiText(this.isMarkdownTask ? "Edit task" : "Change task date and time") });
+    let deleteButton = null;
+    let copyButton = null;
+    if (this.onCopy && this.isMarkdownTask) {
+      copyButton = contentEl.createEl("button", { cls: "obsidian-ntfy-unified-copy obsidian-ntfy-unified-icon-button",
+        attr: { type: "button", title: this.plugin.uiText("Copy task"), "aria-label": this.plugin.uiText("Copy task") } });
+      setIcon(copyButton, "copy");
+    }
+    if (this.onDelete) {
+      // Placed into the footer with Cancel/Save after the form is built.
+      deleteButton = contentEl.createEl("button", { cls: "obsidian-ntfy-unified-delete-top obsidian-ntfy-unified-icon-button",
+        attr: { type: "button", title: this.plugin.uiText("Delete task"), "aria-label": this.plugin.uiText("Delete task") } });
+      setIcon(deleteButton, "trash-2");
+    }
+    let titleInput = null;
+    if (this.isMarkdownTask) {
+      const titleRow = contentEl.createDiv({ cls: "obsidian-ntfy-unified-title" });
+      const titleId = `ntfy-task-title-${this.plugin.hash(String(Date.now()) + Math.random())}`;
+      titleRow.createEl("label", { text: this.plugin.uiText("Task title"), attr: { for: titleId } });
+      titleInput = titleRow.createEl("input", { attr: { id: titleId, type: "text", maxlength: "500", "aria-label": this.plugin.uiText("Task title") } });
+      titleInput.value = this.task.editableTitle ?? this.task.text ?? "";
+    }
+    const fields = contentEl.createDiv({ cls: "obsidian-ntfy-date-edit-fields" });
+    const dateField = fields.createDiv({ cls: "obsidian-ntfy-unified-date-field" });
+    const timeField = fields.createDiv({ cls: "obsidian-ntfy-unified-time-field" });
+    const dateId = `ntfy-date-${this.plugin.hash(String(Date.now()) + Math.random())}`;
+    const timeId = `ntfy-time-${this.plugin.hash(String(Date.now()) + Math.random())}`;
+    dateField.createEl("label", { text: this.plugin.uiText("Date"), attr: { for: dateId } });
+    timeField.createEl("label", { text: this.plugin.uiText("Time"), attr: { for: timeId } });
+    const dateRow = dateField.createDiv({ cls: "obsidian-ntfy-unified-inline-field" });
+    const timeRow = timeField.createDiv({ cls: "obsidian-ntfy-unified-inline-field" });
+    const dateInput = dateRow.createEl("input", { attr: { id: dateId, type: "date", "aria-label": this.plugin.uiText("Date") } });
+    const timeInput = timeRow.createEl("input", { attr: { id: timeId, type: "time", step: "60", "aria-label": this.plugin.uiText("Time") } });
+    const local = this.plugin.formatDateTimeLocal(current);
+    dateInput.value = local.slice(0, 10);
+    timeInput.value = this.task && this.task.hasExplicitTime === false ? "" : local.slice(11, 16);
+    if (this.isMarkdownTask) {
+      plannerIconButton(dateRow, this.plugin, "Remove date", "trash-2", () => { dateInput.value = ""; });
+      plannerIconButton(timeRow, this.plugin, "Remove time", "trash-2", () => { timeInput.value = ""; });
+    }
+    renderPlannerQuickScheduleActions(contentEl, this.plugin, dateInput, timeInput);
+    const extraRow = this.isMarkdownTask ? contentEl.createDiv({ cls: "obsidian-ntfy-unified-secondary-row" }) : null;
+    const durationControls = this.isMarkdownTask ? renderPlannerDurationControls(extraRow, this.plugin, timeInput, this.task.durationMinutes ?? null, true) : null;
+    const recurrenceControls = this.isMarkdownTask
+      ? renderPlannerTaskRecurrence(extraRow, this.plugin, this.task.recurrenceRule || "") : null;
+    const completionControls = this.isMarkdownTask
+      ? renderPlannerOnCompletion(contentEl, this.plugin, this.task.onCompletion || "") : null;
+    const flags = this.isMarkdownTask
+      ? renderPlannerTaskFlags(contentEl, this.plugin, Boolean(this.task.autoDoneTagPresent),
+          this.initialNtfy, Boolean(this.task.completed || !this.task.due)) : null;
+    const feedback = contentEl.createDiv({ cls: "obsidian-ntfy-error", attr: { role: "alert" } });
+    // Actions and destructive control stay together at the bottom.
+    // Keep Cancel/Save visible while scrolling through the edit fields.
+    const settings = new Setting(contentEl);
+    settings.settingEl.addClass("obsidian-ntfy-unified-actions");
+    if (deleteButton) settings.settingEl.addClass("has-delete");
+    if (copyButton) settings.settingEl.addClass("has-copy");
+    settings.addButton((button) => button.setButtonText(this.plugin.uiText("Cancel")).onClick(() => this.close()))
+      .addButton((button) => button.setCta().setButtonText(this.plugin.uiText("Save")).onClick(async () => {
+        if (this.saving) return;
+        const date = dateInput.value;
+        const time = timeInput.value;
+        const dateValid = !date || (/^\d{4}-\d{2}-\d{2}$/.test(date) && (() => {
+          const day = this.plugin.parseDateTimeLocal(`${date}T12:00`);
+          return !!day && this.plugin.formatDateTimeLocal(day).slice(0, 10) === date;
+        })());
+        const timeValid = !time || (/^\d{2}:\d{2}$/.test(time) && Number(time.slice(0, 2)) <= 23 && Number(time.slice(3)) <= 59);
+        if (!dateValid || !timeValid || (!this.isMarkdownTask && (!date || !time))) {
+          feedback.setText(this.plugin.uiText("Invalid date/time")); return;
+        }
+        this.saving = true;
+        button.setDisabled(true);
+        feedback.setText("");
+        try {
+          const title = titleInput ? titleInput.value.trim() : undefined;
+          if (this.isMarkdownTask && (!title || title.length > 500 || /[\r\n]/u.test(title))) throw new Error("Invalid task title");
+          if (this.isMarkdownTask && flags.getNtfy() && !date && flags.getNtfy() !== this.initialNtfy) throw new Error("Ntfy requires a task date");
+          await this.onSave(date, time, durationControls ? durationControls.getMinutes() : undefined,
+            flags ? flags.getAutoDone() : undefined,
+            this.isMarkdownTask ? { title, recurrence: recurrenceControls.getRule(), onCompletion: completionControls.getValue(), ntfy: flags.getNtfy() } : undefined);
+          this.close();
+        }
+        catch (error) {
+          console.error(`${PLUGIN_NAME}: date/time edit failed`, error);
+          feedback.setText(error && error.message === "task changed while updating"
+            ? this.plugin.uiText("Task was changed; reopen and try again")
+            : `${this.plugin.uiText("Time update failed")}: ${error && error.message || error}`);
+        } finally { this.saving = false; button.setDisabled(false); }
+      }));
+    if (deleteButton) {
+      const footerButtons = settings.settingEl.querySelector?.(".setting-item-control");
+      if (footerButtons) {
+        footerButtons.prepend(deleteButton);
+        if (copyButton) footerButtons.insertBefore(copyButton, deleteButton);
+      }
+      deleteButton.addEventListener("click", async () => {
+        if (this.saving) return;
+        if (this.plugin.settings.plannerDeleteWithoutConfirm !== true) {
+          new NtfyTaskDeleteConfirmModal(this.app, this.plugin, this.task, async () => {
+            await this.onDelete(); this.close();
+          }).open();
+          return;
+        }
+        this.saving = true;
+        deleteButton.disabled = true;
+        try { await this.onDelete(); this.close(); }
+        catch (error) {
+          console.error(`${PLUGIN_NAME}: task deletion failed`, error);
+          feedback.setText(`${this.plugin.uiText("Task delete failed")}: ${error?.message || error}`);
+        } finally { this.saving = false; deleteButton.disabled = false; }
+      });
+    }
+    if (copyButton) copyButton.addEventListener("click", () => {
+      if (this.saving) return;
+      // Open the regular safe creation flow; nothing is written by this action.
+      this.close();
+      this.onCopy();
+    });
+  }
+  onClose() { this.contentEl.empty(); }
+}
+
+// 8.7.0: one pass over the already-loaded Planner tasks, with at most two
+// local-day fragments for the supported 1..1440 minute duration. This is a
+// pure calculation: no vault reads, timers, storage or network requests.
+function computePlannerWindowMetrics(tasks, windowStart, windowEnd, options = null) {
+  const from = windowStart instanceof Date ? windowStart.getTime() : NaN;
+  const to = windowEnd instanceof Date ? windowEnd.getTime() : NaN;
+  if (!Number.isFinite(from) || !Number.isFinite(to) || to <= from) throw new Error("Invalid planner metrics interval");
+  // When hidden, costly interval sorting and union/conflict calculations are skipped.
+  // No options = legacy full calculation for standalone callers and regression tests.
+  const countCompletion = options?.completion !== false;
+  const sumPlanned = options?.planned !== false;
+  const combineIntervals = options?.intervals !== false;
+  const markConflicts = combineIntervals && options?.conflicts !== false;
+  const byDay = new Map();
+  const tasksByDay = new Map();
+  const visibleTasks = [];
+  const conflictingTasks = new Set();
+  const total = { total: 0, completed: 0, plannedMinutes: 0, durationTasks: 0,
+    occupiedMinutes: 0, overlapMinutes: 0, conflictDays: 0 };
+  const keyFor = (date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  const bucketFor = (key) => {
+    if (!byDay.has(key)) byDay.set(key, { total: 0, completed: 0, plannedMinutes: 0,
+      durationTasks: 0, occupiedMinutes: 0, overlapMinutes: 0, intervals: [] });
+    return byDay.get(key);
+  };
+  for (const task of tasks || []) {
+    if (!(task?.due instanceof Date)) continue;
+    const due = task.due.getTime();
+    if (!Number.isFinite(due)) continue;
+    const scheduled = due >= from && due < to;
+    if (scheduled) {
+      const dayKey = keyFor(task.due);
+      const day = bucketFor(dayKey);
+      day.total++;
+      total.total++;
+      if (countCompletion && task.completed) { day.completed++; total.completed++; }
+      visibleTasks.push(task);
+      if (!tasksByDay.has(dayKey)) tasksByDay.set(dayKey, []);
+      tasksByDay.get(dayKey).push(task);
+    }
+    if (!sumPlanned && !combineIntervals) continue;
+    const duration = task.durationMinutes;
+    if (!task.hasExplicitTime || !Number.isInteger(duration) || duration < 1 || duration > 1440) continue;
+    if (scheduled && sumPlanned) {
+      const day = bucketFor(keyFor(task.due));
+      day.durationTasks++;
+      day.plannedMinutes += duration;
+      total.durationTasks++;
+      total.plannedMinutes += duration;
+    }
+    if (!combineIntervals) continue;
+    const finish = due + duration * 60000;
+    if (finish <= from || due >= to) continue;
+    let cursor = Math.max(due, from);
+    const clippedEnd = Math.min(finish, to);
+    while (cursor < clippedEnd) {
+      const local = new Date(cursor);
+      const nextMidnight = new Date(local.getFullYear(), local.getMonth(), local.getDate() + 1).getTime();
+      const chunkEnd = Math.min(nextMidnight, clippedEnd);
+      if (chunkEnd <= cursor) break;
+      bucketFor(keyFor(local)).intervals.push({ start: cursor, end: chunkEnd, task });
+      cursor = chunkEnd;
+    }
+  }
+  for (const day of byDay.values()) {
+    if (!day.intervals.length) continue;
+    day.intervals.sort((a, b) => a.start - b.start || b.end - a.end);
+    let coveredEnd = -Infinity;
+    let latestTask = null;
+    let unionMs = 0;
+    let sumMs = 0;
+    for (const entry of day.intervals) {
+      const length = entry.end - entry.start;
+      sumMs += length;
+      unionMs += Math.max(0, entry.end - Math.max(entry.start, coveredEnd));
+      if (markConflicts && entry.start < coveredEnd) {
+        conflictingTasks.add(entry.task);
+        if (latestTask) conflictingTasks.add(latestTask);
+      }
+      if (entry.end > coveredEnd) { coveredEnd = entry.end; latestTask = entry.task; }
+    }
+    day.occupiedMinutes = Math.round(unionMs / 60000);
+    day.overlapMinutes = Math.round((sumMs - unionMs) / 60000);
+    total.occupiedMinutes += day.occupiedMinutes;
+    total.overlapMinutes += day.overlapMinutes;
+    if (day.overlapMinutes > 0) total.conflictDays++;
+    delete day.intervals; // Do not retain per-task intervals in the UI cache.
+  }
+  return { total, byDay, tasksByDay, visibleTasks, conflictingTasks };
+}
+
+function plannerPerfClock() {
+  return typeof performance !== "undefined" && typeof performance.now === "function"
+    ? performance.now() : Date.now();
+}
+
+// Minute-accurate, read-only occupancy segments for the day timeline.
+// Sweep boundaries in each local clock hour, not per-minute/per-task DOM nodes.
+// 24 small difference arrays bound memory independently of vault size.
+function plannerMinuteBandsForDay(tasks, dayStart, dayEnd) {
+  const from = dayStart instanceof Date ? dayStart.getTime() : NaN;
+  const to = dayEnd instanceof Date ? dayEnd.getTime() : NaN;
+  const diff = Array.from({ length: 24 }, () => new Int32Array(61));
+  if (!Number.isFinite(from) || !Number.isFinite(to) || to <= from) return Array.from({ length: 24 }, () => []);
+  for (const task of tasks || []) {
+    if (!task || task.completed || !task.hasExplicitTime || !(task.due instanceof Date)) continue;
+    const duration = task.durationMinutes;
+    if (!Number.isInteger(duration) || duration < 1 || duration > 1440) continue;
+    const due = task.due.getTime();
+    if (!Number.isFinite(due)) continue;
+    let cursor = Math.max(from, due);
+    const finish = Math.min(to, due + duration * 60000);
+    if (cursor >= finish) continue;
+    // At most 25 local hourly segments per task, including DST fallback.
+    for (let guard = 0; cursor < finish && guard < 26; guard++) {
+      const local = new Date(cursor);
+      const hour = local.getHours();
+      const minute = local.getMinutes();
+      const nextHour = cursor + (60 - minute) * 60000 - local.getSeconds() * 1000 - local.getMilliseconds();
+      const end = Math.min(finish, Math.max(cursor + 1, nextHour));
+      const endMinute = end === nextHour ? 60 : Math.min(60, new Date(end).getHours() === hour ? new Date(end).getMinutes() + (new Date(end).getSeconds() > 0 || new Date(end).getMilliseconds() > 0 ? 1 : 0) : 60);
+      const startMinute = minute;
+      if (endMinute > startMinute) { diff[hour][startMinute]++; diff[hour][endMinute]--; }
+      cursor = end;
+    }
+  }
+  return diff.map((edges) => {
+    const bands = [];
+    let count = 0;
+    let opened = -1;
+    let previous = 0;
+    for (let minute = 0; minute <= 60; minute++) {
+      if (minute < 60) count += edges[minute];
+      if (minute === 60 || count !== previous) {
+        if (opened >= 0 && previous > 0 && minute > opened)
+          bands.push({ start: opened, end: minute, count: previous });
+        opened = minute < 60 && count > 0 ? minute : -1;
+      }
+      previous = count;
+    }
+    return bands;
+  });
+}
+
 class NtfyManagerView extends ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.plugin = plugin;
-    this.activeTab = "reminders";
+    this.activeTab = plugin.settings.plannerEnabled === false ? "reminders" : "planner";
     this.notificationTasks = [];
     this.vaultTasks = [];
+    this.plannerTasks = [];
+    this.plannerReminders = [];
+    this.plannerStatsCache = null;
+    this.plannerMinuteBandsCache = null;
+    this.plannerSearchQuery = "";
+    this.plannerFilteredCache = null;
+    this.plannerDayIndexCache = null;
+    this.plannerRangeTasksCache = null;
+    this.plannerSearchFrame = null;
+    this.plannerDayRenderLimit = 100;
+    this.plannerConflictingTasks = new Set();
+    this.plannerError = "";
+    this.plannerMode = "today";
+    const today = new Date();
+    this.plannerDate = this.plannerDayKey(today);
+    const savedPlanner = plugin.managerPlannerViewState || {};
+    if (["today", "tomorrow", "day", "week", "month"].includes(savedPlanner.mode)
+      && this.plannerParseDay(savedPlanner.date)) {
+      this.plannerMode = savedPlanner.mode;
+      this.plannerDate = savedPlanner.date;
+    }
+    this.plannerScrollPositions = new Map(Array.isArray(savedPlanner.scrolls)
+      ? savedPlanner.scrolls.slice(-12).filter(([key, value]) => typeof key === "string" && Number.isFinite(value) && value >= 0) : []);
+    this.plannerPendingScrollTop = Number.isFinite(savedPlanner.scrollTop) ? savedPlanner.scrollTop : null;
+    this.chatMessageFilter = "all";
+    this.chatMessageSearch = "";
+    this.chatScrollPositions = new Map();
     this.diagnostics = [];
     this.remoteScheduled = [];
     this.scanError = "";
@@ -9226,7 +12564,8 @@ class NtfyManagerView extends ItemView {
     this.panelBatchStates = new Map();
     this.tabRenderHandles = new Map();
     this.tabRefreshScheduled = false;
-    this.tabDataRevisions = { reminders: 0, vault: 0, inbox: 0 };
+    this.lazyTaskRefreshTabs = new Set();
+    this.tabDataRevisions = { reminders: 0, vault: 0, planner: 0, inbox: 0 };
     this.reminderFilter = "all";
     this.tasksMode = "open";
     this.bodyScrollTop = 0;
@@ -9235,6 +12574,23 @@ class NtfyManagerView extends ItemView {
     this.selectedConversationFiles = [];
     this.conversationDrafts = new Map();
     this.viewportCleanup = null;
+    this.managerViewEpoch = 0;
+    this.inboxRefreshHandle = null;
+    this.inboxRefreshKind = "";
+    this.plannerUiTrace = null;
+    this.plannerOpenedAt = null;
+    this.managerOpenTrace = null;
+  }
+
+  beginManagerOpenTrace(started = null, source = "view") {
+    if (this.plugin.runtimePlannerUiProfiling !== true) {
+      this.managerOpenTrace = null;
+      return;
+    }
+    const began = Number.isFinite(started) ? started : plannerPerfClock();
+    this.managerOpenTrace = { started: began, source, at: Date.now(), dataReady: false,
+      dataMs: null, loadedTasks: null, recorded: false };
+    this.plannerOpenedAt = began;
   }
 
   getViewType() {
@@ -9250,6 +12606,14 @@ class NtfyManagerView extends ItemView {
   }
 
   async onOpen() {
+    // Includes the manager's first deferred render when tracing was enabled
+    // before opening the view. Nothing is measured in ordinary operation.
+    if (this.plugin.runtimePlannerUiProfiling === true) {
+      const actionStarted = this.plugin.runtimeManagerOpenStartedAt;
+      this.plugin.runtimeManagerOpenStartedAt = null;
+      this.beginManagerOpenTrace(actionStarted, Number.isFinite(actionStarted) ? "open-action" : "view");
+    }
+    this.managerViewEpoch += 1;
     if (this.app.workspace && typeof this.app.workspace.on === "function" && typeof this.registerEvent === "function") {
       this.registerEvent(this.app.workspace.on("notifications-for-tasks:incoming", () => this.refreshIncomingView()));
       this.registerEvent(this.app.workspace.on("notifications-for-tasks:conversations-changed", () => this.refreshIncomingView()));
@@ -9262,6 +12626,22 @@ class NtfyManagerView extends ItemView {
   }
 
   async onClose() {
+    this.managerViewEpoch += 1;
+    this.plannerUiTrace = null;
+    this.plannerOpenedAt = null;
+    this.managerOpenTrace = null;
+    if (this.inboxRefreshHandle !== null) {
+      this.cancelScheduledHandle({ kind: this.inboxRefreshKind, handle: this.inboxRefreshHandle });
+      this.inboxRefreshHandle = null;
+      this.inboxRefreshKind = "";
+    }
+    this.cancelPlannerSearchFrame();
+    this.rememberPlannerScrollPosition();
+    this.plugin.managerPlannerViewState = {
+      mode: this.plannerMode, date: this.plannerDate,
+      scrollTop: this.plannerScrollPositions.get(this.plannerScrollKey()) || 0,
+      scrolls: [...this.plannerScrollPositions.entries()].slice(-12),
+    };
     this.viewportCleanup?.();
     this.viewportCleanup = null;
     this.viewContentEl().empty();
@@ -9270,6 +12650,7 @@ class NtfyManagerView extends ItemView {
     this.tabSignatures.clear();
     this.tabScrollPositions.clear();
     this.tabRefreshes.clear();
+    this.lazyTaskRefreshTabs.clear();
     for (const state of this.panelBatchStates.values()) {
       state.cancelled = true;
       for (const handle of state.timers) this.cancelScheduledHandle(handle);
@@ -9278,18 +12659,37 @@ class NtfyManagerView extends ItemView {
     for (const handle of this.tabRenderHandles.values()) this.cancelScheduledHandle(handle);
     this.tabRenderHandles.clear();
     this.conversationDrafts.clear();
+    this.plannerStatsCache = null;
+    this.plannerMinuteBandsCache = null;
+    this.plannerForecastCache = null;
+    this.plannerDayIndexCache = null;
+    this.plannerRangeTasksCache = null;
+    this.chatScrollPositions.clear();
+    this.plannerScrollPositions.clear();
+    this.plannerTasks = [];
+    this.plannerReminders = [];
   }
 
   refreshIncomingView() {
-    if (this.inboxRefreshHandle) return;
+    if (this.inboxRefreshHandle !== null || !this.bodyEl) return;
+    const epoch = this.managerViewEpoch;
     const flush = () => {
       this.inboxRefreshHandle = null;
+      this.inboxRefreshKind = "";
+      if (this.managerViewEpoch !== epoch || !this.bodyEl) return;
       this.tabDataRevisions.inbox += 1;
       this.updateNavCounts();
       this.syncTabPanels(["inbox"]);
     };
-    if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") this.inboxRefreshHandle = window.requestAnimationFrame(flush);
-    else this.inboxRefreshHandle = window.setTimeout(flush, 0);
+    if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+      this.inboxRefreshKind = "frame";
+      this.inboxRefreshHandle = window.requestAnimationFrame(flush);
+    } else if (typeof window !== "undefined" && typeof window.setTimeout === "function") {
+      this.inboxRefreshKind = "timeout";
+      this.inboxRefreshHandle = window.setTimeout(flush, 0);
+    } else {
+      flush();
+    }
   }
 
   viewContentEl() {
@@ -9304,7 +12704,19 @@ class NtfyManagerView extends ItemView {
     window.addEventListener("orientationchange", update, { passive: true });
     viewport?.addEventListener("resize", update, { passive: true });
     viewport?.addEventListener("scroll", update, { passive: true });
+    // Rebuild the month only when the preview-visibility breakpoint changes.
+    // Resizing within either layout, including keyboard visualViewport resize,
+    // does not cause additional renders or vault reads.
+    const previewMedia = typeof window.matchMedia === "function" ? window.matchMedia("(max-width: 600px)") : null;
+    const onPreviewBreakpoint = () => {
+      if (this.bodyEl && this.activeTab === "planner" && this.plannerMode === "month")
+        this.scheduleTabRender("planner", { afterPaint: true, onlyIfActive: true });
+    };
+    if (typeof previewMedia?.addEventListener === "function") previewMedia.addEventListener("change", onPreviewBreakpoint);
+    else if (typeof previewMedia?.addListener === "function") previewMedia.addListener(onPreviewBreakpoint);
     this.viewportCleanup = () => {
+      if (typeof previewMedia?.removeEventListener === "function") previewMedia.removeEventListener("change", onPreviewBreakpoint);
+      else if (typeof previewMedia?.removeListener === "function") previewMedia.removeListener(onPreviewBreakpoint);
       window.removeEventListener("resize", update);
       window.removeEventListener("orientationchange", update);
       viewport?.removeEventListener("resize", update);
@@ -9385,23 +12797,26 @@ class NtfyManagerView extends ItemView {
   }
 
   managerTabIds() {
-    const ids = ["reminders", "diagnostics"];
+    const ids = this.plugin.settings.plannerEnabled === false ? ["reminders", "diagnostics"] : ["planner", "reminders", "diagnostics"];
     if (this.plugin.settings.showManagerVaultTasks !== false || this.plugin.settings.showManagerCompleted !== false) ids.push("tasks");
     ids.push("inbox");
     return ids;
   }
 
   renderShell(contentEl) {
-    if (!this.managerTabIds().includes(this.activeTab)) this.activeTab = "reminders";
+    if (!this.managerTabIds().includes(this.activeTab)) this.activeTab = this.managerTabIds()[0] || "reminders";
     contentEl.empty();
     contentEl.addClass("obsidian-ntfy-manager");
     this.tabPanels.clear();
     this.tabSignatures.clear();
-    this.renderHeader(contentEl);
     this.bodyEl = contentEl.createDiv({ cls: "obsidian-ntfy-window-body" });
+    // Navigation belongs to the same scroll container as manager content.
+    // Inbox retains its dedicated message scroller and composer layout.
+    this.renderHeader(this.bodyEl);
     this.bodyScrollTop = 0;
     this.bodyEl.addEventListener?.("scroll", () => { this.bodyScrollTop = this.bodyEl ? this.bodyEl.scrollTop || 0 : 0; }, { passive: true });
     this.ensureTabPanel(this.activeTab);
+    if (this.lazyTaskRefreshTabs.has(this.activeTab)) this.cancelTabRender(this.activeTab);
     this.showActiveTabPanel();
   }
 
@@ -9417,6 +12832,13 @@ class NtfyManagerView extends ItemView {
   }
 
   beginPanelRender(panel) {
+    for (const [element, state] of this.panelBatchStates.entries()) {
+      if (element !== panel && element.isConnected === false) {
+        state.cancelled = true;
+        for (const handle of state.timers) this.cancelScheduledHandle(handle);
+        this.panelBatchStates.delete(element);
+      }
+    }
     const previous = this.panelBatchStates.get(panel);
     if (previous) {
       previous.cancelled = true;
@@ -9446,8 +12868,10 @@ class NtfyManagerView extends ItemView {
     const append = (end) => {
       if (!state || state.cancelled || containerEl.isConnected === false) return false;
       const stop = Math.min(list.length, end);
+      const first = index;
+      const started = onBatch ? plannerPerfClock() : 0;
       while (index < stop) renderItem(list[index++]);
-      onBatch?.();
+      if (onBatch) onBatch({ items: index - first, milliseconds: plannerPerfClock() - started });
       return true;
     };
     const schedule = (callback) => {
@@ -9479,12 +12903,15 @@ class NtfyManagerView extends ItemView {
   renderMessagesTailFirst(containerEl, items, renderItem, state, options = {}) {
     const list = Array.isArray(items) ? items : [];
     const total = list.length;
-    if (!total) return;
+    const onComplete = typeof options.onComplete === "function" ? options.onComplete : null;
+    const onInitial = typeof options.onInitial === "function" ? options.onInitial : null;
+    if (!total) { onComplete?.(); return; }
     const tailCount = Math.min(total, Math.max(1, Number(options.tailCount || 60)));
     const batchSize = Math.max(1, Number(options.batchSize || 60));
     const tailStart = total - tailCount;
     for (let i = tailStart; i < total; i++) renderItem(list[i], i > 0 ? list[i - 1] : null);
-    if (tailStart === 0) return;
+    onInitial?.();
+    if (tailStart === 0) { onComplete?.(); return; }
     let index = tailStart;
     let insertBeforeNode = containerEl.querySelector(".obsidian-ntfy-chat-date, .obsidian-ntfy-chat-message");
     const prepend = () => {
@@ -9512,7 +12939,7 @@ class NtfyManagerView extends ItemView {
       return null;
     };
     const pump = () => {
-      if (!prepend()) return;
+      if (!prepend()) { if (index === 0 && !state?.cancelled) onComplete?.(); return; }
       if (index > 0) {
         let scheduled = null;
         scheduled = schedule(() => { if (scheduled) state.timers.delete(scheduled); pump(); });
@@ -9538,7 +12965,7 @@ class NtfyManagerView extends ItemView {
     panel.setAttr("aria-busy", "true");
     const loading = panel.createDiv({ cls: "obsidian-ntfy-muted obsidian-ntfy-task-loading obsidian-ntfy-tab-loading" });
     setIcon(loading.createSpan({ cls: "obsidian-ntfy-task-loading-icon" }), "loader-circle");
-    const labels = { reminders: "Opening reminders…", diagnostics: "Opening diagnostics…", tasks: "Opening tasks…", inbox: "Opening messages…" };
+    const labels = { reminders: "Opening reminders…", planner: "Opening planner…", diagnostics: "Opening diagnostics…", tasks: "Opening tasks…", inbox: "Opening messages…" };
     loading.createSpan({ text: this.uiText(labels[tabId] || "Opening…") });
     this.tabSignatures.delete(tabId);
   }
@@ -9562,21 +12989,161 @@ class NtfyManagerView extends ItemView {
     this.tabRenderHandles.set(tabId, { kind: "timeout", handle });
   }
 
+  chatScrollKey() {
+    return `${this.activeConversationId || ""} ${this.chatMessageFilter} ${this.chatMessageSearch}`;
+  }
+
+  rememberChatScrollPosition(panel = this.tabPanels.get("inbox")) {
+    const node = panel?.querySelector?.(".obsidian-ntfy-chat-messages");
+    // A contact switch may update activeConversationId before the old DOM is
+    // replaced. Never save the previous chat position under the new key.
+    if (node?.getAttribute?.("data-conversation-key") !== this.activeConversationId) return;
+    const snapshot = plannerChatScrollSnapshot(node);
+    if (!snapshot || !this.activeConversationId) return;
+    const key = this.chatScrollKey();
+    this.chatScrollPositions.delete(key);
+    this.chatScrollPositions.set(key, snapshot);
+    while (this.chatScrollPositions.size > 12) this.chatScrollPositions.delete(this.chatScrollPositions.keys().next().value);
+  }
+
+  cancelPlannerSearchFrame() {
+    if (this.plannerSearchFrame === null) return;
+    if (typeof window !== "undefined" && typeof window.cancelAnimationFrame === "function")
+      window.cancelAnimationFrame(this.plannerSearchFrame);
+    this.plannerSearchFrame = null;
+  }
+
+  startPlannerUiTrace(panel, state) {
+    if (this.plugin.runtimePlannerUiProfiling !== true) return null;
+    const started = plannerPerfClock();
+    const trace = {
+      panel, state, started, at: Date.now(), mode: this.plannerMode,
+      mobile: Platform.isMobileApp === true, returned: false, hasBatches: false,
+      batchDone: false, firstDomMs: null, firstPaintMs: null,
+      batchCount: 0, renderedJobs: 0, batchJsMs: 0, maxBatchJsMs: 0,
+      openMs: this.managerOpenTrace && !this.managerOpenTrace.recorded
+        ? Math.max(0, started - this.managerOpenTrace.started) : null,
+      readyWithData: this.managerOpenTrace?.dataReady === true,
+      openTrace: this.managerOpenTrace,
+      record: null,
+    };
+    this.plannerOpenedAt = null;
+    this.plannerUiTrace = trace;
+    return trace;
+  }
+
+  validPlannerUiTrace(trace) {
+    return !!trace && this.plugin.runtimePlannerUiProfiling === true
+      && this.plannerUiTrace === trace && this.activeTab === "planner" && !trace.state.cancelled
+      && trace.panel?.isConnected !== false;
+  }
+
+  // The second rAF is only a proxy for a possible first paint: the browser
+  // may defer actual presentation. Never label it a measured hardware frame.
+  schedulePlannerUiFirstPaint(trace) {
+    if (!this.validPlannerUiTrace(trace) || trace.paintScheduled) return;
+    if (typeof window === "undefined" || typeof window.requestAnimationFrame !== "function") return;
+    trace.paintScheduled = true;
+    const schedule = (callback) => {
+      const scheduled = { kind: "frame", handle: null };
+      scheduled.handle = window.requestAnimationFrame(() => {
+        trace.state.timers.delete(scheduled);
+        if (this.validPlannerUiTrace(trace)) callback();
+      });
+      trace.state.timers.add(scheduled);
+    };
+    schedule(() => schedule(() => {
+      trace.firstPaintMs = Math.round((plannerPerfClock() - trace.started) * 10) / 10;
+      if (trace.record) trace.record.firstPaintEstimateMs = trace.firstPaintMs;
+    }));
+  }
+
+  recordPlannerUiBatch(trace, details) {
+    if (!this.validPlannerUiTrace(trace)) return;
+    const ms = Number(details?.milliseconds || 0);
+    const count = Number(details?.items || 0);
+    trace.batchCount++;
+    trace.renderedJobs += count;
+    trace.batchJsMs += ms;
+    trace.maxBatchJsMs = Math.max(trace.maxBatchJsMs, ms);
+    if (trace.firstDomMs === null) {
+      trace.firstDomMs = Math.round((plannerPerfClock() - trace.started) * 10) / 10;
+      this.schedulePlannerUiFirstPaint(trace);
+    }
+  }
+
+  finishPlannerUiTrace(trace) {
+    if (!this.validPlannerUiTrace(trace) || !trace.returned || !trace.batchDone || trace.record) return;
+    // Query DOM only once, at the end, and ONLY when explicit profiling is on.
+    const domNodes = typeof trace.panel.querySelectorAll === "function"
+      ? trace.panel.querySelectorAll("*").length : null;
+    const elapsed = Math.round((plannerPerfClock() - trace.started) * 10) / 10;
+    const rounded = (n) => Math.round(n * 10) / 10;
+    const record = {
+      at: trace.at, mode: trace.mode, platform: trace.mobile ? "mobile" : "desktop",
+      managerToRenderMs: trace.openMs === null ? null : rounded(trace.openMs),
+      readyWithData: trace.readyWithData,
+      firstDomMs: trace.firstDomMs === null ? elapsed : trace.firstDomMs,
+      firstPaintEstimateMs: trace.firstPaintMs,
+      completeDomMs: elapsed, domNodes,
+      batches: trace.batchCount, jobs: trace.renderedJobs,
+      totalBatchJsMs: rounded(trace.batchJsMs), maxBatchJsMs: rounded(trace.maxBatchJsMs),
+    };
+    trace.record = record;
+    const perf = this.plugin.runtimePlannerPerf || (this.plugin.runtimePlannerPerf = {});
+    perf.uiRender = record;
+    perf.uiRenderHistory = [...(perf.uiRenderHistory || []).slice(-5), record];
+    // Report first *data-ready* planner DOM, not the temporary empty shell.
+    const open = trace.openTrace;
+    if (open && !open.recorded && open.dataReady && this.managerOpenTrace === open) {
+      perf.managerOpen = {
+        at: open.at, source: open.source,
+        toFirstReadyDomMs: rounded(plannerPerfClock() - open.started),
+        dataLoadMs: open.dataMs, tasks: open.loadedTasks,
+        readyDomNodes: domNodes, platform: record.platform,
+      };
+      open.recorded = true;
+      this.managerOpenTrace = null;
+    }
+  }
+
+  completePlannerUiRender(trace) {
+    if (!this.validPlannerUiTrace(trace)) return;
+    trace.returned = true;
+    if (!trace.hasBatches) {
+      trace.batchDone = true;
+      trace.firstDomMs = Math.round((plannerPerfClock() - trace.started) * 10) / 10;
+      this.schedulePlannerUiFirstPaint(trace);
+    }
+    this.finishPlannerUiTrace(trace);
+  }
+
   renderTabPanel(tabId) {
+    if (tabId === "planner") this.cancelPlannerSearchFrame();
     const panel = this.tabPanels.get(tabId);
     if (!panel) return;
     const scrollTop = this.activeTab === tabId && this.bodyEl ? this.bodyScrollTop : null;
     const inputState = tabId === "inbox" ? this.captureConversationInputState() : null;
+    if (tabId === "inbox") this.rememberChatScrollPosition(panel);
     const batchState = this.beginPanelRender(panel);
+    const uiTrace = tabId === "planner" ? this.startPlannerUiTrace(panel, batchState) : null;
     this.cancelTabRender(tabId);
     panel.empty();
     panel.removeAttribute("aria-busy");
     if (tabId === "reminders") this.renderReminders(panel, batchState);
+    if (tabId === "planner" && this.plugin.settings.plannerEnabled !== false) this.renderPlanner(panel);
+    if (uiTrace) this.completePlannerUiRender(uiTrace);
     if (tabId === "diagnostics") this.renderReminderDiagnostics(panel, batchState);
     if (tabId === "tasks") this.renderTasksPage(panel, batchState);
     if (tabId === "inbox") this.renderIncomingMessages(panel, batchState);
     this.tabSignatures.set(tabId, this.tabDataSignature(tabId));
-    if (scrollTop !== null && this.bodyEl) { this.bodyEl.scrollTop = scrollTop; this.bodyScrollTop = scrollTop; }
+    const desiredScroll = tabId === "planner" && this.plannerPendingScrollTop !== null
+      ? this.plannerPendingScrollTop : scrollTop;
+    if (tabId === "planner") this.plannerPendingScrollTop = null;
+    if (desiredScroll !== null && this.bodyEl) {
+      this.bodyEl.scrollTop = desiredScroll;
+      this.bodyScrollTop = this.bodyEl.scrollTop;
+    }
     this.restoreConversationInputState(inputState);
   }
 
@@ -9589,6 +13156,7 @@ class NtfyManagerView extends ItemView {
       return `reminders:${this.tabDataRevisions.reminders}:${this.notificationTasks.length}:${queue.length}:${remote.length}:${queueTail}:${remoteTail}:${this.reminderFilter}:${this.scanError}`;
     }
     if (tabId === "tasks") return `vault:${this.tabDataRevisions.vault}:${this.vaultTasks.length}:${this.tasksMode}`;
+    if (tabId === "planner") return `planner:${this.tabDataRevisions.planner}:${this.plannerDate}:${this.plannerMode}:${this.plannerTasks.length}:${this.plannerReminders.length}:${this.plannerError}:${this.plugin.settings.plannerSearchEnabled}:${this.plugin.settings.plannerRecurrencePreviewEnabled}:${this.plugin.settings.plannerPreviewExcludedTags}:${this.plugin.settings.plannerHideTaggedTasksEnabled}:${this.plugin.settings.plannerHiddenTaskTags}:${this.plugin.settings.plannerShowHiddenTasksToday}`;
     if (tabId === "inbox") {
       const messages = this.plugin.settings.conversationMessages || [];
       const first = messages[0] || {};
@@ -9608,7 +13176,11 @@ class NtfyManagerView extends ItemView {
       if (!this.tabPanels.has(tabId)) continue;
       const signature = this.tabDataSignature(tabId);
       if (this.tabSignatures.get(tabId) === signature) continue;
-      if (tabId === this.activeTab) this.scheduleTabRender(tabId, { afterPaint: true, onlyIfActive: true });
+      // A queued render reads the newest model on execution. Do not cancel
+      // and enqueue it a second time when an initial async refresh finishes.
+      if (tabId === this.activeTab) {
+        if (!this.tabRenderHandles.has(tabId)) this.scheduleTabRender(tabId, { afterPaint: true, onlyIfActive: true });
+      }
       else { this.cancelTabRender(tabId); this.tabSignatures.delete(tabId); }
       changed = true;
     }
@@ -9631,9 +13203,15 @@ class NtfyManagerView extends ItemView {
   activateTab(tabId) {
     if (!this.managerTabIds().includes(tabId)) return;
     if (this.bodyEl) this.tabScrollPositions.set(this.activeTab, this.bodyScrollTop);
+    if (this.activeTab === "planner") this.rememberPlannerScrollPosition();
     const mounted = this.tabPanels.has(tabId);
     this.activeTab = tabId;
     const panel = this.ensureTabPanel(tabId);
+    const lazyRefresh = this.lazyTaskRefreshTabs.has(tabId);
+    if (lazyRefresh && panel) {
+      this.cancelTabRender(tabId);
+      this.renderTabPlaceholder(panel, tabId);
+    }
     this.updateNavSelection();
     this.showActiveTabPanel();
     const target = mounted ? this.tabScrollPositions.get(tabId) || 0 : 0;
@@ -9644,7 +13222,7 @@ class NtfyManagerView extends ItemView {
         this.bodyScrollTop = target;
       }, 0));
     }
-    if (mounted && panel && this.tabSignatures.get(tabId) !== this.tabDataSignature(tabId)) this.scheduleTabRender(tabId, { afterPaint: true, onlyIfActive: true });
+    if (mounted && panel && !lazyRefresh && this.tabSignatures.get(tabId) !== this.tabDataSignature(tabId)) this.scheduleTabRender(tabId, { afterPaint: true, onlyIfActive: true });
     if (!this.tabRefreshScheduled) {
       this.tabRefreshScheduled = true;
       window.setTimeout(() => { this.tabRefreshScheduled = false; if (this.bodyEl) void this.refreshTabInBackground(this.activeTab); }, 0);
@@ -9653,6 +13231,7 @@ class NtfyManagerView extends ItemView {
 
   refreshScopeForTab(tabId) {
     if (tabId === "reminders") return "reminders";
+    if (tabId === "planner" && this.plugin.settings.plannerEnabled !== false) return "planner";
     if (tabId === "diagnostics") return "diagnostics";
     if (tabId === "tasks") return "vault";
     if (tabId === "inbox") return "inbox";
@@ -9661,6 +13240,7 @@ class NtfyManagerView extends ItemView {
 
   affectedTabsForScope(scope) {
     if (scope === "reminders") return ["reminders"];
+    if (scope === "planner") return ["planner"];
     if (scope === "diagnostics") return ["diagnostics"];
     if (scope === "vault") return this.managerTabIds().includes("tasks") ? ["tasks"] : [];
     if (scope === "inbox") return ["inbox"];
@@ -9668,12 +13248,17 @@ class NtfyManagerView extends ItemView {
   }
 
   refreshTabInBackground(tabId) {
+    if (tabId === "planner" && this.plugin.settings.plannerEnabled === false) return Promise.resolve(false);
     const scope = this.refreshScopeForTab(tabId);
     if (!scope) return Promise.resolve(false);
     if (this.tabRefreshes.has(scope)) return this.tabRefreshes.get(scope);
+    const epoch = this.managerViewEpoch;
     const refresh = (async () => {
       const affectedTabs = this.affectedTabsForScope(scope);
       const previousSignatures = new Map(affectedTabs.map((id) => [id, this.tabDataSignature(id)]));
+      const openTrace = scope === "planner" && this.plugin.runtimePlannerUiProfiling === true
+        ? this.managerOpenTrace : null;
+      const dataStarted = openTrace && !openTrace.recorded ? plannerPerfClock() : null;
       try {
         if (scope === "reminders") {
           const [tasks, remote] = await Promise.all([this.plugin.collectNotificationTasks(), this.loadRemoteScheduledQuietly()]);
@@ -9682,6 +13267,18 @@ class NtfyManagerView extends ItemView {
           this.scanError = "";
           this.tabDataRevisions.reminders += 1;
           this.plugin.patchManagerViewCache({ notificationTasks: this.notificationTasks, scanError: "" });
+        } else if (scope === "planner") {
+          // A pure view refresh: no sending or queue mutations here.
+          const [tasks, reminders] = await Promise.all([this.plugin.collectVaultTasks(), this.plugin.collectReminders()]);
+          this.plannerTasks = tasks;
+          this.plannerReminders = reminders;
+          this.plannerError = "";
+          this.tabDataRevisions.planner += 1;
+          if (openTrace && this.managerOpenTrace === openTrace && dataStarted !== null) {
+            openTrace.dataReady = true;
+            openTrace.dataMs = Math.round((plannerPerfClock() - dataStarted) * 10) / 10;
+            openTrace.loadedTasks = tasks.length;
+          }
         } else if (scope === "diagnostics") {
           this.diagnostics = await this.plugin.collectReminderDiagnostics();
           this.plugin.patchManagerViewCache({ diagnostics: this.diagnostics });
@@ -9692,15 +13289,34 @@ class NtfyManagerView extends ItemView {
           const pollResult = await this.plugin.runIncomingPoll();
           if (pollResult?.changed) this.tabDataRevisions.inbox += 1;
         }
+        // Closing/reopening a view invalidates late UI commits without cancelling
+        // an already-running network poll or modifying notification state.
+        if (epoch !== this.managerViewEpoch || !this.bodyEl) return false;
+        this.lazyTaskRefreshTabs.delete(tabId);
         const dataChanged = affectedTabs.some((id) => previousSignatures.get(id) !== this.tabDataSignature(id));
         if (!dataChanged) return false;
         if (scope === "reminders") this.plugin.setStatusCountsFromNotificationTasks(this.notificationTasks);
         this.updateNavCounts();
         return this.syncTabPanels(affectedTabs);
       } catch (error) {
+        if (epoch !== this.managerViewEpoch || !this.bodyEl) return false;
+        if (this.lazyTaskRefreshTabs.has(tabId)) {
+          this.lazyTaskRefreshTabs.delete(tabId);
+          const panel = this.tabPanels.get(tabId);
+          if (panel && panel.getAttribute("aria-busy") === "true") {
+            panel.empty();
+            panel.removeAttribute("aria-busy");
+            panel.createEl("p", { cls: "obsidian-ntfy-error", text: `${this.uiText("Refresh failed")}: ${error.message || error}` });
+          }
+        }
         if (scope === "reminders" && !this.notificationTasks.length) {
           this.scanError = error.message || String(error);
           this.syncTabPanels(["reminders"]);
+        }
+        if (scope === "planner") {
+          if (openTrace && this.managerOpenTrace === openTrace) openTrace.failed = true;
+          this.plannerError = error.message || String(error);
+          this.syncTabPanels(["planner"]);
         }
         console.warn(`${PLUGIN_NAME}: background manager refresh failed`, error);
         return false;
@@ -9721,6 +13337,7 @@ class NtfyManagerView extends ItemView {
 
   renderHeader(containerEl) {
     const nav = containerEl.createDiv({ cls: "obsidian-ntfy-nav" });
+    if (this.plugin.settings.plannerEnabled !== false) this.renderNavItem(nav, "planner", "calendar-days", this.uiText("Planner"), this.plannerVisibleTasks().length);
     this.renderNavItem(nav, "reminders", "alarm-clock", this.uiText("Reminders"), this.managerReminderRows().length);
     this.renderNavItem(nav, "diagnostics", "circle-help", this.uiText("Why not"), this.diagnostics.length);
     if (this.managerTabIds().includes("tasks")) this.renderNavItem(nav, "tasks", "list-checks", this.uiText("Tasks"), this.vaultTasks.length);
@@ -9765,13 +13382,18 @@ class NtfyManagerView extends ItemView {
       if (contact.preference.muted) setIcon(nameLine.createSpan({ cls: "obsidian-ntfy-chat-contact-state" }), "bell-off");
       if (contact.preference.pinned) setIcon(nameLine.createSpan({ cls: "obsidian-ntfy-chat-contact-state" }), "pin");
       const preview = contact.latest
-        ? contact.latest.text || (contact.latest.attachments || []).map((attachment) => attachment.name).join(", ")
+        ? this.plugin.ntfyConversationDisplayText(contact.latest) || (contact.latest.attachments || []).map((attachment) => attachment.name).join(", ")
         : contact.subtitle;
       body.createSpan({ cls: "obsidian-ntfy-chat-contact-preview", text: preview || "" });
       const meta = row.createSpan({ cls: "obsidian-ntfy-chat-contact-meta" });
       if (contact.latest) meta.createSpan({ text: this.chatTime(contact.latest.timestamp) });
       if (contact.unread) meta.createSpan({ cls: "obsidian-ntfy-chat-unread", text: String(Math.min(99, contact.unread)) });
       row.addEventListener("click", async () => {
+        this.rememberChatScrollPosition();
+        if (this.activeConversationId !== contact.id) {
+          this.chatMessageFilter = "all";
+          this.chatMessageSearch = "";
+        }
         this.activeConversationId = contact.id;
         this.mobileConversationOpen = true;
         this.selectedConversationFiles = [];
@@ -9789,6 +13411,7 @@ class NtfyManagerView extends ItemView {
     }
     const header = conversation.createDiv({ cls: "obsidian-ntfy-chat-header" });
     const back = this.iconButton(header, "arrow-left", this.uiText("Back to contacts"), "secondary", () => {
+      this.rememberChatScrollPosition();
       this.mobileConversationOpen = false;
       this.renderTabPanel("inbox");
     });
@@ -9797,6 +13420,26 @@ class NtfyManagerView extends ItemView {
     identity.createDiv({ cls: "obsidian-ntfy-chat-title", text: active.name });
     identity.createDiv({ cls: "obsidian-ntfy-chat-subtitle", text: active.subtitle || active.channelId });
     const actions = header.createDiv({ cls: "obsidian-ntfy-chat-toolbar" });
+    const quotaAccount = this.plugin.getChannelAccount(active.channelId);
+    if (quotaAccount?.type === "ntfy") {
+      this.iconButton(actions, "gauge", "Проверить лимиты ntfy", "secondary", async () => {
+        conversation.querySelector(".obsidian-ntfy-ntfy-quota")?.remove();
+        const buttonFeedback = conversation.createDiv({ cls: "obsidian-ntfy-ntfy-quota", attr: { role: "status" } });
+        buttonFeedback.setText("ntfy: проверка лимитов…");
+        try {
+          const info = await this.plugin.fetchNtfyAccountLimits(active.channelId);
+          if (!info) { buttonFeedback.setText("Сервер ntfy не предоставил данные о лимитах для этого аккаунта."); return; }
+          const parts = [];
+          if (info.messageLimit !== null) parts.push(`Сообщений в сутки: ${info.messageLimit}`);
+          if (info.messagesUsed !== null) parts.push(`Использовано: ${info.messagesUsed}`);
+          if (info.messagesRemaining !== null) parts.push(`Осталось: ${info.messagesRemaining}`);
+          if (info.attachmentLimit !== null) parts.push(`Лимит вложения: ${Math.round(info.attachmentLimit / 1024)} КиБ`);
+          buttonFeedback.setText(parts.length ? `ntfy · ${parts.join(" · ")}` : "Сервер ntfy не сообщил численные лимиты.");
+        } catch (error) {
+          buttonFeedback.setText(`Лимиты ntfy недоступны: ${this.plugin.redactSensitiveText(error?.message || String(error), true)}`);
+        }
+      });
+    }
     this.iconButton(actions, active.preference.pinned ? "pin-off" : "pin", active.preference.pinned ? this.uiText("Unpin") : this.uiText("Pin"), "secondary", async () => {
       await this.plugin.updateConversationPreference(active.id, { pinned: !active.preference.pinned });
       this.renderTabPanel("inbox");
@@ -9810,13 +13453,26 @@ class NtfyManagerView extends ItemView {
       this.renderTabPanel("inbox");
     });
 
-    const messageList = conversation.createDiv({ cls: "obsidian-ntfy-chat-messages" });
-    const messages = this.plugin.conversationMessagesFor(active);
-    if (!messages.length) {
-      const empty = messageList.createDiv({ cls: "obsidian-ntfy-chat-empty is-compact" });
-      setIcon(empty.createSpan(), active.icon || "message-circle");
+    const isNtfyConversation = quotaAccount?.type === "ntfy";
+    let chatSearchInput = null;
+    let chatFilterSelect = null;
+    if (isNtfyConversation) {
+      const tools = conversation.createDiv({ cls: "obsidian-ntfy-chat-filterbar" });
+      chatSearchInput = tools.createEl("input", { cls: "obsidian-ntfy-chat-search", attr: {
+        type: "search", maxlength: "120", placeholder: this.uiText("Search messages"),
+        "aria-label": this.uiText("Search messages") } });
+      chatSearchInput.value = this.chatMessageSearch;
+      chatFilterSelect = tools.createEl("select", { cls: "obsidian-ntfy-chat-filter", attr: {
+        "aria-label": this.uiText("Filter messages") } });
+      for (const [value, label] of [["all", "All"], ["outgoing", "Sent messages"],
+        ["incoming", "Received messages"], ["failed", "Failed messages"]]) {
+        const option = chatFilterSelect.createEl("option", { text: this.uiText(label) });
+        option.value = value;
+      }
+      chatFilterSelect.value = this.chatMessageFilter;
     }
-    const visibleMessages = messages.slice(-240);
+    const messageList = conversation.createDiv({ cls: "obsidian-ntfy-chat-messages", attr: { "data-conversation-key": active.id } });
+    const messages = this.plugin.conversationMessagesFor(active);
     let lastDate = "";
     const renderMessage = (message, previous) => {
       const date = new Date(message.timestamp);
@@ -9824,19 +13480,33 @@ class NtfyManagerView extends ItemView {
       const previousDate = previous ? new Date(previous.timestamp) : null;
       const previousKey = previousDate && !Number.isNaN(previousDate.getTime()) ? previousDate.toLocaleDateString() : "";
       if (dateKey && dateKey !== previousKey) messageList.createDiv({ cls: "obsidian-ntfy-chat-date", text: dateKey });
-      const row = messageList.createDiv({ cls: `obsidian-ntfy-chat-message is-${message.direction}` });
+      const sameSender = plannerChatIsFollowup(message, previous, date, previousDate);
+      const row = messageList.createDiv({ cls: `obsidian-ntfy-chat-message is-${message.direction}${sameSender ? " is-followup" : ""}` });
       const bubble = row.createDiv({ cls: "obsidian-ntfy-chat-bubble" });
-      if (message.text) bubble.createDiv({ cls: "obsidian-ntfy-chat-text", text: message.text });
+      const displayText = this.plugin.ntfyConversationDisplayText(message);
+      if (displayText) bubble.createDiv({ cls: "obsidian-ntfy-chat-text", text: displayText });
       for (const attachment of message.attachments || []) this.renderConversationAttachment(bubble, attachment, message);
       const messageMeta = bubble.createDiv({ cls: "obsidian-ntfy-chat-message-meta" });
       messageMeta.createSpan({ text: this.chatTime(message.timestamp, true) });
       if (message.direction === "outgoing") {
-        const statusIcon = message.status === "failed" ? "circle-alert" : message.status === "sending" ? "clock-3" : "check-check";
-        const status = messageMeta.createSpan({ cls: `obsidian-ntfy-chat-delivery is-${message.status || "sent"}`, attr: { title: message.error || message.status || "sent" } });
+        const statusIcon = message.status === "failed" ? "circle-alert"
+          : ["sending", "queued"].includes(message.status) ? "clock-3" : "check";
+        const channel = this.plugin.getChannelAccount?.(message.channelId);
+        const isNtfy = channel?.type === "ntfy" || message.metadata?.channelType === "ntfy" || message.channelId === "ntfy";
+        const explanation = isNtfy
+          ? ({ sent: "Accepted by ntfy server; push receipt not confirmed", queued: "Scheduled on ntfy server; push receipt not confirmed", sending: "Sending", failed: "Send failed" }[message.status] || "Delivery unknown")
+          : String(message.status || "sent");
+        const status = messageMeta.createSpan({ cls: `obsidian-ntfy-chat-delivery is-${message.status || "sent"}`, attr: { title: message.error || this.uiText(explanation), "aria-label": this.uiText(explanation) } });
         setIcon(status, statusIcon);
+        if (isNtfy) {
+          const label = ({ sent: "Accepted by ntfy server (not push delivered)",
+            queued: "Queued by ntfy server (not push delivered)",
+            sending: "Chat sending", failed: "Chat failed" })[message.status];
+          if (label) messageMeta.createSpan({ cls: "obsidian-ntfy-chat-status-label", text: this.uiText(label) });
+        }
       }
       const messageActions = row.createDiv({ cls: "obsidian-ntfy-chat-message-actions" });
-      const copyableText = message.text || (message.attachments || []).map((attachment) => attachment.name).filter(Boolean).join(", ");
+      const copyableText = this.plugin.ntfyConversationDisplayText(message) || (message.attachments || []).map((attachment) => attachment.name).filter(Boolean).join(", ");
       if (copyableText) this.iconButton(messageActions, "copy", this.uiText("Copy message"), "secondary", async () => {
         try {
           if (!navigator.clipboard || typeof navigator.clipboard.writeText !== "function") { this.plugin.pluginNotice("errors", this.uiText("Clipboard API is unavailable on this device.")); return; }
@@ -9853,23 +13523,48 @@ class NtfyManagerView extends ItemView {
         this.renderTabPanel("inbox");
       });
     };
-    this.renderMessagesTailFirst(messageList, visibleMessages, renderMessage, batchState, { tailCount: 60 });
-
-    // New conversations should open at the newest message. The second pass
-    // accounts for attachment/layout measurements that settle after render.
-    const alignToLatest = () => {
-      if (!messageList.isConnected) return;
-      messageList.scrollTop = messageList.scrollHeight;
+    // Local filtering only: no HTTP, no new poll, no mutation of history.
+    let messageBatch = batchState;
+    const initialScroll = this.chatScrollPositions.get(this.chatScrollKey()) || null;
+    const restoreChatScroll = (snapshot) => {
+      if (messageList.isConnected === false) return;
+      const max = Math.max(0, Number(messageList.scrollHeight || 0) - Number(messageList.clientHeight || 0));
+      messageList.scrollTop = snapshot && !snapshot.atBottom ? Math.min(max, snapshot.top) : max;
     };
-    const scrollToLatest = () => {
-      alignToLatest();
-      if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
-        window.requestAnimationFrame(alignToLatest);
+    const drawFilteredMessages = (state, saved = initialScroll) => {
+      if (messageBatch && messageBatch !== state) {
+        messageBatch.cancelled = true;
+        for (const handle of messageBatch.timers || []) this.cancelScheduledHandle(handle);
+        messageBatch.timers?.clear();
       }
-      if (typeof window !== "undefined" && typeof window.setTimeout === "function") {
-        window.setTimeout(alignToLatest, 120);
+      messageBatch = state;
+      messageList.empty();
+      const matches = plannerFilterNtfyChatMessages(messages, isNtfyConversation ? this.chatMessageFilter : "all",
+        isNtfyConversation ? this.chatMessageSearch : "", (message) => this.plugin.ntfyConversationDisplayText(message));
+      if (!matches.length) {
+        messageList.createDiv({ cls: "obsidian-ntfy-chat-empty is-compact",
+          text: this.uiText(isNtfyConversation && (this.chatMessageSearch || this.chatMessageFilter !== "all")
+            ? "No matching messages" : "No messages") });
+        return;
       }
+      this.renderMessagesTailFirst(messageList, matches.slice(-240), renderMessage, state, {
+        tailCount: 60, onInitial: () => restoreChatScroll(saved),
+        // Historical chunks are prepended with an anchor-preserving offset.
+        // Restoring a stale snapshot again after the last chunk would undo a
+        // user's scrolling while messages were loading on a slower phone.
+      });
     };
+    drawFilteredMessages(batchState);
+    if (chatSearchInput) {
+      chatSearchInput.addEventListener("input", () => {
+        this.chatMessageSearch = chatSearchInput.value.slice(0, 120);
+        drawFilteredMessages(this.beginPanelRender(messageList), null);
+      });
+      chatFilterSelect.addEventListener("change", () => {
+        this.chatMessageFilter = chatFilterSelect.value;
+        drawFilteredMessages(this.beginPanelRender(messageList), null);
+      });
+    }
 
     const composer = conversation.createDiv({ cls: "obsidian-ntfy-chat-composer" });
     const selected = composer.createDiv({ cls: "obsidian-ntfy-chat-selected-files" });
@@ -9935,7 +13630,6 @@ class NtfyManagerView extends ItemView {
       input.disabled = true;
       send.disabled = true;
     }
-    scrollToLatest();
   }
 
   chatTime(value, includeSeconds = false) {
@@ -10113,23 +13807,67 @@ class NtfyManagerView extends ItemView {
   }
 
   async refreshTaskCaches() {
+    const perfStarted = plannerPerfClock();
+    const active = this.activeTab;
+    const visible = this.managerTabIds();
     try {
+      // Status badges / notification state remain fresh, independent of which
+      // manager tab is active; the notification scheduler itself is untouched.
       this.notificationTasks = await this.plugin.collectNotificationTasks();
       this.tabDataRevisions.reminders += 1;
-      if (this.plugin.settings.showManagerVaultTasks !== false || this.plugin.settings.showManagerCompleted !== false) {
-        this.vaultTasks = await this.plugin.collectVaultTasks();
+      const needsPlanner = active === "planner" && this.plugin.settings.plannerEnabled !== false;
+      const needsVault = active === "tasks" || needsPlanner;
+      if (needsVault) {
+        const vaultTasks = await this.plugin.collectVaultTasks();
+        this.vaultTasks = vaultTasks;
         this.tabDataRevisions.vault += 1;
-      } else {
-        this.vaultTasks = [];
-        this.tabDataRevisions.vault += 1;
+        if (needsPlanner) {
+          this.plannerTasks = vaultTasks;
+          this.plannerReminders = await this.plugin.collectReminders();
+          this.plannerError = "";
+          this.tabDataRevisions.planner += 1;
+        }
       }
-      this.diagnostics = await this.plugin.collectReminderDiagnostics();
+      // Diagnostics can scan the whole vault; defer their calculation until
+      // that tab is actually opened instead of running it after every edit.
+      if (active === "diagnostics") {
+        this.diagnostics = await this.plugin.collectReminderDiagnostics();
+      }
+      // Inactive panels retain their previous arrays but must NEVER display
+      // stale content on activation. Show a placeholder until their scoped
+      // refresh completes; no background timer or extra vault scan is added.
+      for (const id of ["planner", "tasks", "diagnostics"]) {
+        if (id !== active && visible.includes(id)) this.lazyTaskRefreshTabs.add(id);
+        else this.lazyTaskRefreshTabs.delete(id);
+      }
+      // A user may switch tabs while an asynchronous task edit refresh is in
+      // progress. In that case the newly active tab must not retain its old
+      // snapshot: load its scope now, with a visible loading state.
+      const newlyActive = this.activeTab;
+      if (newlyActive !== active && this.lazyTaskRefreshTabs.has(newlyActive)) {
+        const panel = this.tabPanels.get(newlyActive);
+        if (panel) {
+          this.cancelTabRender(newlyActive);
+          this.renderTabPlaceholder(panel, newlyActive);
+        }
+        void this.refreshTabInBackground(newlyActive);
+      }
       this.scanError = "";
+      this.plugin.runtimePlannerPerf = {
+        ...(this.plugin.runtimePlannerPerf || {}),
+        refresh: { at: Date.now(), milliseconds: Math.round((plannerPerfClock() - perfStarted) * 10) / 10,
+          tasks: this.plannerTasks?.length || 0, success: true }
+      };
       this.updateNavCounts();
       this.plugin.setStatusCountsFromNotificationTasks(this.notificationTasks);
-      this.syncTabPanels(["reminders", "diagnostics", "tasks"].filter((id) => this.managerTabIds().includes(id)));
+      // Other tabs use their own scoped refresh only when opened.
+      this.syncTabPanels([active, "reminders"].filter((id, index, all) => visible.includes(id) && all.indexOf(id) === index));
     } catch (error) {
       this.scanError = error.message || String(error);
+      this.plugin.runtimePlannerPerf = {
+        ...(this.plugin.runtimePlannerPerf || {}),
+        refresh: { at: Date.now(), milliseconds: Math.round((plannerPerfClock() - perfStarted) * 10) / 10, success: false }
+      };
       this.syncTabPanels(["reminders"]);
       console.error(error);
     }
@@ -10141,6 +13879,7 @@ class NtfyManagerView extends ItemView {
       const badge = tab.querySelector(".obsidian-ntfy-nav-badge");
       if (!badge) return;
       if (id === "reminders") badge.textContent = String(this.managerReminderRows().length);
+      if (id === "planner") badge.textContent = String(this.plannerVisibleTasks().length);
       if (id === "diagnostics") badge.textContent = String(this.diagnostics.length);
       if (id === "tasks") badge.textContent = String(this.vaultTasks.length);
       if (id === "inbox") badge.textContent = String(this.plugin.conversationContacts().reduce((sum, contact) => sum + contact.unread, 0));
@@ -10221,7 +13960,10 @@ class NtfyManagerView extends ItemView {
   renderMarkdownContent(containerEl, markdown, sourcePath) {
     const text = this.normalizeTaskDisplayText(markdown || "Task");
     const target = containerEl.createSpan({ cls: "obsidian-ntfy-task-md" });
-    if (!MarkdownRenderer || this.shouldRenderInlineMarkdown(text)) {
+    target.addEventListener("click", (event) => {
+      if (event.target?.closest?.("a")) event.stopPropagation();
+    });
+    if (!MarkdownRenderer || (typeof MarkdownRenderer.render !== "function" && typeof MarkdownRenderer.renderMarkdown !== "function") || this.shouldRenderInlineMarkdown(text)) {
       this.renderInlineMarkdown(target, text);
       return;
     }
@@ -10269,6 +14011,7 @@ class NtfyManagerView extends ItemView {
 
   shouldRenderInlineMarkdown(text) {
     const value = String(text || "");
+    if (/\[[^\]]+\]\(https?:\/\//iu.test(value) || /\[\[[^\]]+\]\]/u.test(value)) return false;
     if (/\*\*[^*]+\*\*/u.test(value)) return true;
     if (value.length <= 80) return true;
     return !/[#`<>!|]|\n/.test(value);
@@ -10285,7 +14028,7 @@ class NtfyManagerView extends ItemView {
         containerEl.createEl("strong", { text: token.slice(2, -2) });
       } else if (token.startsWith("[") && token.includes("](")) {
         const linkMatch = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/u);
-        if (linkMatch) {
+        if (linkMatch && /^(?:https?:\/\/|mailto:|obsidian:\/\/)/iu.test(linkMatch[2])) {
           const link = containerEl.createEl("a", {
             cls: "obsidian-ntfy-inline-link",
             text: linkMatch[1],
@@ -10307,7 +14050,9 @@ class NtfyManagerView extends ItemView {
 
   normalizeTaskDisplayText(value) {
     return (String(value || "Task").trim() || "Task")
-      .replace(/\s*([:：])\s*/g, "\u2060$1 ")
+      // Only reflow punctuation when a colon ends a phrase. Never split
+      // Markdown URLs such as https://example.com or obsidian://open.
+      .replace(/\s*([:：])(?=\s|$)\s*/gu, "\u2060$1 ")
       .replace(/\s{2,}/g, " ");
   }
 
@@ -10352,24 +14097,45 @@ class NtfyManagerView extends ItemView {
   }
 
   renderTaskLine(containerEl, taskLike, options = {}) {
-    const line = containerEl.createDiv({ cls: `obsidian-ntfy-task-line${taskLike.completed ? " is-done" : ""}` });
+    // Match native reading-view checkbox structure so common CSS snippets can
+    // use .task-list-item[data-task] and .task-list-item-checkbox selectors.
+    const list = containerEl.createEl("ul", { cls: "contains-task-list obsidian-ntfy-task-list" });
+    const initialMark = String(taskLike.status ?? (taskLike.completed ? "x" : " ")).slice(0, 1) || " ";
+    const line = list.createEl("li", { cls: `task-list-item obsidian-ntfy-task-line${taskLike.completed ? " is-done" : ""}` });
     const checkbox = line.createEl("input", {
-      cls: "obsidian-ntfy-task-checkbox",
+      cls: "task-list-item-checkbox obsidian-ntfy-task-checkbox",
       attr: {
         type: "checkbox",
         title: taskLike.completed ? this.uiText("Mark incomplete") : this.uiText("Mark complete"),
         "aria-label": taskLike.completed ? this.uiText("Mark incomplete") : this.uiText("Mark complete"),
       },
     });
-    checkbox.checked = Boolean(taskLike.completed);
+    // Native Obsidian/Tasks CSS snippets can target either data-task on the
+    // input or its ancestor, often combined with input:checked. A custom Tasks
+    // status is visually checked even if it isn't logically completed.
+    const syncCheckboxStatus = (status, completed) => {
+      const mark = String(status ?? " ").slice(0, 1) || " ";
+      const visuallyChecked = mark !== " ";
+      line.setAttr("data-task", mark);
+      checkbox.setAttr("data-task", mark);
+      line.toggleClass("is-checked", visuallyChecked);
+      line.toggleClass("is-done", Boolean(completed));
+      checkbox.checked = visuallyChecked;
+      checkbox.setAttr("aria-checked", mark === "/" ? "mixed" : String(visuallyChecked));
+    };
+    syncCheckboxStatus(initialMark, taskLike.completed);
     checkbox.addEventListener("click", async (event) => {
+      event.preventDefault(); // Native two-state toggle would obscure custom status transitions.
       event.stopPropagation();
+      if (checkbox.disabled) return;
+      checkbox.disabled = true;
       try {
-        const result = await this.plugin.toggleTaskCompletion(taskLike.filePath, taskLike.lineNumber);
+        const result = await this.plugin.toggleTaskCompletion(taskLike.filePath, taskLike.lineNumber, taskLike.sourceRevision || "");
+        taskLike.status = result.status;
+        taskLike.sourceRevision = result.sourceRevision || "";
         taskLike.completed = Boolean(result.completed);
         taskLike.doneAt = result.doneAt || null;
-        line.toggleClass("is-done", taskLike.completed);
-        checkbox.checked = taskLike.completed;
+        syncCheckboxStatus(result.status, taskLike.completed);
         checkbox.setAttr("title", taskLike.completed ? this.uiText("Mark incomplete") : this.uiText("Mark complete"));
         checkbox.setAttr("aria-label", taskLike.completed ? this.uiText("Mark incomplete") : this.uiText("Mark complete"));
 
@@ -10389,7 +14155,9 @@ class NtfyManagerView extends ItemView {
       } catch (error) {
         this.plugin.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Task update failed")}`);
         console.error(error);
-        checkbox.checked = !checkbox.checked;
+        syncCheckboxStatus(taskLike.status ?? initialMark, taskLike.completed);
+      } finally {
+        checkbox.disabled = false;
       }
     });
 
@@ -10679,6 +14447,866 @@ class NtfyManagerView extends ItemView {
     return badge;
   }
 
+  plannerDayKey(value) {
+    const date = value instanceof Date ? value : new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  }
+
+  plannerParseDay(value) {
+    const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) return null;
+    const year = Number(match[1]);
+    const month = Number(match[2]) - 1;
+    const day = Number(match[3]);
+    const date = new Date(year, month, day, 12, 0, 0, 0);
+    return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day ? date : null;
+  }
+
+  plannerScrollKey() {
+    return `${this.plannerMode}:${this.plannerDate}`;
+  }
+
+  rememberPlannerScrollPosition() {
+    if (!this.bodyEl || this.activeTab !== "planner") return;
+    const key = this.plannerScrollKey();
+    this.plannerScrollPositions.delete(key);
+    this.plannerScrollPositions.set(key, Math.max(0, Number(this.bodyEl.scrollTop) || 0));
+    while (this.plannerScrollPositions.size > 12) this.plannerScrollPositions.delete(this.plannerScrollPositions.keys().next().value);
+  }
+
+  plannerSetDay(value, mode = "day") {
+    if (!this.plannerParseDay(value)) return false;
+    if (this.plannerDate !== value || this.plannerMode !== mode) {
+      this.rememberPlannerScrollPosition();
+      this.plannerPendingScrollTop = this.plannerScrollPositions.get(`${mode}:${value}`) ?? 0;
+      this.plannerDayRenderLimit = 100;
+    }
+    this.plannerDate = value;
+    this.plannerMode = mode;
+    this.updateNavCounts();
+    this.renderTabPanel("planner");
+    return true;
+  }
+
+  plannerMoveDay(offset) {
+    const date = this.plannerParseDay(this.plannerDate);
+    if (!date) return;
+    date.setDate(date.getDate() + offset);
+    this.plannerSetDay(this.plannerDayKey(date));
+  }
+
+  plannerFilteredTasks() {
+    // View-only filter shared by day, week, month, search, statistics,
+    // overdue and ghost previews. Never feed this list into scheduling.
+    const source = this.plannerTasks || [];
+    const searchEnabled = this.plugin.settings.plannerSearchEnabled === true;
+    const query = searchEnabled ? String(this.plannerSearchQuery || "").trim().toLocaleLowerCase().slice(0, 100) : "";
+    const showHiddenToday = this.plugin.settings.plannerShowHiddenTasksToday === true
+      && this.plannerMode === "today" && this.plannerDate === this.plannerDayKey(new Date());
+    const tags = this.plugin.settings.plannerHideTaggedTasksEnabled === true && !showHiddenToday
+      ? normalizePlannerExcludedTags(this.plugin.settings.plannerHiddenTaskTags) : "";
+    if (!query && !tags) return source; // zero allocation with defaults
+    const cached = this.plannerFilteredCache;
+    if (cached?.source === source && cached.query === query && cached.tags === tags) return cached.items;
+    const excludedTags = tags ? plannerExcludedTagSet(tags) : null;
+    const filterStarted = plannerPerfClock();
+    const items = source.filter((task) => task &&
+      (!excludedTags || !plannerTaskHasExcludedTag(task, excludedTags)) &&
+      (!query || `${task.editableTitle || ""} ${task.text || ""}`.toLocaleLowerCase().includes(query)));
+    // Diagnostics contain counts and durations only, never task text or tags.
+    this.plugin.runtimePlannerPerf = { ...(this.plugin.runtimePlannerPerf || {}),
+      filter: { at: Date.now(), milliseconds: Math.round((plannerPerfClock() - filterStarted) * 10) / 10,
+        inputTasks: source.length, visibleTasks: items.length, tagFilter: Boolean(tags), search: Boolean(query) } };
+    this.plannerFilteredCache = { source, query, tags, items };
+    return items;
+  }
+
+  plannerForecastForRange(start, end) {
+    if (this.plugin.settings.plannerRecurrencePreviewEnabled !== true) return { byDay: new Map(), limited: false };
+    const source = this.plannerFilteredTasks();
+    const excluded = normalizePlannerExcludedTags(this.plugin.settings.plannerPreviewExcludedTags);
+    const key = `${start.getTime()}:${end.getTime()}:${excluded}`;
+    if (this.plannerForecastCache?.source === source && this.plannerForecastCache.key === key) return this.plannerForecastCache.result;
+    const excludedTags = plannerExcludedTagSet(excluded);
+    const result = plannerForecastOccurrences(source, start, end, 240, excludedTags);
+    this.plannerForecastCache = { source, key, result };
+    return result;
+  }
+
+  plannerDayIndex() {
+    const source = this.plannerFilteredTasks();
+    if (this.plannerDayIndexCache?.source === source) return this.plannerDayIndexCache.byDay;
+    const byDay = plannerIndexTasksByDay(source);
+    this.plannerDayIndexCache = { source, byDay };
+    return byDay;
+  }
+
+  plannerDayTasks() {
+    return this.plannerDayIndex().get(this.plannerDate) || [];
+  }
+
+  plannerRangeTasks(start, end) {
+    const source = this.plannerFilteredTasks();
+    const key = `${start.getTime()}:${end.getTime()}`;
+    if (this.plannerRangeTasksCache?.source === source && this.plannerRangeTasksCache.key === key)
+      return this.plannerRangeTasksCache.tasks;
+    const tasks = plannerTasksForDateWindow(this.plannerDayIndex(), start, end);
+    this.plannerRangeTasksCache = { source, key, tasks };
+    return tasks;
+  }
+
+  plannerWeekStart(value = this.plannerDate) {
+    const day = this.plannerParseDay(value);
+    if (!day) return null;
+    day.setDate(day.getDate() - (day.getDay() + 6) % 7);
+    day.setHours(0, 0, 0, 0);
+    return day;
+  }
+
+  plannerDayEntries(key) {
+    return this.plannerDayIndex().get(key) || [];
+  }
+
+  plannerVisibleTasks() {
+    const selected = this.plannerParseDay(this.plannerDate);
+    if (!selected) return [];
+    if (this.plannerMode === "week") {
+      const start = this.plannerWeekStart();
+      const index = this.plannerDayIndex();
+      const visible = [];
+      for (let offset = 0; offset < 7; offset++) {
+        const date = new Date(start.getFullYear(), start.getMonth(), start.getDate() + offset, 12);
+        visible.push(...(index.get(this.plannerDayKey(date)) || []));
+      }
+      return visible;
+    }
+    if (this.plannerMode === "month") {
+      const index = this.plannerDayIndex();
+      const visible = [];
+      const days = new Date(selected.getFullYear(), selected.getMonth() + 1, 0).getDate();
+      for (let number = 1; number <= days; number++) {
+        const key = `${selected.getFullYear()}-${String(selected.getMonth() + 1).padStart(2, "0")}-${String(number).padStart(2, "0")}`;
+        visible.push(...(index.get(key) || []));
+      }
+      return visible;
+    }
+    return this.plannerDayTasks();
+  }
+
+  plannerMovePeriod(offset) {
+    const day = this.plannerParseDay(this.plannerDate);
+    if (!day) return;
+    if (this.plannerMode === "week") day.setDate(day.getDate() + 7 * offset);
+    else if (this.plannerMode === "month") {
+      const originalDay = day.getDate();
+      day.setDate(1);
+      day.setMonth(day.getMonth() + offset);
+      const last = new Date(day.getFullYear(), day.getMonth() + 1, 0).getDate();
+      day.setDate(Math.min(originalDay, last));
+    } else day.setDate(day.getDate() + offset);
+    const mode = ["today", "tomorrow"].includes(this.plannerMode) ? "day" : this.plannerMode;
+    this.plannerSetDay(this.plannerDayKey(day), mode);
+  }
+
+  plannerMetricOptions() {
+    const s = this.plugin.settings || {};
+    const completion = s.plannerShowCompletionStats === true;
+    const time = s.plannerShowTimeStats === true;
+    const progress = s.plannerShowCalendarProgress === true;
+    const load = s.plannerShowCalendarLoad === true;
+    const conflicts = s.plannerShowCalendarConflicts === true;
+    return {
+      completion: completion || progress,
+      planned: time && (s.plannerMetricShowPlanned !== false || s.plannerMetricShowNoDuration !== false),
+      intervals: load || conflicts || (time && (s.plannerMetricShowOccupied !== false || s.plannerMetricShowOverlap !== false)),
+      conflicts,
+    };
+  }
+
+  plannerStatsForRange(start, end) {
+    const options = this.plannerMetricOptions();
+    const key = `${start.getTime()}:${end.getTime()}:${Number(options.completion)}${Number(options.planned)}${Number(options.intervals)}${Number(options.conflicts)}`;
+    const source = this.plannerRangeTasks(start, end);
+    if (this.plannerStatsCache?.source === source && this.plannerStatsCache.key === key) return this.plannerStatsCache.metrics;
+    const perfStarted = plannerPerfClock();
+    const metrics = computePlannerWindowMetrics(source, start, end, options);
+    this.plugin.runtimePlannerPerf = {
+      ...(this.plugin.runtimePlannerPerf || {}),
+      metrics: { at: Date.now(), milliseconds: Math.round((plannerPerfClock() - perfStarted) * 10) / 10,
+        inputTasks: source.length, resultTasks: metrics.visibleTasks.length,
+        intervalAnalysis: options.intervals, completionAnalysis: options.completion }
+    };
+    this.plannerStatsCache = { source, key, metrics };
+    return metrics;
+  }
+
+  plannerMinuteBandsForRange(start, end) {
+    const source = this.plannerRangeTasks(start, end);
+    const key = `${start.getTime()}:${end.getTime()}`;
+    const previous = this.plannerMinuteBandsCache;
+    if (previous?.source === source && previous.key === key) return previous.bands;
+    const perfStarted = plannerPerfClock();
+    const bands = plannerMinuteBandsForDay(source, start, end);
+    this.plugin.runtimePlannerPerf = {
+      ...(this.plugin.runtimePlannerPerf || {}),
+      bands: { at: Date.now(), milliseconds: Math.round((plannerPerfClock() - perfStarted) * 10) / 10,
+        inputTasks: source.length }
+    };
+    this.plannerMinuteBandsCache = { source, key, bands };
+    return bands;
+  }
+
+  plannerMinutesText(minutes) {
+    const n = Math.max(0, Math.round(minutes || 0));
+    return `${Math.floor(n / 60)} ${this.uiText("h")} ${n % 60} ${this.uiText("min")}`;
+  }
+
+  plannerRenderMetrics(parent, metrics, label) {
+    const config = this.plugin.settings || {};
+    const completion = config.plannerShowCompletionStats === true;
+    const time = config.plannerShowTimeStats === true;
+    const fields = [];
+    const value = metrics.total;
+    if (completion && config.plannerMetricShowTotal !== false) fields.push(`${this.uiText(label)}: ${value.total}`);
+    if (completion && config.plannerMetricShowCompleted !== false) fields.push(`${this.uiText("Completed")}: ${value.completed}/${value.total} (${value.total ? Math.round(100 * value.completed / value.total) : 0}%)`);
+    if (completion && config.plannerMetricShowIncomplete !== false) fields.push(`${this.uiText("Incomplete")}: ${value.total - value.completed}`);
+    if (time && config.plannerMetricShowPlanned !== false) fields.push(`${this.uiText("Planned time")}: ${this.plannerMinutesText(value.plannedMinutes)}`);
+    if (time && config.plannerMetricShowOccupied !== false) fields.push(`${this.uiText("Occupied time")}: ${this.plannerMinutesText(value.occupiedMinutes)}`);
+    if (time && config.plannerMetricShowOverlap !== false && value.overlapMinutes) fields.push(`${this.uiText("Overlapping time")}: ${this.plannerMinutesText(value.overlapMinutes)}`);
+    if (time && config.plannerMetricShowNoDuration !== false && value.total > value.durationTasks) fields.push(`${this.uiText("Tasks without duration")}: ${value.total - value.durationTasks}`);
+    if (!fields.length) return null; // No empty summary widget when everything is hidden.
+    const summary = parent.createDiv({ cls: "obsidian-ntfy-planner-summary obsidian-ntfy-planner-metrics", attr: { role: "group", "aria-label": this.uiText(label) } });
+    for (const field of fields) summary.createSpan({ cls: field.startsWith(this.uiText("Overlapping time")) ? "is-overlap" : "", text: field });
+    return summary;
+  }
+
+  plannerIndexByDay(tasks) {
+    const byDay = new Map();
+    for (const task of tasks) {
+      if (!(task?.due instanceof Date) || Number.isNaN(task.due.getTime())) continue;
+      const key = this.plannerDayKey(task.due);
+      if (!byDay.has(key)) byDay.set(key, []);
+      byDay.get(key).push(task);
+    }
+    return byDay;
+  }
+
+  plannerEnableDrag(element, task) {
+    if (!task || task.completed || Platform.isMobileApp) return;
+    element.draggable = true;
+    element.setAttr("title", this.uiText("Move task to another date"));
+    element.addEventListener("dragstart", (event) => {
+      this.plannerDraggingTask = task;
+      if (event.dataTransfer) {
+        event.dataTransfer.setData("text/plain", `planner:${task.filePath}:${task.lineNumber}`);
+        event.dataTransfer.effectAllowed = "move";
+      }
+    });
+    element.addEventListener("dragend", () => { this.plannerDraggingTask = null; });
+  }
+
+  plannerEnableDayDrop(element, dateKey) {
+    if (Platform.isMobileApp) return;
+    element.addEventListener("dragover", (event) => {
+      if (!this.plannerDraggingTask) return;
+      event.preventDefault();
+      if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+      element.addClass("is-drop-target");
+    });
+    element.addEventListener("dragleave", (event) => {
+      if (!element.contains(event.relatedTarget)) element.removeClass("is-drop-target");
+    });
+    element.addEventListener("drop", async (event) => {
+      if (!this.plannerDraggingTask) return;
+      event.preventDefault(); event.stopPropagation();
+      element.removeClass("is-drop-target");
+      const task = this.plannerDraggingTask;
+      this.plannerDraggingTask = null;
+      if (!task || task.completed || !this.plannerParseDay(dateKey)) return;
+      if (this.plannerDayKey(task.due) === dateKey) return;
+      const time = task.hasExplicitTime ? `${this.plugin.pad2(task.due.getHours())}:${this.plugin.pad2(task.due.getMinutes())}` : "";
+      try {
+        await this.plugin.editSourceTaskSchedule(task, dateKey, time);
+        await this.refreshTaskCaches();
+      } catch (error) {
+        this.plugin.pluginNotice("errors", `${this.uiText("Task move failed")}: ${error?.message || error}`);
+        await this.refreshTaskCaches();
+      }
+    });
+  }
+
+  plannerEnableEditOnClick(element, task) {
+    element.setAttr("role", "button");
+    element.setAttr("tabindex", "0");
+    element.setAttr("title", this.uiText("Edit task"));
+    const edit = (event) => {
+      if (event.type === "keydown" && !["Enter", " "].includes(event.key)) return;
+      if (event.target?.closest?.("a")) return; // links navigate, not edit
+      if (event.type === "keydown") event.preventDefault();
+      event.stopPropagation();
+      this.openSourceTimePicker(task);
+    };
+    element.addEventListener("click", edit);
+    element.addEventListener("keydown", (event) => { if (event.target === element) edit(event); });
+  }
+
+  plannerMonthPreviewsVisible() {
+    // Match the existing @media (max-width: 600px) CSS rule, not only
+    // Platform.isMobileApp: narrow desktop panes use the same compact view.
+    if (typeof window === "undefined") return !Platform.isMobileApp;
+    if (typeof window.matchMedia === "function") return !window.matchMedia("(max-width: 600px)").matches;
+    return Number(window.innerWidth || 0) > 600;
+  }
+
+  plannerRenderCalendar(containerEl, reminderIndex) {
+    const selected = this.plannerParseDay(this.plannerDate);
+    if (!selected) return;
+    const month = this.plannerMode === "month";
+    const start = month ? new Date(selected.getFullYear(), selected.getMonth(), 1, 12) : this.plannerWeekStart();
+    const currentStart = month ? new Date(start.getFullYear(), start.getMonth(), 1) : start;
+    const end = month ? new Date(selected.getFullYear(), selected.getMonth() + 1, 1, 0) : new Date(start.getFullYear(), start.getMonth(), start.getDate() + 7, 0);
+    // Build a single day index for the currently visible period. Avoid a full
+    // vault task-array scan for every cell in a month or week.
+    const metrics = this.plannerStatsForRange(currentStart, end);
+    const byDay = metrics.tasksByDay;
+    const showLoad = this.plugin.settings?.plannerShowCalendarLoad === true;
+    const showConflicts = this.plugin.settings?.plannerShowCalendarConflicts === true;
+    const showProgress = this.plugin.settings?.plannerShowCalendarProgress === true;
+    const showTotal = this.plugin.settings?.plannerShowCompletionStats === true && this.plugin.settings?.plannerMetricShowTotal !== false;
+    const showCompleted = this.plugin.settings?.plannerShowCompletionStats === true && this.plugin.settings?.plannerMetricShowCompleted !== false;
+    const showOccupied = this.plugin.settings?.plannerShowTimeStats === true && this.plugin.settings?.plannerMetricShowOccupied !== false;
+    const showOverlap = this.plugin.settings?.plannerShowTimeStats === true && this.plugin.settings?.plannerMetricShowOverlap !== false;
+    this.plannerConflictingTasks = metrics.conflictingTasks;
+    this.plannerRenderMetrics(containerEl, metrics, month ? "Tasks this month" : "Tasks this week");
+    const locale = this.plugin.currentUiLanguage?.() === "ru" ? "ru-RU" : undefined;
+    const format = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" });
+    const weekdayFormat = new Intl.DateTimeFormat(locale, { weekday: "short" });
+    const calendar = containerEl.createDiv({ cls: `obsidian-ntfy-planner-calendar ${month ? "is-month" : "is-week"}` });
+    const today = this.plannerDayKey(new Date());
+    if (month) {
+      const names = calendar.createDiv({ cls: "obsidian-ntfy-planner-weekdays" });
+      const monday = new Date(2026, 0, 5, 12);
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i, 12);
+        names.createSpan({ text: weekdayFormat.format(day) });
+      }
+      const grid = calendar.createDiv({ cls: "obsidian-ntfy-planner-month-grid" });
+      const first = (start.getDay() + 6) % 7;
+      const dayCount = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
+      const cells = Math.ceil((first + dayCount) / 7) * 7;
+      const showTaskPreviews = this.plannerMonthPreviewsVisible();
+      for (let i = 0; i < cells; i++) {
+        const number = i - first + 1;
+        if (number < 1 || number > dayCount) {
+          grid.createDiv({ cls: "obsidian-ntfy-planner-calendar-pad", attr: { "aria-hidden": "true" } });
+          continue;
+        }
+        const day = new Date(start.getFullYear(), start.getMonth(), number, 12);
+        const key = this.plannerDayKey(day);
+        const tasks = byDay.get(key) || [];
+        const dayMetrics = metrics.byDay.get(key);
+        const complete = dayMetrics?.completed || 0;
+        const busy = dayMetrics?.occupiedMinutes || 0;
+        const overlaps = dayMetrics?.overlapMinutes || 0;
+        const loadClass = showLoad ? (busy >= 240 ? " is-load-high" : busy >= 120 ? " is-load-medium" : busy > 0 ? " is-load-low" : "") : "";
+        // A day is a drop target; individual task previews are draggable and
+        // keyboard users can always change the date in the day editor.
+        const cell = grid.createDiv({ cls: `obsidian-ntfy-planner-calendar-day${key === today ? " is-today" : ""}${key === this.plannerDate ? " is-selected" : ""}${loadClass}${showConflicts && overlaps ? " has-time-conflict" : ""}`,
+          attr: { role: "button", tabindex: "0", "aria-label": `${key}: ${tasks.length} ${this.uiText("Tasks for the day")}${showLoad ? `; ${this.uiText("Time load")}: ${this.plannerMinutesText(busy)}` : ""}${showConflicts && overlaps ? `; ${this.uiText("Time conflict")}: ${this.plannerMinutesText(overlaps)}` : ""}` } });
+        cell.createSpan({ cls: "obsidian-ntfy-planner-calendar-day-number", text: String(number) });
+        if (showLoad && busy) cell.createSpan({ cls: "obsidian-ntfy-planner-day-load", text: this.plannerMinutesText(busy), attr: { title: this.uiText("Time load") } });
+        if (showConflicts && overlaps) cell.createSpan({ cls: "obsidian-ntfy-planner-day-warning", text: "!", attr: { title: `${this.uiText("Time conflict")}: ${this.plannerMinutesText(overlaps)}` } });
+        if (tasks.length) {
+          if (showTotal) cell.createSpan({ cls: "obsidian-ntfy-planner-calendar-day-count", text: String(tasks.length) });
+          // One compact presence dot per date, independent of opt-in statistics.
+          // Reuse the existing day index; do not scan notes again.
+          cell.createSpan({ cls: "obsidian-ntfy-planner-presence-dot", attr: { "aria-hidden": "true" } });
+          if (showProgress) {
+            const dots = cell.createSpan({ cls: "obsidian-ntfy-planner-calendar-dots" });
+            if (complete) dots.createSpan({ cls: "is-done" });
+            if (tasks.length > complete) dots.createSpan({ cls: "is-open" });
+          }
+          // CSS hides task previews at widths <= 600px. Do not create
+          // invisible Markdown DOM or per-preview listeners at that width.
+          // All-day presence, counts, warnings, and keyboard navigation remain.
+          if (showTaskPreviews) for (const task of tasks.slice(0, 2)) {
+            const preview = cell.createSpan({ cls: `obsidian-ntfy-planner-calendar-preview${task.completed ? " is-done" : ""}${showConflicts && metrics.conflictingTasks.has(task) ? " has-time-conflict" : ""}`,
+              attr: showConflicts && metrics.conflictingTasks.has(task) ? { title: this.uiText("Time conflict") } : {} });
+            if (task.hasExplicitTime) preview.createSpan({ text: `${this.plugin.pad2(task.due.getHours())}:${this.plugin.pad2(task.due.getMinutes())}${(this.plugin.plannerDurationClock?.(task) || "") ? `–${(this.plugin.plannerDurationClock?.(task) || "")}` : ""} ` });
+            this.renderMarkdownContent(preview, task.text, task.filePath);
+            if (task.recurrenceRule) preview.createSpan({ cls: "obsidian-ntfy-planner-repeat-indicator", text: " 🔁", attr: { title: task.recurrenceRule } });
+            this.plannerEnableDrag(preview, task);
+            this.plannerEnableEditOnClick(preview, task);
+          }
+        }
+        cell.addEventListener("click", () => this.plannerSetDay(key, "day"));
+        cell.addEventListener("keydown", (event) => {
+          if (event.target === cell && (event.key === "Enter" || event.key === " ")) {
+            event.preventDefault(); this.plannerSetDay(key, "day");
+          }
+        });
+        this.plannerEnableDayDrop(cell, key);
+      }
+    } else {
+      const grid = calendar.createDiv({ cls: "obsidian-ntfy-planner-week-grid" });
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i, 12);
+        const key = this.plannerDayKey(day);
+        const tasks = byDay.get(key) || [];
+        const dayMetrics = metrics.byDay.get(key);
+        const complete = dayMetrics?.completed || 0;
+        const busy = dayMetrics?.occupiedMinutes || 0;
+        const overlaps = dayMetrics?.overlapMinutes || 0;
+        const loadClass = showLoad ? (busy >= 240 ? " is-load-high" : busy >= 120 ? " is-load-medium" : busy > 0 ? " is-load-low" : "") : "";
+        const section = grid.createDiv({ cls: `obsidian-ntfy-planner-week-day${key === today ? " is-today" : ""}${key === this.plannerDate ? " is-selected" : ""}${loadClass}` });
+        const heading = section.createEl("button", { cls: "obsidian-ntfy-planner-week-day-heading", attr: { type: "button", title: this.uiText("Open day"), ...(key === this.plannerDate ? { "aria-current": "date" } : {}) } });
+        heading.createSpan({ cls: "obsidian-ntfy-planner-week-heading-date", text: `${weekdayFormat.format(day)}, ${format.format(day)}` });
+        const headline = [];
+        if (showCompleted) headline.push(`${complete}/${tasks.length}`);
+        else if (showTotal) headline.push(String(tasks.length));
+        if (showLoad || showOccupied) headline.push(this.plannerMinutesText(busy));
+        if ((showConflicts || showOverlap) && overlaps) headline.push(`! ${this.plannerMinutesText(overlaps)}`);
+        if (headline.length) heading.createSpan({ cls: "obsidian-ntfy-muted obsidian-ntfy-planner-week-heading-stats", text: headline.join(" · ") });
+        if (showConflicts && overlaps) section.addClass("has-time-conflict");
+        heading.addEventListener("click", () => this.plannerSetDay(key, "day"));
+        this.plannerEnableDayDrop(section, key);
+        // Empty weeks remain visually empty; no placeholder or prediction markers.
+        if (!tasks.length) continue;
+        // Cap compact cards to bound DOM size in a busy week; the day view
+        // always shows every task with its full controls.
+        let rendered = 0;
+        for (const task of tasks.slice(0, 10)) {
+          if (rendered++ >= 10) break;
+          const card = section.createDiv({ cls: `obsidian-ntfy-planner-week-entry${task.completed ? " is-done" : ""}${showConflicts && metrics.conflictingTasks.has(task) ? " has-time-conflict" : ""}`,
+            attr: showConflicts && metrics.conflictingTasks.has(task) ? { title: this.uiText("Time conflict") } : {} });
+          const when = task.hasExplicitTime ? `${this.plugin.pad2(task.due.getHours())}:${this.plugin.pad2(task.due.getMinutes())}` : "—";
+          card.createSpan({ cls: "obsidian-ntfy-planner-week-entry-time", text: task.hasExplicitTime && (this.plugin.plannerDurationClock?.(task) || "") ? `${when}–${(this.plugin.plannerDurationClock?.(task) || "")}` : when });
+          const title = card.createSpan({ cls: "obsidian-ntfy-planner-week-entry-title" });
+          this.renderMarkdownContent(title, task.text, task.filePath);
+          if (task.recurrenceRule) title.createSpan({ cls: "obsidian-ntfy-planner-repeat-indicator", text: " 🔁", attr: { title: task.recurrenceRule } });
+          this.plannerEnableDrag(card, task);
+          this.plannerEnableEditOnClick(card, task);
+        }
+        if (tasks.length > 10) {
+          const more = section.createEl("button", { cls: "obsidian-ntfy-planner-week-more", text: `+${tasks.length - 10}`,
+            attr: { type: "button", title: this.uiText("Open day") } });
+          more.addEventListener("click", () => this.plannerSetDay(key, "day"));
+        }
+      }
+    }
+  }
+
+  plannerReminderIndex() {
+    const map = new Map();
+    for (const reminder of this.plannerReminders || []) {
+      if (!reminder || !reminder.isTask || !reminder.filePath || !reminder.lineNumber) continue;
+      const key = `${reminder.filePath}:${reminder.lineNumber}`;
+      if (!map.has(key)) map.set(key, reminder);
+    }
+    return map;
+  }
+
+  // Purely visual forecast: never a Tasks checkbox, source editor, queue item,
+  // notification control, or Markdown mutation. The stripe is always opaque.
+  renderPlannerGhost(parent, original, day) {
+    const card = parent.createDiv({ cls: "obsidian-ntfy-planner-task obsidian-ntfy-planner-ghost",
+      attr: { "aria-label": `${this.uiText("Predicted recurrence")}: ${String(original.editableTitle || original.text || "")}` } });
+    const body = card.createDiv({ cls: "obsidian-ntfy-planner-ghost-body" });
+    const text = body.createDiv({ cls: "obsidian-ntfy-planner-ghost-title" });
+    this.renderMarkdownContent(text, original.editableTitle || original.text || "", original.filePath);
+    if (original.hasExplicitTime) {
+      const from = `${this.plugin.pad2(original.due.getHours())}:${this.plugin.pad2(original.due.getMinutes())}`;
+      // The duration is informational; ghosts never occupy the actual schedule or change metrics.
+      const duration = Number(original.durationMinutes);
+      const start = new Date(day.getFullYear(), day.getMonth(), day.getDate(), original.due.getHours(), original.due.getMinutes());
+      const end = Number.isInteger(duration) && duration >= 1 && duration <= 1440
+        ? new Date(start.getTime() + duration * 60000) : null;
+      const through = end ? `–${this.plugin.pad2(end.getHours())}:${this.plugin.pad2(end.getMinutes())}` : "";
+      body.createSpan({ cls: "obsidian-ntfy-planner-ghost-time", text: `${from}${through}` });
+    }
+    return card;
+  }
+
+  renderPlannerTask(parent, task, reminder) {
+    const row = parent.createDiv({ cls: `obsidian-ntfy-planner-task${task.completed ? " is-done" : ""}${this.plannerConflictingTasks?.has(task) ? " has-time-conflict" : ""}`,
+      attr: this.plannerConflictingTasks?.has(task) ? { title: this.uiText("Time conflict") } : {} });
+    if (!Platform.isMobileApp && !task.completed && task.hasExplicitTime) {
+      row.draggable = true;
+      row.setAttr("title", this.uiText("Move to hour"));
+      row.addEventListener("dragstart", (event) => {
+        this.plannerDraggingTask = task;
+        event.dataTransfer?.setData("text/plain", `planner:${task.filePath}:${task.lineNumber}`);
+        if (event.dataTransfer) event.dataTransfer.effectAllowed = "move";
+      });
+      row.addEventListener("dragend", () => { this.plannerDraggingTask = null; });
+    }
+    let eligible = this.plugin.plannerNtfyIsOn(task, reminder);
+    const left = row.createDiv({ cls: "obsidian-ntfy-planner-task-content" });
+    // A time button for every dated task, even ones outside the reminders queue.
+    // For completed tasks it is kept separately because renderTaskLine shows completion time.
+    this.renderTaskLine(left, task, {
+      dueDate: task.due,
+      dueText: task.hasExplicitTime ? `${this.plugin.pad2(task.due.getHours())}:${this.plugin.pad2(task.due.getMinutes())}${(this.plugin.plannerDurationClock?.(task) || "") ? `–${(this.plugin.plannerDurationClock?.(task) || "")}` : ""}` : this.uiText("Without exact time"),
+      completedText: task.completed ? this.plugin.formatDoneDateTime(task.doneAt || task.due) : "",
+      onDueClick: () => this.openSourceTimePicker(task),
+    });
+    if (task.completed) {
+      const actions = left.querySelector(".obsidian-ntfy-task-actions") || left;
+      this.renderTaskTime(actions, this.plugin.formatLocalDateTime(task.due), task.due, () => this.openSourceTimePicker(task));
+    }
+    // 8.8.1: status and time open the same editor; recurrence is informational.
+    if (task.recurrenceRule) row.createSpan({ cls: "obsidian-ntfy-planner-repeat-indicator", text: `🔁 ${task.recurrenceRule}` });
+    const bell = row.createEl("button", { cls: "obsidian-ntfy-planner-notify", attr: { type: "button" } });
+    const renderBell = () => {
+      const label = this.uiText(eligible ? "Ntfy on" : "Ntfy off");
+      bell.setAttr("title", label);
+      bell.setAttr("aria-label", label);
+      bell.setAttr("aria-pressed", String(eligible));
+      bell.empty();
+      setIcon(bell, eligible ? "bell" : "bell-off");
+      bell.toggleClass("is-enabled", eligible);
+    };
+    renderBell();
+    if (!task.due || task.completed) bell.disabled = true;
+    else bell.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (bell.disabled) return;
+      bell.disabled = true;
+      try {
+        await this.plugin.setPlannerNtfyEnabled(task, !eligible);
+        eligible = !eligible;
+        renderBell();
+        await this.refreshTaskCaches();
+      } catch (error) {
+        console.warn(`${PLUGIN_NAME}: planner ntfy toggle failed`, error);
+        this.plugin.pluginNotice("errors", `${this.uiText("Notification update failed")}: ${error.message || error}`);
+      } finally { bell.disabled = false; }
+    });
+  }
+
+  renderPlanner(containerEl) {
+    // Compact single-row toolbar on wide desktop panes. The date-picker
+    // already shows the selected day; avoid a redundant heading and date.
+    const nav = containerEl.createDiv({ cls: "obsidian-ntfy-planner-days" });
+    const today = new Date();
+    const todayKey = this.plannerDayKey(today);
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 12);
+    const tomorrowKey = this.plannerDayKey(tomorrow);
+    for (const [id, label, key] of [["today", "Today", todayKey], ["tomorrow", "Tomorrow", tomorrowKey], ["week", "Week", null], ["month", "Month", null]]) {
+      const active = this.plannerMode === id;
+      const button = nav.createEl("button", { cls: `mod-small${active ? " is-active" : ""}`, text: this.uiText(label),
+        attr: { type: "button", "aria-pressed": String(active) } });
+      button.addEventListener("click", () => {
+        if (key) this.plannerSetDay(key, id);
+        else this.plannerSetDay(this.plannerDate, id);
+      });
+    }
+    this.iconButton(nav, "chevron-left", this.uiText("Previous period"), "secondary", () => this.plannerMovePeriod(-1));
+    const dateWrap = nav.createDiv({ cls: "obsidian-ntfy-planner-date-wrap", attr: {
+      role: "button", tabindex: "0", "aria-label": this.uiText("Choose day"), title: this.uiText("Choose day") } });
+    dateWrap.createSpan({ cls: "obsidian-ntfy-planner-date-label", text: this.plugin.plannerDisplayDay(this.plannerDate) });
+    const datePicker = dateWrap.createEl("input", { cls: "obsidian-ntfy-planner-date", attr: {
+      type: "date", tabindex: "-1", "aria-label": this.uiText("Choose day") } });
+    datePicker.value = this.plannerDate;
+    // showPicker must be called synchronously in a trusted user gesture.
+    // Never depend on the small native calendar icon's hit target.
+    const openCalendar = () => {
+      try { if (typeof datePicker.showPicker === "function") { datePicker.showPicker(); return; } }
+      catch (_error) { /* mobile WebView fallback below */ }
+      datePicker.focus();
+      datePicker.click();
+    };
+    dateWrap.addEventListener("click", (event) => { if (event.target !== datePicker) openCalendar(); });
+    dateWrap.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openCalendar(); }
+    });
+    datePicker.addEventListener("change", () => {
+      if (!this.plannerSetDay(datePicker.value, "day")) datePicker.value = this.plannerDate;
+    });
+    this.iconButton(nav, "chevron-right", this.uiText("Next period"), "secondary", () => this.plannerMovePeriod(1));
+    this.iconButton(nav, "refresh-cw", this.uiText("Refresh reminders"), "secondary", async () => {
+      // refreshTabInBackground invalidates/schedules the planner once.
+      await this.refreshTabInBackground("planner");
+    });
+    // Keep the jump action beside Refresh, rather than underneath the
+    // twenty-four hour list. It exists only for the actual current day.
+    if (this.plannerDate === todayKey && !["week", "month"].includes(this.plannerMode)) {
+      this.iconButton(nav, "clock", this.uiText("Go to current time"), "secondary", () => {
+        const current = containerEl.querySelector(".obsidian-ntfy-planner-hour.is-current-hour");
+        if (current && typeof current.scrollIntoView === "function")
+          current.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
+    if (this.plugin.settings.plannerSearchEnabled === true) {
+      const search = containerEl.createDiv({ cls: "obsidian-ntfy-planner-search" });
+      const input = search.createEl("input", { attr: { type: "search", maxlength: "100",
+        placeholder: this.uiText("Search tasks"), "aria-label": this.uiText("Planner search") } });
+      input.value = this.plannerSearchQuery || "";
+      const clear = search.createEl("button", { attr: { type: "button", title: this.uiText("Clear search") },
+        text: "×" });
+      const results = containerEl.createDiv({ cls: "obsidian-ntfy-planner-results" });
+      const redraw = () => {
+        // Search reuses the results element. Invalidate pending day-card
+        // batches before clearing it, otherwise an old search can append
+        // cards into a newer result set while the panel remains connected.
+        const panel = this.tabPanels.get("planner");
+        const state = panel ? this.beginPanelRender(panel) : null;
+        const uiTrace = state ? this.startPlannerUiTrace(panel, state) : null;
+        this.plannerStatsCache = null;
+        this.plannerForecastCache = null;
+        this.plannerDayRenderLimit = 100;
+        results.empty();
+        this.renderPlannerContent(results, null, today, todayKey);
+        if (uiTrace) this.completePlannerUiRender(uiTrace);
+      };
+      input.addEventListener("input", () => {
+        this.plannerSearchQuery = input.value.slice(0, 100);
+        // Collapse successive keystrokes into one paint. This changes only
+        // the already loaded view, never the vault or notification schedule.
+        this.cancelPlannerSearchFrame();
+        if (typeof window !== "undefined" && typeof window.requestAnimationFrame === "function") {
+          this.plannerSearchFrame = window.requestAnimationFrame(() => {
+            this.plannerSearchFrame = null;
+            if (results.isConnected !== false) redraw();
+          });
+        } else redraw();
+      });
+      clear.addEventListener("click", () => {
+        this.cancelPlannerSearchFrame();
+        this.plannerSearchQuery = ""; input.value = ""; redraw(); input.focus();
+      });
+      this.renderPlannerContent(results, null, today, todayKey);
+    } else this.renderPlannerContent(containerEl, null, today, todayKey);
+  }
+
+  renderPlannerContent(containerEl, heading, today, todayKey) {
+    if (this.plannerError) containerEl.createEl("p", { cls: "obsidian-ntfy-error", text: `${this.uiText("Planner read failed")}: ${this.plannerError}` });
+    const reminderIndex = this.plannerReminderIndex();
+    if (this.plannerMode === "week" || this.plannerMode === "month") {
+      this.plannerRenderCalendar(containerEl, reminderIndex);
+      return;
+    }
+    const day = this.plannerParseDay(this.plannerDate);
+    const dayStart = new Date(day.getFullYear(), day.getMonth(), day.getDate());
+    const dayEnd = new Date(day.getFullYear(), day.getMonth(), day.getDate() + 1);
+    const metrics = this.plannerStatsForRange(dayStart, dayEnd);
+    // Only the explicit Today/Tomorrow tabs can show guesses. Week, month,
+    // and arbitrary date navigation do not calculate or mention forecasts.
+    const tomorrowKey = this.plannerDayKey(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1, 12));
+    const showGhosts = (this.plannerMode === "today" && this.plannerDate === todayKey)
+      || (this.plannerMode === "tomorrow" && this.plannerDate === tomorrowKey);
+    const forecast = showGhosts ? this.plannerForecastForRange(dayStart, dayEnd) : null;
+    const predicted = forecast?.byDay.get(this.plannerDate) || [];
+    this.plannerConflictingTasks = metrics.conflictingTasks;
+    const tasks = metrics.visibleTasks.map((task) => ({ task, reminder: reminderIndex.get(`${task.filePath}:${task.lineNumber}`) || null }));
+    this.plannerRenderMetrics(containerEl, metrics, "Tasks for the day");
+    if (!tasks.length && !predicted.length) containerEl.createEl("p", { cls: "obsidian-ntfy-muted", text: this.uiText("Nothing planned") });
+    const onMobile = Platform.isMobileApp === true;
+    const cap = onMobile ? this.plannerDayRenderLimit : Infinity;
+    // Stage 2: keep the 100-card mobile safety cap and the exact ordering,
+    // but defer expensive Markdown/task DOM creation after the first batch.
+    // Desktop remains synchronous; no new vault reads, observers or timers.
+    let rendered = 0;
+    const dayCardJobs = onMobile ? [] : null;
+    const appendDayCard = (job) => { if (dayCardJobs) dayCardJobs.push(job); else job(); };
+    const withoutTime = tasks.filter(({ task }) => !task.hasExplicitTime);
+    const ghostUntimed = predicted.filter((task) => !task.hasExplicitTime);
+    if (withoutTime.length || ghostUntimed.length) {
+      const block = containerEl.createDiv({ cls: "obsidian-ntfy-planner-untimed" });
+      this.renderSectionHeader(block, this.uiText("Without exact time"), withoutTime.length + ghostUntimed.length, "");
+      for (const entry of withoutTime) if (rendered++ < cap)
+        appendDayCard(() => this.renderPlannerTask(block, entry.task, entry.reminder));
+      for (const original of ghostUntimed) if (rendered++ < cap)
+        appendDayCard(() => this.renderPlannerGhost(block, original, day));
+    }
+    if (this.plannerMode === "today" && this.plannerDate === todayKey) {
+      const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+      const overdue = this.plannerFilteredTasks().filter((task) => task && !task.completed
+        && task.due instanceof Date && !Number.isNaN(task.due.getTime())
+        && new Date(task.due.getFullYear(), task.due.getMonth(), task.due.getDate()).getTime() < todayStart);
+      if (overdue.length) {
+        const details = containerEl.createEl("details", { cls: "obsidian-ntfy-planner-overdue" });
+        details.createEl("summary", { text: `${this.uiText("Overdue tasks")}: ${overdue.length}` });
+        const content = details.createDiv({ cls: "obsidian-ntfy-planner-overdue-items" });
+        let visible = 0;
+        const appendBatch = () => {
+          const next = Math.min(visible + 12, overdue.length);
+          for (let i = visible; i < next; i++) {
+            const task = overdue[i];
+            const wrap = content.createDiv({ cls: "obsidian-ntfy-planner-overdue-entry" });
+            this.renderPlannerTask(wrap, task, reminderIndex.get(`${task.filePath}:${task.lineNumber}`) || null);
+            const buttons = wrap.createDiv({ cls: "obsidian-ntfy-planner-overdue-actions" });
+            for (const [label, destination] of [["Move to today", todayKey], ["Move to tomorrow", tomorrowKey]]) {
+              const button = buttons.createEl("button", { cls: "mod-small", text: this.uiText(label), attr: { type: "button" } });
+              button.addEventListener("click", async () => {
+                button.disabled = true;
+                const time = task.hasExplicitTime ? `${this.plugin.pad2(task.due.getHours())}:${this.plugin.pad2(task.due.getMinutes())}` : "";
+                try {
+                  await this.plugin.editSourceTaskSchedule(task, destination, time);
+                  await this.refreshTaskCaches();
+                } catch (error) {
+                  this.plugin.pluginNotice("errors", `${this.uiText("Overdue task move failed")}: ${error?.message || error}`);
+                  button.disabled = false;
+                }
+              });
+            }
+          }
+          visible = next;
+          if (visible < overdue.length) {
+            const more = content.createEl("button", { cls: "mod-small obsidian-ntfy-planner-overdue-more", text: `${this.uiText("More overdue tasks")} (${overdue.length - visible})`, attr: { type: "button" } });
+            more.addEventListener("click", () => { more.remove(); appendBatch(); });
+          }
+        };
+        details.addEventListener("toggle", () => { if (details.open && visible === 0) appendBatch(); });
+      }
+    }
+    const timed = tasks.filter(({ task }) => task.hasExplicitTime);
+    const hours = Array.from({ length: 24 }, () => []);
+    for (const item of timed) hours[item.task.due.getHours()].push(item);
+    // Ghost items are view-only references; never added to real task statistics.
+    for (const original of predicted) if (original.hasExplicitTime && original.due instanceof Date) {
+      hours[original.due.getHours()].push({ task: original, ghost: true, reminder: null });
+    }
+    const minuteCounts = hours.map((bucket) => {
+      bucket.sort((a, b) => a.task.due.getMinutes() - b.task.due.getMinutes()
+        || Number(Boolean(a.ghost)) - Number(Boolean(b.ghost))
+        || String(a.task.filePath || "").localeCompare(String(b.task.filePath || ""))
+        || Number(a.task.lineNumber || 0) - Number(b.task.lineNumber || 0));
+      const counts = new Map();
+      for (const entry of bucket) {
+        const minute = entry.task.due.getMinutes();
+        counts.set(minute, (counts.get(minute) || 0) + 1);
+      }
+      return counts;
+    });
+    // Sweep once over the in-memory tasks; no new vault scans or hidden task cards.
+    const minuteBands = this.plannerMinuteBandsForRange(dayStart, dayEnd);
+    const overlappingHours = minuteBands.reduce((count, hour) => count + (hour.some((band) => band.count > 1) ? 1 : 0), 0);
+    if (overlappingHours) containerEl.createDiv({ cls: "obsidian-ntfy-planner-overlap-legend",
+      text: `${this.uiText("Overlapping time")}: ${overlappingHours} ${this.uiText("hours with overlaps")} · ${this.uiText("Striped segments")}` });
+    const grid = containerEl.createDiv({ cls: "obsidian-ntfy-planner-timeline" });
+    this.renderSectionHeader(grid, this.uiText("Hourly schedule"), timed.length, "");
+    const isToday = this.plannerDate === todayKey;
+    for (let hour = 0; hour < 24; hour++) {
+      const bands = minuteBands[hour];
+      const slot = grid.createDiv({ cls: `obsidian-ntfy-planner-hour${bands.length ? " is-duration-occupied" : ""}${bands.some((band) => band.count > 1) ? " has-duration-overlap" : ""}`, attr: { "data-planner-hour": String(hour) } });
+      const label = slot.createEl("button", {
+        cls: "obsidian-ntfy-planner-hour-label obsidian-ntfy-planner-hour-button",
+        text: `${this.plugin.pad2(hour)}:00`,
+        attr: { type: "button", title: this.uiText("Create task"), "aria-label": `${this.uiText("Create task")} ${this.plugin.pad2(hour)}:00` },
+      });
+      label.addEventListener("click", () => {
+        const date = this.plannerParseDay(this.plannerDate);
+        if (!date) return;
+        const due = new Date(date.getFullYear(), date.getMonth(), date.getDate(), hour, 0);
+        new NtfyPlannerCreateModal(this.app, this.plugin, due, async () => this.refreshTaskCaches()).open();
+      });
+      const column = slot.createDiv({ cls: "obsidian-ntfy-planner-hour-items" });
+      if (bands.length) {
+        const rail = column.createDiv({ cls: "obsidian-ntfy-planner-minute-rail", attr: {
+          "aria-label": `${this.plugin.pad2(hour)}:00 — ${this.uiText("Occupied time")}` } });
+        for (const band of bands) {
+          const fromMinute = `${this.plugin.pad2(hour)}:${this.plugin.pad2(band.start)}`;
+          const toMinute = band.end === 60 ? `${this.plugin.pad2((hour + 1) % 24)}:00` : `${this.plugin.pad2(hour)}:${this.plugin.pad2(band.end)}`;
+          const el = rail.createDiv({ cls: `obsidian-ntfy-planner-minute-segment${band.count > 1 ? " is-overlap" : ""}`,
+            attr: { title: `${fromMinute}–${toMinute}${band.count > 1 ? ` · ${this.uiText("Overlap time")}: ${band.count}` : ""}` } });
+          el.style.top = `${100 * band.start / 60}%`;
+          el.style.height = `${100 * (band.end - band.start) / 60}%`;
+        }
+      }
+      if (!Platform.isMobileApp) {
+      slot.addEventListener("dragover", (event) => {
+        if (!this.plannerDraggingTask) return;
+        event.preventDefault();
+        if (event.dataTransfer) event.dataTransfer.dropEffect = "move";
+        slot.addClass("is-drop-target");
+      });
+      slot.addEventListener("dragleave", () => slot.removeClass("is-drop-target"));
+      slot.addEventListener("drop", async (event) => {
+        event.preventDefault();
+        slot.removeClass("is-drop-target");
+        const task = this.plannerDraggingTask;
+        this.plannerDraggingTask = null;
+        if (!task || task.completed) return;
+        const day = this.plannerParseDay(this.plannerDate);
+        if (!day) return;
+        const next = new Date(day.getFullYear(), day.getMonth(), day.getDate(), hour, 0);
+        if (next.getTime() === task.due.getTime()) return;
+        try {
+          await this.plugin.updateSourceReminderDue(task, next);
+          await this.refreshTaskCaches();
+        } catch (error) {
+          console.error(`${PLUGIN_NAME}: planner drag failed`, error);
+          this.plugin.pluginNotice("errors", `${this.uiText("Task move failed")}: ${error.message || error}`);
+          await this.refreshTaskCaches();
+        }
+      });
+      }
+      const bucket = hours[hour];
+      let previousMinute = -1;
+      const currentMinute = today.getMinutes();
+      const currentHour = isToday && today.getHours() === hour;
+      let nowDrawn = false;
+      const drawNow = () => {
+        if (!currentHour || nowDrawn) return;
+        nowDrawn = true;
+        const nowMark = column.createDiv({ cls: "obsidian-ntfy-planner-now", attr: { "aria-label": this.uiText("Go to current time") } });
+        nowMark.createSpan({ text: `${this.plugin.pad2(today.getHours())}:${this.plugin.pad2(currentMinute)}` });
+        slot.addClass("is-current-hour");
+      };
+      let hasVisibleHourCards = false;
+      for (const entry of bucket) {
+        if (rendered >= cap) { rendered += 1; continue; }
+        rendered++;
+        hasVisibleHourCards = true;
+        appendDayCard(() => {
+          const minute = entry.task.due.getMinutes();
+          if (minute >= currentMinute) drawNow();
+          if (minute !== previousMinute) {
+            const count = minuteCounts[hour].get(minute) || 0;
+            const label = column.createDiv({ cls: "obsidian-ntfy-planner-time-group" });
+            label.createSpan({ text: `${this.plugin.pad2(hour)}:${this.plugin.pad2(minute)}` });
+            if (count > 1) label.createSpan({ cls: "obsidian-ntfy-muted", text: ` · ${count}` });
+            previousMinute = minute;
+          }
+          if (entry.ghost) this.renderPlannerGhost(column, entry.task, day);
+          else this.renderPlannerTask(column, entry.task, entry.reminder);
+        });
+      }
+      // The current-time marker retains its relative position even when
+      // a mobile batch ends in the middle of the current hour.
+      if (currentHour && hasVisibleHourCards) appendDayCard(drawNow);
+      else drawNow();
+    }
+    if (dayCardJobs?.length) {
+      const state = this.panelBatchStates.get(this.tabPanels.get("planner"));
+      if (state) {
+        const trace = this.plannerUiTrace;
+        const profiling = this.validPlannerUiTrace(trace) && trace.state === state;
+        if (profiling) trace.hasBatches = true;
+        this.renderRowsBatched(grid, dayCardJobs, (job) => job(), state, {
+          initialCount: 28, batchSize: 20,
+          ...(profiling ? {
+            onBatch: (details) => this.recordPlannerUiBatch(trace, details),
+            onComplete: () => { if (this.validPlannerUiTrace(trace)) { trace.batchDone = true; this.finishPlannerUiTrace(trace); } },
+          } : {}),
+        });
+      }
+      else for (const job of dayCardJobs) job();
+    }
+    if (onMobile && rendered > cap) {
+      const more = containerEl.createEl("button", { cls: "mod-small obsidian-ntfy-planner-day-more",
+        text: `${this.uiText("Show more day tasks")} (${Math.max(0, tasks.length + predicted.length - cap)})`, attr: { type: "button" } });
+      more.addEventListener("click", () => {
+        this.plannerDayRenderLimit += 100;
+        const panel = this.tabPanels.get("planner");
+        if (panel) this.renderTabPanel("planner");
+      });
+    }
+  }
+
   renderReminders(containerEl, batchState) {
     const allRows = this.managerReminderRows();
     const counts = allRows.reduce((result, row) => {
@@ -10782,7 +15410,7 @@ class NtfyManagerView extends ItemView {
     const row = containerEl.createDiv({ cls: this.itemClass(state === "problem" ? "queued" : reminder.notificationState || "pending", reminder.source || "task") });
     const meta = row.createDiv({ cls: "obsidian-ntfy-item-meta" });
     this.renderReminderStatus(meta, state);
-    this.renderTaskLine(meta, { completed: false, filePath: reminder.filePath, lineNumber: reminder.lineNumber, text: reminder.text || "Obsidian reminder" }, {
+    this.renderTaskLine(meta, { completed: false, status: reminder.taskStatus || " ", filePath: reminder.filePath, lineNumber: reminder.lineNumber, text: reminder.text || "Obsidian reminder", sourceRevision: reminder.sourceRevision || "" }, {
       dueDate: reminder.due, dueText: this.plugin.formatLocalDateTime(reminder.due), onDueClick: () => this.openSourceTimePicker(reminder),
       renderActions: (actions) => this.renderNotificationToggle(actions, reminder, reminder.notificationState !== "ignored"),
     });
@@ -10936,69 +15564,36 @@ class NtfyManagerView extends ItemView {
     } });
   }
 
-  openDateTimePicker(dueValue, onSave) {
-    if (typeof document === "undefined" || !document.body) {
-      this.plugin.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Time picker unavailable")}`);
-      return;
-    }
-    const due = dueValue instanceof Date ? dueValue : new Date(dueValue);
-    const currentDue = Number.isNaN(due.getTime()) ? new Date(Date.now() + 30 * 60 * 1000) : due;
-    const input = document.createElement("input");
-    input.type = "datetime-local";
-    input.value = this.plugin.formatDateTimeLocal(currentDue);
-    input.setAttribute("aria-label", this.uiText("Change reminder time"));
-    Object.assign(input.style, {
-      position: "fixed",
-      left: "-10000px",
-      top: "0",
-      width: "1px",
-      height: "1px",
-      opacity: "0",
-      pointerEvents: "none",
-    });
-    document.body.appendChild(input);
-
-    let cleanupTimer = null;
-    const cleanup = () => {
-      if (cleanupTimer !== null) window.clearTimeout(cleanupTimer);
-      cleanupTimer = null;
-      input.remove();
-    };
-    input.addEventListener("change", async () => {
-      const parsedDue = this.plugin.parseDateTimeLocal(input.value);
-      if (!parsedDue) {
-        cleanup();
-        this.plugin.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Invalid date/time")}`);
-        return;
-      }
-      try {
-        await onSave(parsedDue);
-      } catch (error) {
-        this.plugin.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Time update failed")}`);
-        console.error(error);
-      } finally {
-        cleanup();
-      }
-    }, { once: true });
-    input.addEventListener("cancel", cleanup, { once: true });
-    cleanupTimer = window.setTimeout(cleanup, 5 * 60 * 1000);
-
-    try {
-      input.focus({ preventScroll: true });
-      if (typeof input.showPicker === "function") input.showPicker();
-      else input.click();
-    } catch (error) {
-      cleanup();
-      this.plugin.pluginNotice("errors", `${PLUGIN_NAME}: ${this.uiText("Time picker unavailable")}`);
-      console.error(error);
-    }
-  }
-
   openSourceTimePicker(reminder) {
-    this.openDateTimePicker(reminder.due, async (nextDue) => {
-      await this.plugin.updateSourceReminderDue(reminder, nextDue);
+    const markdownTask = Boolean(reminder && (reminder.isTask === true || typeof reminder.status === "string"));
+    const currentNtfy = markdownTask ? this.plugin.plannerNtfyIsOn(reminder,
+      this.plannerReminderIndex().get(`${reminder.filePath}:${reminder.lineNumber}`) || null) : false;
+    new NtfyDateTimeEditModal(this.app, this.plugin, reminder, async (date, time, duration, autoDone, details) => {
+      if (markdownTask) {
+        const saved = await this.plugin.editSourceTaskDetails(reminder, { ...details, date, time, durationMinutes: duration, autoDone });
+        if (saved && saved.due && !saved.completed && details?.ntfy !== currentNtfy) {
+          try { await this.plugin.setPlannerNtfyEnabled(saved, details.ntfy); }
+          catch (e) { await this.refreshTaskCaches(); throw e; }
+        }
+      } else {
+        const due = this.plugin.parseDateTimeLocal(`${date}T${time}`);
+        if (!due) throw new Error("invalid date/time");
+        await this.plugin.updateSourceReminderDue(reminder, due);
+      }
       await this.refreshTaskCaches();
-    });
+    }, markdownTask ? async () => {
+      await this.plugin.deleteSourceTask(reminder);
+      await this.refreshTaskCaches();
+    } : null, markdownTask ? async () => this.refreshTaskCaches() : null, currentNtfy,
+    markdownTask ? () => {
+      const selected = this.activeTab === "planner" ? this.plannerParseDay(this.plannerDate) : null;
+      const source = reminder.due instanceof Date ? reminder.due : new Date(reminder.due);
+      const base = selected || (Number.isFinite(source.getTime()) ? source : new Date());
+      const due = new Date(base.getFullYear(), base.getMonth(), base.getDate(),
+        reminder.hasExplicitTime === false ? 9 : source.getHours(),
+        reminder.hasExplicitTime === false ? 0 : source.getMinutes());
+      new NtfyPlannerCreateModal(this.app, this.plugin, due, async () => this.refreshTaskCaches(), reminder).open();
+    } : null).open();
   }
 
 }
@@ -11765,6 +16360,12 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
         keywords: "tasks reminders scan folders files time repeat tags quiet hours horizon queue capture"
       },
       {
+        id: "planner",
+        label: this.uiText("Planner"),
+        description: this.uiText("Planner task creation"),
+        keywords: "planner note file create tasks destination beginning end blank line"
+      },
+      {
         id: "automation",
         label: this.uiText("Automation"),
         description: this.uiText("Automatic actions that can modify Tasks, including #autodone."),
@@ -11956,6 +16557,374 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
           for (const warning of this.plugin.uiLocaleLoadWarnings) warnings.createDiv({ text: warning });
         }
 
+    }
+
+    if (activePage === "planner") {
+      new Setting(containerEl).setName(this.uiText("Enable Planner"))
+        .setDesc(this.uiText("Enable Planner description"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerEnabled !== false)
+          .onChange(async (enabled) => {
+            this.plugin.settings.plannerEnabled = enabled;
+            await this.plugin.saveSettings();
+            for (const leaf of this.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER) || []) {
+              const view = leaf.view;
+              if (!(view instanceof NtfyManagerView)) continue;
+              if (!enabled) {
+                view.plannerTasks = [];
+                view.plannerReminders = [];
+                view.plannerStatsCache = null;
+                view.plannerMinuteBandsCache = null;
+                view.plannerConflictingTasks = new Set();
+                view.plannerError = "";
+                view.cancelTabRender("planner");
+                view.tabPanels.get("planner")?.remove();
+                view.tabPanels.delete("planner");
+                view.tabSignatures.delete("planner");
+              }
+              view.renderShell(view.viewContentEl());
+              void view.render();
+            }
+            this.display();
+          }));
+      if (this.plugin.settings.plannerEnabled === false) {
+        containerEl.createEl("p", { cls: "setting-item-description", text: this.uiText("Planner is disabled") });
+      }
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const note = new Setting(containerEl)
+        .setName(this.uiText("Planner destination note"))
+        .setDesc(this.uiText("Choose one existing Markdown note within the configured scan paths."));
+      const notePath = containerEl.createEl("p", { cls: "setting-item-description obsidian-ntfy-planner-note-path", text: this.plugin.settings.plannerTargetFile || this.uiText("No planner note selected") });
+      note.addButton((b) => b.setButtonText(this.uiText("Choose planner note")).onClick(() => {
+        new NtfyPlannerFileSuggestModal(this.app, this.plugin, async (file) => {
+          this.plugin.settings.plannerTargetFile = file.path;
+          await this.plugin.saveSettings();
+          notePath.setText(file.path);
+        }).open();
+      }));
+      new Setting(containerEl)
+        .setName(this.uiText("Delete completed tasks in note"))
+        .setDesc(this.uiText("Delete completed tasks desc"))
+        .addButton((button) => button.setWarning().setButtonText(this.uiText("Select deletion note")).onClick(() => {
+          new NtfyPlannerFileSuggestModal(this.app, this.plugin, (file) => {
+            // Selecting a note opens a second confirmation with the exact count.
+            new NtfyPlannerCompletedCleanupModal(this.app, this.plugin, file).open();
+          }).open();
+        }));
+      new Setting(containerEl)
+        .setName(this.uiText("Planner insertion"))
+        .addDropdown((drop) => drop
+          .addOption("top", this.uiText("Beginning of note"))
+          .addOption("bottom", this.uiText("End of note"))
+          .setValue(this.plugin.settings.plannerInsertPosition)
+          .onChange(async (v) => { this.plugin.settings.plannerInsertPosition = v; await this.plugin.saveSettings(); }));
+      new Setting(containerEl)
+        .setName(this.uiText("Separate task block"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerBlankLine !== false)
+          .onChange(async (v) => { this.plugin.settings.plannerBlankLine = v; await this.plugin.saveSettings(); }));
+      new Setting(containerEl)
+        .setName(this.uiText("Planner leading blank line"))
+        .setDesc(this.uiText("Planner leading blank line desc"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerLeadingBlankLine !== false)
+          .onChange(async (v) => { this.plugin.settings.plannerLeadingBlankLine = v; await this.plugin.saveSettings(); }));
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      new Setting(containerEl).setName(this.uiText("Planner date display"))
+        .setDesc(this.uiText("Changes displayed dates only; Markdown dates stay YYYY-MM-DD."))
+        .addDropdown((drop) => drop
+          .addOption("eu", "27.10.2026")
+          .addOption("asia", "2026.10.27")
+          .setValue(this.plugin.settings.plannerDateDisplayFormat === "asia" ? "asia" : "eu")
+          .onChange(async (value) => {
+            this.plugin.settings.plannerDateDisplayFormat = value === "asia" ? "asia" : "eu";
+            await this.plugin.saveSettings();
+          }));
+      new Setting(containerEl).setName(this.uiText("New task notifications by default"))
+        .setDesc(this.uiText("New task notifications by default desc"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerNewTaskNtfyEnabled !== false)
+          .onChange(async (value) => {
+            this.plugin.settings.plannerNewTaskNtfyEnabled = value;
+            await this.plugin.saveSettings();
+          }));
+      new Setting(containerEl).setName(this.uiText("Delete tasks without confirmation"))
+        .setDesc(this.uiText("When enabled, Delete task immediately removes the Markdown task line. Off by default."))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerDeleteWithoutConfirm === true)
+          .onChange(async (value) => {
+            this.plugin.settings.plannerDeleteWithoutConfirm = value;
+            await this.plugin.saveSettings();
+          }));
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const toggles = [
+        ["Planner search", "Planner search desc", "plannerSearchEnabled"],
+        ["Planner preview", "Planner preview desc", "plannerRecurrencePreviewEnabled"],
+      ];
+      for (const [label, desc, key] of toggles) {
+        new Setting(containerEl).setName(this.uiText(label)).setDesc(this.uiText(desc))
+          .addToggle((toggle) => toggle.setValue(this.plugin.settings[key] === true).onChange(async (value) => {
+            this.plugin.settings[key] = value;
+            await this.plugin.saveSettings();
+            for (const leaf of this.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER) || []) {
+              const view = leaf.view;
+              if (view instanceof NtfyManagerView && view.activeTab === "planner") {
+                view.plannerStatsCache = null;
+                view.plannerForecastCache = null;
+                view.renderTabPanel("planner");
+              }
+            }
+          }));
+      }
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      new Setting(containerEl)
+        .setName(this.uiText("Planner preview excluded tags"))
+        .setDesc(this.uiText("Planner preview excluded tags desc"))
+        .addText((text) => text.setPlaceholder("#work, #personal")
+          .setValue(this.plugin.settings.plannerPreviewExcludedTags || "")
+          .onChange(async (value) => {
+            this.plugin.settings.plannerPreviewExcludedTags = normalizePlannerExcludedTags(value);
+            await this.plugin.saveSettings();
+            for (const leaf of this.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER) || []) {
+              const view = leaf.view;
+              if (view instanceof NtfyManagerView && view.activeTab === "planner") {
+                view.plannerForecastCache = null;
+                view.renderTabPanel("planner");
+              }
+            }
+          }));
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const rerenderTaggedPlanner = () => {
+        for (const leaf of this.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER) || []) {
+          const view = leaf.view;
+          if (view instanceof NtfyManagerView && view.activeTab === "planner") {
+            view.plannerFilteredCache = null;
+            view.plannerDayIndexCache = null;
+            view.plannerRangeTasksCache = null;
+            view.plannerStatsCache = null;
+            view.plannerMinuteBandsCache = null;
+            view.plannerForecastCache = null;
+            view.renderTabPanel("planner");
+          }
+        }
+      };
+      new Setting(containerEl)
+        .setName(this.uiText("Planner hide tagged tasks"))
+        .setDesc(this.uiText("Planner hide tagged tasks desc"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerHideTaggedTasksEnabled === true)
+          .onChange(async (value) => {
+            this.plugin.settings.plannerHideTaggedTasksEnabled = value;
+            await this.plugin.saveSettings();
+            rerenderTaggedPlanner();
+          }));
+      new Setting(containerEl)
+        .setName(this.uiText("Planner show tagged tasks today"))
+        .setDesc(this.uiText("Planner show tagged tasks today desc"))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerShowHiddenTasksToday === true)
+          .onChange(async (value) => {
+            this.plugin.settings.plannerShowHiddenTasksToday = value;
+            await this.plugin.saveSettings();
+            rerenderTaggedPlanner();
+          }));
+      new Setting(containerEl)
+        .setName(this.uiText("Planner hidden task tags"))
+        .setDesc(this.uiText("Planner hidden task tags desc"))
+        .addText((text) => text.setPlaceholder("#личное, #архив")
+          .setValue(this.plugin.settings.plannerHiddenTaskTags || "")
+          .onChange(async (value) => {
+            this.plugin.settings.plannerHiddenTaskTags = normalizePlannerExcludedTags(value);
+            await this.plugin.saveSettings();
+            rerenderTaggedPlanner();
+          }));
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const metricsHeader = containerEl.createDiv({ cls: "setting-item setting-item-heading" });
+      metricsHeader.createEl("h3", { text: this.uiText("Planner display metrics") });
+      containerEl.createEl("p", { cls: "setting-item-description", text: this.uiText("Planner metrics disabled by default") });
+      const metricToggle = (name, description, key) => {
+        const setting = new Setting(containerEl).setName(this.uiText(name));
+        if (description) setting.setDesc(this.uiText(description));
+        setting.addToggle((toggle) => toggle.setValue(this.plugin.settings[key] === true).onChange(async (value) => {
+          this.plugin.settings[key] = value;
+          await this.plugin.saveSettings();
+          this.plugin.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER)?.forEach((leaf) => {
+            const view = leaf.view;
+            if (view instanceof NtfyManagerView && view.activeTab === "planner") view.renderTabPanel("planner");
+          });
+        }));
+      };
+      const subToggle = (name, key) => {
+        new Setting(containerEl).setName(this.uiText(name))
+          .addToggle((toggle) => toggle.setValue(this.plugin.settings[key] !== false).onChange(async (value) => {
+            this.plugin.settings[key] = value;
+            await this.plugin.saveSettings();
+            this.plugin.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER)?.forEach((leaf) => {
+              const view = leaf.view;
+              if (view instanceof NtfyManagerView && view.activeTab === "planner") view.renderTabPanel("planner");
+            });
+          }));
+      };
+      metricToggle("Show completion statistics", "Show completion statistics desc", "plannerShowCompletionStats");
+      subToggle("Show task total", "plannerMetricShowTotal");
+      subToggle("Show completed count", "plannerMetricShowCompleted");
+      subToggle("Show incomplete count", "plannerMetricShowIncomplete");
+      metricToggle("Show time statistics", "Show time statistics desc", "plannerShowTimeStats");
+      subToggle("Show planned duration sum", "plannerMetricShowPlanned");
+      subToggle("Show occupied union", "plannerMetricShowOccupied");
+      subToggle("Show overlap minutes", "plannerMetricShowOverlap");
+      subToggle("Show tasks without duration", "plannerMetricShowNoDuration");
+      const calendarMetricsHeader = containerEl.createDiv({ cls: "setting-item setting-item-heading" });
+      calendarMetricsHeader.createEl("h3", { text: this.uiText("Planner calendar indicators") });
+      metricToggle("Show calendar load", "Show calendar load desc", "plannerShowCalendarLoad");
+      metricToggle("Show calendar conflicts", "Show calendar conflicts desc", "plannerShowCalendarConflicts");
+      metricToggle("Show calendar progress", "Show calendar progress desc", "plannerShowCalendarProgress");
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const diagnosis = new Setting(containerEl)
+        .setName(this.uiText("Planner performance diagnostics"))
+        .setDesc(this.uiText("Planner performance diagnostics desc"));
+      const output = containerEl.createDiv({ cls: "obsidian-ntfy-performance-output", attr: { "aria-live": "polite" } });
+      let lastPerformanceReport = "";
+      diagnosis.addButton((button) => {
+        const updateLabel = () => button.setButtonText(this.uiText(this.plugin.runtimePlannerUiProfiling === true
+          ? "Disable Planner UI profiling" : "Enable Planner UI profiling"));
+        updateLabel();
+        button.onClick(() => {
+          this.plugin.runtimePlannerUiProfiling = this.plugin.runtimePlannerUiProfiling !== true;
+          updateLabel();
+        });
+      });
+      containerEl.createDiv({ cls: "obsidian-ntfy-muted", text: this.uiText("Planner UI profiling is temporary") });
+      diagnosis.addButton((button) => button.setButtonText(this.uiText("Show performance diagnostics")).onClick(() => {
+        output.empty();
+        const perf = this.plugin.runtimePlannerPerf || {};
+        const missing = this.uiText("Performance not measured");
+        const line = (name, value) => output.createDiv({ text: `${this.uiText(name)}: ${value}` });
+        const format = (entry, extra = "") => entry
+          ? `${entry.milliseconds} ms · ${new Date(entry.at).toLocaleString()} · ${entry.success === false ? "error" : "OK"}${extra}`
+          : missing;
+        line("Performance scan", format(perf.scan, perf.scan ? ` · ${perf.scan.scope} · ${perf.scan.fileCount ?? "?"} files · ${perf.scan.reminderCount ?? "?"} reminders` : ""));
+        const scanStages = perf.scan?.breakdown;
+        line("Scan stages", scanStages
+          ? `${this.uiText("Scan mark")} ${scanStages.recoveryMark ?? "?"} ms · ${this.uiText("Scan collect")} ${scanStages.collect ?? "?"} ms · ${this.uiText("Scan prepare")} ${scanStages.prepare ?? "?"} ms · ${this.uiText("Scan queue reconcile")} ${scanStages.reconcileQueue ?? "?"} ms · ${this.uiText("Scan sent reconcile")} ${scanStages.reconcileSent ?? "?"} ms · ${this.uiText("Scan remote verification")} ${scanStages.remoteVerify ?? "?"} ms · ${this.uiText("Scan queue flush")} ${scanStages.queueFlush ?? "?"} ms · ${this.uiText("Scan scheduling")} ${scanStages.scheduleAndPublish ?? "?"} ms · ${this.uiText("Scan save")} ${scanStages.saveAndFinish ?? "?"} ms${scanStages.incomplete ? ` · ${this.uiText("Scan interrupted")}` : ""}`
+          : this.uiText("Enable Planner UI profiling for breakdown"));
+        const scanOps = scanStages?.operations;
+        line("Scan HTTP operations", scanOps
+          ? `${this.uiText("Scan HTTP observed")} ${scanOps.httpRequests} · ${this.uiText("Scan HTTP successful")} ${scanOps.httpOk} · ${this.uiText("Scan HTTP failed")} ${scanOps.httpFailed} · ${this.uiText("Scan HTTP elapsed")} ${scanOps.httpMs} ms`
+          : missing);
+        line("Scan slow HTTP", scanOps
+          ? `${this.uiText("Slow HTTP operations")} ${scanOps.httpSlowCount} · ${this.uiText("Longest HTTP operation")} ${scanOps.httpSlowestMs} ms · ${this.uiText("Longest ntfy check")} ${scanOps.httpCheckSlowestMs} ms`
+          : this.uiText("Not measured"));
+        line("Scan checkpoint breakdown", scanOps
+          ? `${this.uiText("Checkpoint start")} ${scanOps.writeStartMs} ms · ${this.uiText("Checkpoint state")} ${scanOps.writeStateMs} ms · ${this.uiText("Checkpoint finish")} ${scanOps.writeFinishMs} ms`
+          : this.uiText("Not measured"));
+        line("Scan HTTP breakdown", scanOps
+          ? `${this.uiText("Scan HTTP checks")} ${scanOps.httpChecks} / ${scanOps.httpCheckMs} ms · ${this.uiText("Scan HTTP publishes")} ${scanOps.httpPublishes} / ${scanOps.httpPublishMs} ms · ${this.uiText("Scan HTTP cancels")} ${scanOps.httpCancels} / ${scanOps.httpCancelMs} ms · ${this.uiText("Scan HTTP other")} ${scanOps.httpOther} / ${scanOps.httpOtherMs} ms`
+          : missing);
+        line("Scan remote snapshot", scanOps
+          ? `${this.uiText("Scan snapshot reads")} ${scanOps.remoteSnapshotFetched} · ${this.uiText("Scan snapshot reuses")} ${scanOps.remoteSnapshotReused} · ${this.uiText("Scan snapshot invalidations")} ${scanOps.remoteSnapshotInvalidated} · ${this.uiText("Scan uncertain verifications")} ${scanOps.remoteVerificationUnknown || 0}`
+          : missing);
+        line("Scan other HTTP methods", scanOps
+          ? `GET ${scanOps.httpOtherGet} · POST ${scanOps.httpOtherPost} · DELETE ${scanOps.httpOtherDelete} · ${this.uiText("Scan other methods")} ${scanOps.httpOtherMisc}`
+          : missing);
+        line("Scan publication operations", scanOps
+          ? `${this.uiText("Scan publish calls")} ${scanOps.publishCalls} / ${scanOps.publishCallMs} ms · ${this.uiText("Scan publish accepted")} ${scanOps.publishResultsOk} · ${this.uiText("Scan publish failures")} ${scanOps.publishResultsFailed}`
+          : missing);
+        line("Scan persistence operations", scanOps
+          ? `${this.uiText("Scan writes")} ${scanOps.writes} / ${scanOps.writeMs} ms · ${this.uiText("Scan write failures")} ${scanOps.writeFailed} · ${this.uiText("Scan recovery requested")} ${scanOps.recoveryRequested}`
+          : missing);
+        const persistStats = this.plugin.runtimeSettingsPersistStats;
+        line("Settings persistence queue", persistStats
+          ? `${this.uiText("Persistence JSON")} ${persistStats.serialized} / ${Math.round(persistStats.serializedMs * 10) / 10} ms · ${this.uiText("Persistence disk")} ${persistStats.writes} / ${Math.round(persistStats.writeMs * 10) / 10} ms · ${this.uiText("Persistence skipped")} ${persistStats.skipped} · ${this.uiText("Persistence checkpoints")} ${persistStats.checkpointWrites} · ${this.uiText("Persistence failures")} ${persistStats.failed}`
+          : this.uiText("Not measured"));
+        line("Settings persistence detail", persistStats
+          ? `${this.uiText("Persistence joined")} ${persistStats.joinedPending || 0} · ${this.uiText("Persistence ordinary")} ${persistStats.ordinaryWrites || 0} (${this.uiText("Persistence during scan")} ${persistStats.scanOrdinaryWrites || 0}, ${this.uiText("Persistence outside scan")} ${persistStats.outsideScanWrites || 0}, ${this.uiText("Persistence handoff")} ${persistStats.handoffWrites || 0}) · ${this.uiText("Persistence large writes")} ${persistStats.largeWrites || 0}`
+          : this.uiText("Not measured"));
+        line("Settings persistence latency", persistStats
+          ? `${this.uiText("Persistence queue wait")} ${Math.round((persistStats.waitMs || 0) * 10) / 10} ms / max ${Math.round((persistStats.maxWaitMs || 0) * 10) / 10} ms · ${this.uiText("Persistence longest write")} ${Math.round((persistStats.maxWriteMs || 0) * 10) / 10} ms · ${this.uiText("Persistence largest JSON")} ${persistStats.largestJsonBytes || 0} chars`
+          : this.uiText("Not measured"));
+        if (scanOps) line("Scan operations caveat", this.uiText("Scan operations caveat text"));
+        line("Scan file work", scanStages
+          ? `${this.uiText("Scan read")} ${scanStages.readMs} ms · ${this.uiText("Scan parse")} ${scanStages.parseMs} ms · ${this.uiText("Scan file count")} ${scanStages.readFiles} · ${this.uiText("Scan line count")} ${scanStages.parsedLines} (${this.uiText("Scan included collect")})`
+          : missing);
+        line("Manager first data-ready render", perf.managerOpen
+          ? `${this.uiText("Manager opening")} ${perf.managerOpen.source}: ${perf.managerOpen.toFirstReadyDomMs} ms · ${this.uiText("Manager loading")} ${perf.managerOpen.dataLoadMs} ms · ${perf.managerOpen.tasks} ${this.uiText("Manager tasks")} · ${perf.managerOpen.readyDomNodes} ${this.uiText("Manager DOM")} · ${perf.managerOpen.platform}`
+          : this.uiText("Close and reopen manager with profiling enabled"));
+        line("Performance vault", format(perf.refresh, perf.refresh?.tasks !== undefined ? ` · ${perf.refresh.tasks} tasks` : ""));
+        line("Planner parsed-file cache", perf.taskCache
+          ? `${perf.taskCache.milliseconds} ms · ${perf.taskCache.files} files · ${perf.taskCache.hits} reused · ${perf.taskCache.misses} parsed · ${perf.taskCache.cachedFiles} cached`
+          : missing);
+        line("Performance metrics", perf.metrics ? `${perf.metrics.milliseconds} ms · ${perf.metrics.inputTasks} tasks · intervals ${perf.metrics.intervalAnalysis ? "on" : "off"}` : missing);
+        line("Performance minute bands", perf.bands ? `${perf.bands.milliseconds} ms · ${perf.bands.inputTasks} tasks` : missing);
+        line("Planner filtering", perf.filter ? `${perf.filter.milliseconds} ms · ${perf.filter.inputTasks} → ${perf.filter.visibleTasks} tasks · tags ${perf.filter.tagFilter ? "on" : "off"} · search ${perf.filter.search ? "on" : "off"}` : missing);
+        const ui = perf.uiRender;
+        // Exact tab DOM completion, not WebView FPS or full device memory.
+        line("Planner UI render", ui
+          ? `${ui.platform} · ${ui.mode} · ${ui.firstDomMs} ms first DOM · ${ui.firstPaintEstimateMs ?? "?"} ms first-frame estimate · ${ui.completeDomMs} ms complete · ${ui.domNodes ?? "?"} DOM nodes · ${ui.batches} batches / ${ui.jobs} jobs · ${ui.totalBatchJsMs} ms JS / ${ui.maxBatchJsMs} ms max batch · manager to render ${ui.managerToRenderMs ?? "?"} ms · data-ready ${ui.readyWithData ? "yes" : "not confirmed"}`
+          : this.uiText("Planner UI not captured"));
+        line("Planner UI history", (perf.uiRenderHistory || []).slice(-6)
+          .map((entry) => `${entry.platform}/${entry.mode} ${entry.completeDomMs}ms ${entry.domNodes ?? "?"}nodes`)
+          .join(" · ") || missing);
+        const view = (this.app.workspace.getLeavesOfType?.(VIEW_TYPE_NTFY_MANAGER) || [])
+          .map((leaf) => leaf.view).find((candidate) => candidate instanceof NtfyManagerView);
+        if (!view) {
+          line("Performance view", this.uiText("Performance no manager"));
+          lastPerformanceReport = `Notifications for Tasks ${this.plugin.manifest?.version || "8.13.0"}\n${output.textContent || ""}`;
+          return;
+        }
+        line("Performance tasks", `${view.plannerTasks?.length || 0}`);
+        line("Performance cache", view.plannerStatsCache ? "1 window" : "0 windows");
+        const panel = view.tabPanels?.get("planner");
+        line("Performance shown", panel ? String(panel.querySelectorAll(".obsidian-ntfy-task-line").length) : missing);
+        line("Performance ghost", panel ? String(panel.querySelectorAll(".obsidian-ntfy-planner-ghost").length) : missing);
+        line("Performance platform", Platform.isMobileApp ? "mobile" : "desktop");
+        lastPerformanceReport = `Notifications for Tasks ${this.plugin.manifest?.version || "8.13.0"}\n${output.textContent || ""}`;
+      }));
+      diagnosis.addButton((button) => button.setButtonText(this.uiText("Copy performance report")).onClick(async () => {
+        if (!lastPerformanceReport) { this.plugin.pluginNotice("actions", this.uiText("Show performance diagnostics first")); return; }
+        try {
+          if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
+          await navigator.clipboard.writeText(lastPerformanceReport);
+          this.plugin.pluginNotice("actions", this.uiText("Performance report copied"));
+        } catch (error) { this.plugin.pluginNotice("errors", this.uiText("Clipboard unavailable")); }
+      }));
+    }
+
+    if (activePage === "planner" && this.plugin.settings.plannerEnabled !== false) {
+      const durationHeader = containerEl.createDiv({ cls: "setting-item setting-item-heading" });
+      durationHeader.createEl("h3", { text: this.uiText("Task duration") });
+      new Setting(containerEl).setName(this.uiText("Duration presets"))
+        .setDesc(this.uiText("Show editable minute presets in the task editor."))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerDurationPresetsEnabled !== false)
+          .onChange(async (v) => { this.plugin.settings.plannerDurationPresetsEnabled = v; await this.plugin.saveSettings(); }));
+      new Setting(containerEl).setName(this.uiText("Custom duration presets (minutes)"))
+        .setDesc(this.uiText("Comma-separated minutes from 1 to 1440, up to 24 values."))
+        .addText((field) => {
+          field.setValue(this.plugin.settings.plannerDurationPresets.join(", "));
+          const commit = async () => {
+            const normalized = this.plugin.normalizePlannerDurationPresets(field.getValue());
+            if (normalized.join(",") !== this.plugin.settings.plannerDurationPresets.join(",")) {
+              this.plugin.settings.plannerDurationPresets = normalized;
+              await this.plugin.saveSettings();
+            }
+            field.setValue(normalized.join(", "));
+          };
+          field.inputEl.addEventListener("blur", () => { commit().catch((e) => console.warn(`${PLUGIN_NAME}: duration presets save failed`, e)); });
+          field.inputEl.addEventListener("keydown", (event) => { if (event.key === "Enter") { event.preventDefault(); field.inputEl.blur(); } });
+          field.inputEl.style.width = "min(100%, 350px)";
+        });
+      new Setting(containerEl).setName(this.uiText("End time input"))
+        .setDesc(this.uiText("Allow choosing a clock time to calculate duration."))
+        .addToggle((toggle) => toggle.setValue(this.plugin.settings.plannerDurationEndEnabled === true)
+          .onChange(async (v) => { this.plugin.settings.plannerDurationEndEnabled = v; await this.plugin.saveSettings(); }));
+      containerEl.createEl("p", { cls: "setting-item-description", text: this.uiText("Durations use the optional ⏱️ 90m marker in the source Markdown. Existing tasks are unchanged until edited. Notification time remains the start time.") });
     }
 
     if (activePage === "tasks") {
@@ -12467,17 +17436,17 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
             text: `🔔 ${this.plugin.formatReminderNotificationTitle(sampleText)}`,
             attr: { style: "font-weight:700;margin-top:6px;" }
           });
-          if (!this.plugin.settings.ntfyHideDuplicateReminderBody) {
-            previewBox.createEl("div", {
-              text: sampleText,
-              attr: { style: "margin-top:4px;opacity:.8;" }
-            });
-          }
+          previewBox.createEl("div", {
+            text: this.plugin.settings.ntfyHideDuplicateReminderBody
+              ? this.plugin.formatReminderNotificationTitle(sampleText)
+              : sampleText,
+            attr: { style: "margin-top:4px;opacity:.8;" }
+          });
           previewBox.createEl("div", {
             cls: "setting-item-description",
             text: this.plugin.settings.ntfyHideDuplicateReminderBody
-              ? this.uiText("The second line is hidden.")
-              : this.uiText("The second line with the task text is enabled.")
+              ? this.uiText("The body contains a short readable title (never empty).")
+              : this.uiText("The body contains the full task text.")
           });
         };
         renderReminderPreview();
@@ -12496,8 +17465,8 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
           });
 
         new Setting(containerEl)
-          .setName(this.uiText("Hide duplicated notification text"))
-          .setDesc(this.uiText("If enabled, the task text appears only in the bold ntfy title. The second repeated line is hidden."))
+          .setName(this.uiText("Compact ntfy reminder body"))
+          .setDesc(this.uiText("Enabled: short readable task title in the body. Disabled: full reminder description. The body is never blank."))
           .addToggle((toggle) => {
             toggle
               .setValue(Boolean(this.plugin.settings.ntfyHideDuplicateReminderBody))
@@ -12679,6 +17648,18 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
             this.display();
           }));
         this.renderChannelOverview(hubGroup);
+        new Setting(hubGroup)
+          .setName(this.uiText("ntfy history retention"))
+          .setDesc(this.uiText("Optional local ntfy history limit. The existing history is preserved until new messages arrive; other channels are unaffected."))
+          .addDropdown((dropdown) => {
+            for (const [value, label] of [["0", "Existing retention (up to 10000)"], ["250", "250 messages"], ["500", "500 messages"], ["1000", "1000 messages"], ["3000", "3000 messages"]]) {
+              dropdown.addOption(value, this.uiText(label));
+            }
+            dropdown.setValue(String(this.plugin.settings.ntfyHistoryLimit || 0)).onChange(async (value) => {
+              this.plugin.settings.ntfyHistoryLimit = Number(value) || 0;
+              await this.plugin.saveSettings();
+            });
+          });
         this.renderAttachmentSettings(containerEl);
 
         // Kept as a migration fallback for legacy settings data; the account editor above is the active UI.
@@ -13239,7 +18220,7 @@ class AndroidNtfyNotifierSettingTab extends PluginSettingTab {
       const about = support.createDiv({ cls: "obsidian-ntfy-support-about" });
       about.createEl("h3", { text: this.uiText("About the project") });
       about.createEl("p", {
-        text: `${PLUGIN_NAME} · ${this.plugin.manifest?.version || "8.0.6"}`,
+        text: `${PLUGIN_NAME} · ${this.plugin.manifest?.version || "8.1.0"}`,
       });
       about.createEl("p", {
         cls: "setting-item-description",
