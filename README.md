@@ -70,7 +70,7 @@ The mobile profile focuses on resource efficiency, while the desktop profile all
 
 ### 6. English interface and external translations
 
-The main interface language is English. Separate JSON translation files are supported for other languages, including Simplified Chinese, Spanish, Hindi, Bengali, Portuguese, Russian, and Japanese.
+The main interface language is English. Separate [JSON translation files](https://github.com/Alekcei-BAV/notifications-for-tasks/tree/main/locales) are supported for other languages, including Simplified Chinese, Spanish, Hindi, Bengali, Portuguese, Russian, and Japanese.
 
 For example, `ru_8.0.4.json` is a Russian translation prepared for version `8.0.4`.
 
