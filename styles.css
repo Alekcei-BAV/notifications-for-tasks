@@ -3403,3 +3403,143 @@ body .obsidian-ntfy-conversation-import-modal * {
   position: relative;
   top: auto;
 }
+
+/* 12.4.0 — stable manager content width as panels switch and scrollbars appear.
+   Keep the inbox's own flex/message scrolling unchanged. */
+.obsidian-ntfy-manager:not(.obsidian-ntfy-inbox-active) .obsidian-ntfy-window-body {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+/* Custom-minute entry was replaced with an always-visible end-clock input.
+   Limit the native time control to its column on Android and desktop. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-simple-picker .obsidian-ntfy-duration-end-label {
+  display: block;
+  margin: 7px 0 4px;
+  font-size: var(--font-ui-smaller);
+  min-height: 24px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-simple-picker .obsidian-ntfy-planner-duration-end {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 40px;
+  margin: 0;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-next-day {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  line-height: 1.25;
+}
+@media (max-width: 650px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-simple-picker .obsidian-ntfy-planner-duration-end {
+    min-height: 44px;
+    height: 44px;
+  }
+}
+
+/* 12.7.0: desktop's native end-clock stays available but no longer
+   stretches across the entire duration column. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-duration.is-simple-picker input.obsidian-ntfy-planner-duration-end[type="time"] {
+  width: 128px;
+  max-width: 100%;
+  min-width: 0;
+  align-self: flex-start;
+}
+/* 12.8.0: compact Android numeric keyboard editor for HH:MM. The fields
+   request the Android numeric layout via inputmode and keep a single border. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-mobile-clock {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  width: 124px;
+  max-width: 100%;
+  padding: 3px 5px;
+  margin-top: 6px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-modifier-form-field);
+  box-sizing: border-box;
+  font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-mobile-clock > input {
+  flex: 1 1 0;
+  display: block;
+  width: 0;
+  min-width: 0;
+  max-width: none;
+  height: 37px;
+  min-height: 37px;
+  margin: 0;
+  padding: 2px 3px;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-normal);
+  text-align: center;
+  font-family: inherit;
+  font-size: var(--font-ui-medium);
+  font-weight: var(--font-semibold);
+  font-variant-numeric: tabular-nums;
+  appearance: none;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-mobile-clock > input:focus {
+  background: var(--background-modifier-hover);
+  outline: 1px solid var(--interactive-accent);
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-mobile-clock > input.is-invalid {
+  outline: 1px solid var(--text-error);
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-duration-mobile-separator {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-size: 1.15em;
+  pointer-events: none;
+}
+/* The extra 70vh is *inside the scroller*, after the Save row. Do not grow
+   the modal itself; leave desktop completely unchanged. CSS vh intentionally
+   reflects layout viewport when Android overlays the virtual keyboard. */
+.is-mobile .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-mobile-keyboard-room {
+  display: block;
+  height: 70vh; /* inline per-user setting overrides this fallback */
+  min-height: 70vh; /* inline per-user setting overrides this fallback */
+  width: 1px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 12.9.0: mobile beginning time uses the same compact numeric editor as
+   end time. Desktop continues using the native time input. */
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock {
+  margin-top: 0;
+  width: 124px;
+  max-width: 100%;
+}
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field > .obsidian-ntfy-mobile-start-clock {
+  align-self: flex-start;
+}
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row .obsidian-ntfy-duration-end-label {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  min-height: 30px;
+  line-height: 1.2;
+  margin: 6px 0 4px;
+}
+
+/* 12.12.0: hide the redundant Desktop scrollbar without removing scrolling
+   when a short Obsidian window makes the form taller than its viewport.
+   The marker is assigned only for Markdown task editing on Desktop. */
+.modal.obsidian-ntfy-planner-task-edit-desktop .modal-content.obsidian-ntfy-unified-compact {
+  scrollbar-width: none;
+}
+.modal.obsidian-ntfy-planner-task-edit-desktop .modal-content.obsidian-ntfy-unified-compact::-webkit-scrollbar {
+  display: none;
+}
