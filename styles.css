@@ -3060,7 +3060,7 @@ body .obsidian-ntfy-conversation-import-modal * {
 }
 .obsidian-ntfy-planner-minute-rail {
   position: absolute; inset-block: 0; inset-inline-start: -1px;
-  width: 5px; overflow: hidden; pointer-events: none;
+  width: 7px; overflow: hidden; pointer-events: none;
 }
 .obsidian-ntfy-planner-minute-segment {
   position: absolute; inset-inline: 0;
@@ -3404,6 +3404,219 @@ body .obsidian-ntfy-conversation-import-modal * {
   top: auto;
 }
 
+
+/* 12.13.0: inline, accessible no-time control for create/edit. */
+.obsidian-ntfy-without-time-row { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.obsidian-ntfy-without-time { width: 34px; min-width: 34px; min-height: 36px; padding: 6px; }
+/* Match the neighbouring native Obsidian icons (20px, 2px strokes) without changing the buttons. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time { color: var(--text-muted); }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time svg {
+  width: 20px; height: 20px; stroke: currentColor; stroke-width: 2px;
+  opacity: 1; flex: 0 0 auto;
+}
+/* Keyboard focus is visible without making the compact editor any larger. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-icon-button:focus-visible,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets button:focus-visible,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions button:focus-visible,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions button:focus-visible,
+.obsidian-ntfy-manager .obsidian-ntfy-planner-notify:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 1px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time:hover,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time:focus-visible {
+  color: var(--text-normal); background: var(--background-modifier-hover);
+}
+/* Warning stays inline with the existing task title; no extra UI row. */
+.obsidian-ntfy-duplicate-task-id { display: inline; font-size: var(--font-ui-smaller); }
+.obsidian-ntfy-duplicate-task-id-toggle {
+  display: inline-flex; align-items: center; gap: 2px; vertical-align: middle;
+  margin-inline-start: 4px; padding: 1px 4px; min-height: 23px;
+  border: 1px solid var(--background-modifier-border); border-radius: 5px;
+  background: var(--background-secondary); color: var(--text-warning, var(--text-normal));
+  font-size: 11px; font-weight: 600; line-height: 1.2; cursor: pointer;
+}
+.obsidian-ntfy-duplicate-task-id-toggle svg {
+  width: 14px; height: 14px; flex: 0 0 auto; stroke-width: 2.3px;
+}
+.obsidian-ntfy-duplicate-task-id-toggle:hover,
+.obsidian-ntfy-duplicate-task-id-toggle:focus-visible {
+  color: var(--text-normal); background: var(--background-modifier-hover);
+}
+.obsidian-ntfy-duplicate-task-id-toggle:focus-visible {
+  outline: 2px solid var(--interactive-accent); outline-offset: 2px;
+}
+.obsidian-ntfy-duplicate-task-id-explanation {
+  display: inline; padding-inline-start: 5px; color: var(--text-muted);
+  font-weight: normal; overflow-wrap: anywhere;
+}
+.obsidian-ntfy-duplicate-task-id-explanation[hidden] { display: none; }
+.obsidian-ntfy-planner-time-hint { margin: 2px 0 7px; }
+.obsidian-ntfy-diagnostic-open { display: inline-flex; align-items: center; justify-content: center;
+  min-width: 30px; width: 30px; min-height: 30px; padding: 6px; border: 1px solid transparent;
+  border-radius: 6px; background: transparent; color: inherit; cursor: pointer; }
+.obsidian-ntfy-diagnostic-open svg { width: 16px; height: 16px; }
+.obsidian-ntfy-diagnostic-open:hover, .obsidian-ntfy-diagnostic-open:focus-visible {
+  background: var(--background-modifier-hover); border-color: var(--background-modifier-border); }
+
+/* Keep the prior mobile HH:mm alignment after enclosing the clear-time icon. */
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time-row > .obsidian-ntfy-mobile-start-clock {
+  align-self: flex-start;
+}
+
+/* 12.16.0: compact, accessible per-reminder status explanation. */
+.obsidian-ntfy-reminder-explain-toggle { display: inline-flex; vertical-align: middle;
+  align-items: center; justify-content: center; width: 30px; min-width: 30px;
+  height: 30px; min-height: 30px; padding: 5px; border-radius: 6px;
+  background: transparent; color: var(--text-muted); }
+.obsidian-ntfy-reminder-explain-toggle svg { width: 16px; height: 16px; }
+.obsidian-ntfy-reminder-explain-toggle:hover,
+.obsidian-ntfy-reminder-explain-toggle:focus-visible { background: var(--background-modifier-hover); color: var(--text-normal); }
+.obsidian-ntfy-reminder-explanation { margin: 3px 0 8px; padding: 7px 9px;
+  border-inline-start: 2px solid var(--background-modifier-border);
+  background: var(--background-secondary); color: var(--text-muted);
+  border-radius: 4px; font-size: var(--font-ui-smaller);
+  line-height: 1.4; overflow-wrap: anywhere; max-width: 100%; }
+.obsidian-ntfy-reminder-explanation[hidden] { display: none !important; }
+.obsidian-ntfy-reminder-explanation > div + div { margin-top: 3px; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-reminder-explain-toggle { min-width: 34px; min-height: 34px; }
+}
+
+/* Compact localized filters wrap instead of stretching small mobile panels. */
+.obsidian-ntfy-reminder-filters button,
+.obsidian-ntfy-task-mode-switcher button { min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
+/* 12.20.0: a single Timer toggle reuses the two existing fields. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+  box-sizing: border-box; width: 147px; max-width: 100%; min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-toggle {
+  box-sizing: border-box; color: var(--text-muted); flex: 0 0 auto;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-toggle svg {
+  width: 20px; height: 20px; stroke: currentColor; stroke-width: 2px; opacity: 1;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-toggle.is-active {
+  border: 3px solid var(--interactive-accent);
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  padding: 4px; /* thicker border grows inward, not outward */
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+    width: 100%; max-width: 100%; min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-without-time-row {
+    grid-template-columns: minmax(0, 1fr) 34px 34px;
+    column-gap: 5px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time-row > input[type="time"],
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-without-time-row > .obsidian-ntfy-mobile-start-clock {
+    grid-column: 1 / -1; grid-row: 1;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-timer-toggle {
+    grid-column: 2; grid-row: 2;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-without-time:not(.obsidian-ntfy-timer-toggle) {
+    grid-column: 3; grid-row: 2;
+  }
+}
+/* Keep the desktop create form's date and time on the original single row even
+   with two 34px clock controls. Only shrink their input widths, not buttons. */
+@media (min-width: 601px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+    column-gap: 8px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field input[type="date"],
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+    width: 132px;
+  }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] {
+    width: 90px;
+  }
+}
+
+/* 12.21.0: readable target date in the original Timer date field, no new row. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer { position: relative; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+  padding-right: 87px; color: var(--text-normal);
+  background: var(--background-modifier-form-field, var(--background-primary));
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-date-preview {
+  display: none; position: absolute; right: 4px; bottom: 3px;
+  height: 30px; top: 30px; bottom: auto; align-items: center; pointer-events: none;
+  font-size: 11px; font-weight: 650; font-variant-numeric: tabular-nums;
+  color: var(--text-normal); white-space: nowrap;
+  background: var(--background-modifier-form-field, var(--background-primary)); border-radius: 2px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer .obsidian-ntfy-timer-date-preview:not([hidden]) { display: flex; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-date-preview { top: 29px; bottom: auto; height: 38px; }
+}
+
+/* 12.23.0: two independent trash actions and a desktop-only native calendar. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] { flex: 0 1 auto; min-width: 0; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-picker-button,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-clear-button {
+  flex: 0 0 34px; width: 34px; min-width: 34px; height: 36px; min-height: 36px;
+  padding: 6px; box-sizing: border-box;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer .obsidian-ntfy-date-picker-button { display: none; }
+/* Limit native picker affordance to the explicit calendar button on Desktop. */
+@media (min-width: 601px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields { column-gap: 6px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] { width: 100px; max-width: 100px; padding: 4px 3px; font-size: 12px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"]::-webkit-calendar-picker-indicator { display: none; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] { width: 84px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] { width: 132px; }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer .obsidian-ntfy-timer-date-preview { right: 41px; }
+}
+/* Android keeps its current native date field and no extra calendar icon. */
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-picker-button { display: none !important; }
+@media (max-width: 600px) {
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] { width: 140px; max-width: calc(100% - 39px); }
+  .obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer .obsidian-ntfy-timer-date-preview { right: 41px; }
+}
+
+/* 12.25.0: identical icon visual box across date and time actions.
+   Obsidian setIcon SVGs and the custom hourglass use the same 17x17 viewport.
+   The active Timer retains the previously agreed 3px BORDER. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button svg,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-without-time svg,
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-timer-toggle svg {
+  width: 17px; height: 17px; min-width: 17px; min-height: 17px;
+  stroke-width: 1.9px; stroke: currentColor; flex: 0 0 17px;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+  box-sizing: border-box; padding: 5px;
+}
+/* Single extra compact line; hidden means no layout footprint. */
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 5px 9px;
+  margin: 3px 0 7px; min-width: 0;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row[hidden] { display: none !important; }
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row > label {
+  font-size: var(--font-ui-small); color: var(--text-normal);
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-clock {
+  width: 76px; min-width: 76px; height: 34px; min-height: 34px;
+  box-sizing: border-box; padding: 4px 7px; font-variant-numeric: tabular-nums;
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-hint {
+  color: var(--text-muted); font-size: var(--font-ui-smaller);
+}
+.obsidian-ntfy-planner-dialog .obsidian-ntfy-cleanup-keep-today {
+  display: flex; align-items: center; gap: 8px; margin: 8px 0;
+  font-size: var(--font-ui-small); cursor: pointer;
+}
 /* 12.4.0 — stable manager content width as panels switch and scrollbars appear.
    Keep the inbox's own flex/message scrolling unchanged. */
 .obsidian-ntfy-manager:not(.obsidian-ntfy-inbox-active) .obsidian-ntfy-window-body {
@@ -3543,3 +3756,698 @@ body .obsidian-ntfy-conversation-import-modal * {
 .modal.obsidian-ntfy-planner-task-edit-desktop .modal-content.obsidian-ntfy-unified-compact::-webkit-scrollbar {
   display: none;
 }
+
+/* 12.22: small native accessible details+search timezone picker in ntfy settings. */
+.obsidian-ntfy-timezone-chooser {
+  min-width: min(300px, 70vw);
+  max-width: min(420px, 82vw);
+  color: var(--text-normal);
+  position: relative;
+}
+.obsidian-ntfy-timezone-summary {
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-medium);
+  overflow-wrap: anywhere;
+}
+.obsidian-ntfy-timezone-chooser[open] > .obsidian-ntfy-timezone-summary,
+.obsidian-ntfy-timezone-summary:focus-visible {
+  border-color: var(--interactive-accent);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+.obsidian-ntfy-timezone-chooser-body { padding-top: 6px; }
+.obsidian-ntfy-timezone-search { width: 100%; box-sizing: border-box; margin-bottom: 6px; }
+.obsidian-ntfy-timezone-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  max-height: min(270px, 38vh);
+  overscroll-behavior: contain;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: 4px;
+}
+.obsidian-ntfy-timezone-option,
+.obsidian-ntfy-timezone-more {
+  width: 100%;
+  text-align: start;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  padding: 7px 8px;
+  min-height: 32px;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--text-normal);
+  box-shadow: none;
+  font-size: var(--font-ui-small);
+}
+/* 12.24: readable current offset for every visible choice, before selecting.
+   Keep numeric offsets in their own column on narrow Android settings panes. */
+.obsidian-ntfy-timezone-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.obsidian-ntfy-timezone-option-label { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.obsidian-ntfy-timezone-option-offset {
+  flex: 0 0 auto; white-space: nowrap; font-weight: var(--font-medium);
+  font-variant-numeric: tabular-nums; color: var(--text-normal);
+}
+.obsidian-ntfy-timezone-option:hover,
+.obsidian-ntfy-timezone-option:focus-visible,
+.obsidian-ntfy-timezone-more:hover { background: var(--background-modifier-hover); }
+.obsidian-ntfy-timezone-option.is-selected {
+  background: var(--background-modifier-hover);
+  font-weight: var(--font-semibold);
+  border-inline-start: 3px solid var(--interactive-accent);
+}
+.obsidian-ntfy-timezone-empty { color: var(--text-muted); padding: 8px; }
+.obsidian-ntfy-timezone-more { color: var(--text-accent); }
+.obsidian-ntfy-timezone-warning { color: var(--text-error); font-size: var(--font-ui-small); }
+@media (max-width: 500px) {
+  .obsidian-ntfy-timezone-chooser { min-width: 0; max-width: 100%; width: 100%; }
+}
+
+.obsidian-ntfy-timezone-mode .setting-item-control { min-width: 0; max-width: 100%; }
+.obsidian-ntfy-timezone-mode .dropdown,
+.obsidian-ntfy-timezone-mode select { max-width: 100%; min-width: 0; width: min(370px, 100%); }
+@media (max-width: 500px) {
+  .obsidian-ntfy-timezone-mode .setting-item-control { width: 100%; }
+  .obsidian-ntfy-timezone-mode select { width: 100%; }
+}
+
+
+/* 12.26.0 — compact editor matching the approved desktop sketch, shared by
+   create/copy/edit and Android without duplicating task/ntfy persistence. */
+.modal.obsidian-ntfy-planner-dialog {
+  width: min(410px, calc(100vw - 16px)); max-width: calc(100vw - 16px);
+}
+.modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  box-sizing: border-box; padding: 1px 14px 12px; overflow-x: hidden;
+  max-height: calc(100dvh - 44px); overflow-y: auto;
+  scrollbar-width: none; scrollbar-gutter: auto;
+}
+.modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact::-webkit-scrollbar { display: none; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-compact > h2,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-header {
+  margin: 0 26px 5px 0; padding: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-header h2 {
+  margin: 0; padding: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title { margin: 2px 0 7px; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title label { margin-bottom: 3px; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title input {
+  min-height: 33px; height: 33px; padding-block: 4px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 7px; margin: 2px 0 6px; align-items: start; width: 100%;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div {
+  width: 100%; min-width: 0; box-sizing: border-box;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div > label {
+  display: block; min-height: 0; margin: 0 0 3px 5px;
+  font-size: var(--font-ui-smaller); line-height: 1.3;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field {
+  display: flex; flex-wrap: nowrap; width: 100%; min-width: 0;
+  align-items: center; justify-content: flex-start; gap: 4px;
+  grid-template-columns: none; grid-template-rows: none;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+  box-sizing: border-box; flex: 0 1 100px; width: 100px; min-width: 0;
+  max-width: 100px; min-height: 34px; height: 34px; padding: 3px;
+  font-size: 12px; font-variant-numeric: tabular-nums;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] {
+  box-sizing: border-box; flex: 0 1 83px; width: 83px; min-width: 0;
+  min-height: 34px; height: 34px; padding: 3px;
+  font-size: 12px; font-variant-numeric: tabular-nums;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-picker-button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-clear-button {
+  box-sizing: border-box; display: inline-flex; flex: 0 0 34px;
+  grid-column: auto; grid-row: auto; position: static;
+  width: 34px; min-width: 34px; height: 36px; min-height: 36px;
+  margin: 0; padding: 5px; align-self: center;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+  flex: 0 1 126px; width: 126px; max-width: 100%;
+  height: 34px; min-height: 34px; padding-right: 70px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-timer-date-preview {
+  right: 38px; top: 24px; bottom: auto; height: 32px;
+  font-size: 10px; max-width: 69px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets {
+  display: grid; grid-template-columns: repeat(6,minmax(0,1fr));
+  gap: 4px; margin: 3px 0 8px; min-width: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+  box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%;
+  min-height: 30px; height: 30px; padding: 2px 1px;
+  font-size: 11px; line-height: 1.15; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 7px; width: 100%; min-width: 0; margin: 2px 0 5px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker {
+  display: flex; flex-direction: column; box-sizing: border-box;
+  width: 100%; min-width: 0; margin: 0; padding: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > label:first-child {
+  display: block; min-height: 0; margin: 0 0 4px;
+  line-height: 1.2; font-size: var(--font-ui-smaller);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > select {
+  box-sizing: border-box; width: 100%; height: 36px; min-height: 36px;
+  max-width: 100%; padding-inline: 6px; margin: 0;
+  font-size: var(--font-ui-smaller);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-advanced[hidden],
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval.is-hidden,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row[hidden] { display: none !important; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-advanced,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-recurrence-interval {
+  margin-top: 6px; min-width: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  align-items: end; gap: 8px; margin: 2px 0 6px; min-width: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group { min-width: 0; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group > .obsidian-ntfy-duration-end-label {
+  display: block; min-height: 0; margin: 0 0 4px;
+  line-height: 1.2; font-size: var(--font-ui-smaller);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group > input[type="time"],
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group .obsidian-ntfy-planner-duration-end[type="time"] {
+  box-sizing: border-box; display: block; width: 83px; min-width: 0;
+  max-width: 100%; height: 34px; min-height: 34px; padding: 3px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group .obsidian-ntfy-duration-next-day {
+  margin: 3px 0 0; font-size: 10px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row > .obsidian-ntfy-planner-lead-row {
+  display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-end;
+  gap: 5px; min-width: 0; margin: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row .obsidian-ntfy-planner-lead-row > label {
+  font-size: var(--font-ui-smaller); margin: 0; line-height: 1.15;
+  white-space: nowrap; min-width: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row .obsidian-ntfy-planner-lead-clock {
+  width: 83px; min-width: 0; max-width: 83px;
+  height: 34px; min-height: 34px; padding: 3px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row.is-disabled { opacity: 0.6; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row[hidden] { display: none !important; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-flags {
+  display: flex; align-items: center; flex-wrap: wrap;
+  margin: 3px 0 7px; gap: 4px 10px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-flag {
+  min-height: 28px; gap: 5px; font-size: var(--font-ui-smaller);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-completion-inline {
+  display: inline-flex; align-items: center; flex-wrap: nowrap;
+  gap: 4px; flex: 0 0 auto; margin: 0 auto 0 0; min-width: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-completion-inline > select {
+  box-sizing: border-box; width: 77px; min-width: 0; max-width: 77px;
+  min-height: 33px; height: 33px; font-size: var(--font-ui-smaller);
+  padding-inline: 5px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-control {
+  display: flex; align-items: center; flex-wrap: nowrap;
+  justify-content: flex-end; gap: 5px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions {
+  margin-top: 5px; padding: 2px 0 0; border: none;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions.setting-item {
+  width: 100%; margin: 5px 0 0; padding: 4px 0 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-info { display: none; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-control {
+  width: 100%; min-width: 0; margin: 0; padding: 0;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-control > button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions > button {
+  box-sizing: border-box; flex: 0 0 auto; width: auto; min-width: 0;
+  height: 34px; min-height: 34px; padding: 3px 8px;
+  font-size: var(--font-ui-smaller);
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  padding-inline: 11px; overflow-y: auto; scrollbar-width: none;
+}
+.is-mobile .obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-mobile-keyboard-room[hidden] { display: none !important; }
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 5px; align-items: start;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field {
+  display: flex; flex-wrap: nowrap; grid-template-columns: none; grid-template-rows: none;
+  align-items: center; gap: 4px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+  flex: 0 1 112px; width: 112px; max-width: calc(100% - 38px);
+  min-height: 36px; height: 36px; padding: 3px; font-size: 12px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+  grid-column: auto; grid-row: auto; width: 34px; min-width: 34px;
+  height: 36px; min-height: 36px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock {
+  box-sizing: border-box; display: inline-flex; flex: 0 1 80px;
+  width: 80px; min-width: 0; max-width: 80px; height: 36px; min-height: 36px;
+  margin: 0; padding: 1px 3px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock > input {
+  height: 32px; min-height: 32px; font-size: 12px; padding-inline: 1px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group .obsidian-ntfy-duration-mobile-clock {
+  width: 83px; max-width: 100%; height: 36px; min-height: 36px; margin: 0;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row > .obsidian-ntfy-mobile-start-clock {
+  width: 83px; max-width: 83px; flex: 0 0 83px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets {
+  display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 3px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+  font-size: 10px; padding: 2px 0; min-height: 32px;
+}
+@media (max-width: 370px) {
+  .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact { padding-inline: 10px; }
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+    width: 91px; flex-basis: 91px; max-width: 91px; font-size: 11px; padding: 2px;
+  }
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] {
+    width: 68px; flex-basis: 68px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+    width: 91px; max-width: calc(100% - 38px); flex-basis: 91px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock {
+    flex-basis: 67px; width: 67px; max-width: 67px;
+  }
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button,
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-clear-button {
+    flex-basis: 32px; width: 32px; min-width: 32px;
+  }
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row > .obsidian-ntfy-planner-lead-row {
+    align-items: start; flex-direction: column; justify-content: flex-start;
+    gap: 3px;
+  }
+  .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button { font-size: 9px; }
+}
+
+/* Final row direction: old mobile rules used column flex, so explicit row is
+   required even if the grid rules have already been cleared. */
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field,
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-inline-field {
+  flex-direction: row; align-items: center;
+}
+@media (max-width: 370px) {
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row > .obsidian-ntfy-mobile-start-clock {
+    flex: 0 0 auto; height: 36px; min-height: 36px; max-height: 36px;
+  }
+}
+
+/* 12.27.0 — readable compact editor: keep the successful two-column layout,
+   restore comfortable control typography and room for touch. */
+.modal.obsidian-ntfy-planner-dialog {
+  width: min(460px, calc(100vw - 12px));
+  max-width: calc(100vw - 12px);
+}
+.modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  max-height: calc(100svh - 44px);
+  padding: 6px 13px 14px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-title input {
+  height: 40px; min-height: 40px; font-size: var(--font-ui-medium);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields { gap: 8px; margin-bottom: 8px; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields > div > label,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > label:first-child,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group > .obsidian-ntfy-duration-end-label,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row .obsidian-ntfy-planner-lead-row > label {
+  font-size: var(--font-ui-small);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+  flex: 0 1 124px; width: 124px; max-width: 124px;
+  height: 40px; min-height: 40px; font-size: var(--font-ui-small); padding: 5px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-time-field input[type="time"] {
+  flex: 0 1 102px; width: 102px; height: 40px; min-height: 40px;
+  font-size: var(--font-ui-small); padding: 5px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-picker-button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row .obsidian-ntfy-date-clear-button {
+  flex-basis: 36px; width: 36px; min-width: 36px;
+  height: 40px; min-height: 40px; padding: 6px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer input[type="number"] {
+  height: 40px; min-height: 40px; font-size: var(--font-ui-small);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets {
+  display: flex; gap: 9px; margin: 5px 0 10px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+  width: auto; flex: 0 0 auto; max-width: none; min-width: 88px;
+  min-height: 38px; height: 38px; padding: 5px 13px;
+  font-size: var(--font-ui-small); overflow: visible; text-overflow: clip;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > select {
+  min-height: 40px; height: 40px; font-size: var(--font-ui-small);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group > input[type="time"],
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group .obsidian-ntfy-planner-duration-end[type="time"],
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-lead-row .obsidian-ntfy-planner-lead-clock {
+  width: 102px; max-width: 100%; min-height: 40px; height: 40px;
+  padding: 5px; font-size: var(--font-ui-small);
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-flag { font-size: var(--font-ui-small); min-height: 34px; }
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-completion-inline > select {
+  min-height: 38px; height: 38px; font-size: var(--font-ui-small); width: 84px; max-width: 84px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-control > button,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-actions > button {
+  min-height: 40px; height: 40px; padding: 5px 13px; font-size: var(--font-ui-small);
+}
+/* Android modal occupies a STABLE layout height; changing focused field,
+   keyboard spacer or the visual viewport cannot resize the outer dialog.
+   Overflow remains scrollable when the soft keyboard obscures the bottom. */
+.is-mobile .modal.obsidian-ntfy-planner-dialog {
+  height: calc(100svh - 18px); min-height: calc(100svh - 18px);
+  max-height: calc(100svh - 18px);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact {
+  flex: 1 1 auto; min-height: 0; max-height: none;
+  height: auto; overflow-y: auto; padding: 7px 8px 16px;
+}
+/* Direct showPicker lets the full Android date field open the calendar;
+   hide native trailing calendar/checkmark ONLY when showPicker is supported. */
+.is-mobile .modal.obsidian-ntfy-planner-dialog input.obsidian-ntfy-mobile-date-direct[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields {
+  gap: 4px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+  flex: 0 1 110px; width: 110px; max-width: calc(100% - 40px);
+  min-height: 40px; height: 40px; font-size: var(--font-ui-small); padding: 4px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+  flex: 0 0 36px; width: 36px; min-width: 36px; height: 40px; min-height: 40px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock {
+  flex: 0 1 72px; width: 72px; max-width: 72px;
+  height: 40px; min-height: 40px; padding: 1px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock > input {
+  min-height: 35px; height: 35px; font-size: var(--font-ui-small); padding: 1px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-compact-end-group .obsidian-ntfy-duration-mobile-clock,
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-lead-row > .obsidian-ntfy-mobile-start-clock {
+  width: 99px; max-width: 99px; height: 40px; min-height: 40px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets {
+  display: flex; gap: 8px;
+}
+.is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+  min-height: 42px; height: 42px; min-width: 88px;
+  padding: 5px 12px; font-size: var(--font-ui-small);
+}
+@media (max-width: 370px) {
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .modal-content.obsidian-ntfy-unified-compact { padding-inline: 6px; }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields { gap: 2px; }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row > input[type="date"] {
+    width: 107px; flex-basis: 107px; max-width: calc(100% - 39px); font-size: 13px; padding: 3px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-mobile-start-clock {
+    width: 67px; flex-basis: 67px; max-width: 67px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-fields .obsidian-ntfy-unified-icon-button {
+    width: 34px; min-width: 34px; flex-basis: 34px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-edit-presets > button {
+    font-size: var(--font-ui-small); min-width: 82px;
+  }
+}
+
+/* 12.31.0 — Planner rail: one palette for each Obsidian theme.
+   Six validated CSS custom properties are set on each rendered timeline.
+   The two active colors alternate; completed is a dim SOLID rail.
+   Overlaps of unfinished tasks alternate short strong/soft dashes.
+   Obsidian theme changes switch the palette through CSS without a rescan. */
+.obsidian-ntfy-planner-timeline {
+  --nft-minute-tone-strong: var(--nft-rail-light-strong, #303b46);
+  --nft-minute-tone-soft: var(--nft-rail-light-soft, #0969da);
+  --nft-minute-tone-completed: var(--nft-rail-light-completed, #8994a4);
+}
+.theme-dark .obsidian-ntfy-planner-timeline,
+.obsidian-ntfy-planner-timeline.theme-dark {
+  --nft-minute-tone-strong: var(--nft-rail-dark-strong, #f5f7fa);
+  --nft-minute-tone-soft: var(--nft-rail-dark-soft, #2496ff);
+  --nft-minute-tone-completed: var(--nft-rail-dark-completed, #626c7e);
+}
+/* Explicit light preview wins over a dark Obsidian ancestor. */
+.obsidian-ntfy-planner-timeline.theme-light {
+  --nft-minute-tone-strong: var(--nft-rail-light-strong, #303b46);
+  --nft-minute-tone-soft: var(--nft-rail-light-soft, #0969da);
+  --nft-minute-tone-completed: var(--nft-rail-light-completed, #8994a4);
+}
+.obsidian-ntfy-planner-timeline .obsidian-ntfy-planner-minute-segment {
+  box-sizing: border-box;
+  background: var(--nft-minute-tone-strong);
+  border: 0;
+  opacity: 1;
+}
+.obsidian-ntfy-planner-timeline .obsidian-ntfy-planner-minute-segment.is-tone-light {
+  background: var(--nft-minute-tone-soft);
+}
+.obsidian-ntfy-planner-timeline .obsidian-ntfy-planner-minute-segment.is-completed {
+  background: var(--nft-minute-tone-completed);
+  border: 0;
+  opacity: 1;
+}
+/* Count > 1 only for unfinished tasks: completed never triggers overlap. */
+.obsidian-ntfy-planner-timeline .obsidian-ntfy-planner-minute-segment.is-overlap {
+  background: repeating-linear-gradient(to bottom,
+    var(--nft-minute-tone-strong) 0 5px,
+    var(--nft-minute-tone-soft) 5px 10px);
+  border: 0;
+  opacity: 1;
+}
+/* Settings preview reuses the actual segment CSS on a compact 7px rail. */
+.obsidian-ntfy-planner-palette-card { margin: 8px 0 12px; padding: 10px; border: 1px solid var(--background-modifier-border); border-radius: 8px; }
+.obsidian-ntfy-planner-palette-card > h4 { margin: 0 0 8px; font-size: var(--font-ui-small); }
+.obsidian-ntfy-planner-palette-inputs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.obsidian-ntfy-planner-palette-field > label { display: block; font-size: var(--font-ui-smaller); margin-bottom: 5px; }
+.obsidian-ntfy-planner-palette-control { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.obsidian-ntfy-planner-palette-control > input[type="color"] { width: 40px; min-width: 40px; height: 38px; padding: 2px; cursor: pointer; }
+.obsidian-ntfy-planner-palette-control > input[type="text"] { width: 96px; max-width: 100%; min-width: 0; font-family: var(--font-monospace); font-size: var(--font-ui-smaller); }
+.obsidian-ntfy-planner-palette-control > input.is-invalid { border-color: var(--text-error); }
+.obsidian-ntfy-planner-palette-preview { padding: 10px; margin-top: 8px; border-radius: 6px; }
+.obsidian-ntfy-planner-palette-preview.theme-dark { background: #20232b; color: #f6f7f9; }
+.obsidian-ntfy-planner-palette-preview.theme-light { background: #f1f2f5; color: #2c3037; }
+.obsidian-ntfy-planner-palette-preview-rows { display: flex; justify-content: space-around; gap: 8px; }
+.obsidian-ntfy-planner-palette-preview-item { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 11px; min-width: 0; }
+.obsidian-ntfy-planner-palette-preview-item .obsidian-ntfy-planner-minute-segment { position: relative; width: 7px; height: 60px; inset: auto; flex: 0 0 60px; }
+@media (max-width: 470px) {
+  .obsidian-ntfy-planner-palette-inputs { grid-template-columns: 1fr; }
+  .obsidian-ntfy-planner-palette-control > input[type="text"] { width: 120px; }
+}
+/* The organizer reuses existing Planner settings, no separate Planner view. */
+.modal-content.obsidian-ntfy-planner-organize-modal { max-height: min(85svh, 690px); overflow-y: auto; min-height: 0; }
+.obsidian-ntfy-organize-heading-fields { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0; }
+.obsidian-ntfy-organize-heading-fields > div:first-child { flex: 1 1 180px; min-width: 0; }
+.obsidian-ntfy-organize-heading-fields > div:last-child { flex: 0 0 100px; }
+.obsidian-ntfy-organize-heading-fields label { display: block; margin-bottom: 5px; font-size: var(--font-ui-small); }
+.obsidian-ntfy-organize-heading-fields input { width: 100%; max-width: 100%; }
+.obsidian-ntfy-organize-heading-fields select { width: 100%; }
+.obsidian-ntfy-organize-preview > summary { min-height: 34px; }
+.obsidian-ntfy-organize-source {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; min-width: 0; margin: 4px 0 6px;
+}
+.obsidian-ntfy-organize-source-path {
+  min-width: 0; margin: 0; overflow-wrap: anywhere;
+}
+.obsidian-ntfy-organize-source > button { flex: 0 0 auto; min-height: 36px; }
+.obsidian-ntfy-organize-skip { margin: 4px 0; color: var(--text-muted); font-size: var(--font-ui-smaller); overflow-wrap: anywhere; }
+
+/* 12.32.0: choose a real undated Markdown task from the creation editor. */
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row {
+  display: flex; align-items: stretch; gap: 6px; min-width: 0; width: 100%;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row > input {
+  flex: 1 1 auto; width: 0; min-width: 0; max-width: 100%;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row > .obsidian-ntfy-undated-choose {
+  flex: 0 0 38px; box-sizing: border-box; width: 38px; min-width: 38px;
+  min-height: 38px; height: 38px; padding: 7px;
+}
+.modal-content.obsidian-ntfy-undated-picker {
+  box-sizing: border-box; width: min(100%, 560px); max-height: min(80svh, 680px);
+  overflow-y: auto; overflow-x: hidden;
+}
+.obsidian-ntfy-undated-picker h2 { margin: 0 0 12px; }
+.obsidian-ntfy-undated-search { box-sizing: border-box; width: 100%; min-height: 40px; }
+.obsidian-ntfy-undated-status { margin: 8px 0; color: var(--text-muted); font-size: var(--font-ui-smaller); }
+.obsidian-ntfy-undated-results { display: flex; flex-direction: column; gap: 4px; max-height: 48svh; overflow-y: auto; min-width: 0; }
+.obsidian-ntfy-undated-result {
+  display: flex; flex-direction: column; align-items: flex-start; text-align: start;
+  width: 100%; max-width: 100%; min-width: 0; min-height: 44px;
+  gap: 3px; padding: 8px 10px; white-space: normal;
+  border: 1px solid var(--background-modifier-border); border-radius: 6px;
+}
+.obsidian-ntfy-undated-result-title { overflow-wrap: anywhere; font-weight: 600; }
+/* The list contains only task titles; keep paths and line numbers solely
+   in the original source objects used by the CAS-protected edit path. */
+.obsidian-ntfy-unified-date-field.is-timer .obsidian-ntfy-date-picker-button { display: none !important; }
+.obsidian-ntfy-undated-footer { display: flex; justify-content: flex-end; margin-top: 10px; }
+.obsidian-ntfy-undated-footer button { min-height: 40px; }
+/* Android: recurrence 🔁 and completion 🏁 labels must wrap inside the modal,
+   never grow a flex/grid min-content track beyond the viewport. */
+@media (max-width: 600px) {
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker {
+    min-width: 0; max-width: 100%; overflow-wrap: anywhere;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-secondary-row > .is-simple-picker > label:first-child {
+    display: block; box-sizing: border-box; width: 100%; max-width: 100%;
+    min-width: 0; min-height: 0; height: auto; overflow-wrap: anywhere;
+    white-space: normal; line-height: 1.3; padding-inline-end: 3px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-completion-inline {
+    flex: 0 1 auto; max-width: 100%; gap: 3px;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-planner-completion-inline > label {
+    box-sizing: border-box; flex: 0 0 auto; max-width: 100%;
+  }
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-actions .setting-item-control {
+    flex-wrap: wrap; justify-content: flex-end;
+  }
+}
+
+/* 12.34.0 — one editor surface, touch-safe title actions, compact picker. */
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row > .obsidian-ntfy-title-clear,
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row > .obsidian-ntfy-undated-choose {
+  box-sizing: border-box; flex: 0 0 38px; width: 38px; min-width: 38px;
+  height: 40px; min-height: 40px; padding: 7px;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-task-name-row > input {
+  flex: 1 1 auto; min-width: 0; width: 0;
+}
+/* The outer Obsidian dialog, not just its content, must shrink on Desktop. */
+@media (min-width: 700px) {
+  .modal.obsidian-ntfy-undated-picker-dialog {
+    box-sizing: border-box; width: min(570px, calc(100vw - 32px));
+    max-width: min(570px, calc(100vw - 32px));
+  }
+}
+.modal.obsidian-ntfy-undated-picker-dialog .modal-content.obsidian-ntfy-undated-picker {
+  box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%;
+  display: flex; flex-direction: column; max-height: min(82svh, 740px);
+  overflow: hidden;
+}
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-search,
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-status,
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-footer {
+  flex: 0 0 auto;
+}
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-results {
+  box-sizing: border-box; flex: 1 1 auto; min-height: 0;
+  max-height: min(48svh, 460px); overflow-y: auto; overflow-x: hidden;
+  width: 100%; gap: 6px;
+}
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-result {
+  box-sizing: border-box; display: block; flex: 0 0 auto;
+  width: 100%; min-width: 0; max-width: 100%;
+  height: auto !important; min-height: 44px; max-height: none !important;
+  padding: 9px 11px; white-space: normal !important;
+  text-align: left; overflow: visible;
+  line-height: 1.35; overflow-wrap: anywhere; word-break: normal;
+}
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-result-title {
+  display: block; width: 100%; min-width: 0;
+  white-space: normal; overflow-wrap: anywhere; word-break: break-word;
+  line-height: 1.4; font-size: var(--font-ui-small);
+}
+/* A slight downward offset moves the Android close hit target away from the
+   top system status area; size, accessibility, and Desktop remain unchanged. */
+@media (max-width: 699px) {
+  .is-mobile .modal.obsidian-ntfy-planner-dialog > .modal-close-button,
+  .is-mobile .modal.obsidian-ntfy-planner-dialog .modal-close-button {
+    transform: translateY(10px);
+  }
+  .is-mobile .modal.obsidian-ntfy-undated-picker-dialog {
+    box-sizing: border-box; max-width: calc(100vw - 12px); overflow: hidden;
+  }
+  .is-mobile .modal.obsidian-ntfy-undated-picker-dialog .modal-content.obsidian-ntfy-undated-picker {
+    max-height: min(84svh, 740px);
+  }
+}
+
+/* 12.36.0 — visually rendered, deliberately non-clickable link labels in the
+   undated-task chooser. The parent button alone selects the source task. */
+.modal.obsidian-ntfy-undated-picker-dialog .obsidian-ntfy-undated-link-text {
+  color: var(--text-accent);
+  text-decoration: none;
+  cursor: inherit;
+  overflow-wrap: anywhere;
+}
+
+/* 12.37.0: Timer preview is anchored to the INPUT+TRASH row, not the whole
+   labeled column. It cannot cover the real 34px clear button, even when
+   locale labels wrap, Obsidian fonts scale, or the date column narrows. */
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-date-actions-row.obsidian-ntfy-timer-date-row {
+  position: relative;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer
+  .obsidian-ntfy-timer-date-row > .obsidian-ntfy-timer-date-preview {
+  box-sizing: border-box;
+  top: 2px;
+  bottom: auto;
+  /* Place the right edge just inside the NUMBER input, not next to the
+     row's potentially empty trailing space. Respects a 320px viewport. */
+  right: auto;
+  left: calc(min(126px, 100% - 39px) - 55px);
+  height: 32px;
+  max-width: 53px;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer
+  .obsidian-ntfy-timer-date-row > input[type="number"] {
+  min-width: 0;
+  padding-right: 58px;
+  appearance: textfield;
+}
+.modal.obsidian-ntfy-planner-dialog .obsidian-ntfy-unified-date-field.is-timer
+  .obsidian-ntfy-timer-date-row > input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* 12.39: compact daily clock in the existing completed organizer modal. */
+.obsidian-ntfy-organize-daily-clock { display: flex; align-items: flex-start; flex-direction: column; gap: 4px; margin: 10px 0 12px; }
+.obsidian-ntfy-organize-daily-clock label { font-size: var(--font-ui-small); font-weight: var(--font-semibold); }
+.obsidian-ntfy-organize-daily-clock input[type="time"] { box-sizing: border-box; max-width: min(100%, 160px); min-height: 34px; }
+.obsidian-ntfy-organize-daily-clock p { margin: 0; overflow-wrap: anywhere; }
