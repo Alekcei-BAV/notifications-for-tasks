@@ -12667,6 +12667,7 @@ function renderPlannerTaskFlags(parent, plugin, autoValue, ntfyValue, ntfyDisabl
     const checkbox = label.createEl("input", { attr: { type: "checkbox" } });
     checkbox.checked = !!checked;
     checkbox.disabled = !!disabled;
+    label.classList.toggle("is-disabled", checkbox.disabled);
     label.createSpan({ text: plugin.uiText(title) });
     return checkbox;
   };
@@ -12681,6 +12682,7 @@ function renderPlannerTaskFlags(parent, plugin, autoValue, ntfyValue, ntfyDisabl
     const allowed = Boolean(scheduled) && !ntfyDisabled;
     ntfy.checked = allowed && wanted;
     ntfy.disabled = !allowed;
+    ntfy.closest(".obsidian-ntfy-planner-flag")?.classList.toggle("is-disabled", ntfy.disabled);
   };
   return { auto, ntfy, ntfyTaskDisabled: Boolean(ntfyDisabled), syncNtfySchedule,
     getAutoDone: () => auto.checked, getNtfy: () => ntfy.checked && !ntfy.disabled };
